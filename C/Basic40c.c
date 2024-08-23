@@ -1343,22 +1343,9 @@ int main()
     printf("Binary Number: ");
     scanf("%d", &n);
 
-    int rev = 0;
-    for(int i = n; i > 0; i /= 10) {
-        rev = rev * 10 + i % 10;
-    }
 
-    for(int i = rev; i > 0; i /= 10) {
-        if(i % 10 == 0) {
-            ones = ones * 10 + 1;
-        }
-        else if(i % 10 == 1) {
-            ones = ones * 10;
-        }
-        else {
-            printf("Not Binary.");
-            return 0;
-        }
+    for(int i = n, mul = 1; i > 0; i /= 10, mul *= 10) {
+        ones = !(i % 10) * mul + ones;
     }
 
     printf("One's complement of %d is %d", n, ones);
@@ -1408,13 +1395,40 @@ int main()
 }
 
 // Write a C program to convert Binary to Octal number system.
-*/
+// 10
+// 001 010
+//   1   2
+
+// 0 1 2
+// 1 2 4
 int main()
 {
+    int n, octal = 0;
+    printf("Binary Number: ");
+    scanf("%d", &n);
+
+    int nd = n, mul = 1;
+    while(nd > 0) {
+        int i = 0, octalDigit = 0;
+        while(i < 3) {
+            if(nd % 10 == 1) {
+                octalDigit = octalDigit + (i == 0 ? 1 : i * 2);
+            }
+            nd = nd / 10;
+            i++;
+        }
+        octal = octalDigit * mul + octal;
+        mul = mul * 10;
+    }
+
+    printf("Octal of %d (in binary) is %d", n, octal);
     return 0;
 }
 
 // Write a C program to convert Binary to Decimal number system.
+*/
+
+
 // Write a C program to convert Binary to Hexadecimal number system.
 // Write a C program to convert Octal to Binary number system.
 // Write a C program to convert Octal to Decimal number system.
