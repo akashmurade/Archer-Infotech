@@ -1,0 +1,1612 @@
+
+	--------------------------- Array -------------------------------
+
+	- Def: Array is derived data type, which is indexed collection of ordered 	  	  elements, having same data type, which are continously arranged in the memory.
+
+	- Why we need array?
+
+	- Decl. of array:
+ 	   Syntax:
+		<data_type> <arr_nm>[<No_of_elements>];
+
+		e.g.
+		  int x[5];	  float elm[10];	char data[50];
+
+		x  ____0_______1_______2______3________4____
+		   |_______|_______|_______|_______|_______|
+
+		- The array counting starts from zero.
+		  (note that if element count is 5 the there are 0 to 4 positions)
+		- indexed -> every position represented by unique position number
+			     which starts from 0, called index.
+		- Ordered -> The sequence of insertation is maintained.
+
+		- x[i] represents the value stored at ith location.
+		- &x[i] gives the address of ith location.
+		
+
+	- Init of Array: assignment at the time of decl.
+
+		int x[5]={23,67,33,56,92};	or int x[]={23,67,33,56,92};
+
+	// WAP to init and display the array of 5 nos
+
+x ______0_______________1_______________2______________3_______________4_________
+  |		|		|		|		|		|
+  |	23	|	67	|	33	|	56	|	92	|
+  |_____________|_______________|_______________|_______________|_______________|
+
+int main()
+{
+	int x[5]={23,67,33,56,92};
+
+	printf("\n %d",x[0]);
+	printf("\n %d",x[1]);
+	printf("\n %d",x[2]);
+	printf("\n %d",x[3]);
+	printf("\n %d",x[4]);
+
+	return 0;
+}
+
+// It will become simple using the loop
+
+int main()
+{
+	int x[]={23,67,33,56,92};
+	int i, pos=0;
+	for(i=10;i<15;i++)
+	{
+		printf("\n %d",x[pos]);
+		pos++;
+	}
+	return 0;
+}
+
+// using iterator i as a position indicator
+
+
+#include <stdio.h>
+int main()
+{
+	int x[5]={23,67,33,56,92};
+	int i;
+	printf("\n Array elements are: ");
+	for(i=0;i<5;i++)
+	{
+		// printf("   %d",x[i]);
+		//printf("\t %d",x[i]);
+		printf("%6d",x[i]);
+	}
+	return 0;
+}
+//---------------------------------------------------------------------------
+
+	// input array of 8 nos display it, dispay the positions and count
+	// of elements div by 3 and 5 both
+#include <stdio.h>
+int main()
+{
+    int x[8];
+    int a, i, b,cnt=0;
+    
+    printf("\n Enter the any 8 nos: ");
+    for(i=0;i<8;i++)
+    {
+        scanf("%d",&x[i]);
+    }
+    
+    printf("\n Array elements: ");
+    for(b=0;b<8;b++)
+    {
+        printf("%6d",x[b]);
+    }
+    printf("\n positions: ");
+    for(a=0;a<8;a++)
+    {
+        if(x[a]%3==0 && x[a]%5==0)
+        {
+            cnt++;
+            printf("%5d",a);
+        }
+    }
+    printf("\n Count is: %d",cnt);
+    return 0;
+}
+//-----------------------------------------------------------------------------
+
+	/// WAP to input and display the array of 7 elements.	
+
+#include <stdio.h>
+int main()
+{
+    // Decl - memory allocation
+	int arr[7], i;
+	
+	// data input
+	printf("\n Enter any 7 nos: ");
+	for(i=0;i<7;i++)
+	{
+		scanf("%d",&arr[i]);
+	}
+
+    // data display
+	printf("\n Elements are: ");
+	for(i=0;i<7;i++)
+	{
+		printf("%8d",arr[i]);
+	}
+	return 0;
+}
+
+//--------------------------------------------------------------------------
+
+	// Enter any 10 nos and count even and odd nos from it.
+
+#include <stdio.h>
+int main()
+{
+	int arr[10], i, ecnt=0, ocnt=0;
+	
+	printf("\n Enter any 10 nos: ");
+	for(i=0;i<10;i++)
+	{
+		scanf("%d",&arr[i]);
+	}
+	
+	// process
+	for(i=0;i<10;i++)
+	{
+		if(arr[i]%2==0)
+		{
+			ecnt++;
+		}
+		else
+		{
+			ocnt++;
+		}
+	}
+	printf("\n Elements are: ");
+	for(i=0;i<10;i++)
+	{
+		printf("%8d",arr[i]);
+	}
+	printf("\n Even Count is %d and Odd count is: %d",ecnt,ocnt);
+	return 0;
+}
+
+//----------------------------------------------------------------------------------
+
+	// Enter the 10 nos and display the even and odd list from it.
+
+#include <stdio.h>
+#include <stdio.h>
+int main()
+{
+	int arr[10], i, ecnt=0, ocnt=0;
+	
+	printf("\n Enter any 10 nos: ");
+	for(i=0;i<10;i++)
+	{
+		scanf("%d",&arr[i]);
+	}
+	
+	printf("\n Elements are: ");
+	for(i=0;i<10;i++)
+	{
+		printf("%8d",arr[i]);
+	}
+	
+	printf("\n Even Elements are: ");
+	for(i=0;i<10;i++)
+	{
+	    if(arr[i]%2==0)
+	    {
+		    printf("%8d",arr[i]);
+	    }
+	}	
+	
+	printf("\n Odd Elements are: ");
+	for(i=0;i<10;i++)
+	{
+	    if(arr[i]%2!=0)
+	    {
+		    printf("%5d",arr[i]);
+	    }
+	}
+	return 0;
+}
+
+//-----------------------------------------------------------------------------------
+
+	// Enter any 10 nos and display list of primes from it.
+
+	no
+	 [] [] [] [] [] [] [] [] [] []
+
+#include <stdio.h>
+int main()
+{
+	int nos[10],i,d,flg;
+
+	printf("\n Enter any 10 nos: ");
+	for(i=0;i<10;i++)
+	{
+		scanf("%d",&nos[i]);
+	}
+
+	printf("\n All Elements are: ");
+	for(i=0;i<10;i++)
+	{
+		printf("%8d",nos[i]);
+	}
+
+	printf("\n Prime List: ");
+	for(i=0;i<10;i++)
+	{
+		d=2;
+		flg=0;
+		while(d<=(nos[i]/2))
+		{
+			if(nos[i]%d==0)
+			{
+				flg=1;
+				break;
+			}
+			d++;
+		}
+		if(flg==0)
+		{
+			printf("%5d",nos[i]);
+		}
+	}
+	return 0;
+}
+//----------------------------------------------------------------------------------
+
+	// Enter the 5 nos and count the palindrome nos from it.
+
+int main()
+{
+	int ar[5],i,cnt=0,no;
+
+	printf("\n Enter any 5 nos: ");
+	for(i=0;i<5;i++)
+	{
+		scanf("%d",&ar[i]);
+	}
+
+	for(i=0;i<5;i++)
+	{
+		no=ar[i];
+		rev=0;
+		while(no!=0)
+		{
+			rev=(rev*10)+(no%10);
+			no=no/10;
+		}
+		if(rev==ar[i])
+		{
+			cnt++;
+		}
+	}
+
+	printf("\n Array Elements: ");
+	for(i=0;i<5;i++)
+	{
+		printf("%6d",ar[i]);
+	}
+	printf("\n Palindrome Count: %d",cnt);
+	return 0;
+}
+
+
+//----------------------------------------------------------------------------------
+	// Enter any 10 nos and find 1st and second max.
+
+int main()
+{
+	int x[10],i,fmax,smax;
+
+	printf("\n Enter any 10 nos: ");
+	for(i=0;i<10;i++)
+	{
+		scanf("%d",&x[i]);
+	}
+
+	fmax=x[0];
+	smax=x[1];
+	for(i=1;i<10;i++)	
+	{
+		if(x[i]>=fmax)
+		{
+			smax=fmax;
+			fmax=x[i];
+		}
+		else if(x[i]>smax)
+		{
+			smax=x[i];
+		}
+	}
+
+	printf("\n Array elements: ");
+	for(i=0;i<10;i++)
+	{
+		printf("%5d",x[i]);
+	}
+	printf("\n fmax: %d \t smax: %d",fmax,smax);
+	return 0;
+}
+
+//----------------------------------------------------------------------------------
+	// input 12 nos, WAP to find smallest numbers position in an array
+
+int main()
+{
+	int x[12], i, min, pos;
+
+	printf("\n Enter the 12 nos: ");
+	for(i=0;i<12;i++)
+	{
+		scanf("%d",&x[i]);
+	}
+
+	pos=0;
+	min=x[0];
+	for(i=1;i<12;i++)
+	{
+		if(x[i]<min)
+		{
+			min=x[i];
+			pos=i;
+		}
+	}
+	
+	printf("\n Array elements are: ");
+	for(i=0;i<12;i++)
+	{
+		printf("%5d",x[i]);
+	}
+	printf("\n smallest element %d present at %d position",min,pos);
+
+	return 0;
+}
+
+//----------------------------------------------------------------------------------
+
+	// WAP to input array of 10 nos and display it as it is and in reverse manner
+
+      nos	
+	 11      22      33      44      55      66      77      88      99      90
+
+#include <stdio.h>
+int main()
+{
+	int nos[10],i;
+
+	printf("\n Enter any 10 nos: ");
+	for(i=0;i<10;i++)
+	{
+		scanf("%d",&nos[i]);
+	}
+
+	printf("\n All Elements are: ");
+	for(i=0;i<10;i++)
+	{
+		printf("%8d",nos[i]);
+	}
+
+	printf("\n Reverse-1: ");
+	for(i=9;i>=0;i--)
+	{
+		printf("%8d",nos[i]);
+	}
+
+	printf("\n Reverse-2: ");
+	for(i=0;i<10;i++)
+	{
+		printf("%8d",nos[9-i]);
+	}
+	return 0;
+}
+
+//----------------------------------------------------------------------------------
+
+	// WAP to input array of 10 nos and copy it as it is and in reverse manner
+	// in another arrays
+
+
+      nos	
+	 11      22      33      44      55      66      77      88      99      90
+
+      x	
+	 11      22      33      44      55      66      77      88      99      90
+
+      y
+	 90      99      88      77      66      55      44      33      22      11
+
+#include <stdio.h>
+int main()
+{
+	int nos[10],x[10],y[10],i,j;
+
+	printf("\n Enter any 10 nos: ");
+	for(i=0;i<10;i++)
+	{
+		scanf("%d",&nos[i]);
+	}
+
+	// copy
+	for(i=0;i<10;i++)
+	{
+		x[i]=nos[i];
+	}
+	// rev copy
+	for(i=0,j=9;i<10;i++,j--)
+	{
+		y[i]=nos[j];	// y[i]=nos[9-i];
+	}
+
+	printf("\n Original array: ");
+	for(i=0;i<10;i++)
+	{
+		printf("%8d",nos[i]);
+	}
+
+	printf("\n Copied array: ");
+	for(i=0;i<10;i++)
+	{
+		printf("%8d",x[i]);
+	}
+
+	printf("\n Reverse Copied array: ");
+	for(i=0;i<10;i++)
+	{
+		printf("%8d",y[i]);
+	}
+	return 0;
+}
+
+//------------------------------------------------------------------------------------
+
+ // Enter the price of 6 items thw keyboard and find total bill, apply the 
+ // discount 3% if item price is greater than 100 and 5% if it is greater than 500
+
+	23	120	600	90	220	50
+
+int main()
+{
+	float pr[6],tot=0.0,dis=0.0;
+	int i;
+
+	printf("\n Enter the price of 6 items: ");
+	for(int i=0;i<6;i++)
+	{
+		scanf("%f",&pr[i]);
+	}
+
+	for(int i=0;i<6;i++)
+	{
+		if(pr[i]>=500)
+		{
+			dis=dis+(pr[i]*0.05);
+		}
+		else if(pr[i]>=100)
+		{
+			dis=dis+(pr[i]*0.03);
+		}
+		tot=tot+pr[i];
+	}
+	printf("\n Total Bill: %0.2f",tot);
+	printf("\n Discount: %0.2f",dis);
+	printf("\n Pay Rs: %0.2f",(tot-dis));
+
+	return 0;
+}
+
+///---------------------------------------------------------------------------------------------
+	Sorting Techniques: sorting refers to rearranging array elements, either in 
+	ascending  order or in descending.
+
+	there are different sorting techniques, some of them are,
+	- Selection sort
+	- bubble sort
+	- insertion sort
+//---------------------------------------------------------------------------
+	- Selection sort:
+
+	step - 1: input array say x having size SIZE
+	step - 2: select position i, where i starts from 0;
+	step - 3: select position j, where j=i+1
+	step - 4: compare values at i and jth location
+		  if val at ith location greater than jth location
+		  then only interchange them
+	step - 5: increase j by 1 and rep. step 4, till j<SIZE
+	step - 6: increase i by 1 and rep. step 3, till i<SIZE-1
+	
+	
+	Entered Array -	55	44	33	22	11
+
+		0	1	2	3	4		i-j
+		55	44	33	22	11	spos=0	0-1
+		||       |
+		44	55	33	22	11		0-2
+				 |
+		33	55	44	22	11		0-3
+					|
+		22	55	44	33	11		0-4
+						|
+		11	55	44	33	22
+	-----------------------------------------------------------
+		11	55	44	33	22	spos=1	1-2
+			||	|
+		11	44	55	33	22		1-3
+					|
+		11	33	55	44	22		1-4
+						|
+		11	22	55	44	33	
+	-----------------------------------------------------------
+		11	22	55	44	33	spos=2	2-3
+				||	|
+		11	22	44	55	33		2-4
+						|
+		11	22	33	55	44
+	------------------------------------------------------------
+		11	22	33	55	44	spos=3	3-4
+					||	|
+		11	22	33	44	55 ==> sorted
+
+
+int main()
+{
+	int x[5],i,j,tmp;
+	printf("\n Enter any 5 nos: ");
+	for(i=0;i<5;i++)
+	{
+		scanf("%d",&x[i]);
+	}
+
+	printf("\n Before Sort: ");
+	for(i=0;i<5;i++)
+	{
+		printf("%5d",x[i]);
+	}
+
+	// sort- selection
+	for(i=0;i<4;i++)
+	{
+		for(j=i+1;j<5;j++)
+		{
+			if(x[i]>x[j])
+			{
+				tmp=x[i];
+				x[i]=x[j];
+				x[j]=tmp;
+			}
+		}
+	}
+
+	printf("\n After Sort: ");
+	for(i=0;i<5;i++)
+	{
+		printf("%5d",x[i]);
+	}
+
+	return 0;
+}
+
+//---------------------------------------------------------------------------
+
+	// Enter any 10 nos and copy all nos in another array in ascending order.
+
+#include <stdio.h>
+int main()
+{
+	int x[5],y[5],i,j,tmp;
+	printf("\n Enter any 5 nos: ");
+	for(i=0;i<5;i++)
+	{
+		scanf("%d",&x[i]);
+		y[i]=x[i]; //copy
+	}
+
+	printf("\n Original array:  ");
+	for(i=0;i<5;i++)
+	{
+		printf("%5d",x[i]);
+	}
+
+
+	for(i=0;i<4;i++)
+	{
+		for(j=i+1;j<5;j++)
+		{
+			if(y[i]>y[j])
+			{
+				tmp=y[i];
+				y[i]=y[j];
+				y[j]=tmp;
+			}
+		}
+	}
+
+	printf("\n copied in ascending order: ");
+	for(i=0;i<5;i++)
+	{
+		printf("%5d",y[i]);
+	}
+
+	return 0;
+}
+
+//------------------------------------------------------------------------------------
+
+	- Bubble sort	
+	Entered Array -	55	44	33	22	11
+
+		0	1	2	3	4
+		55	44	33	22	11
+	0-1	|        |
+		44	55	33	22	11
+	1-2		|	|			i=0
+		44	33	55	22	11
+	2-3			|	|
+		44	33	22	55	11
+	3-4				|	|
+		44	33	22	11	55
+	-----------------------------------------------		
+		44	33	22	11	55
+	0-1	|	|
+		33	44	22	11	55
+	1-2		|	|			i=1
+		33	22	44	11	55
+	2-3			|	|
+		33	22	11	44	55
+	----------------------------------------------
+		33	22	11	44	55
+	0-1	|	|
+		22	33	11	44	55	i=2
+	1-2		|	|
+		22	11	33	44	55
+	----------------------------------------------
+		22	11	33	44	55
+	0-1	|	|				i=3
+		11	22	33	44	55	===> sorted
+
+
+
+int main()
+{
+	int x[5],i,j,tmp;
+	printf("\n Enter any 5 nos: ");
+	for(i=0;i<5;i++)
+	{
+		scanf("%d",&x[i]);
+	}
+
+	printf("\n Before Sort: ");
+	for(i=0;i<5;i++)
+	{
+		printf("%5d",x[i]);
+	}
+
+	// sort - Bubble
+	for(i=0;i<4;i++)
+	{
+		for(j=0;j<(4-i);j++)
+		{
+			if(x[j]>x[j+1])
+			{
+				tmp=x[j];
+				x[j]=x[j+1];
+				x[j+1]=tmp;
+				
+			}
+		}
+	}
+	printf("\n After Sort: ");
+	for(i=0;i<5;i++)
+	{
+		printf("%5d",x[i]);
+	}
+
+	return 0;
+}
+
+//--------------------------------------------------------------------------------------------------------------------------
+
+
+	- Insertion sort										pivot
+
+		Entered Array: 16	8	10	2	14	5	1	3		8
+			
+			|
+		16	8	10	2	14	5	1	3				
+		|->
+		16	16
+	|
+	//-----------------------------------------------------------------------------------------------
+				|
+		8	16	10	2	14	5	1	3				10
+			|
+		8	16	16
+		|
+		8	10	16
+	//-----------------------------------------------------------------------------------------------
+					|
+		8	10	16	2	14	5	1	3				2
+				|
+		8	10	16	16
+			|
+		8	10	10	16
+		|
+		8	8	10	16
+	|	
+		2	8	10	16
+	//-----------------------------------------------------------------------------------------------
+						|
+		2	8	10	16	14	5	1	3				14
+					|
+		2	8	10	16	16
+				|
+		2	8	10	14	16	
+
+	//--------------------------------------------------------------------------------------------------
+							|						5
+		2	8	10	14	16	5	1	3		
+						|
+		2	8	10	14	16	16
+					|
+		2	8	10	14	14	16
+				|
+		2	8	10	10	14	16
+			|
+		2	8	8	10	14	16
+		|
+		2	5	8	10	14	16		
+	//-----------------------------------------------------------------------------------------------------
+								|	
+		2	5	8	10	14	16	1	3				1
+							|
+		2	5	8	10	14	16	16
+						|
+		2	5	8	10	14	14	16
+					|
+		2	5	8	10	10	14	16
+				|
+		2	5	8	8	10	14	16
+			|
+		2	5	5	8	10	14	16
+		|
+		2	2	5	8	10	14	16	
+	|
+		1	2	5	8	10	14	16	
+	//---------------------------------------------------------------------------------------------------------
+									|				3
+		1	2	5	8	10	14	16	3	
+								|
+		1	2	5	8	10	14	16	16
+							|
+		1	2	5	8	10	14	14	16
+						|
+		1	2	5	8	10	10	14	16
+					|
+		1	2	5	8	8	10	14	16
+				|
+		1	2	5	5	8	10	14	16
+			|
+		1	2	3	5	8	10	14	16 =====> sorted
+
+int main()
+{
+	int x[8],i,j,pivot,k;
+	printf("\n Enter any 5 nos: ");
+	for(i=0;i<8;i++)
+	{
+		scanf("%d",&x[i]);
+	}
+
+	printf("\n Before Sort: ");
+	for(i=0;i<8;i++)
+	{
+		printf("%5d",x[i]);
+	}
+
+	// sort - Insertion 
+	for(i=1;i<8;i++) // i gives pivot position
+	{
+		pivot=x[i];
+		j=i-1;
+		while( j!=-1 && x[j]>pivot)
+		{
+			x[j+1]=x[j];
+			j--;
+		}
+		x[j+1]=pivot;
+		/*printf("\n-----------------------------------------------\n");
+		for(k=0;k<8;k++)
+		{
+			printf("%5d",x[k]);
+		}*/
+	}
+
+	printf("\n After Sort: ");
+	for(i=0;i<8;i++)
+	{
+		printf("%5d",x[i]);
+	}
+
+	return 0;
+}
+
+//-------------------------------------------------------------------------------------------------------
+
+	// Searching Techniques
+
+		- linear Search: operated on any array
+		- Binary Search: operated on sorted Array
+
+#define SIZE 10
+int main()
+{
+	int x[SIZE],i,no,flg;
+
+	printf("\n Enter the %d nos: ",SIZE);
+	for(i=0;i<SIZE;i++)
+	{
+		scanf("%d",&x[i]);
+	}
+	printf("\n Enter the number to be searched: ");
+	scanf("%d",&no);
+
+	flg=0;
+	for(i=0;i<SIZE;i++)
+	{
+		if(x[i]==no)
+		{
+			flg=1;
+			break;
+		}
+	}
+	if(flg==0)
+	{
+		printf("\n %d is not present in an Array",no);
+	}
+	else
+	{
+		printf("\n %d is present at %d position",no,i);
+	}
+	return 0;
+}
+
+//----------------------------------------------------------------------------------------------------
+
+	// - Binary Search: operated on sorted Array
+
+		0	1	2	3	4	5	6	7	8	9
+		12	23	45	56	78	89	92	99	112	145
+		|									|
+		start									end
+
+		
+		mid=(start+end)/2 ==>	mid=(0+9)/2 ==> 4
+
+		if no is present at mid position	--> print it is present and stop
+		
+		if not ---------- check no<x[mid] --> if yes then end=mid-1
+			  |
+			  |------ check no>x[mid] --> if yes then start=mid+1
+				
+
+#define SIZE 10
+int main()
+{
+	int x[SIZE],i,no,flg=0,start,end,mid;
+
+	printf("\n Enter the %d nos in ascending order: ",SIZE);
+	for(i=0;i<SIZE;i++)
+	{
+		scanf("%d",&x[i]);
+	}
+	printf("\n Enter the number to be searched: ");
+	scanf("%d",&no);
+
+	start=0;
+	end=SIZE-1;
+	do
+	{
+		mid=(start+end)/2;
+		if(x[mid]==no)
+		{
+			flg=1;
+			break;
+		}
+		else if(no<x[mid])
+		{
+			end=mid-1;
+		}
+		else if(no>x[mid])
+		{
+			start=mid+1;
+		}
+	}while(start<=end);
+	if(flg==1)
+	{
+		printf("%d is present at %d position",no,mid);
+	}
+	else
+	{
+		printf("%d is not present in an array",no);
+	}
+	return 0;
+}
+
+///----------------------------------------------------------------------------------------------------------
+
+	///	2D Array - Numeric
+
+		Array is collection of elements haveing same data type
+
+		int, char, double, float ---> so we are allowed to create the collection of arreys also,
+					      called Two-Dimentional Array (2D Array)
+
+		
+		int x[3]
+
+		x __0_____1____2__    y __0_____1____2__      z	__0_____1____2__     t	__0_____1____2__
+		  |____|____|____|	|____|____|____|	|____|____|____|	|____|____|____|
+
+		Decl. Syntax:
+
+		<data_type> <ar_nm>[<rows>][<cols>];
+		e.g.
+			int tda[4][3];
+
+	tda _________0_____________________1_______________________2________________________3___________
+	    |	0    1    2	|    0     1     2	|    0     1     2	|    0     1     2	|
+	    | [  ] [  ] [   ]   |   [  ]  [  ]  [   ]   |   [  ]  [  ]  [   ]   |   [  ]  [  ]  [   ]   |
+	    |___________________|_______________________|_______________________|_______________________|
+
+	 can be represented
+
+		[][][] | [][][] | [][][] | [][][]
+		
+	 can be represented in matrix form as
+
+		[ ] [ ] [ ]0
+		[ ] [ ] [ ]1	rows(i)
+		[ ] [ ] [ ]2
+		[ ] [ ] [ ]3
+		0   1   2
+		    cols(j)
+
+	// init any 2D array and dispay it.
+
+int main()
+{
+	int x[4][3]={ {11,22,33},{44,55,66},{77,88,99},{12,23,45} };
+	int i,j;
+
+	printf("\n Array is \n");
+
+	for(i=0;i<4;i++) // outer loop - rows
+	{
+		for(j=0;j<3;j++) //inner loop - cols
+		{
+			printf("%5d",x[i][j]);
+		}
+		printf("\n");
+	}
+	return 0;
+}
+
+//--------------------------------------------------------------------------------------
+
+	// Input array of 4x3 and display it.
+
+int main()
+{
+	int x[4][3],i,j;
+
+	printf("\n Enter the array of 4x3: ");
+	for(i=0;i<4;i++)
+	{
+		for(j=0;j<3;j++)
+		{
+			scanf("%d",&x[i][j]);
+		}
+	}
+
+	printf("\n Array is \n");
+	for(i=0;i<4;i++) // outer loop - rows
+	{
+		for(j=0;j<3;j++) //inner loop - cols
+		{
+			printf("%5d",x[i][j]);
+		}
+		printf("\n");
+	}
+	return 0;
+}
+
+//-----------------------------------------------------------------------------------------------
+
+	// WAP using 2D array to store the PCM  marks of 3 students and display marks with
+	// total and percentage.
+
+	[][][][]
+	[][][][]
+	[][][][]
+
+int main()
+{
+	int marks[3][4],i,j,tot;
+
+	printf("\n Enter the marks obtained by 3 students in PCM: ");
+	for(i=0;i<3;i++)
+	{
+		tot=0;
+		printf("\n Student %d: ",i+1);
+		for(j=0;j<3;j++)
+		{
+			printf("\n Subject %d: ",j+1);
+			scanf("%d",&marks[i][j]);
+			tot=tot+marks[i][j];
+		}
+		marks[i][j]=tot;
+	}
+	printf("\n Student Details \n");
+	for(i=0;i<3;i++)
+	{
+		printf("\n Student %d: ",i+1);
+		for(j=0;j<3;j++)
+		{
+			printf("%5d",marks[i][j]);
+		}
+		printf("\t PCM Total: %d \t Percentage: %0.2f",marks[i][j],marks[i][j]/3.0);
+	}
+	return 0;
+}
+
+//--------------------------------------------------------------------------------------------------------------------------
+
+	// Enter two arrays of 3x3 and find the addition of two matrix
+
+int main()
+{
+	int x[3][3], y[3][3], z[3][3];
+	int i,j;
+
+	printf("\n Enter the first matrix of 3x3: ");
+	for(i=0;i<3;i++)
+	{
+		for(j=0;j<3;j++)
+		{	
+			scanf("%d",&x[i][j]);
+		}
+	}
+
+	printf("\n Enter the second matrix of 3x3: ");
+	for(i=0;i<3;i++)
+	{
+		for(j=0;j<3;j++)
+		{	
+			scanf("%d",&y[i][j]);
+		}
+	}
+
+	for(i=0;i<3;i++)
+	{
+		for(j=0;j<3;j++)
+		{	
+			z[i][j] = x[i][j] + y[i][j];
+		}
+	}
+
+	printf("\n First Matrix \n");
+	for(i=0;i<3;i++)
+	{
+		for(j=0;j<3;j++)
+		{	
+			printf("%5d",x[i][j]);
+		}
+		printf("\n");
+	}
+
+	printf("\n Second Matrix \n");
+	for(i=0;i<3;i++)
+	{
+		for(j=0;j<3;j++)
+		{	
+			printf("%5d",y[i][j]);
+		}
+		printf("\n");
+	}
+
+	printf("\n Third Matrix \n");
+	for(i=0;i<3;i++)
+	{
+		for(j=0;j<3;j++)
+		{	
+			printf("%5d",z[i][j]);
+		}
+		printf("\n");
+	}
+	return 0;
+}
+
+//--------------------------------------------------------------------------------------------------------------------------
+
+	// Enter two arrays of 3x3 and find the multi. of two matrix
+
+int main()
+{
+	int x[3][3], y[3][3], z[3][3];
+	int i,j,k;
+
+	printf("\n Enter the first matrix of 3x3: ");
+	for(i=0;i<3;i++)
+	{
+		for(j=0;j<3;j++)
+		{	
+			scanf("%d",&x[i][j]);
+		}
+	}
+
+	printf("\n Enter the second matrix of 3x3: ");
+	for(i=0;i<3;i++)
+	{
+		for(j=0;j<3;j++)
+		{	
+			scanf("%d",&y[i][j]);
+		}
+	}
+
+	for(i=0;i<3;i++)
+	{
+		for(j=0;j<3;j++)
+		{	
+			z[i][j]=0;
+			for(k=0;k<3;k++)		
+			{
+				z[i][j] = z[i][j] + (x[i][k] * y[k][j]);
+			}
+		}
+	}
+
+	printf("\n First Matrix \n");
+	for(i=0;i<3;i++)
+	{
+		for(j=0;j<3;j++)
+		{	
+			printf("%5d",x[i][j]);
+		}
+		printf("\n");
+	}
+
+	printf("\n Second Matrix \n");
+	for(i=0;i<3;i++)
+	{
+		for(j=0;j<3;j++)
+		{	
+			printf("%5d",y[i][j]);
+		}
+		printf("\n");
+	}
+
+	printf("\n Third Matrix \n");
+	for(i=0;i<3;i++)
+	{
+		for(j=0;j<3;j++)
+		{	
+			printf("%5d",z[i][j]);
+		}
+		printf("\n");
+	}
+	return 0;
+}
+
+//------------------------------------------------------------------------------------------------------
+
+	// in above program print arrays in hori. manner
+
+#include <stdio.h>
+
+int main()
+{
+	int x[3][3], y[3][3], z[3][3];
+	int i,j,k;
+
+	printf("\n Enter the first matrix of 3x3: ");
+	for(i=0;i<3;i++)
+	{
+		for(j=0;j<3;j++)
+		{	
+			scanf("%d",&x[i][j]);
+		}
+	}
+
+	printf("\n Enter the second matrix of 3x3: ");
+	for(i=0;i<3;i++)
+	{
+		for(j=0;j<3;j++)
+		{	
+			scanf("%d",&y[i][j]);
+		}
+	}
+
+	for(i=0;i<3;i++)
+	{
+		for(j=0;j<3;j++)
+		{	
+			z[i][j]=0;
+			for(k=0;k<3;k++)
+			{
+				z[i][j] = z[i][j] + (x[i][k] * y[k][j]);
+			}
+		}
+	}
+
+	printf("\n Display \n\n");
+	for(i=0;i<3;i++)
+	{
+		for(j=0;j<3;j++)
+		{	
+			printf("%5d",x[i][j]);
+		}
+		printf("\t\t");
+	
+		for(j=0;j<3;j++)
+		{	
+			printf("%5d",y[i][j]);
+		}
+		printf("\t\t");
+
+		for(j=0;j<3;j++)
+		{	
+			printf("%5d",z[i][j]);
+		}
+		printf("\n");
+	}
+	return 0;
+}
+
+//==========================================================================================================
+
+	// Character Array (String): Collection of Characters
+
+	- Decl. Syntax:
+		
+		char <ar_nm>[<size>];
+		e.g.
+			char str[50];		char ch[20];
+
+		ch
+		 [][][][][][][][][][][][][][][][][][][][]	20 bytes location
+
+	- Initi. of character:
+
+		char s[]={'h','e','l','l','o'};		or 	  char s[5]={'h','e','l','l','o'};
+
+		char str[20]={'h','i','\0'}		or 	char nm[40]="Shivansh";
+
+
+
+int main()
+{
+	char str[]={'h','e','l','l','o'};
+	char nm[40]="Shivansh";
+
+	// using %s - format specifier to display the string
+	printf("\n String str is: %s",str);
+	printf("\n String nm is: %s",nm);
+
+	return 0;
+}
+
+//-------------------------------------------------------------------------------------------------
+
+	// different ways of String display 
+
+	1 - using %s as format specifier
+	2 - using loop and %c - character by character display
+	3 - using puts() function
+
+#include <stdio.h>
+int main()
+{
+	char str[20]={'h','e','l','l','o','\0'};
+	int i;
+	printf("\n String str is: ");
+	for(i=0;str[i]!='\0';i++)
+	{
+		printf("%c",str[i]);
+	}
+	
+	printf("\n String is: ");
+	puts(str);	
+	
+	printf("\n String str is: %s",str);
+
+	return 0;
+}
+
+//---------------------------------------------------------------------------------------------------
+
+	// String - input and display
+
+	// Using %s for input - Ok for single word, it considers space as a string terminating character.
+
+int main()
+{
+	char str[40];
+
+	printf("\n Enter the string: ");
+	scanf("%s",&str);
+	printf("\n Entered String is: %s",str);
+	return 0;
+}
+
+	// Using loop and %c - character by character input - Not a proper option
+
+int main()
+{
+	char str[40];
+
+	printf("\n Enter the string: ");
+	for(i=0; <> ; i++)
+	{
+		scanf("%c",&str[i]);
+	}
+	printf("\n Entered String is: %s",str);
+	return 0;
+}
+
+	// Using %[^\n] for input - here \n defined as a terminator. - OK
+
+#include <stdio.h>
+int main()
+{
+	char str[40];
+
+	printf("\n Enter the string: ");
+	scanf("%[^\n]",&str);
+	printf("\n Entered String is: %s",str);
+	return 0;
+}
+
+
+	// Using gets() - input all entered characters and when user hits enter key, it will will place
+			  null('\0') at the end and terminates.
+
+#include <stdio.h>
+int main()
+{
+	char str[40];
+
+	printf("\n Enter the string: ");
+	gets(str);
+	printf("\n Entered String is: %s",str);
+	return 0;
+}
+
+//-------------------------------------------------------------------------------------------------
+
+	// String Processing
+
+	// Enter any string and find the length.(no of characters) 
+
+int main()
+{
+	char str[50];
+	int i,cnt=0;
+
+	printf("\n Enter the string: ");
+	gets(str);
+
+	for(i=0; str[i]!='\0';i++)
+	{
+		cnt++;
+	}
+	printf("\n length of string %d",cnt);
+	
+	return 0;
+}
+
+or 
+
+#include <stdio.h>
+int main()
+{
+	char str[50];
+	int i;
+
+	printf("\n Enter the string: ");
+	gets(str);
+
+	for(i=0; str[i]!='\0';i++);
+
+	printf("\n length of string %d",i);
+	
+	return 0;
+}
+
+//--------------------------------------------------------------------------------------------
+	// Enter any string and convert it in to uppercase.
+
+#include <stdio.h>
+int main()
+{
+	char str[50];
+	int i;
+
+	printf("\n Enter the string: ");
+	gets(str);
+
+	printf("\n Entered string: %s",str);
+
+	for(i=0;str[i]!='\0';i++)
+	{
+		if(str[i]>='a' && str[i]<='z')	 // or if(str[i]>=97 && str[i]<=122)
+		{
+			str[i]=str[i]-32;
+		}
+	}
+	printf("\n Uppercase string: %s",str);
+	
+	return 0;
+}
+
+//--------------------------------------------------------------------
+	// Enter the string contains digits and random symbols in between,
+	// remove all symbols and digits and display the actual string
+	// (perform the operation @ same locations)
+	e.g.
+
+		input --> %%6h4el29?lo go@o5d d78ay3!
+			  h%6%4el29?lo go@o5d d78ay3!
+			  he6%4%l29?lo go@o5d d78ay3!
+			  ...
+		output --> hello good day
+
+#include <stdio.h>
+int main()
+{
+	char str[50],tmp;
+	int i,j,cnt=0;
+
+	printf("\n Enter the string: ");
+	gets(str);
+
+	for(i=0;str[i+1]!='\0';i++)
+	{
+		if( !((str[i]>='A' && str[i]<='Z') || (str[i]>='a' && str[i]<='z') || str[i]==' ') )
+		{
+			for(j=i+1;str[j]!='\0';j++)
+			{
+				if( (str[j]>='A' && str[j]<='Z') || (str[j]>='a' && str[j]<='z') || str[j]==' ')
+				{
+					tmp=str[i];
+					str[i]=str[j];
+					str[j]=tmp;
+                    cnt++;
+					break;
+				}
+			}
+		}
+		else
+		{
+		    cnt++;
+		}
+	}
+	str[cnt]='\0';
+	printf("string is: %s",str);
+	printf("\n cnt: %d",cnt);
+	return 0;
+}
+
+//-----------------------------------------------------------------------------------
+	// Enter the string and copy the string into another character array.
+
+
+	s1 --> hello good day to all\0
+
+	s2 --> hello good day to all\0
+
+int main()
+{
+	char s1[30],s2[30];
+	int i;
+	printf("\n Enter any string: ");
+	gets(s1);
+
+	for(i=0;s1[i]!='\0';i++)
+	{
+		s2[i]=s1[i];
+	}
+	s2[i]='\0';
+	printf("\n Original String: %s",s1);
+	printf("\n Copied String: %s",s2);
+
+	return 0;
+}
+
+
+
+//-----------------------------------------------------------------------------------
+	// Enter the string and copy the string into another character array in reverse manner.
+
+
+	s1 --> hello good day to all\0
+
+	s2 --> lla ot yad doog olleh\0
+
+int main()
+{
+	char s1[30],s2[30];
+	int i,j;
+	printf("\n Enter any string: ");
+	gets(s1);
+
+	for(i=0;s1[i]!='\0';i++);
+	for(j=0,i--;i>=0;i--,j++)
+	{
+		s2[j]=s1[i];
+	}
+	s2[j]='\0';
+	printf("\n Original String: %s",s1);
+	printf("\n Copied String: %s",s2);
+
+	return 0;
+}
+//------------------------------------------------------------------------------------------
+
+	// WAP to find two strings are matching or not.
+
+int main()
+{
+	char s1[30],s2[30];
+	int i,j,flg=0;
+
+	printf("\n Enter 1st string: ");
+	gets(s1);
+
+	printf("\n Enter 2nd string: ");
+	gets(s2);
+
+	for(i=0;s1[i]!='\0';i++);
+	for(j=0;s2[j]!='\0';j++);
+
+	if(i==j)
+	{
+		for(i=0;i<=j;i++)
+		{
+			if(s1[i]!=s2[i])
+			{
+				flg=1;
+				break;	
+			}
+		}
+	}
+	else
+	{
+		flg=1;
+	}
+
+	if(flg==0)
+	{
+		printf("\n String are matching");
+	}
+	else
+	{
+		printf("\n String are not matching");
+	}
+	return 0;
+}
+
+
+
+
+
+
+
