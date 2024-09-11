@@ -1426,7 +1426,8 @@ int main()
 }
 
 // Write a C program to convert Binary to Decimal number system.
-*/
+*/
+
 
 
 // Write a C program to convert Binary to Hexadecimal number system.
