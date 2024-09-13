@@ -781,7 +781,7 @@ int main()
 		2	2	5	8	10	14	16	
 	|
 		1	2	5	8	10	14	16	
-	//---------------------------------------------------------------------------------------------------------
+	//--------------------------------------------------------------------------------------------------
 									|				3
 		1	2	5	8	10	14	16	3	
 								|
@@ -1135,7 +1135,7 @@ int main()
 	return 0;
 }
 
-//--------------------------------------------------------------------------------------------------------------------------
+//----------------------------------------------------------------------------------------------------------
 
 	// Enter two arrays of 3x3 and find the multi. of two matrix
 
@@ -1890,6 +1890,204 @@ int main()
 		printf("\n \"%s\" not PRESENT ",w);
 	return 0;	
 }
+
+//---------------------------------------------------------------------------------------------------------
+
+	//WAP to sort the string in alpha. order
+
+		str ---> good day to all of you0
+#include <stdio.h>
+int main()
+{
+	char str[40];
+    int i,j,tmp;
+	printf("\n Enter the String: ");
+	gets(str);
+	printf("Entered String is: %s",str);
+
+	for(i=0;str[i+1]!='\0';i++)
+	{
+		for(j=i+1;str[j]!='\0';j++)
+		{
+			if(str[i]>str[j])
+			{
+				tmp=str[i];
+				str[i]=str[j];
+				str[j]=tmp;
+			}
+		}
+	}
+	printf("\n Sorted String is: %s",str);
+	return 0;
+}
+
+ --- Note: you have to modify this program for the ucase, lcase characters.
+
+//----------------------------------------------------------------------------------------------------------
+
+	// WAP to remove repeated character from string
+
+	str --> good day to all of you
+	output-> god aytlfu
+
+#include <stdio.h>
+int main()
+{
+	char str[40];
+    	int i,j,k;
+	printf("\n Enter the String: ");
+	gets(str);
+	printf("Entered String is: %s",str);
+
+	for(i=0;str[i+1]!='\0';i++)
+	{
+		for(j=i+1;str[j]!='\0';j++)
+		{
+			if(str[i]==str[j])
+			{
+				for(k=j;str[k]!='\0';k++)
+				{
+					str[k]=str[k+1];
+				}
+			}
+		}
+	}
+	printf("\n Output String is: %s",str);
+
+	return 0;
+}
+//-----------------------------------------------------------------------------------------
+
+	// Enter alphanumeric string and replace every digit with equivalent string.
+
+	 str --> hello ajay, bring 2 apples, 3 kg bananas.
+	 output--> hello ajay, bring two apples, three kg bananas.
+
+/*
+	HINT: 
+
+#include <stdio.h>
+int main()
+{
+    char str[50];
+	int i;
+	char numbers[10][8] = {
+        "zero", "one", "two", "three", "four", 
+        "five", "six", "seven", "eight", "nine"
+    };
+
+	for(i=0;i<10;i++)
+	{
+		printf("\n %s",numbers[i]);
+	}
+	
+	printf("\n Enter the String: ");
+	gets(str);
+	for(i=0;str[i]!='\0';i++)
+	{
+	    if(str[i]>=48&&str[i]<=57)
+	    {
+		    printf("\n %d - %s",str[i]%48, numbers[str[i]%48]);
+	    }
+	}
+	return 0;
+}
+
+*/
+//-----------------------------------------------------------------------------------------------
+
+	// split string in to 2 diferent strings in such way that one string having all words with
+	// even character count and another with odd.
+
+	str --> hello all good day to all of you
+		
+		    ---> s1: good to of
+	output ==> |
+		   ----> s2: hello all day all you
+
+
+//------------------------------------------------------------------------------------------------
+
+	// merge two string as per the word length
+
+	s1 --> hello good day
+	s2 --> hi happy morning students
+
+	output : str --> hi day good hello happy morning students
+
+//------------------------------------------------------------------------------------------------
+//------------------------------------------------------------------------------------------------
+
+	// 2D Character Array:
+
+		Collection of Strings(1D Character array)
+
+		decl syntax:
+		
+			char <ar_nm>[<No_of_lines>][<no_of_chars_per_line>]
+
+			e.g.
+			char s[5][50];
+
+
+			[a][m][i][t][ ][p][a][t][i][l][0][][][][][][][][][][][][][][][][][][][][] <----- s[0]
+			[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] <----- s[1]
+			[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] <----- s[2]
+			[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] <----- s[3]
+			[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] <----- s[4]
+
+
+	// init and display
+
+int main()
+{
+	char s[5][50]={"amit patil","yash pol","shiv chougule","niket joshi","pradip sutar"};
+	int i;
+
+	printf("\n Student List \n");
+	for(i=0;i<5;i++)
+	{
+		printf("\n %s",s[i]);
+	}
+	return 0;
+}
+
+//-----------------------------------------------------------------------------------------
+
+#include <stdio.h>
+
+	// input and display
+
+int main()
+{
+	char s[5][50];
+	int i;
+
+	printf("\n Enter the student List \n");
+	for(i=0;i<5;i++)
+	{
+		gets(s[i]);
+	}
+	printf("\n Student List \n");
+	for(i=0;i<5;i++)
+	{
+		printf("\n %s",s[i]);
+	}
+	return 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
