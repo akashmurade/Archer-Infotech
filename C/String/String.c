@@ -153,7 +153,81 @@ int main()
 
 // merge two string as per the word length
 */
+int main()
+{
+    char s1[100], s2[100], m[200];
+    int fp = 0, cnt = 0, freq[3][10];
 
+    printf("Enter String 1: ");
+    gets(s1);
+
+    printf("Enter String 2: ");
+    gets(s2);
+    int len;
+    for(len = 0; s1[len] != 0; len++);
+    s1[len] = ' ';
+    s1[len + 1] = '\0';
+    for(len = 0; s2[len] != 0; len++);
+    s2[len] = ' ';
+    s2[len + 1] = '\0';
+    for(int i = 0; s1[i] != '\0'; i++) {
+        if(cnt && s1[i] == ' ') {
+            int j;
+            for(j = fp - 1; j >= 0 && freq[2][j] > cnt; j--) {
+                freq[0][j + 1] = freq[0][j];
+                freq[1][j + 1] = freq[1][j];
+                freq[2][j + 1] = freq[2][j];
+            }
+            freq[0][j + 1] = 0;
+            freq[1][j + 1] = i - cnt;
+            freq[2][j + 1] = cnt;
+            cnt = 0;
+            fp++;
+        }
+        else if(s1[i] != ' ') {
+            cnt++;
+        }
+    }
+
+    for(int i = 0; s2[i] != '\0'; i++) {
+        if(cnt && s2[i] == ' ') {
+            int j;
+            for(j = fp - 1; j >= 0 && freq[2][j] > cnt; j--) {
+                freq[0][j + 1] = freq[0][j];
+                freq[1][j + 1] = freq[1][j];
+                freq[2][j + 1] = freq[2][j];
+            }
+            freq[0][j + 1] = 1;
+            freq[1][j + 1] = i - cnt;
+            freq[2][j + 1] = cnt;
+            cnt = 0;
+            fp++;
+        }
+        else if(s2[i] != ' ') {
+            cnt++;
+        }
+    }
+
+    // for(int i = 0; i < fp; i++) {
+    //     printf("\n%d\t%d\t%d", freq[0][i], freq[1][i], freq[2][i]);
+    // }
+    int mp = 0;
+    for(int i = 0; i < fp; i++) {
+        for(int j = freq[1][i]; j < freq[1][i] + freq[2][i]; j++) {
+            if(freq[0][i]) {
+                m[mp++] = s2[j];
+            }
+            else {
+                m[mp++] = s1[j];
+            }
+        }
+        m[mp++] = ' ';
+    }
+    m[mp] = '\0';
+
+    printf("\nMerged String: %s", m);
+    return 0;
+}
 
 
 

@@ -1,0 +1,559 @@
+
+		--------------- Union in C ---------	
+
+	Union:  It is same as that of structure, only differewnce is that structure holds all members 
+		at a time and union holds any one. The memory allocated for variable of union is equala
+		to highest memory holder member in the union.
+
+	e.g.
+
+	struct Demo			union Demo
+	{				{
+		int x;				int x;
+		char ch;			char ch;
+		double db;			double db;
+		float t;			float t;
+	};				};
+
+	struct Demo v1;			union Demo v2
+
+	v1				v2
+	   ______________________	________
+	   |___|__|________|____|	|______|
+
+		17 bytes		  8 bytes
+
+#include <stdio.h>
+union Demo
+{
+	int x;
+	float y;
+	double db;
+	char ch;
+};
+
+int main()
+{
+	union Demo v2;
+	printf("\n Memory allocated for v2 is %d bytes",sizeof(v2));
+	return 0;
+}
+
+//-----------------------------------------------------------------------
+
+	// Enter the different union members and display
+#include <stdio.h>
+union Demo
+{
+	int x;
+	float y;
+	double db;
+	char ch;
+};
+
+int main()
+{
+	union Demo v2;
+
+	printf("\n Enter the char value: ");
+    	scanf("%c",&v2.ch);
+
+	printf("\n Enter the int value: ");
+    	scanf("%d",&v2.x);
+
+	printf("\n Enter the float value: ");
+    	scanf("%f",&v2.y);
+
+	printf("\n Enter the double value: ");
+    	scanf("%lf",&v2.db);
+
+    	printf("\n ch is: %c",v2.ch);
+    	printf("\n x is: %d",v2.x);
+    	printf("\n y is: %f",v2.y);
+    	printf("\n db is: %lf",v2.db);
+
+	return 0;
+}
+
+ ========= output =======
+ 
+ 
+ Enter the char value: A
+
+ Enter the int value: 12
+
+ Enter the float value: 6.7
+
+ Enter the double value: 435.674
+
+ ch is: ►
+ x is: -1271310320
+ y is: -0.000000
+ db is: 435.674000
+Process returned 0 (0x0)   execution time : 20.394 s
+Press any key to continue.
+
+
+	Note as we are storing the values at same location only last value will be there.
+
+//--------------------------------------------------------------------------------------------
+
+	// lets get correct result
+
+#include <stdio.h>
+union Demo
+{
+	int x;
+	float y;
+	double db;
+	char ch;
+};
+
+int main()
+{
+	union Demo v2;
+
+	printf("\n Enter the char value: ");
+    	scanf("%c",&v2.ch);
+    	printf("\n ch is: %c",v2.ch);
+
+	printf("\n Enter the int value: ");
+    	scanf("%d",&v2.x);
+    	printf("\n x is: %d",v2.x);
+
+	printf("\n Enter the float value: ");
+   	scanf("%f",&v2.y);
+   	printf("\n y is: %f",v2.y);
+
+	printf("\n Enter the double value: ");
+    	scanf("%lf",&v2.db);
+    	printf("\n db is: %lf",v2.db);
+	
+	return 0;
+}
+
+ ---- output --------
+ 
+ Enter the char value: Q
+
+ ch is: Q
+ Enter the int value: 230
+
+ x is: 230
+ Enter the float value: 4.5
+
+ y is: 4.500000
+ Enter the double value: 56.7865
+
+ db is: 56.786500
+Process returned 0 (0x0)   execution time : 26.732 s
+Press any key to continue.
+
+
+//------------------------------------------------------------------------------------------------
+
+		----------------- Enum in C ----------------------
+
+	Enums are used to decl. multiple constants.
+
+	- In C, Thre are following ways of constant decl.
+
+		1. using the const keyword
+		2. using #define
+		3. using enums
+
+
+	
+	1. using the const keyword:
+
+		const int x=10;		const char ch='q';
+
+		in above cases, we are not allowed to change the values, if we attempt, the 
+		compiler will generate an error message.
+
+
+	2. using #define: 
+
+		#define SIZE 100;
+
+		Here also the value of SIZE remains 100, we cant alter it.
+
+
+#include <stdio.h>
+#define SIZE 100
+int main()
+{
+	const char ch='q';
+
+	printf("\n ch: %c",ch);
+	printf("\n size: %d",SIZE);
+
+	// SIZE=300;    // error
+	// ch='r';      // error
+
+	return 0;
+}
+
+
+//------------------------------------------------------------------------------------------
+
+	3. using enums: The enums are used to decl, multiple constant at a time.
+
+		e.g.
+			enum{red, green, blue, black};		enum{red, green=5, blue, black=10,pink};
+
+			red =0					red=0
+			green =1				green=5
+			blue =2					blue=6
+			black =3				black=10
+								pink=11
+
+
+int main()
+{
+	enum{red, green, blue, black};		
+	
+	printf("red: %d \t green: %d \t blue: %d \t black: %d",red,green,blue,black);
+
+	return 0;
+}
+
+//-----------------------------------------------------------------
+
+
+int main()
+{
+	enum{red, green=5, blue, black=10,pink};
+		
+	
+	printf("red: %d \t green: %d \t blue: %d \t black: %d \t pink: %d",red,green,blue,black,pink);
+
+	return 0;
+}
+
+
+
+//============================================================================================
+
+	------------ File Handling -----------------
+
+
+
+		 				  CPU  
+					_________________________
+					|			|     sends the command signal to 
+				|----->	|	  CU		|---> every connected peripheral
+				|	|_______________________|     
+		   Input	|	|			|	 	 Output
+		    [ ]		|   |-->|	  ALU		|---|     |--->   [ ]
+		     |		|   |	|_______________________|   |	  |
+		     |		|   |---|			|<--|	  |
+		     |		|-------|	  IM		|	  |
+		     |---------------->	|_______________________|---------|
+			scanf()		       ^          |	    printf()
+			stdin		 ______|__________V______    stdout
+					|			|
+					|	  EM		|
+					|_______________________|
+
+
+
+	Stream: path or channel thw which data flows in terms of bits and bytes.
+
+	file -->  set of or collection records.
+
+	FILE Structure: It is pre-defined structure from stdio.h, whicj allows you
+			to refer the file from the file-folder system.
+
+
+	FILE *file_ptr;
+
+		*file_ptr
+	       	  [ ]		
+
+	file creation: C provides the library function, named, fopen() which will create the file
+			on external storage and on sucess it will returns the address of it otherwise
+			it will return NULL.
+
+
+	FILE *fp=fopen(.......);
+	
+
+      *fp
+      [] -------------------------> [][][][][][][][]
+                                    [][][][][][][][]
+   file pointer                     [][][][][][][][]  file from
+   in program                       [][][][][][][][]  external
+    (internal memory area)          [][][][][][][][]  memory area
+                                    [][][][][][][][]
+
+
+
+      fopen() function: builtin function from stdio.h. Used to open a file from the specified path
+
+    syntax:
+
+    FILE* fopen(const char *filename, const char *mode): 
+	gives the address of file on success otherwise it will returns NULL.
+
+    filename: It actually file name with path, and in that \ must be replaced with \\.
+	
+	i.e. "d:\test\demo.txt"	can be written as "d:\\test\\demo.txt"
+
+    Note that both path and mode are the strings and therefore they must be represented in "..."
+  
+  Modes:
+
+  r   ³ Open for reading only
+  w   ³ Create for writing
+      ³ If a file by that name already exists, it will be overwritten.
+  a   ³ Append; open for writing at end of file, or create for
+      ³ writing if the file does not exist.
+  r+  ³ Open an existing file for update (reading and writing)
+  w+  ³ Create a new file for update (reading and writing).
+      ³ If a file by that name already exists, it will be overwritten.
+  a+  ³ Open for append; open for update at the end of the file, or
+      ³ create if the file does not exist.
+
+  rb,wb+... ³ The data stored in the file in binary form not in text format.
+
+	fclose(<file_pointer>): It will close or terminate the connection with file.
+
+
+	// Opening the file
+
+#include <stdio.h>
+int main()
+{
+    FILE *fp;
+
+    fp=fopen("y:\\demo\\cdata.txt","r");
+    if(fp)
+    {
+        printf("\n File Opened Successfully");
+    }
+    else
+    {
+        printf("\n Error while file opening");
+    }
+    return 0;
+}
+
+//---------------------------------------------------------------------------------------------------
+
+	 // Using fgetc() and fputc() to read and write the data character by character.
+
+#include <stdio.h>
+int main()
+{
+    FILE *fp;
+    char ch;
+    fp=fopen("y:\\demo\\cdata.txt","r");
+    if(!fp)
+    {
+        printf("\n Error while file opening");
+        return;
+    }
+    printf("\n ------------- File data ------- \n");
+    while(1)
+    {
+            ch=fgetc(fp);
+            if(ch==EOF)
+            {
+                fclose(fp);
+                break;
+            }
+
+            printf("%c",ch);
+    }
+
+	return 0;
+}
+
+//--------------------------------------------------------------------------------------
+
+	// WAP to count the number of lines and number of words in file
+
+
+#include <stdio.h>
+int main()
+{
+    FILE *fp;
+    char ch;
+    int wdcnt=1,lcnt=0; 
+    fp=fopen("y:\\demo\\cdata.txt","r");
+    if(!fp)
+    {
+        printf("\n Error while file opening");
+        return;
+    }
+    printf("\n ------------- File data ------- \n");
+    while(1)
+    {
+            ch=fgetc(fp);
+	    if(ch=='\n')
+		lcnt++;
+	    if(ch==32)
+		wdcnt++;
+            if(ch==EOF)
+            {
+                fclose(fp);
+                break;
+            }
+
+            printf("%c",ch);
+    }
+
+	printf("\n Line Count: %d \n Word Count: %d",lcnt,wdcnt);
+
+	return 0;
+}
+
+
+//--------------------------------------------------------------------------
+
+#include <stdio.h>
+int main()
+{
+    FILE *fp;
+    char ch;
+    fp=fopen("y:\\demo\\cdata.txt","r");
+    if(!fp)
+    {
+        printf("\n Error while file opening");
+        return;
+    }
+    printf("\n ------------- File data ------- \n");
+    while(1)
+    {
+            ch=fgetc(fp);
+            if(ch==EOF)
+            {
+                fclose(fp);
+                break;
+            }
+
+            printf("%c",ch);
+    }
+
+	return 0;
+}
+//-------------------------------------------------------------------------
+
+// Using getw() and putw(): Used to read/write the integer from io to
+            stream.
+
+
+#include<stdio.h>
+Int main()
+{
+  int a,b;
+  FILE *fp;
+
+
+  printf("\n Enter any integer: ");
+  scanf("%d",&a);
+
+  fp=fopen("intfile.txt","w");
+  putw(a,fp);
+  fclose(fp);
+
+  fp=fopen("intfile.txt","r");
+  b=getw(fp);
+  fclose(fp);
+  printf("\n b=%d",b);
+
+  getch();
+}
+
+//--------------------------------------------------------------------
+  // Using fprintf() and fscanf()
+
+#include<stdio.h>
+void main()
+{
+  char ch,a;
+  int x,b;
+  float y,c;
+  FILE *fp;
+
+  printf("\n Enter the values of ch x and y:");
+  scanf("%c %d %f",&ch,&x,&y);
+
+  fp=fopen("values.txt","w+");
+  fprintf(fp,"%c %d %f",ch,x,y);
+
+  rewind(fp);
+
+  fscanf(fp,"%c %d %f",&a,&b,&c);
+  printf("%c %d %f",a,b,c);
+
+  getch();
+}
+
+//-----------------------------------------------------------------------
+  // Using fread() and fwrite()
+
+#include<stdio.h>
+struct student
+{
+  int rno;
+  char nm[40];
+};
+void main()
+{
+  struct student s;
+  int opt,i;
+  FILE *fp;
+  fp=fopen("admission.txt","a+");
+
+  do
+  {
+    printf("\n ******* Menu ********\n");
+    printf("\n 1.Input \n 2.Display \n 3.stop");
+
+    printf("\n Select your option: ");
+    scanf("%d",&opt);
+
+
+    if(opt==1)
+    {
+      printf("\n Enter the name of student: ");
+      gets(s.nm);
+      gets(s.nm);
+
+      printf("\n Enter the rno: ");
+      scanf("%d",&s.rno);
+
+      fwrite(&s,sizeof(s),1,fp);
+    }
+    else if(opt==2)
+    {
+      rewind(fp);
+      do
+      {
+        fread(&s,sizeof(s),1,fp);
+        printf("\n name: %s \t RNO: %d",s.nm,s.rno);
+      }while(!feof(fp));
+
+    }
+    else
+    {
+      exit(0);
+    }
+
+  }while(1);
+}
+
+//-------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+

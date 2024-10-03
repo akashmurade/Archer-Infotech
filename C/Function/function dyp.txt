@@ -1,0 +1,1435 @@
+
+//================================================================================================
+//========================================== Function ============================================
+//================================================================================================
+
+	Why Function?
+
+		instructions ==> when we want to re-executer the block we used loops ====>> when the code
+				 or a block of code is present number of times in the program and not in 
+				 a continues manner ==>>> function.
+
+	We know that the loops are used to avoid the repetition code in Conti. manner, but loops unable avoid 
+	the repetitions occurred at discrete instance or in the different program.
+
+
+	int main()					int main()
+	{						{
+		-----------------;				-----------------;
+								for()/while()/ do While()
+		-----------------; $$$				{
+		-----------------;					-----------------;$$$
+									-----------------;
+		-----------------; $$$	    ===>>>		}
+		-----------------;				-----------------;
+								-----------------;
+		-----------------; $$$				-----------------;
+		-----------------;			}
+
+		-----------------; $$$
+		-----------------;
+
+		-----------------;
+		-----------------;
+		-----------------;
+		
+	}
+
+
+	int main()					prog1			pro2			prog3
+	{
+		-----------------;			int main()		int main()		int main()
+		-----------------;			{			{			{
+		-----------------;			  ......;		   ......;		   .....;	
+							  ------------;$$$	   ------------;$$$        ------------;$$$ 
+		-----------------; $$$			  ------------; 	   ------------; 	   ------------; 
+		-----------------;			  ......;		   ..;			   ...........;
+							}			}			}
+		-----------------;
+
+		-----------------; $$$
+		-----------------;				In the both case, you have to avoid the code repetition.
+
+		-----------------;
+		-----------------;					ONLY WAY ===>>>> FUNCTION
+		-----------------;
+
+		-----------------; $$$
+		-----------------;
+
+		-----------------;
+		-----------------;
+		-----------------;
+		
+	}
+		
+	The functions are used to attend the next level of reusability 
+
+		code rep. in program ------> if Conti.rep ==> Use Loops
+					|
+					|---> conti./ discrete rep ===> function
+
+	FUNCTION Def: It is the group of instructions, designed/ written to perform the specific task.
+
+	How To Write a Function?
+	
+		There are three different steps
+			
+		 - Decl.: To inform to the compiler.
+			syntax:
+			   <ret_type> <fun_nm>(<argu_if_any>);			
+
+		 - Calling: To Use the function/ execute the code
+			syntax:
+			   <fun_nm>(<argu_if_any>);			
+
+		 - Def: Actual set of instructions
+			syntax:
+			   <ret_type> <fun_nm>(<argu_if_any>)
+			   {
+				--------------;
+				--------------;
+				--------------;
+				--------------;
+				--------------;
+			  }
+
+	
+	// WAP to display "good morning Pune"
+int main()
+{
+	printf("good morning Pune");
+	return 0;
+}
+
+
+	
+	// WAP to display "good morning Pune" 10 times
+
+// option 1
+
+int main()
+{
+	printf("good morning Pune");
+	printf("good morning Pune");
+	printf("good morning Pune");
+	printf("good morning Pune");
+	printf("good morning Pune");
+	printf("good morning Pune");
+	printf("good morning Pune");
+	printf("good morning Pune");
+	printf("good morning Pune");
+	printf("good morning Pune");
+
+	return 0;
+}
+
+// option 2
+int main()
+{
+	int i=0;
+	while(i<10)
+	{
+		printf("good morning Pune");
+		i++;
+	}
+	return 0;
+}
+
+
+//---------------
+	
+	// Option 3: Using Function
+
+void msg();
+int main()
+{
+	printf("\n Main starts \n");
+	msg();
+	msg();
+	msg();
+	msg();
+	msg();
+	msg();
+	msg();
+	msg();
+	msg();
+	msg();
+	printf("\n main ends");
+	return 0;
+}
+
+void msg()
+{
+	printf("good morning Pune");
+}
+
+
+//-------------------------------------------------------------------------------------------------
+
+void mumbai();
+void delhi();
+void patna();
+int main()
+{
+	printf("\n At start in main()");
+	mumbai();
+	printf("\n back to main from mumbai");
+	delhi();
+	printf("\n back to main() from delhi");
+	printf("\n At end in main()");
+	return 0;
+}
+
+void mumbai()
+{
+	printf("\n i am in mumbai");
+}
+
+void delhi()
+{
+	printf("\n i am in delhi");
+	patna();
+	printf("\n back to delhi from patna");
+}
+
+void patna()
+{
+	printf("\n i am in patna");
+}
+
+//---------------------------------------------------------------------------------------------------------------------
+//-----------------------------------------------------------------------------------------------------------------
+
+	// Different Types Of Functions
+
+			Function
+			   |
+		---------------------------------------
+		|				      |
+	    User-Defined			   Built-in
+	       |				       |
+  -----------------------------	 	        -----------------------------------------------------------------
+  |	|	|	|      |		|		|		|		|		|
+  I    II      III     IV      V             Math related     Graphics        IO related      String related  .....
+					       math.h	     graphics.h     stdio.h/conio.h	String.h
+
+
+ - Built-in: These fuctions are provided with the compiler. Any language consists of Editor, Compiler, Library, 
+	     documentation and more..., All built-in functions are the part of library. and the are grouped together
+	     into header files.
+
+ - User-Defined Functions: These functions are defined by the user of language.(programmer)
+			    There are following types of UDF
+
+			I] simple function (function without argument without return type)
+			II] function with argument without return type
+			III] function without argument with return type
+			IV] function with argument with return type	
+			V] Recursion
+
+
+// WAP to add two nos
+
+int main()
+{
+	int a,b,tot=0;
+
+	printf("\n Enter any two nos: ");
+	scanf("%d %d",&a,&b);
+
+	tot=a+b;
+
+	printf("\n Addition is %d",tot);
+	return 0;
+}
+
+//--------------------------------------------------------------------------------------------------------------
+
+
+I] simple function (function without argument without return type)
+
+#include <stdio.h>
+#include <stdlib.h>
+void add();
+int main()
+{
+	add();
+	add();
+	add();
+	return 0;
+}
+
+void add()
+{
+	int a,b,tot=0;
+
+	printf("\n Enter any two nos: ");
+	scanf("%d %d",&a,&b);
+
+	tot=a+b;
+
+	printf("\n Addition is %d",tot);
+}
+
+
+//--------------------------------------------------------------------------------------------------
+
+
+			II] function with argument without return type
+
+
+void add(int,int);
+int main()
+{
+	int a,b;
+	printf("\n Enter any two nos: ");
+	scanf("%d %d",&a,&b);
+	add(a,b); // Actual arguments
+	return 0;
+}
+
+void add(int x, int y) // formal arguments
+{
+	int tot=0;
+	tot=x+y;
+	printf("\n Addition is %d",tot);
+}
+
+
+//----------------------------------------------------------------------------------------------------------
+
+			III] function without argument with return type
+
+
+int add();
+int main()
+{
+	int t;
+	t=add(); 	
+	printf("\n Addition is %d",t);
+	return 0;
+}
+
+int add() 
+{
+	int a,b,tot=0;
+	printf("\n Enter any two nos: ");
+	scanf("%d %d",&a,&b);
+	tot=a+b;
+	return tot;
+}
+
+//-------------------------------------------------------------------------------------------------------------
+
+			IV] function with argument with return type	
+
+
+int add(int,int);
+int main()
+{
+	int a,b,t;
+	printf("\n Enter any two nos: ");
+	scanf("%d %d",&a,&b);
+	t=add(a,b); 
+	
+	printf("\n Addition is %d",t);
+	return 0;
+}
+
+int add(int x, int y) 
+{
+	int tot=0;
+	tot=x+y;
+	return tot;
+}
+
+
+//------------------------------------------------------------------------------------------------------------------
+
+	// Recursion: calling function from itself.
+
+	// find factorial
+
+	5!=5*4!
+	4!=4*3!
+	3!=3*2!
+	2!=2*1!
+	1!=1
+
+int main()
+{
+	int no,ans;
+	
+	printf("\n Enter any number: ");
+	scanf("%d",&no);
+	ans=fact(no);
+	printf("\n Factorial is %d",ans);
+
+	return 0;
+}
+int fact(int n)
+{
+	if(n==1)
+	  return 1;
+	else
+	  return (n*fact(n-1));
+}
+
+//-----------------------------------------------------------------------------------------------------------------------
+
+	write a program using function to reverse entered nuunber - int findreverse(int);
+
+int findreverse(int);
+int main()
+{
+	int no,r;
+	printf("\n Enter the number: ");
+	scanf("%d",&no);
+
+	r=findreverse(no);
+	printf("\n Reverse of %d is %d",no,r);
+}
+int findreverse(int n)
+{
+	int rev=0;
+	while(n!=0)
+	{
+		rev=(rev*10)+(n%10);
+		n=n/10;
+	}
+	return rev;	
+}
+
+//----------------------------------------------------------------------------------------------------------------------
+	// palindrome check using function
+
+#include <stdio.h>
+#include <stdlib.h>
+int findreverse(int);
+char ispalindrome(int,int);
+int main()
+{
+	int no,r;
+	char ch;
+	printf("\n Enter the number: ");
+	scanf("%d",&no);
+
+	r=findreverse(no);
+	printf("\n Reverse of %d is %d",no,r);
+
+	ch=ispalindrome( findreverse(no), no);
+	if(ch=='y')
+        printf("\n Palindrome Number");
+    else
+        printf("\n Not a Palindrome Number");
+
+    return 0;
+}
+char ispalindrome(int n1,int n2)
+{
+    if(n1==n2)
+        return 'y';
+    else
+        return 'n';
+}
+int findreverse(int n)
+{
+	int rev=0;
+	while(n!=0)
+	{
+		rev=(rev*10)+(n%10);
+		n=n/10;
+	}
+	return rev;
+}
+
+//--------------------------------------------------------------------------------------------------------------------------
+
+	// Function call by passing values and by passing reference
+
+	// call by value
+
+void swap(int a,int b)
+{						a		b
+	int tmp;				[ 10 ]	<---->	[ 12 ] 
+	tmp=a;				      800              900
+	a=b;
+	b=tmp;
+}
+int main()
+{						x		y
+	int x=10,y=12;				[ 10 ]		[ 12 ]
+					      200	       300		
+	printf("\n before x=%d \t y=%d",x,y);
+	swap(x,y);
+	printf("\n After x=%d \t y=%d",x,y);
+
+	return 0;
+}
+
+//--------------------------------------------------------------------------------------------------------
+
+	// call by reference
+
+void swap(int *a,int *b)							tmp
+{						*a		*b               [ 10 ]
+	int tmp;				[ 200 ]		[ 300 ] 
+	tmp=*a;				      800  |           900 |
+	*a=*b;					   |		   |
+	*b=tmp;					   |		   |
+}						   |		   |
+int main()					   V		   V
+{						x		y
+	int x=10,y=12;				[ 12 ]		[ 10 ]
+					      200	       300		
+	printf("\n before x=%d \t y=%d",x,y);
+	swap(&x,&y);
+	printf("\n After x=%d \t y=%d",x,y);
+
+	return 0;
+}
+
+//---------------------------------------------------------------------------------------------------------------------------
+
+	// Visiblity of Variables: 
+
+		- Local and Global variables
+			Local variables are defined within the scope where as the globals are not within any scope.
+			the life and scope of local variable is within the scope, for global it is thw.out the prog.
+			global variable is common to every finction within program.
+			
+		- Storage classes
+
+
+	// enter N number and find the total and avg using function.
+
+float findsumandavg(int cnt);
+int tot=0;
+int main()
+{
+	int cnt;
+	float ans;
+	printf("\n Enter the element count: ");
+	scanf("%d",&cnt);
+
+	ans=findsumandavg(cnt);
+	printf("\n Total of %d nos %d",cnt,tot);
+	printf("\n Avg of %d nos %0.2f",cnt,ans);
+}
+
+float findsumandavg(int cnt)
+{
+	int no,i;
+	float avg;
+	for(i=0;i<cnt;i++)
+	{
+		scanf("%d",&no);
+		tot=tot+no;
+	}
+	avg=tot/(float)cnt;
+	return avg;
+}
+
+//-------------------------------------------------------------------------------------------------------------------------------
+
+	
+
+	- Storage class in C
+
+	A storage class represents the visibility and a location of a variable. 
+	It tells from what part of code we can access a variable.
+	A storage class in C is used to describe the following things:
+
+		- The variable scope.
+		- The location where the variable will be stored.
+		- The initialised value of a variable.
+		- A lifetime of a variable.
+		- Who can access a variable?
+
+		Thus a storage class is used to represent the information about a variable.
+
+		NOTE: A variable is not only associated with a data type, its value but also a storage class.
+
+
+	There are total four types of standard storage classes.
+
+	auto		It is a default storage class.
+
+	extern		It is a global variable.
+
+	static		It is a local variable which is capable of returning a value even when control is 
+			transferred to the function call.
+
+	register	It is a variable which is stored inside a Register.
+
+
+	-  Auto Storage Class in C: The scope of an auto variable is limited with the particular block only. Once the control 
+				 goes out of the block, the access is destroyed. This means only the block in which the auto 
+				 variable is declared can access it.
+		
+				e.g.
+					auto int x;   <---> int x;
+
+
+
+
+	- Extern Storage Class: Extern stands for external storage class. Extern storage class is used when we have global functions 
+			     or variables which are shared between two or more files.
+
+
+	// file 1
+	#include <stdio.h>
+	extern i;
+	int main() 
+	{
+  		 printf("value of the external integer is = %d\n", i);
+  	 	 return 0;
+	}
+
+	//file 2
+	#include <stdio.h>
+	i=48;
+
+
+	- Static Storage Class in C:  
+
+			Static local variable is a local variable that retains and stores its value between function calls 
+			or block and remains visible only to the function or block in which it is defined.
+
+			Static global variables are global variables visible only to the file in which it is declared.
+
+
+
+#include <stdio.h>
+#include <stdlib.h>
+void incr()
+{
+    static int i;		// see the output with and without static
+    printf("\n i=%d",i);
+    i++;
+}
+int main()
+{
+    int i;
+    for(i=0;i<10;i++)
+    {
+        incr();
+    }
+    return 0;
+}
+
+
+Register Storage Class: You can use the register storage class when you want to store local variables within functions or blocks 
+		        in CPU registers instead of RAM to have quick access to these variables. For example, “counters” are a 
+			good candidate to be stored in the register.
+
+			register int x;
+
+
+
+
+Storage Class		Declaration		Storage		Default Initial Value		Scope			Lifetime
+
+auto		Inside a function/block		Memory		Unpredictable		Within the function/block	Within the function/block
+
+register	Inside a function/block		CPU Registers	Garbage			Within the function/block	Within the function/block
+
+extern		Outside all functions		Memory		Zero			Entire the file and other 
+											files where the variable 	program runtime
+											is declared as extern   	  
+												
+
+Static(local)	Inside a function/block		Memory		Zero			Within the function/block       program runtime
+
+Static(global)	Outside all functions		Memory		Zero			Global				program runtime
+
+
+//------------------------------------------------------------------------------------------------------------------------------------
+
+	* Note that array is always passed by reference.
+
+
+	// passing array as member to function
+
+void incr100(int y[5]);
+int main()
+{
+	int x[]={11,22,33,44,55};
+	int i;
+
+	printf("\n Array is: ");
+	for(i=0;i<5;i++)
+	{
+		printf("%6d",x[i]);
+	}
+
+	incr100(x);
+
+	printf("\n Array is: ");
+	for(i=0;i<5;i++)
+	{
+		printf("%6d",x[i]);
+	}
+	
+	return 0;
+}
+
+void incr100(int y[5])
+{
+	int i;
+	printf("\n Array is: ");
+	for(i=0;i<5;i++)
+	{
+		y[i]=y[i]+100;
+	}
+}
+
+//-----------------------------------------------------------------------------------------------------------------------
+
+	/// use of static
+
+void add(int n)
+{
+	int tot=0;
+	tot=tot+n;
+	printf("\n Total: %d",tot);
+}
+int main()
+{
+	int x[]={11,22,33,44,55};
+	int i;
+
+	printf("\n Array is: ");
+	for(i=0;i<5;i++)
+	{
+		add(x[i]);
+	}	
+	return 0;
+}
+
+//--------------------------------------------------------------------------------------------------
+
+	// array input and display using function
+
+void output(int y[]);
+void input(int t[]);
+int main()
+{
+	int x[5];
+	int i;
+
+	input(x);
+
+	output(x);
+	
+	return 0;
+}
+void output(int y[])
+{
+	int i;
+	printf("\n Array is: ");
+	for(i=0;i<5;i++)
+	{
+		printf("%6d",y[i]);
+	}
+}
+void input(int t[])
+{
+	int i;
+	printf("\n enter Array of 5 elements: ");
+	for(i=0;i<5;i++)
+	{
+		scanf("%d",&t[i]);
+	}
+}
+
+//-----------------------------------------------------------------------------------------------------------------
+
+	// WAP to sort the array using function
+
+void output(int y[]);
+void input(int t[]);
+void sort(int[],int);
+int main()
+{
+	int x[5];
+	int i;
+
+	input(x);
+	printf("\n Before sort: ");
+	output(x);
+	
+	sort(x,5);
+	
+	printf("\n After sort: ");
+	output(x);
+
+	return 0;
+}
+void sort(int y[],int cnt)
+{
+	int i,j,tmp;
+	for(i=0;i<cnt-1;i++)
+	{
+		for(j=i+1;j<cnt;j++)
+		{
+			if(y[i]>y[j])
+			{
+				tmp=y[i];
+				y[i]=y[j];
+				y[j]=tmp;
+			}
+		}
+	}
+}
+void output(int y[])
+{
+	int i;
+	printf("\n Array is: ");
+	for(i=0;i<5;i++)
+	{
+		printf("%6d",y[i]);
+	}
+}
+void input(int t[])
+{
+	int i;
+	printf("\n enter Array of 5 elements: ");
+	for(i=0;i<5;i++)
+	{
+		scanf("%d",&t[i]);
+	}
+}
+
+//-------------------------------------------------------------------------------------------------------------------------
+
+	// WAP to find the length of string using the function
+
+int findlength(char str[])
+{
+	int i;
+	for(i=0;str[i]!='\0';i++);
+	return i;
+}
+int main()
+{
+	char s[50];
+	int len;
+
+	printf("\n Enter the string: ");
+	gets(s);
+
+	len=findlength(s);
+
+	printf("\n String is: %s",s);
+	printf("\n length of string: %d",len);
+
+	return 0;	
+}
+
+//-------------------------------------------------------------------------------------------------------------
+
+	// WAP to find the strings are matching or not
+
+int matching(char a1[50], char a2[60])
+{
+	int i,j;
+	for(i=0;a1[i]!='\0';i++);
+	for(j=0;a2[j]!='\0';j++);
+	if(i!=j)
+	{
+		return -1;
+	}
+	for(i=0;i<=j;i++)
+	{
+		if(a1[i]!=a2[i])
+		{
+			return a1[i]-a2[i];
+		}
+	}
+	return 0;
+}
+int main()
+{
+	char s1[50],s2[60];
+	int ans;
+	printf("\n Enter first string: ");
+	gets(s1);
+
+	printf("\n Enter second string: ");
+	gets(s2);
+
+	ans=matching(s1,s2);
+
+	if(ans==0)
+		printf("\n Strings are matching");
+	else
+		printf("\n Strings are not matching");
+
+	return 0;
+}
+
+//----------------------------------------------------------------------------------------------------
+
+
+	// Write a program to implement x^y using function 
+
+int findpow(int a, int b)
+{				
+	int c=1;
+	while(b>0)
+	{
+		c=c*a;
+		b--;
+	}	
+	return c;
+}
+int main()
+{
+	int x,y,ans;
+	
+	printf("\n Enter the values of x and y: ");
+	scanf("%d %d",&x,&y);
+
+	ans=findpow(x,y);
+	printf("\n %d^%d is %d",x,y,ans);
+
+	return 0;
+}
+
+//--------------------------------------------------------------------------------------------------------
+
+	// Nested call to function
+
+int findmax(int a, int b)
+{
+	if(a>b)
+		return a;
+	else
+		return b;
+}
+int main()
+{
+	int x,y,z,mx;
+
+	printf("\n Enter any 3 nos: ");
+	scanf("%d %d %d",&x,&y,&z);
+
+	ans=findmax(x,y);
+	printf("\n Max from 2 nos: %d",ans);
+
+	ans=findmax( findmax(x,y) , z );
+	printf("\n Max from 3 nos: %d",ans);
+	
+	return 0;
+}
+
+//---------------------------------------------------------------------------------------------------------------
+
+	// returning the array from function
+
+	// enter the array and copy only even numbers using function
+
+#include <stdio.h>
+#include <stdlib.h>
+void output(int y[],int);
+void input(int t[]);
+int* copyevens(int x[]);
+int ec=0;
+int main()
+{
+	int x[5], *ar;
+	input(x);
+	ar=copyevens(x);
+
+	printf("\n Entered array: ");
+	output(x,5);
+	printf("\n array of even nos: ");
+	output(ar,ec);
+
+	return 0;
+}
+int* copyevens(int x[])
+{
+	static int y[5];
+	int i,j;
+	for(i=0,j=0;i<5;i++)
+	{
+		if(x[i]%2==0)
+		{
+			y[j]=x[i];
+			j++;
+			ec++;
+		}
+	}
+	return y;
+}
+void output(int y[],int cnt)
+{
+	int i;
+	for(i=0;i<cnt;i++)
+	{
+		printf("%6d",y[i]);
+	}
+}
+void input(int t[])
+{
+	int i;
+	printf("\n enter Array of 5 elements: ");
+	for(i=0;i<5;i++)
+	{
+		scanf("%d",&t[i]);
+	}
+}
+
+//---------------------------------------------------------------------------------------------------
+
+	// Passing the pointer to function
+
+	// WAP to convert the string into uppercase
+
+#include <stdio.h>
+#include <stdlib.h>
+void toucase(char *s)
+{
+	int i;
+	for(i=0;*(s+i)!='\0';i++)
+	{
+		if(*(s+i)>=97 && *(s+i)<=122)
+		{
+			*(s+i)=*(s+i)-32;
+		}
+	}
+}
+int main()
+{
+	int str[50];
+
+	printf("\n Enter the string: ");
+	gets(str);
+
+	printf("\n Entered string: %s",str);
+	toucase(str);
+	printf("\n uppercase string: %s",str);
+
+	return 0;
+}
+#include <stdio.h>
+#include <stdlib.h>
+void toucase(char *s)
+{
+	int i;
+	for(i=0;*(s+i)!='\0';i++)
+	{
+		if(*(s+i)>=97 && *(s+i)<=122)
+		{
+			*(s+i)=*(s+i)-32;
+		}
+	}
+}
+int main()
+{
+	int str[50];
+
+	printf("\n Enter the string: ");
+	gets(str);
+
+	printf("\n Entered string: %s",str);
+	toucase(str);
+	printf("\n uppercase string: %s",str);
+
+	return 0;
+}
+
+//--------------------------------------------------------------------------------------------------------------
+
+	// find prime count using function from N elements
+
+#include <stdio.h>
+#include <stdlib.h>
+void input(int *q, int cnt)
+{
+    int i;
+    printf("\n Enter the %d nos: ",cnt);
+	for(i=0;i<cnt;i++)
+	{
+		scanf("%d",(q+i));
+	}
+}
+
+
+int findprimecount(int *p, int ecnt)
+{
+    int i,flg,d,pc=0;
+    for(i=0;i<ecnt;i++)
+	{
+		flg=0;
+		d=2;
+		while(d<=(*(p+i)/2))
+		{
+			if(*(p+i)%d==0)
+			{
+				flg=1;
+				break;
+			}
+			d++;
+		}
+		if(flg==0)
+		{
+			pc++;
+		}
+	}
+	return pc;
+}
+int main()
+{
+	int i,pcnt=0,ecnt;
+	float avg;
+	int *p;
+
+	printf("\n Enter the element count: ");
+	scanf("%d",&ecnt);
+
+	p=(int*)malloc(ecnt*sizeof(int));
+
+	input(p,ecnt);
+
+	pcnt=findprimecount(p,ecnt);
+	printf("\n Prime Count: %d",pcnt);
+	return 0;
+}
+
+
+//--------------------------------------------------------------------------------------------------------
+
+	// Enter the N numbers and divide them in group of even and odd nos
+
+#include <stdio.h>
+#include <stdlib.h>
+int *ep, *op, ec=0, oc=0;
+void input(int *q, int cnt)
+{
+    	int i;
+    	printf("\n Enter the %d nos: ",cnt);
+	for(i=0;i<cnt;i++)
+	{
+		scanf("%d",(q+i));
+	}
+}
+
+void output(int *q, int cnt)
+{
+    	int i;
+	for(i=0;i<cnt;i++)
+	{
+		printf("%6d",*(q+i));
+	}
+}
+void divideingroups(int *p,int cnt)
+{
+	int i,j=0,k=0;
+
+	for(i=0;i<cnt;i++)
+	{
+		if(*(p+i)%2==0)
+			ec++;
+		else
+			oc++;
+	}
+
+	ep=(int*)malloc(ec*sizeof(int));
+	op=(int*)malloc(oc*sizeof(int));
+	for(i=0;i<cnt;i++)
+	{
+		if(*(p+i)%2==0)
+		{
+			*(ep+j)=*(p+i);
+			j++;
+		}
+		else
+		{
+			*(op+k)=*(p+i);
+			k++;
+		}
+
+	}
+}
+int main()
+{
+	int *p, cnt;
+
+	printf("\n Enter the n numbers: ");
+	scanf("%d",&cnt);
+
+	p=(int*)malloc(cnt*sizeof(int) );
+	input(p,cnt);
+
+	divideingroups(p,cnt);
+
+	printf("\n Entered elements: ");
+	output(p,cnt);
+
+	printf("\n Even elements: ");
+	output(ep,ec);
+
+	printf("\n odd elements: ");
+	output(op,oc);
+
+	return 0;
+}
+
+//-------------------------------------------------------------------------------------------------------------
+
+	// pointer to function
+
+
+void add(int a,int b)
+{
+	int ans;
+	ans=a+b;
+	printf("\n Addition is %d",ans);
+}
+void sub(int a,int b)
+{
+	int ans;
+	ans=a-b;
+	printf("\n subtraction is %d",ans);
+}
+void multi(int a,int b)
+{
+	int ans;
+	ans=a*b;
+	printf("\n multi is %d",ans);
+}
+
+int main()
+{
+	int x,y;
+
+	printf("\n Enter the values of x and y: ");
+	scanf("%d %d",&x,&y);
+
+	void (*funptr)(int,int);
+
+	funptr=&add;
+	funptr(x,y);
+
+	funptr=&sub;
+	funptr(x,y);
+
+	funptr=&multi;
+	funptr(x,y);
+
+	return 0;
+}
+
+
+
+//------------------------------------------------------------------------------------------------------------------
+//======================================================================================================================
+
+	// Buit-in or Library functions in 
+
+	These functiions are provided with compiler 
+		
+		.h   - contains decl.
+		.lib - pre compiled code
+
+In C programming, header files contain definitions of functions and macros that are shared between different source files. 
+Here is a list of commonly used standard header files in C:
+
+<stdio.h> - Standard Input/Output functions (e.g., printf(), scanf())
+<stdlib.h> - General utility functions (e.g., memory allocation, process control, conversions)
+<string.h> - String handling functions (e.g., strcpy(), strlen())
+<math.h> - Mathematical functions (e.g., sqrt(), pow())
+<time.h> - Date and time functions (e.g., time(), strftime())
+<ctype.h> - Character type functions (e.g., isdigit(), isalpha())
+<stdbool.h> - Boolean type and values (true, false)
+<limits.h> - Sizes of basic types (e.g., INT_MAX, CHAR_MIN)
+<float.h> - Limits of floating-point types (e.g., FLT_MAX)
+<assert.h> - Diagnostics (e.g., assert())
+<errno.h> - Error number macros (e.g., errno)
+<signal.h> - Signal handling (e.g., signal(), raise())
+<setjmp.h> - Non-local jumps (e.g., setjmp(), longjmp())
+<stdarg.h> - Variable arguments handling (e.g., va_start(), va_end())
+<stddef.h> - Common macros and types (e.g., size_t, NULL)
+<wchar.h> - Wide characters handling functions
+<wctype.h> - Wide character type functions
+<locale.h> - Localization (e.g., setlocale())
+<complex.h> - Complex arithmetic (available in C99)
+<tgmath.h> - Type-generic math functions (available in C99)
+These header files are part of the C standard library and provide commonly used functionalities across different C programs.
+
+
+Functions in stdio.h (Standard Input/Output Library):
+
+
+Input/Output Functions:
+printf() - Print formatted output to the standard output (console).
+scanf() - Read formatted input from the standard input (console).
+fprintf() - Print formatted output to a file.
+fscanf() - Read formatted input from a file.
+putchar() - Write a character to the standard output.
+getchar() - Read a character from the standard input.
+puts() - Write a string to the standard output.
+gets() - Read a string from the standard input (deprecated due to buffer overflow risks).
+fputs() - Write a string to a file.
+fgets() - Read a string from a file.
+
+
+
+The <stdlib.h> header file:
+
+Memory Allocation Functions:
+malloc() - Allocates a block of memory dynamically.
+calloc() - Allocates a block of memory for an array and initializes it to zero.
+realloc() - Resizes a previously allocated block of memory.
+free() - Frees dynamically allocated memory.
+
+Process Control Functions:
+exit() - Terminates the program.
+abort() - Aborts the program abnormally.
+atexit() - Registers a function to be called at program exit.
+system() - Executes a system command.
+Pseudo-random Number Generation Functions:
+rand() - Generates a random integer.
+srand() - Seeds the random number generator.
+
+String Conversion Functions:
+atoi() - Converts a string to an integer.
+atol() - Converts a string to a long integer.
+atof() - Converts a string to a floating-point number.
+strtol() - Converts a string to a long integer.
+strtoul() - Converts a string to an unsigned long integer.
+strtod() - Converts a string to a double.
+strtof() - Converts a string to a float.
+strtoll() - Converts a string to a long long integer (C99).
+strtoull() - Converts a string to an unsigned long long integer (C99).
+
+Mathematical Functions:
+abs() - Returns the absolute value of an integer.
+labs() - Returns the absolute value of a long integer.
+llabs() - Returns the absolute value of a long long integer (C99).
+div() - Performs integer division and returns quotient and remainder.
+ldiv() - Performs long integer division.
+lldiv() - Performs long long integer division (C99).
+
+Searching and Sorting Functions:
+qsort() - Sorts an array.
+bsearch() - Searches for an element in a sorted array.
+
+Environment Functions:
+getenv() - Retrieves the value of an environment variable.
+putenv() - Modifies or adds an environment variable (non-standard).
+setenv() - Sets an environment variable (non-standard but POSIX compliant).
+unsetenv() - Unsets an environment variable (non-standard but POSIX compliant).
+Multibyte and Wide Character Conversion Functions:
+mbtowc() - Converts a multibyte character to a wide character.
+wctomb() - Converts a wide character to a multibyte character.
+mbstowcs() - Converts a multibyte string to a wide-character string.
+wcstombs() - Converts a wide-character string to a multibyte string.
+
+
+
+#include <stdio.h>
+#include <stdlib.h>
+int main()
+{
+    int x=10, y=-45;
+
+    printf("\n x=%d \t abs of x=%d",x,abs(x));
+    printf("\n x=%d \t abs of x=%d",y,abs(y));
+
+    return 0;
+}
+
+
+ list of functions from <string.h> in C programming, with a brief description for each:
+
+strcpy() - Copies a string to another.
+strncpy() - Copies a specified number of characters from one string to another.
+strcat() - Concatenates two strings.
+strncat() - Concatenates a specified number of characters from one string to another.
+strlen() - Returns the length of a string.
+strcmp() - Compares two strings.
+strncmp() - Compares a specified number of characters from two strings.
+strchr() - Finds the first occurrence of a character in a string.
+strrchr() - Finds the last occurrence of a character in a string.
+strstr() - Finds the first occurrence of a substring in a string.
+strpbrk() - Finds the first occurrence of any character from a set in a string.
+strspn() - Returns the length of the initial segment of a string that consists of characters in a set.
+strcspn() - Returns the length of the initial segment of a string that consists of characters not in a set.
+strtok() - Splits a string into tokens.
+memset() - Fills a block of memory with a specified value.
+memcpy() - Copies a block of memory.
+memmove() - Moves a block of memory (safe for overlapping memory).
+memcmp() - Compares two blocks of memory.
+memchr() - Finds the first occurrence of a character in a block of memory.
+strerror() - Returns a pointer to the textual representation of the current error code.
+
+
+
+#include <stdio.h>
+#include <string.h>
+int main()
+{
+    char *s1="hello";
+    char *s2="hello";
+    char *s3="bye";
+
+    printf("\n %d",strcmp(s1,s2));
+    printf("\n %d",strcmp(s1,s3));
+
+    return 0;
+}
+
+
+list of functions from <math.h> in C programming, with a brief description for each:
+
+sin() - Computes the sine of an angle (in radians).
+cos() - Computes the cosine of an angle (in radians).
+tan() - Computes the tangent of an angle (in radians).
+asin() - Computes the arc sine (inverse of sine).
+acos() - Computes the arc cosine (inverse of cosine).
+atan() - Computes the arc tangent (inverse of tangent).
+atan2() - Computes the arc tangent of two variables (y/x).
+sinh() - Computes the hyperbolic sine of a number.
+cosh() - Computes the hyperbolic cosine of a number.
+tanh() - Computes the hyperbolic tangent of a number.
+exp() - Computes the exponential function e^N
+log10() - Computes the logarithm (base 10).
+pow() - Computes the power of a number (x raised to the power of y).
+sqrt() - Computes the square root of a number.
+ceil() - Rounds a number up to the nearest integer.
+floor() - Rounds a number down to the nearest integer.
+fabs() - Computes the absolute value of a floating-point number.
+fmod() - Computes the remainder of division of two floating-point numbers.
+
+
+
+#include <stdio.h>
+#include <math.h>
+int main()
+{
+
+    int x=2,y=3;
+    double val=3.4;
+
+    printf("\n %lf",pow(x,y));
+
+    printf("\n %lf",ceil(val));
+    printf("\n %lf",floor(val));
+    return 0;
+}
+
+
+
+
+
+
+
+
+
+
+

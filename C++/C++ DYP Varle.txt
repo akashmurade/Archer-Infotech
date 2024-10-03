@@ -1,0 +1,1965 @@
+
+	---------------- C++ Programming ----------------------
+
+	History: 
+
+		ALGOL60 ---> CPL ---> BCPL -----> B ---> C(1972) ----> C++(1983-85)
+	
+		- C++ is actually C with Class later on  it is renamed as C++, as a increamented version of C.
+		- It is developed at AT&T Bell Lab, USA by bjarne Stroustrup
+		- initially it developed to provide the security to data.
+		- After some years, the higher level languages like Java, Python, C# are used as a femous development
+		  languages but as IOT and machince interfacing grows the execution spped of language become most important 
+		  term, and therefore as C++ having greater speed as compare to aother HLL. now again C++ becoming a famous.
+		   i.e. in short due to Security and speed it is used in the industry.
+
+	Version History:
+	
+	Clasic C++: (C++ before C++98): Additional data types, different IO style, function overloading, class and object, 				
+		  constructor and destructors, inheritance, polymorphism, operator overloading, file IO, exception handling, 
+		templets, STL...
+
+	Moddern C++:	
+	- C++98(ISO/IEC): Standardized the core features of C++.
+	- C++03 : A minor revision aimed at fixing defects and clarifying ambiguities in the C++98 standard.
+	- C++11: auto keyword, Lambda expressions, range based loops, uniform init. syntax, smart pointer, additional terms in 	  		
+		 structure, Multithreading support, move samentics...etc
+	- C++14: constexpr additions, binary literals and generic lambdas, variable templet.
+	- C++17: inline variables, Structured binding, fold expression, standard library with optional and variant types., filesystem 	 		 
+		 library, parallel algorithm.
+	- C++20: concepts, ranges, corutines, modules, modern format labrary.
+	- C++23: released in December 2023 as a expermental stage
+	- C++26: C++ standards are on a fixed three-year release cycle.
+
+	Compilers and IDE: 
+
+		Compilers: GNU GCC, g++, CMake .. (Online/Offline)
+		IDE: It is integrated developement environment --> compiler + editor + lib + doc + addons
+
+	//------------------------------------------------------------------------------------------------------------------
+
+	The are some basic differences, lets see one by one
+
+	- In C, some header files are included by default (stdio.h, stdlib.h....)
+	  but in C++, No any header file included by default.
+
+	- There are predefined input and output streams. from wic
+		- cin is predefined input stream
+		- cout is predefined output stream
+
+			 CPU
+		________________________
+		|			|
+		|	 CU		|
+		|_______________________|
+  I/P		|			|		o/p
+   [  ]		|	ALU		|	|----> [ ]
+    |	 	|_______________________|	|
+    |	 	|			|	|
+    |---------->|	IM		|-------|
+In C - scanf()	|_______________________| In C - printf()
+In C++ - cin		^	|	  In C++ - cout
+		________|_______V________
+		|			|
+		|	EM		|
+		|_______________________|
+
+	// Welcome program in C++
+	#include<iostream>
+	int main()
+	{
+		std::cout<<"Welcome to  C++ Programming AND ARCHER INFOTECH";
+		return 0;
+	}
+	
+	// Comments in C++:
+
+		// ---> single line comment
+		/* ..... */	--> Miltiline comment
+
+
+	- Basic Program Structure
+
+		- pre-processor directives
+		- Namespace decl.
+		- class decl.
+		- functions and comments
+		- main() function
+
+
+	- C++ Tokens: these are smllest possible units in the program, which acts as building block for the instructions.
+		The C++ tokens are
+			- Constants and literals
+			- identifiers
+			- comments
+			- keywords
+			- punctuators
+			- preprocessor directives
+			- operators
+	
+
+	Data types in C++: Data type is tool, which is used at the time of memory allocation to know about the
+			   memory need. It is represented using the keyword, that keyword in used in the decl. instruction,
+			   in function to mention the argument type and return type, in pointer and arrays for defining the type,
+			   in the type casting, and in the structure to mention the member type 
+
+					C++ Data Types
+					     |
+		----------------------------------------------------------------------------
+		|					|				    |
+	Derived Data Types			Built-in Data types		 User-defined Data types
+	   |						|				      	    |			
+	- Array						|					- structure
+	- pointer			--------------------------------------			- union
+	- function			|		  |		    |			- enum
+	- reference		 Integral data types   void data type    Floating data types	- class
+	- auto				 |		     |			|
+	- decltype		------------------------    void(NA)		- float(4)
+			   	|	   |	      |				- double(8)
+			       bool(1)   int(4)	      char(1)			- long double (8/12/16)
+					 short(2)     wchar_t (2 or 4) 
+					 long(4/8)    char8_t (1)	
+					 long long(8) char16_t (2)
+						      char32_t (4)
+#include<iostream>
+int main()
+{
+	std::cout<<" ********** Personal Details **********";
+	std::cout<<"Name: Amit Ajit Pol";
+	std::cout<<"age: 23";
+	std::cout<<"contact number 9850678451";
+	std::cout<<"Email: info@archerinfotech.in";
+	std::cout<<"Address: F12, Divyadarshan soviety, behind kothrud bus stand, kothrud, Pune";
+	return 0;
+}
+
+	Like a normal printf() in C, the above program using cout<< gives the output in unformated manner.
+	to display the output in well formatted manner we need to use "Escape Sequence characters"
+
+	\n 	- newline
+	\t 	- Horz. Tab
+	\b 	- backspace
+	\r 	- carriage return
+	\\	- to print \
+	\'	- to print '
+	\"	- to print "
+	\0	- to represent NULL
+	\a   	- Alert or Bell
+	\f	- Form feed
+	\v	- Vertical Tab
+	\?	- to print ?
+	\nnn	- octal representation
+	\xhh	- hex representation
+
+
+#include <iostream>
+using namespace std;
+int main() {
+    cout << "Escape Sequence Characters Demo:\n";
+    cout << "1. Newline: Line 1\nLine 2\nLine 3\n";
+    cout << "2. Horizontal tab: Column 1\tColumn 2\tColumn 3\n";
+    cout << "3. Backspace: 123\b45\n";
+    cout << "4. Carriage return: 1234\rAB\n";
+    cout << "5. Backslash: C:\\path\\to\\file\n";
+    cout << "6. Single quote: It\'s raining.\n";
+    cout << "7. Double quote: She said, \"Hello.\"\n";
+    cout << "8. Null character: Hello\0World\n";
+    cout << "9. Alert (bell): Beep!\a\n";
+    cout << "10. Form feed: Page 1\fPage 2\n";
+    cout << "11. Vertical tab: Line 1\vLine 2\n";
+    cout << "12. Question mark: What\? Why\?\n";
+    cout << "13. Octal representation: \110\145\154\154\157\n";
+    cout << "14. Hexadecimal representation: \x48\x65\x6C\x6C\x6F\n";
+
+    return 0;
+}
+
+
+Manipulators in C++: In C++, manipulators are special functions or objects provided by the Standard Library that 
+are used to modify the behaviour of input and output streams. They are typically used in conjunction with the 
+insertion (<<) and extraction (>>) operators to format input and output data. 
+Manipulators can perform various tasks such as setting field width, formatting numbers, controlling precision, and more. 
+
+	std::setw(<size>) : set the width of next output fields.
+	std::setprecision(int n): decides the number if digits after decimal point while displaying the fractional number
+	std::fixed: 
+	std::scientific:
+	std::left: 
+	std::right:
+	std::boolalpha: 
+	std::hex:
+	std::oct:
+	std::dec: 
+	
+
+#include <iostream>
+#include <iomanip> // for manipulators
+using namespace std;
+int main() {
+    // setw(int n)
+    cout << setw(20) << "Name" << setw(10) << "Age" << setw(15) << "Salary" << endl;
+    cout << setw(20) << "John Doe" << setw(10) << 30 << setw(15) << 50000.0 << endl;
+    // setprecision(int n) and fixed
+    double pi = 3.14159265359;
+    cout << setprecision(3) << fixed << "Pi: " << pi << endl;
+    // scientific
+    double num = 123456.789;
+    cout << scientific << "Number: " << num << endl;
+    // left and right
+    cout << setw(10) << left << "Left" << setw(10) << right << "Right" << endl;
+    // boolalpha
+    bool flag = true;
+    cout << boolalpha << "Flag: " << flag << endl;
+    // hex, oct, and dec
+    int value = 255;
+    cout << "Hex: " << hex << value << endl;
+    cout << "Oct: " << oct << value << endl;
+    cout << "Dec: " << dec << value << endl;
+    return 0;
+}
+
+
+//--------------------------------------------------------------------------------------------------------
+
+	Constants and Literals: 
+		
+		- literals: These are the fixed values, which are assigned to variable.
+		
+			45 - integer literal		'a' - character literal
+
+		- constant: These are the named values defined using identifier, which remains unchanged throurhout
+			     the program execution. It not possible to change its value. if sameone attempt to change
+			      it, compiler will generate an error message.
+
+			There are following ways of defining the constants:
+
+			- Using const Keyword: (C++98)
+			- Using enum: (C++98)
+			- Using #define Preprocessor Directive: (C++98)
+			- Using constexpr Keyword: (C++11)
+			- Using using Alias: (C++14)
+
+	
+- Using const Keyword: (C++98): 
+
+	int x=100;		const int y=200;
+
+#include <iostream>
+int main() {
+    // Declaring integer constants
+    const int MAX_VALUE = 100;
+    const int MIN_VALUE = 0;
+
+    // Declaring floating-point constants
+    const double PI = 3.14159;
+    const float GRAVITY = 9.81f;
+
+    // Declaring character constants
+    const char NEWLINE = '\n';
+    const char TAB = '\t';
+
+    // Using constants in expressions
+    int range = MAX_VALUE - MIN_VALUE;
+    double circumference = 2 * PI * 5.0;
+
+    // Outputting constants
+    std::cout << "Range: " << range << NEWLINE;
+    std::cout << "Circumference: " << circumference << NEWLINE;
+
+   /// MIN_VALUE=10; /// error: assignment of read-only variable 'MIN_VALUE'|
+    return 0;
+}
+
+
+//-----------------------------------------------------------------------------------------------------
+
+- Using const expr Keyword: (C++11):
+
+#include<iostream>
+int main() {
+    constexpr int MAX_VALUE = 100;
+    int num = 5;
+    // Print the values
+    std::cout << "Max value: " << MAX_VALUE << std::endl;
+    std::cout << " num: " << num << std::endl;
+
+    /// MAX_VALUE=300; ///error: assignment of read-only variable 'MAX_VALUE'
+    num=200;
+    std::cout << "Max value: " << MAX_VALUE << std::endl;
+    std::cout << " num: " << num << std::endl;
+
+    return 0;
+}
+
+
+	// In above both cases, using const and constexpr, we declared constants, and when we tried to modify it, 
+	// it will genberate an error message.
+
+//----------------------------------------------------------------------------------------------------------------------------
+
+
+- Using enum: (C++98)
+
+	enum [<name>]{const1, const2,...,constN};
+
+	e.g.	enum color {red, green, blue, black};		or 	enum {red, green, blue, black}; 
+
+
+
+	enum color {RED, GREEN, BLUE, BLACK};	or 	enum {RED, GREEN, BLUE, BLACK};
+ 
+	RED	Equivalent to 0
+	GREEN   Equivalent to 1 
+	BLUE    Equivalent to 2
+	BLACK   Equivalent to 3
+
+ 
+Unscoped Enum:
+// Declaration
+enum Color { RED, GREEN, BLUE};
+// Usage
+Color c = RED;
+
+Scoped Enum:
+// Declaration
+enum class Fruit {
+    APPLE,
+    BANANA,
+    ORANGE
+};
+// Usage
+Fruit f = Fruit::APPLE;
+
+	// using unscoped 
+
+#include<iostream>
+using namespace std;
+int main()
+{
+    enum Color { RED=7, GREEN=20, BLUE};
+    enum Ink {BLACK, PINK, YELLOW, RED}; //error: 'RED' conflicts with a previous declaration|
+
+    cout<<endl<<" Colors:"<<RED<<"\t"<<GREEN<<"\t"<<BLUE;
+    cout<<endl<<" Colors:"<<Color::RED<<"\t"<<Color::GREEN<<"\t"<<Color::BLUE;
+
+    cout<<endl<<" INK:"<<BLACK<<"\t"<<PINK<<"\t"<<BLUE; // Take the value from 1st enum
+
+    return 0;
+}
+
+	// using scoped
+#include<iostream>
+using namespace std;
+int main()
+{
+    enum class Color {RED=7, GREEN=20, BLUE};
+    enum class Ink {BLACK, PINK, YELLOW, RED};
+
+   // cout<<endl<<" Colors:"<<RED<<"\t"<<GREEN<<"\t"<<BLUE; //error: 'RED' was not declared in this scope|
+    cout<<endl<<" Colors:"<<(int)Color::RED<<"\t"<<(int)Color::GREEN<<"\t"<<(int)Color::BLUE;
+
+    cout<<endl<<" INK:"<<(int)Ink::BLACK<<"\t"<<(int)Ink::PINK<<"\t"<<(int)Ink::RED;
+
+    return 0;
+}
+// pnter
+///-------------------------------------------------------------------------------------------
+
+- Using #define Preprocessor Directive (C++98):  
+
+	For example: 	#define PI 3.14159	and 	#define MAX_SIZE 100
+
+#include<iostream>
+#define PI_VALUE  3.14159
+int main() {
+    // Usage of the constant
+    double radius = 5.0;
+    double area = PI_VALUE * radius * radius;
+    std::cout << "Area: "<< area;
+    return 0;
+}
+
+//------------------------------------------------------------------------------------------
+
+- Using using Alias: (C++14)
+
+
+#include<iostream>
+using PI = double;
+constexpr PI PI_VALUE = 3.14159;
+
+int main() {
+    // Usage of the constant
+    double radius = 5.0;
+    double area = PI_VALUE * radius * radius;
+    std::cout << "Area: "<< area;
+    return 0;
+}
+
+//--------------------------------------------------------------------------------------------
+
+Input and Output in C++ using cin, cout: 
+
+
+		 				  CPU  
+					_________________________
+					|			|
+				|----->	|	  CU		|---> sends the command signal to every connected peripherial
+				|	|_______________________|
+		   Input	|	|			|	 	 Output
+console input	    [ ]		|   |-->|	  ALU		|---|     |--->   [ ]
+streal		     |		|   |	|_______________________|   |	  | console output stream
+   c- scanf()	     |		|   |---|			|<--|	  | c - printf()
+  c++ - cin	     |		|-------|	  IM		|	  | c++ - cout
+		     |---------------->	|_______________________|---------|
+				   	       ^          |	
+			    file input stream  |	  | file output stream	
+     C - file *fp=fopen("..","r")	 ______|__________V______  c - file *fp=fopen("..","w")
+					|			|
+					|	  EM		|
+					|_______________________|
+
+
+cin (Standard Input): cin is a predefined object of the istream class, which represents the standard input stream. It is used to read data from the standard input device, typically the keyboard, and store it into variables. >> operator is actually bitwise right shift operator, which is overloaded here along with cin, to extract the data from stream and therefore it is known as get-in or extraction operator.
+
+		Syntax: 	cin>> <variable_name>;
+
+	Note that, cin>> does not need an address of variable using & operator, it needs only variable name. 
+	address collected automatically.
+
+
+cout (Standard Output): cout is a predefined object of the ostream class, which represents the standard output stream. It is used to output data to the standard output device, typically the console/screen. << operator is actually bitwise left-shift operator, which when used along with cout, it will inserts / prints the data on screen and therefore it is called as insertion operator or put-to operator.
+	
+	Syntax:  	cout<< “<format_string>”<< <variable_name><<endl;
+
+	Note that it does not need amy format specifier.
+
+//----------------------------------------------------------------------------------------
+#include<iostream>
+#include <iostream>
+int main() {
+    int intValue;
+    short shortValue;
+    long longValue;
+    long long longLongValue;
+
+    // Input different types of integers
+    std::cout << "Enter an integer (int): ";
+    std::cin >> intValue;
+
+    std::cout << "Enter an integer (short): ";
+    std::cin >> shortValue;
+
+    std::cout << "Enter an integer (long): ";
+    std::cin >> longValue;
+
+    std::cout << "Enter an integer (long long): ";
+    std::cin >> longLongValue;
+
+    // Display the input integers
+    std::cout << "Integer (int)"<<sizeof(int)<<": " << intValue << std::endl;
+    std::cout << "Integer (short)"<<sizeof(short)<<": " << shortValue << std::endl;
+    std::cout << "Integer (long)"<<sizeof(long)<<": " << longValue << std::endl;
+    std::cout << "Integer (long long)"<<sizeof(long long)<<": " << longLongValue << std::endl;
+
+    return 0;
+}
+
+
+    /// Dynamic decl and dynamic init.
+    
+- Dynamic decl: C++ allows you to decl. variable anywhere in the program,
+                just decl. before using it. known as dynamic declaration.
+                    
+- Dynamic initilization: The them initialization refers to assigining
+        the value to variable at the time of memory allocation. if the
+        value to which valiable in initialized is decided at runtime.
+        such initilization is known as Dynamic initilization.
+       
+
+/// WAP to calc the simple interest.
+#include<iostream>
+using namespace std;
+int main()    
+{
+    int pa; 
+    cout<<endl<<"Enter the pr. amount: ";
+    cin>>pa;
+    
+    double roi;// dynamic decl
+    cout<<endl<<"Enter the rate of intr: ";
+    cin>>roi;
+    
+    int noy; // dynamic decl
+    cout<<endl<<"Enter the dur: ";
+    cin>>noy;
+    
+    double si=(pa*roi*noy)/100; // dynamic init
+    cout<<endl<<"simple interest: "<<si;
+    
+    return 0;
+}
+
+//--------------------------------------------------------------------------------------------------------
+
+	/// Fractional data input and display
+
+#include <iostream>
+
+int main() {
+    float floatValue;
+    double doubleValue;
+    long double longDoubleValue;
+
+    // Input different types of fractional values
+    std::cout << "Enter a fractional value (float): ";
+    std::cin >> floatValue;
+
+    std::cout << "Enter a fractional value (double): ";
+    std::cin >> doubleValue;
+
+    std::cout << "Enter a fractional value (long double): ";
+    std::cin >> longDoubleValue;
+
+    // Display the input fractional values
+    std::cout << "Fractional value (float): " << floatValue << std::endl;
+    std::cout << "Fractional value (double): " << doubleValue << std::endl;
+    std::cout << "Fractional value (long double): " << longDoubleValue << std::endl;
+
+    return 0;
+}
+
+//----------------------------------------------------------------------------------------------------
+
+	// Dealing with Boolean data
+
+The Boolean data type (bool keyword) used to hold the result of condition, it is value 1 when the condition is Ture and 0 when the condition is false. C++20 introduces boolean literals true and false, which can be used to represent true and false values respectively.
+
+
+#include<iostream>
+using namespace std;
+int main()
+{
+    bool b1=true;
+    bool b2=false;
+    cout<<endl<<"b1 is: "<<b1;
+    cout<<endl<<"b2 is: "<<b2<<endl;
+
+    int x=34, y=56;
+    b1=x>y;
+    b2=x!=y;
+    cout<<endl<<"b1 is: "<<b1;
+    cout<<endl<<"b2 is: "<<b2<<endl;
+
+    cout<<std::boolalpha;
+    cout<<endl<<"b1 is: "<<b1;
+    cout<<endl<<"b2 is: "<<b2;
+
+    return 0;
+}
+
+
+//--------------------------------------------------------------------------------------------------------
+
+	// Using character data types
+
+#include <iostream>
+
+int main() {
+    char ch;
+    std::cout << "Enter a character: ";
+    std::cin >> ch;
+    std::cout << "Character entered: " << ch << std::endl;
+    return 0;
+}
+
+#include <iostream>
+int main() {
+    wchar_t wch;
+    std::wcout << L"Enter a wide character: ";
+    std::wcin >> wch;
+    std::wcout << L"Wide character entered: " << wch << std::endl;
+    return 0;
+}
+
+
+	// character input - output
+
+#include <iostream>
+int main() {
+    char str[40];
+
+    std::cout<<std::endl<<"Enter any string: ";
+    std::cin>>str;
+    std::cout<<std::endl<<" str is: "<<str;
+
+    const int MAX_SIZE = 100;
+    char charArray[MAX_SIZE];
+    std::cout << std::endl<< "Enter a string with spaces: ";
+    //fflush(stdin);
+    std::cin.ignore();
+    std::cin.getline(charArray, MAX_SIZE);
+    std::cout << "Entered string: " << charArray << std::endl;
+
+    return 0;
+}
+
+//------------------------------------------------------------------------------------------------------------------
+
+	/// Using void data type: 
+
+	- we know that, the void data type is used to mention the function returning nothing in response to call.
+	  Also when function does no collect any argument, the we use the void 
+
+		i.e.	void show(void){....}
+
+	- The another use of void is to declare the "Generic Pointer".
+	  The generic pointer is a pointer which is convertable to any type.
+
+#include<iostream>
+using namespace std;
+int main()
+{
+    char ch='A';
+    float ft=3.4;
+    int x=3245;
+
+    void *gp; /// generic pointer
+
+    gp=&ch;
+    cout<<endl<<" ch using gp:"<<*(char*)gp; // classic way of casting
+    cout<<endl<<" ch using gp:"<<*static_cast<char*>(gp)<<endl;// modern way of casting
+
+    gp=&ft;
+    cout<<endl<<" ft using gp:"<<*(float*)gp; // classic way of casting
+    cout<<endl<<" ft using gp:"<<*static_cast<float*>(gp)<<endl;// modern way of casting
+
+    gp=&x;
+    cout<<endl<<" x using gp:"<<*(int*)gp; // classic way of casting
+    cout<<endl<<" xusing gp:"<<*static_cast<int*>(gp)<<endl;// modern way of casting
+
+    return 0;
+}
+//--------------------------------------------------------------------
+
+// Operators in C++: special symbols with well defined meaning, which
+		     will be used to process the data, when they are 
+		     operated on opearnds.
+
+	- All C operators are valid in C++, and these are
+
+		- Assignment Operators [=]:   							
+		- Unary Operators [ - ++ -- (type) sizeof ]:
+		- Arithmatic Operators [ + - * / % ]:
+		- Relational Operators [ < <= > >= ]:
+		- Equality Operators [==, != ]
+		- Logical Operators [ && || !]:
+		- Conditional Operators [ ? : ]:
+		- Bitwise Operators [ & | ^ >> << ]:
+		- Special Operators [ , ; . -> &(ampersand) * ]:
+
+	- Additionally C++ provides the following operators.
+            
+                - :: (scope resolution operator)
+                - ::* (pointer to member Declarator)
+                - ->* and .* (pointer to member operators)
+                - delete (Memory release operator)
+                - new (memory allocation operator)
+                - endl (Line feed operator)
+                - setw (field width operator)
+    	
+ - :: (scope resolution operator): 
+   The scope resolution operator is used to access the global member always
+   from any scope, It will access the global member even from the nested scope.
+
+#include<iostream>
+using namespace std;
+int x=1000; // Global member
+int main()
+{
+	int x=100; // local to main()
+	cout<<"\n In main(upper) x: "<<x<<"\t global x: "<<::x;
+	{
+		int a=x; // local to inner scope
+		cout<<"\n Inner scope(upper) x: "<<x<<"\t a="<<a<<"\t global x: "<<::x;
+		int x=10;// local to inner scope
+		a=x;
+		cout<<"\n Inner scope(lower) x: "<<x<<"\t a="<<a<<"\t global x: "<<::x;
+	}
+	cout<<"\n In main(lower) x: "<<x<<"\t global x: "<<::x;
+	return 0;
+}
+
+//------------------------------------------------------------------------------------
+
+
+ // - new (memory allocation operator) and delete (Memory release operator): 
+
+	new - Here is new is keyword, and acts as a memory allocation operator.
+	      unlike C, it does require an explicit casting and also no need of
+	      byte calculation, it will be done automatically.
+
+		It is alternative to malloc(),calloc() and realloc()
+
+		lets see  how malloc() is used in C
+
+		int *p;
+		p=(int*)malloc(cnt*sizeof(int));
+
+		// In C++
+		syntax:
+			<ptr_variable> = new <data_type>[<cnt>];
+
+		int *p;
+		p=new int[cnt];
+
+
+	delete - Here delete is keyword, and acts as a Memory release operator.
+		 it will free/deletes/ releases the memory allocated for pointer variable
+		 using new.
+
+			in C:
+				int *p;
+				p=....
+				free(p);
+
+			In C++			
+
+			syntax:	delete <ptr_var>;
+
+				int *p;
+				p=....
+				delete p;
+
+
+#include<iostream>
+#include<iomanip>
+using namespace std;
+int main()
+{
+	int *p;
+
+	cout<<endl<<"Enter the element count: ";
+	int cnt;
+	cin>>cnt;
+
+	p=new int[cnt];
+
+	cout<<endl<<"Enter the "<<cnt<<" nos: ";
+	for(int i=0;i<cnt;i++)
+	{
+		cin>>*(p+i);
+	}
+
+	cout<<endl<<"Elements are: ";
+	for(int i=0;i<cnt;i++)
+	{
+		///cout<<"  "<<*(p+i);
+		///cout<<"\t"<<*(p+i);
+		cout<<setw(6)<<*(p+i);
+	}
+	delete(p);
+	cout<<endl<<"Elements are: ";
+	for(int i=0;i<cnt;i++)
+	{
+		///cout<<"  "<<*(p+i);
+		///cout<<"\t"<<*(p+i);
+		cout<<setw(6)<<*(p+i);
+	}
+	return 0;
+}
+
+//----------------------------------------------------------------------------
+
+	- Different control statements in C++:
+
+		C provides different control statments and all are as it is in C++
+
+							Control statments
+							      |
+						------------------------------
+						|			      |
+					Conditional CS			UnConditional CS
+						|				|
+				-------------------------------		----------------------------------
+				|		|	     |		|	   |		|	  |
+			   Decision	     Loop	   Case	       goto      break      continue     return 
+			    |		      |		    |	
+			- if()		    - for()	  switch()
+			- if() else	    - while()
+			- Nesting	    - do while()
+			- Ladder
+ 
+
+	conditional control statments: needs the condition for working.
+
+	unconditional control statments: Does not need any condition to work
+
+//-----------------------------------------------------------------------------------------------------------------------
+
+	// Derived Type in C++
+
+	The derived types are as listed below..!!
+	
+	- Array: 
+	- pointer:
+	- function:
+	- reference:
+	- auto
+	- decltype
+
+
+ - Array: collection of elements having same data type, which conti. arranged
+	  int the menory.
+
+	- Numeric array: ( same as we have seen in the C)
+	- character array: only onr difference and it is
+
+		 Note that character array in C does not consider '\0' as 
+		 a part of string, where as in C++ '\0' is considered as a 
+		 part of string.
+
+			C   - char s[5]="hello";
+			C++ - char s[6]="hello";
+
+
+ - Pointer: It is used in the dynamic memory allocation to store an address
+	    of variable. We may divide the pointer in two different parts.
+
+	- Raw pointer: (Pointer we have seen in the C)
+		The basic difference is in steade of malloc() and free(),
+		new and delete used for memory allocation release			
+	- Smart pointer: Introduced in C++11, so we will see it in same chapter
+	
+
+	 Additionally c++ introduced 
+            
+                - pointer to constant: pointer able to point to any location of 
+                                       correct type, but when it is refering, it 
+                                       will not allow to change the data from the 
+                                       location where it is pointing.
+                                       
+                - Constant pointer:  It is pointing towards same location. means the        
+                                     value of pointer variable(address) can not be changed once
+                                     it is initilizsd. you can change the value from 
+                                     the location, where it is pointing.
+
+
+#include<iostream.h>
+//using namespace std; (run using onlinegdb TurboC++ Compiler)
+int main()
+{
+    //-------------------- pointer to constant ------------------
+    char const *ptr="hello";
+    cout<<endl<<"string is: "<<ptr;
+
+    ptr="Good Day";
+    cout<<endl<<"string is: "<<ptr;
+
+    // *(ptr+2)='a'; // will generate the error coz it is refered by pointer to constant
+
+    //-------------------- constant pointer  ------------------
+    char *const ptr1="how are you";
+    cout<<endl<<"string is: "<<ptr1;
+    *(ptr1+2)='a';
+    cout<<endl<<"now string is: "<<ptr1;
+
+   // ptr1="Bye Bye";   // error due to, you are trying to assign new address to constant pointer
+    cout<<endl<<"string is: "<<ptr1;
+   //-------------------------------------------------------    
+    const char* const ptr2="good day";
+    cout<<"\n ptr2 is: "<<ptr2;
+    
+    // ptr2="see you"; // error: con not modify the const object
+    // *(ptr2+2)='a'; // error: con not modify the const object
+
+    return 0;
+}
+//---------------------------------------------------------------------------------------------
+	- Function: (Next chapter)
+//---------------------------------------------------------------------------------------------
+
+	- Reference: 
+
+		int x=10;	int& y=x; // Here y is alternative name of x, called alise
+		int z=x;
+
+			x     y	       z
+			 [ 10 ]		[ 10 ]
+			
+#include<iostream>
+using namespace std;
+int main()
+{
+    int x=10;
+    int &y=x;
+    cout<<endl<<"x="<<x<<"\t y="<<y;
+
+    x=100;
+    cout<<endl<<"x="<<x<<"\t y="<<y;
+
+    y=150;
+    cout<<endl<<"x="<<x<<"\t y="<<y;
+
+    return 0;
+}
+
+//------------------------------------------------------------------------
+
+
+	// let's consider the following program.
+
+/// class by value
+ 
+#include<iostream>
+using namespace std;
+void swap(int a, int b)
+{
+	int tmp;
+	tmp=a;
+	a=b;
+	b=tmp;
+}
+int main()
+{
+	int x=10,y=12;
+
+	cout<<endl<<"Before swap: x="<<x<<"\t y="<<y;
+	swap(x,y);
+	cout<<endl<<"After swap: x="<<x<<"\t y="<<y;
+
+	return 0;
+}
+
+ /// call by reference - using pointer
+
+#include<iostream>
+using namespace std;
+void swap(int *a, int *b)
+{
+	int tmp;
+	tmp=*a;
+	*a=*b;
+	*b=tmp;
+}
+int main()
+{
+	int x=10,y=12;
+
+	cout<<endl<<"Before swap: x="<<x<<"\t y="<<y;
+	swap(&x,&y);
+	cout<<endl<<"After swap: x="<<x<<"\t y="<<y;
+
+	return 0;
+}
+//-------------------------------------------------------------------------------------
+
+/// call by reference - using reference variable
+#include<iostream>
+using namespace std;
+void swap(int& a, int& b)
+{
+	int tmp;
+	tmp=a;
+	a=b;
+	b=tmp;
+}
+int main()
+{
+	int x=10,y=12;
+
+	cout<<endl<<"Before swap: x="<<x<<"\t y="<<y;
+	swap(x,y);
+	cout<<endl<<"After swap: x="<<x<<"\t y="<<y;
+
+	return 0;
+}
+
+
+//---------------------------------------------------------------------------------------------------------
+//----------------------------------------- Function in C++: ----------------------------------------------
+//----------------------------------------------------------------------------------------------------------
+
+ 
+
+	Note: the function we have seen in C, is as it is in C++. Additionally the C++ function having
+	      following features.
+
+	
+	Def: Group/Collection of instructions designed to perform the specific task.
+	There are 3 different steps 
+	
+	- decleration
+	- calling
+	- definitation
+
+	consider the simple add() function,
+
+	dec: 
+		int add(int, int);
+
+	def:
+		int add(int x, int y)
+		{
+			int t=x+y;
+			return t;
+		}
+
+	call:
+		int ans=add(a,b);
+
+
+Lets see,
+
+int add(int,int);
+int main()
+{
+	int a,b,sum;
+
+	cout<<endl<<"Enter two numbers: ";
+	cin>>a>>b;
+
+	sum=add(a,b);
+	
+	cout<<endl<<"Addition is: "<<sum;
+	return 0;
+}
+int add(int x, int y)
+{
+	int t=x+y;
+	return t;
+}
+
+
+ //-------------------------------------------------------------------------------------------------
+
+	// Inline Function: 
+
+	It is simple function, decl. as inline using inline keyword. when any function decl. as inline
+	the function call is replaced with body of function. means the it will avoid the push, pop and 
+	register copy operations.
+
+	Note that it is request to compiler, if that function is complex then it will execute as a normal
+	function eventhough it is decl. as inline.
+
+	There are some rules for inline
+	- It must be expanded within one or two lines.
+	- It must not contain, any control statement or switch.
+	- static function can not be decl as inline.
+	- vitual function can not be decl. as inline.
+	- It can not be recursive.
+
+
+inline int squre(int t)
+{
+	return (t*t);
+}
+
+int main()
+{
+	int no,ans;
+	cout<<endl<<"Enter any number: ";
+	cin>>no;
+	ans=squre(no); 
+	cout<<endl<<"Squre of "<<no<<" is "<<ans;
+	return 0;
+}
+
+//---------------------------------------------------------------------------------------------
+//---------------------------------------------------------------------------------------------
+
+	// Function with reference arguments and reference return.
+
+	we have seen, call by reference using reference variable.
+
+	void swap(int &a, int &b)
+	{
+		...
+	}
+
+	and called from main() as swap(x,y)
+
+	In this case, x and y are variables from scope of main() function. The a and b are the 
+	alternative names assinged to them, to access them from swap() function.
+
+	in a same style you can assign an alternative name to the variable from function, to access
+	in a main() function.
+
+	lets see the following example...!!
+
+int& findmax(int& x, int& y)
+{
+	if(x>y)
+		return x;
+	else 
+		return y;
+}
+	
+int main()
+{
+	int a,b;
+
+	cout<<endl<<"Enter two numbers: ";
+	cin>>a>>b;
+
+	int& t=findmax(a,b);
+	
+	cout<<endl<<"max is: "<<t; // Actualy it will assigns name to max value location
+	return 0;
+}
+
+//-------------------------------------------------------------------------------------------------
+
+	// Function with default arguments:
+
+	C++ allows you to assign the default values to the formal arguments, which are used when 
+	function call does not provides the values via call.
+	
+	But note that the values must be assiged from right to left to formal arguments.
+
+
+#include<iostream>
+using namespace std;
+float findintr( int pa, float roi=12.1, int noy=5)
+{
+    float ans=(pa*roi*noy)/100;
+    return ans;
+}
+int main()
+{
+    int p,n;
+    float r,si;
+
+    cout<<endl<<"Enter the values of p,r and n: ";
+    cin>>p>>r>>n;
+
+    si=findintr(p,r,n);
+    cout<<endl<<"SI1:"<<si;
+
+    si=findintr(p,r);
+    cout<<endl<<"SI2:"<<si;
+
+    si=findintr(p);
+    cout<<endl<<"SI3:"<<si;
+
+    return 0;
+}
+
+//--------------------------------------------------------------------------------------------------
+	
+	// Function with const argument
+
+	we can use const as a qualifier to the formal arguments, so when it is decl. as a constant we can
+	access it, but it is not allowed to change it. generally it is used to when the members are passed 
+	by reference.
+#include<iostream>
+using namespace std;
+int countpalindromes(const int y[])  // try run without const and use y[i] in while rather than no
+{
+    int no,rev,cnt=0;
+    for(int i=0;i<5;i++)
+    {
+        no=y[i];
+        rev=0;
+        while(no!=0)
+        {
+            rev=(rev*10)+(no%10);
+            no=no/10;
+        }
+        if(y[i]==rev)
+        {
+            cnt++;
+        }
+    }
+    return cnt;
+}
+int countodds(int y[])
+{
+    int cnt=0;
+    for(int i=0;i<5;i++)
+    {
+        if(y[i]%2!=0)
+        {
+            cnt++;
+        }
+    }
+    return cnt;
+}
+int main()
+{
+    int x[]={11,22,3763,44,55};
+
+    cout<<endl<<"Array is: ";
+    for(int i=0;i<5;i++)
+    {
+        cout<<"   "<<x[i];
+    }
+    int pnc=countpalindromes(x);
+    cout<<endl<<"Palindrome number Count: "<<pnc;
+
+    int ec=countodds(x);
+    cout<<endl<<"Even Count: "<<ec;
+
+    return 0;
+}
+
+//---------------------------------------------------------------------------------------------------------------
+
+	// Function Overloading: 
+
+	C does not allows you to wrire a function with same name in a single program. but in C++ it is allowed.
+	But condition is that all these functions having same name must differ in terms of type of arguments
+	passed, sequence in which they collected and number of arguments. 
+
+	If program contains multiple functions having same name and they differ in terms of type, sequence
+	and count then it is known as function overloading. Note that returning type does not play any role in it.
+
+	Again note one more thing by defining or after assigning the default argument, if compiler finds multiple
+	copies with same signature/prototype it will generate an error message called ambigious error.
+	
+#include<iostream>
+using namespace std;
+/*
+int calcsum(int p, int q)
+{
+	return p+q;
+}*/
+int calcsum(int a, int b)
+{
+	return a+b;
+}
+int calcsum(int a, int b,int c)
+{
+	return a+b+c;
+}
+int calcsum(int a, int b,int c,int d)
+{
+	return a+b+c+d;
+}
+int main()
+{
+	int a,b,c,ans;
+
+	cout<<endl<<"Enter any three int values: ";
+	cin>>a>>b>>c;
+
+	ans=calcsum(a,b);
+	cout<<endl<<"ans: "<<ans;
+
+	ans=calcsum(a,b,c);
+	cout<<endl<<"ans: "<<ans;
+
+	ans=calcsum(a,b,c,100);
+	cout<<endl<<"ans: "<<ans;
+
+}
+
+
+	Note that if exact match not found then, the lower types are promoted to higher types and then the
+	exact match will be searched. In such case the type promotion happen as shown
+
+	char --> int --> long --> float --> double --> long double
+
+	lets consider the same example where the add(int,int) is not present then to add two int values
+	add(float,int) will be used after promoting the first int to float
+
+#include <iostream>
+using namespace std;
+void add(int a, int b, int c)
+{
+	cout<<endl<<"Addition 1 is: "<<(a+b+c);
+}
+void add(float a, float b)
+{
+	cout<<endl<<"Addition 2 is: "<<(a+b);
+}
+
+int main()
+{
+	int x,y;
+	cout<<endl<<"Enter two int values: ";
+	cin>>x>>y;
+	add(x,y); // x and y is promoted to float
+
+	int z;
+	cout<<endl<<"Enter a single int value: ";
+	cin>>z;
+	add(x,y,z);
+		
+	float p,q;
+	cout<<endl<<"Enter two float values: ";
+	cin>>p>>q;
+	add(p,q);
+	
+	return 0;
+}
+
+//--------------------------------------------------------------------------------------------------
+
+Again we have to see different functions listed below, after knowing the class and object concept.
+
+- static functions:
+- friend function:
+- virtual functions:
+
+
+                
+//===========================================================================================================================
+//===========================================================================================================================
+
+	class and Object
+	=================
+
+	we have seen different data types in C and C++, and we know that the basic aim of any
+	data type is to allocate the memory.
+
+	we used built-in data types(char,int,float and double), derived data types(array, 
+	pointer), and userdefined data types(structure, union and enum) to allocate the memory.
+
+	These data types used in the decl. instruction to allocate the memory, which will 
+	creates the data structure, which is used to represent the data. The data represented
+	using above data structures can be accessed using any function defined within the same
+	program. Means the data is public in nature, and as the data is public, it is less
+	secure.
+
+	To attend the data security C++ introduced a concept of class. It is user defined data
+	type, which will create a data structure and when that data structure is used to
+	represent data within memory, it will not allow to access the data members using dot
+	operator directly like a structure, means bydefault the data represented using class
+	is private in nature, and this limited accessibility provides the security to data.
+
+	lets see with the help of example,
+
+	// we have store the information of bank account
+
+	// lets use the structure
+
+
+
+
+
+
+
+struct BankAccount			//	b
+{					//	[         |     |        ]
+	char nm[40];			//         b.nm    b.accno  b.pass
+	int accno;
+	char pass[20];
+};
+
+int main()
+{
+	struct BankAccount b;
+
+	cout<<endl<<"enter the account holder name: ";
+	cin.getline(b.nm,40);
+	cout<<endl<<"enter the account number: ";
+	cin>>b.accno;
+	cout<<endl<<"enter the account password: ";
+	cin.getline(b.pass,40);
+
+	cout<<endl<<"Name: "<<b.nm<<"\t Account Number: "<<b.accno<<"\t Password: "<<b.pass;
+
+	return 0;
+}
+
+
+//-------------------------------------------------------------
+
+	// Due to several different advantages, we will prefer functions(Modular Approch)
+
+struct BankAccount
+{
+	char nm[40];
+	int accno;
+	char pass[20];
+};
+void input(struct BankAccount& t)
+{
+	cout<<endl<<"enter the account holder name: ";
+	cin.getline(t.nm,40);
+	cout<<endl<<"enter the account number: ";
+	cin>>t.accno;
+	cout<<endl<<"enter the account password: ";
+	cin.getline(t.pass,40);
+}
+void display(struct BankAccount k)
+{
+	cout<<endl<<"Name: "<<k.nm<<"\t Account Number: "<<k.accno<<"\t Password: "<<k.pass;
+}
+int main()
+{
+	struct BankAccount b1,b2;
+
+	input(b1);
+	display(b1);
+
+	input(b2);
+	display(b2);
+
+	return 0;
+}
+
+//----------------------------------------------------------------------------------
+
+	In above case as the account data b, moving from function to fuction and every
+	function able to access it. the account data is not secure.
+
+	to attend the security to data lets use the class
+
+#include<iostream>
+using namespace std;
+
+class BankAccount
+{
+  private:
+	char nm[40];
+	int accno;
+	char pass[20];
+  public:
+	void input()
+	{
+		cout<<endl<<"enter the account holder name: ";
+		cin.getline(nm,40);
+		cout<<endl<<"enter the account number: ";
+		cin>>accno;
+		cout<<endl<<"enter the account password: ";
+		cin.ignore();
+		cin.getline(pass,40);
+	}
+	void display()
+	{
+		cout<<endl<<"Name: "<<nm<<"\t Account Number: "<<accno<<"\t Password: "<<pass;
+	}
+};
+
+int main()
+{
+	BankAccount b1, b2;
+
+	b1.input();
+	b2.input();
+
+	b1.display();
+	b2.display();
+
+	return 0;
+}
+
+
+
+		b1 ____________________________		b2 ____________________________
+		  |			     |		   |			     |
+		  | nm    [][][][][][][][]   |		   | nm    [][][][][][][][]  |
+		  | accno [     ]	     |  	   | accno [     ]	     |
+		  | pass  [][][][][][]	     |		   | pass  [][][][][][]	     |
+		  |		    ^	     |	           |		    ^	     |
+		  |______________|  |  |_____|		   |______________| |  |_____|	
+		  |		    |	     |   	   |		    |	     |
+		  | void input() {...}	     |		   | void input() {...}	     |
+		  | void display() {...}     |		   | void display() {...}    |
+		  |			     |		   |			     |
+		  |		    ^	     |		   |		    ^	     |
+		  |______________|  |  |_____|		   |______________| |  |_____|
+				    |					    |
+
+
+	// Procedure Oriented Programming(POP):
+		
+	- More efforts are taken for defining the procedures. (Doing Things)
+	- data moving from function to function for processing.
+	- As the data is global, it having less security.
+	- Normally it employs the modular opproach, and the function transforms the data from
+	  one form to another.
+	- Employs top-down approach in program design.
+
+	
+	//  Object Oriented Programming(OOP):
+
+	- The data is core area of interst rather than defining the procedures.
+	- Program is divided into number of objects.
+	- Data structures are designed in a such way that they characterize the object
+	- The function which process the data is wrapped in the same object which hold the data.
+	- To attend the security, the data is normally decl. in private area of class
+	- You can add new data and functions easily.
+	- Follows the bottom-up approach in program design.
+
+// important Pilars of OOP:
+
+
+	1. class: It is just templete which is used to characterize the object.
+		 It defines the data and code to manipulate that data. It defines 3 different
+		 sections (public, protected and private). 
+		 In other words, It is specification(collection of rules) or blueprint which is implemented
+		 while creating the object.
+		Note that the private members are not accessible using . operator directly from outside
+		of class, and public member can be accessed.
+
+		syntax:
+		class <cls_nm>
+		{
+			private:
+				<data_members>;
+				<member_functions>(){};
+			protected:
+				<data_members>;
+				<member_functions>(){};
+			public:
+				<data_members>;
+				<member_functions>(){};
+		};
+		
+		e.g.
+		class student
+		{
+		      private:       
+			char nm[40];
+			int rno;
+			int age;
+			float per;
+		      public:
+			void input(){ ... }
+			void display() {...}
+		};
+
+
+	2. Object:
+		  In simple terms, " It is variable of class type". or it is instance of class. Basically it is 
+		  runtime entity in which entire program is divided. When it gains the memory space, note that 
+		  it contain data and code to manuplate that data, which is divied into private, 
+		  protected and public section, from which the private is not accessible to using
+		  dot operator directly, and public members of class can be accessed using the 
+		  . operator rom outside of class
+		
+		 Basically it is actual implementation of specifications defined using class.
+
+		syntax:
+			<class_nm> <obj_nm>;
+			e.g.
+				student s;
+
+		s
+		________________________________
+		|private:			|
+		|				|
+		|   nm    rno    age   per	|
+		|   [ ]    []    []     []	|
+		|				|
+		|				|
+		|				|
+		|__________________| ^ |________|
+		|public:	     |		|
+		|				|		
+		| void input(){.....}		|
+		| void display(){.....}		|
+		|				|
+		|				|
+		|__________________| ^ |________|
+				     |	
+
+
+	3. data hiding: The private data of class is not accessible directly using the dot
+			operator, means that data is get hided from outside world, which is
+			known as data hiding.  
+				
+			The Data Hiding provides the security to data.
+
+	4. Encapsulation: Wrapping up of data members and member functions together under
+			  single unit is known as encapsulation. 
+
+			Here in class the data member and member functions are encapsulated together.
+				
+	5. Abstraction: In simple words "Without knowing too much about it"
+			It is an art of defining the new type(class) without including its background details.
+
+			here in case of class and object, we dont think about the amount of
+			memory as well as its representation in the memory(memory map), means
+			we are abstract about it.
+
+			The data types which supports abstraction known as Abstract Data Types (ADT)
+
+//=========================================================================================================
+
+	// Create the class student and input/display the info of two students.
+
+		s1		s2
+		[ ]		[ ]
+
+		
+		________________________________
+		|private:			|
+		|				|
+		|   nm    rno    age   per	|
+		|   [ ]    []    []     []	|
+		|				|
+		|				|
+		|				|
+		|__________________| ^ |________|
+		|public:	     |		|
+		|				|		
+		| void input(){.....}		|
+		| void display(){.....}		|
+		|				|
+		|				|
+		|__________________| ^ |________|
+				     |	
+#include<iostream>
+using namespace std;
+class Student
+{
+    private:       
+	char nm[40];
+	int rno;
+	int age;
+	float per;
+    public:
+	void input()
+	{
+		cout<<endl<<"Enter the student name: ";
+		cin.ignore();
+		cin.getline(nm,40);
+
+		cout<<endl<<"Enter the RNO, AGE and PERCENTAGE: ";
+		cin>>rno>>age>>per;
+	}
+	void display() 
+	{
+		cout<<endl<<"Student Name: "<<nm<<"\t Age: "<<age<<"\t RNO: "<<rno<<"\t Percentage: "<<per;
+	}
+};
+int main()
+{
+	Student s1, s2;
+
+	s1.input();
+	s2.input();
+
+	s1.display();
+	s2.display();
+
+	return 0;
+}
+
+//----------------------------------------------------------------------------------------------------
+
+	// Passing the arguments to member functions.
+
+#include<iostream>
+#include<string.h>
+using namespace std;
+class Student
+{
+    private:
+	char nm[40];
+	int rno;
+	int age;
+	float per;
+    public:
+	void input(char a_nm[], int a_rno, int a_age, float a_per)
+	{
+		strcpy(nm,a_nm);
+		rno=a_rno;
+		age=a_age;
+		per=a_per;
+	}
+	void display()
+	{
+		cout<<endl<<"Student Name: "<<nm<<"\t Age: "<<age<<"\t RNO: "<<rno<<"\t Percentage: "<<per;
+	}
+};
+int main()
+{
+	Student s1, s2;
+
+	s1.input("Ajit",11,23,78.56);
+
+	char m_nm[50];
+	int m_rno, m_age;
+	float m_per;
+
+	cout<<endl<<"Enter the student name: ";
+	//cin.ignore();
+	cin.getline(m_nm,40);
+	cout<<endl<<"Enter the RNO, AGE and PERCENTAGE: ";
+	cin>>m_rno>>m_age>>m_per;
+
+	s2.input(m_nm, m_rno, m_age, m_per);
+
+	s1.display();
+	s2.display();
+
+	return 0;
+}
+
+//---------------------------------------------------------------------------------------------
+
+	// Defining member function outside of class
+
+	In C++, you are allowed to define the member functuin outside of class with out changine the
+	basic meaning. In such case same function must be decl. within class.
+
+	def. syntax:
+
+		<ret_type> <class_nm>::<function_nm>(<argu_if_any>)
+		{
+			------------------;
+			------------------;
+			------------------;
+		}
+
+		
+
+class Student
+{
+    private:       
+	char nm[40];
+	int rno;
+	int age;
+	float per;
+    public:
+	void input();
+	void display();
+};
+void Student::input()
+{
+	cout<<endl<<"Enter the student name: ";
+	cin.getline(nm,40);
+
+	cout<<endl<<"Enter the RNO, AGE and PERCENTAGE: ";
+	cin>>rno>>age>>per;
+}
+void Student::display() 
+{
+	cout<<endl<<"Student Name: "<<nm<<"\t Age: "<<age<<"\t RNO: "<<rno<<"\t Percentage: "<<per;
+}
+
+int main()
+{
+	Student s1, s2;
+
+	s1.input();
+	s2.input();
+
+	s1.display();
+	s2.display();
+
+	return 0;
+}
+
+//----------------------------------------------------------------------------------------------------------
+
+	// Array of objects
+
+		iar
+		 [] [] [] [] [] [] [] [] []
+
+	// Enter the item code and price and display the list.
+
+class Item
+{
+	int icode;
+	float iprice;
+    public:
+	void indata()
+	{
+		cout<<endl<<"Enter the item code and price: ";
+		cin>>icode>>iprice;
+	}
+	void outdata()
+	{
+		cout<<endl<<" Item code: "<<icode<<"\t Price: "<<iprice;
+	}
+};
+int main()
+{
+	Item iar[3];
+	int i;
+
+	cout<<"\n Enter the details of 3 Items: ";
+	for(i=0;i<3;i++)
+	{
+		iar[i].indata();
+	}
+
+	cout<<endl<<"-------- Item List -------";
+	for(i=0;i<3;i++)
+	{
+		iar[i].outdata();
+	}
+
+	return 0;
+}
+
+//----------------------------------------------------------------------------------------------------------
+
+	// pointer to objects
+
+		*p
+		 [] -------> [] [] [] [] [] [] [] []
+
+	// Enter the item code and price and display the list.
+
+#include<iostream>
+#include<string.h>
+using namespace std;
+class Item
+{
+	int icode;
+	float iprice;
+    public:
+	void indata()
+	{
+		cout<<endl<<"Enter the item code and price: ";
+		cin>>icode>>iprice;
+	}
+	void outdata()
+	{
+		cout<<endl<<" Item code: "<<icode<<"\t Price: "<<iprice;
+	}
+};
+int main()
+{
+	int i,cnt;
+
+	cout<<endl<<"Enter the count: ";
+	cin>>cnt;
+	Item *p=new Item[cnt];
+
+	cout<<"\n Enter the details of "<<cnt<<" Items: ";
+	for(i=0;i<cnt;i++)
+	{
+		p[i].indata();
+	}
+
+	cout<<endl<<"-------- Item List -------";
+	for(i=0;i<cnt;i++)
+	{
+		p[i].outdata();
+	}
+
+	return 0;
+}
+
+
+	// same program using pointer notations
+
+#include<iostream>
+#include<string.h>
+using namespace std;
+class Item
+{
+	int icode;
+	float iprice;
+    public:
+	void indata()
+	{
+		cout<<endl<<"Enter the item code and price: ";
+		cin>>icode>>iprice;
+	}
+	void outdata()
+	{
+		cout<<endl<<" Item code: "<<icode<<"\t Price: "<<iprice;
+	}
+};
+int main()
+{
+	int i,cnt;
+
+	cout<<endl<<"Enter the count: ";
+	cin>>cnt;
+	Item *p=new Item[cnt];
+
+	cout<<"\n Enter the details of "<<cnt<<" Items: ";
+	for(i=0;i<cnt;i++)
+	{
+		(p+i)->indata();
+	}
+
+	cout<<endl<<"-------- Item List -------";
+	for(i=0;i<cnt;i++)
+	{
+		(p+i)->outdata();
+	}
+
+	return 0;
+}
+
+//----------------------------------------------------------------------------------------------------------------
+
+	// Returning data from member function
+
+	// Enter the item code and price and display the list and total
+
+
+#include<iostream>
+#include<string.h>
+using namespace std;
+class Item
+{
+	int icode;
+	float iprice;
+    public:
+	void indata()
+	{
+		cout<<endl<<"Enter the item code and price: ";
+		cin>>icode>>iprice;
+	}
+	void outdata()
+	{
+		cout<<endl<<" Item code: "<<icode<<"\t Price: "<<iprice;
+	}
+	float getprice()
+	{
+		return iprice;
+	}
+};
+int main()
+{
+	int i,cnt;
+
+	cout<<endl<<"Enter the count: ";
+	cin>>cnt;
+	Item *p=new Item[cnt];
+
+	cout<<"\n Enter the details of "<<cnt<<" Items: ";
+	for(i=0;i<cnt;i++)
+	{
+		(p+i)->indata();
+	}
+
+	cout<<endl<<"-------- Item List -------";
+	for(i=0;i<cnt;i++)
+	{
+		(p+i)->outdata();
+	}
+
+	// total calc
+
+	float tot=0.0;
+	for(i=0;i<cnt;i++)
+	{
+		tot=tot+(p+i)->getprice();
+	}
+	cout<<endl<<"Total Bill: "<<tot;
+	
+	return 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

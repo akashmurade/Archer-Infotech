@@ -1,0 +1,1135 @@
+//====================================================================================
+
+	// Pointer: 
+
+
+	// WAP to input percentage of marks of 10 students in HSC and display it.
+
+int main()
+{
+	float mrk[10];
+	int i;
+
+	printf("\n Enter the percentage of 10 students: ");
+	for(i=0;i<10;i++)
+	{
+		scanf("%f",&mrk[i]);
+	}
+
+	printf("\n List \n");
+	for(i=0;i<10;i++)
+	{
+		printf("student %d - %0.2f",i+1,mrk[i]);
+	}
+	return 0;
+}
+
+ //------------------------------------------------------------------------------------------------
+
+	// WAP to input percentage of marks of N students in HSC and display it.
+
+int main()
+{
+	float mrk[100];
+	int i,cnt;
+	
+	printf("\n Enter the student count: ");
+	scanf("%d",&cnt);
+
+	printf("\n Enter the percentage of %d students: ",cnt);
+	for(i=0;i<cnt;i++)
+	{
+		scanf("%f",&mrk[i]);
+	}
+
+	printf("\n List \n");
+	for(i=0;i<cnt;i++)
+	{
+		printf("student %d - %0.2f",i+1,mrk[i]);
+	}
+	return 0;
+}
+
+
+	- In first way(array) will be used when you know the type and count of elements.
+	- If you know the type but dont know the count, it will be decided at runtime then
+	  you have two option.
+
+		- decl an array with possible max size - problem is inefficient use of memory.
+		- use pointer - will allocates the amount of memory needed.
+
+
+	How to allocate the memory at runtime(Dynamic memory allocation).
+		- In static allocation, type decl instruction allows you to assign an identifier to
+		  allocated location.
+		- In dynamic memory allocation, it will gives base address(begin byte number of allocated
+		  location) in return, it will not allow you to assign an identifier to that location.
+		- To allocate the memory, the builtin functions malloc(), calloc() or realloc() are used,
+		  which are defined in stdlib.h/alloc.h
+		- we need to store that address, to store an address the special type of variable is needed,
+		  called pointer.
+		- Decl  syntax of pointer variable:
+
+			<data_type> *<ptr_var_nm>;
+
+
+	*mrk
+	 [700] --------> [][][][][][][][][][][][][][][][][][][]
+			700
+
+	// Dynamic allocation using pointer and access using array notations.
+int main()
+{
+	float *mrk;
+	int i,cnt;
+	
+	printf("\n Enter the student count: ");
+	scanf("%d",&cnt);
+
+	mrk=(float*)malloc(cnt*sizeof(float));
+
+	printf("\n Enter the percentage of %d students: ",cnt);
+	for(i=0;i<cnt;i++)
+	{
+		scanf("%f",&mrk[i]);
+	}
+
+	printf("\n List \n");
+	for(i=0;i<cnt;i++)
+	{
+		printf("student %d - %0.2f",i+1,mrk[i]);
+	}
+	free(p);
+	
+	return 0;
+}
+
+//----------------------------------------------------------------------------------------------
+
+	// Lets see about the size of pointer variable
+
+int main()
+{
+	char *ch;
+	int *var;
+	float *ft;
+	double *dptr;
+
+	printf("\n size of character pointer: %d",sizeof(ch));
+	printf("\n size of integer pointer: %d",sizeof(var));
+	printf("\n size of float pointer: %d",sizeof(ft));
+	printf("\n size of double pointer: %d",sizeof(dptr));
+
+	return 0;
+}
+
+//--------------------------------------------------------------------------------------------------
+
+		*p		x
+		[800]--------->	[ 10 ]
+			       800
+
+int main()
+{
+	int x=10;
+
+	int *p;
+	p=&x;
+
+	printf("\n value of x=%d",x);
+	printf("\n Address of x=%u",&x);
+
+	printf("\n value of p=%u",p);
+	return 0;
+}
+
+//------------------------------------------------------------------------------
+
+
+	// now we have to access the value of x using p
+
+		*p		x
+		[800]--------->	[ 10 ]
+	     		       800
+
+	Meaning of *
+		- In decl: pointer declarator
+		- In expr: just replace it with "value at address"
+
+		*p -> value at address p
+		   --> value at address 800
+		   ---> 10  
+
+#include <stdio.h>
+int main()
+{
+	int x=10;
+
+	int *p;	// integer pointer (pointer to integer)
+	p=&x;
+
+	printf("\n value of x=%d",x);
+	printf("\n Address of x=%u",&x);
+
+	printf("\n value of p=%u",p);
+	printf("\n value of x using p=%d",*p);
+
+
+	return 0;
+}
+
+//----------------------------------------------------------------------------------------
+
+
+
+	// now we have to access the value of x using p
+
+**q		*p		x
+  [900]	------>	[800]--------->	[ 10 ]
+	       900		800
+
+	Meaning of *
+		- In decl: pointer declarator
+		- In expr: just replace it with "value at address"
+
+		*p -> value at address p
+		   --> value at address 800
+		   ---> 10  
+
+		q -> 900
+
+		*q -> value at address q
+		   --> value at address 900
+		   ---> 800
+
+		**q => *(*q) -> value at address 800
+			     --> 10
+
+#include <stdio.h>
+int main()
+{
+	int x=10;
+
+	int *p;	// integer pointer (pointer to integer)
+	int **q; // pointer to pointer (pointer to integer pointer)
+	int ***r;
+	p=&x;
+
+	printf("\n value of x=%d",x);
+	printf("\n Address of x=%u",&x);
+
+	printf("\n value of p=%u",p);
+	printf("\n value of x using p=%d",*p);
+
+	q=&p;
+	printf("\n\n address of p: %u \t value of q: %u",&p,q);
+	printf("\n Value of p using q: %u",*q);
+	printf("\n Value of x using q: %d",**q);
+
+
+	return 0;
+}
+
+
+	// Now again it is confirmed that once we come to know about an address of location
+	// it is possible to access the value stored in that location.
+
+//------------------------------------------------------------------------------------------------
+	// Now we know that in case of array, 
+
+	suppose
+
+		int x[5]={12,67,9,765,34};
+
+	      x	___0_______1_____2______3_______4___
+ *p		|      |      |     |       |      | 
+ [500] -------->|  12  |  67  |  9  |  765  |  34  |
+		|______|______|_____|_______|______|
+               500
+
+		- x[i] gives the value at ith location
+		- &x[i] gives address of ith location
+		- x gives base address of an array (i.e. &x[0])
+		
+int main()
+{
+	int x[5]={12,67,9,765,34};
+
+	printf("\n Array elements are: ");
+	for(i=0;i<5;i++)
+	{
+		printf("%7d",x[i]);
+	}
+
+	printf("\n Array elements are: ");
+	for(i=0;i<5;i++)
+	{
+		printf("%u",x+i);
+	}
+	return 0;
+}
+
+//-----------------------------------------------------------
+
+	// we can access the elements using different ways as,
+
+#include <stdio.h>
+int main()
+{
+	int x[5]={12,67,9,765,34};
+    	int i;
+    	int *p;
+
+	printf("\n Array elements are: ");
+	for(i=0;i<5;i++)
+	{
+		printf("%7d",x[i]);
+	}
+
+	printf("\n Array elements are: ");
+	for(i=0;i<5;i++)
+	{
+		printf("\t %u",*(x+i));
+	}
+
+	p=x; /// or p=&x[0];
+	printf("\n Array elements are: ");
+	for(i=0;i<5;i++)
+	{
+		printf("\t %u",*(p+i));
+	}
+
+	p=x; /// or p=&x[0];
+	printf("\n Array elements are: ");
+	for(i=0;i<5;i++)
+	{
+		printf("\t %u",*p);
+        	p++;
+	}
+	p=x; /// or p=&x[0];
+	printf("\n Array elements are: ");
+	for(i=0;i<5;i++)
+	{
+		printf("\t %u",p[i]);
+	}
+	return 0;
+}
+
+	// Lets Note that,
+
+		x[i] <--> *(x+i) <--> *(p+i) <--> p[i]    
+
+		&x[i] <--> (x+i) <--> (p+i) <--> &p[i]
+		
+//--------------------------------------------------------------------------
+
+	// input and display
+
+#include <stdio.h>
+int main()
+{
+	int x[5],i;
+
+	printf("\n enter elements: ");
+	for(i=0;i<5;i++)
+	{
+		scanf("%d",(x+i));
+	}
+
+	printf("\n Array elements are: ");
+	for(i=0;i<5;i++)
+	{
+		printf("%7d",*(x+i));
+	}
+	return 0;
+}
+
+//--------------------------------------------------------------------------
+
+	// input and display - using pointer
+
+#include <stdio.h>
+int main()
+{
+	int x[5],i;
+	int *p;
+
+	p=x;
+	printf("\n enter elements: ");
+	for(i=0;i<5;i++)
+	{
+		scanf("%d",(p+i));
+	}
+
+	printf("\n Array elements are: ");
+	for(i=0;i<5;i++)
+	{
+		printf("%7d",*(p+i));
+	}
+	return 0;
+}
+
+or
+
+#include <stdio.h>
+#include <stdio.h>
+int main()
+{
+	int x[5],i;
+	int *p;
+
+	p=x;
+	printf("\n enter elements: ");
+	for(i=0;i<5;i++)
+	{
+		scanf("%d",p);
+		p++;
+	}
+
+	p=x;
+	printf("\n Array elements are: ");
+	for(i=0;i<5;i++)
+	{
+		printf("%7d",*p);
+		p++;
+	}
+	return 0;
+}
+
+	// Now again it is confirmed that once we come to know about an address of location
+	// it is possible to access the value stored in that location.
+
+//------------------------------------------------------------------------------------------------
+
+	// WAP to input and display the HSC percentage of N students.
+
+	we need to allocate memory at runtime and for that use malloc()
+
+	syntax:
+		void* malloc(<no_of_bytes>)
+
+
+#include <stdio.h>
+int main()
+{
+	float *ptr;
+	int i,cnt;
+
+	printf("\n Enter the student count: ");
+	scanf("%d",&cnt);
+
+	ptr=(float*)malloc(cnt*sizeof(float));
+	printf("\n Enter the marks of %d students: ",cnt);
+	for(i=0;i<cnt;i++)
+	{
+		printf("student %d: ",i+1);
+		scanf("%f",(ptr+i));
+	}
+
+	printf("\n student list \n");
+	for(i=0;i<cnt;i++)
+	{
+		printf("\n student %d - %0.2f",i+1,*(ptr+i));
+	}
+	return 0;
+}
+
+//----------------------------------------------------------------------------------------------------------
+
+	// Enter N Number and find the avg of it.
+
+int main()
+{
+	int i,cnt,tot=0;
+	float avg;
+	int *p;
+	
+	printf("\n Enter the element count: ");
+	scanf("%d",&cnt);
+	
+	p=(int*)malloc(cnt*sizeof(int));
+
+	printf("\n Enter the %d nos: ",cnt);
+	for(i=0;i<cnt;i++)
+	{
+		scanf("%d",(p+i));
+	}
+	for(i=0;i<cnt;i++)
+	{
+		tot = tot + *(p+i);
+	}	
+	avg=(float)tot/cnt;
+	printf("\n Total: %d",tot);
+	printf("\n Avg: %0.2f",avg);
+
+	return 0;
+}
+
+//----------------------------------------------------------------------------------------------------------
+
+	// Enter N Number and find the prime count.
+
+#include <stdio.h>
+#include <stdlib.h>
+int main()
+{
+	int i,pcnt=0,ecnt,flg,d;
+	float avg;
+	int *p;
+
+	printf("\n Enter the element count: ");
+	scanf("%d",&ecnt);
+
+	p=(int*)malloc(ecnt*sizeof(int));
+
+	printf("\n Enter the %d nos: ",ecnt);
+	for(i=0;i<ecnt;i++)
+	{
+		scanf("%d",(p+i));
+	}
+	for(i=0;i<ecnt;i++)
+	{
+		flg=0;
+		d=2;
+		while(d<=(*(p+i)/2))
+		{
+			if(*(p+i)%d==0)
+			{
+				flg=1;
+				break;
+			}
+			d++;
+		}
+		if(flg==0)
+		{
+			pcnt++;
+		}
+	}
+	printf("\n Prime Count: %d",pcnt);
+	return 0;
+}
+
+//-----------------------------------------------------------------------------------------------------
+
+	// Create two different collection of integers having N and M elements and find intersection.
+
+int main()
+{
+	int m,n,i,j;
+	int *p,*q;
+
+	printf("\n Enter the first count: ");
+	scanf("%d",&m);
+	p=(int*)malloc(m*sizeof(int));
+	printf("\n Enter the %d elemets: ",m);
+	for(i=0;i<m;i++)
+	{
+		scanf("%d",(p+i));
+	}
+
+	printf("\n Enter the second count: ");
+	scanf("%d",&n);
+	q=(int*)malloc(n*sizeof(int));
+	printf("\n Enter the %d elemets: ",n);
+	for(i=0;i<n;i++)
+	{
+		scanf("%d",(q+i));
+	}
+
+	printf("\n Intersection is: ");
+	for(i=0;i<m;i++)
+	{
+		for(j=0;j<n;j++)
+		{
+			if(*(p+i)==*(q+j))
+			{
+				printf("%5d",*(p+i));
+			}
+		}
+	}
+	return 0;
+}
+
+//----------------------------------------------------------------------------------------------
+	
+	// Implement selection sort using pointer
+int main()
+{
+	int *p, cnt, tmp;
+	printf("\n Enter the count: ");
+	scanf("%d",&cnt);
+
+	p=(int*)malloc(cnt*sizeof(int));
+
+	printf("\n Enter %d nos: ",cnt);
+	for(int i=0;i<cnt;i++)
+	{
+		scanf("%d",(p+i));
+	}
+	
+	printf("\n Before sort: ");
+	for(i=0;i<cnt;i++)
+	{
+		printf("%6d",*(p+i));
+	}
+
+	// sorting
+	for(i=0;i<cnt-1;i++)
+	{
+		for(j=i+1;j<cnt;j++)
+		{
+			if(*(p+i)>*(p+j))
+			{
+				tmp=*(p+i);
+				*(p+i)=*(p+j);
+				*(p+j)=tmp;
+			}
+		}
+	}
+	printf("\n After sort: ");
+	for(i=0;i<cnt;i++)
+	{
+		printf("%6d",*(p+i));
+	}
+	return 0;
+} 
+
+//----------------------------------------------------------------------------------------------
+
+	// Array of pointer
+
+	// Enter the marks of 4 students and display them. note that every student may have different 
+	// subject count
+
+int main()
+{
+	int* ap[4];
+	int sc[4],i,j;
+
+	printf("\n Enter the details of 4 students \n");
+	for(i=0;i<4;i++)
+	{
+		printf("\n For student %d \n",i+1);
+		printf("enter the subject count: ");
+		scanf("%d",&sc[i]);
+
+		ap[i]=(int*)malloc(sc[i]*sizeof(int));
+
+		printf("\n Enter the marks obtaind in %d subjects",sc[i]);
+		for(j=0;j<sc[i];j++)
+		{
+			printf("\n Subject %d: ",j+1);
+			scanf("%d",*(ap+i)+j);
+		}		
+	}
+
+	printf("\n Student list with marks \n");
+	for(i=0;i<4;i++)
+	{
+		printf("\n Student %d: ",i+1);
+		for(j=0;j<sc[i];j++)
+		{
+			printf("%7d",*(*(ap+i)+j));
+		}
+	}
+	return 0;
+}
+
+//-------------------------------------------------------------------------------------------------------
+	// Block Pointer
+
+	// Enter marks of N students in 5 subjects
+
+#include <stdio.h>
+#include <stdlib.h>
+int main()
+{
+	int (*p)[5];
+	int i,j,sc;
+
+	printf("\n Enter the student count: ");
+	scanf("%d",&sc);
+
+	p=(int(*)[])malloc(sc*5*sizeof(int));
+
+	printf("\n Enter the details of %d students \n",sc);
+	for(i=0;i<sc;i++)
+	{
+		printf("\n Student %d: ",i+1);
+		for(j=0;j<5;j++)
+		{
+			scanf("%d",*(p+i)+j);
+		}
+	}
+
+	printf("\n Details of %d students \n",sc);
+	for(i=0;i<sc;i++)
+	{
+		printf("\n Student %d: ",i+1);
+		for(j=0;j<5;j++)
+		{
+			printf("%7d",*(*(p+i)+j));
+		}
+		printf("\n");
+	}
+	return 0;	
+}
+
+//-------------------------------------------------------------------------------------------------------
+
+	// pointer to pointer:
+
+	// enter marks of N students in M subjects (M may be different for every student)
+
+int main()
+{
+	int **p, *sub;
+	int i,j,sc;
+
+	printf("\n Enter student count: ");
+	scanf("%d",&sc);
+
+	p=(int**)malloc(sc*sizeof(int*));
+	sub=(int*)malloc(sc*sizeof(int));
+
+	printf("\n Enter the details of %d students\n",sc);
+	for(i=0;i<sc;i++)
+	{
+		printf("\n student %d: ",i+1);
+		printf("\n Enter the subject count: ");
+		scanf("%d",(sub+i));
+
+		*(p+i)=(int*)malloc(*(sub+i)*sizeof(int));
+
+		printf("\n Enter the marks of %d subjects\n",*(sub+i));
+		for(j=0;j<*(sub+i);j++)
+		{
+			printf("\n sub %d: ",j+1);
+			scanf("%d",*(p+i)+j);
+		}
+	}
+
+	printf("\n Details of %d students \n",sc);
+	for(i=0;i<sc;i++)
+	{
+		printf("\n Student %d: ",i+1);
+		for(j=0;j<*(sub+i);j++)
+		{
+			printf("%7d",*(*(p+i)+j));
+		}
+		printf("\n");
+	}
+	return 0;
+}
+
+//-------------------------------------------------------------------------------------------------
+
+	// 2D array access using pointer notation
+
+int main()
+{
+	int x[3][4];
+	int i,j;
+
+	printf("\n Enter the array of 3x4: ");
+	for(i=0;i<3;i++)
+	{
+		for(j=0;j<4;j++)
+		{
+			scanf("%d",&x[i][j]);
+		}
+	}
+
+	printf("\n array of 3x4: \n");
+	for(i=0;i<3;i++)
+	{
+		for(j=0;j<4;j++)
+		{
+			printf("%5d",x[i][j]);
+		}
+		printf("\n");
+	}
+}
+
+
+// can be written as
+
+#include <stdio.h>
+#include <stdlib.h>
+int main()
+{
+	int x[3][4];
+	int i,j;
+
+	printf("\n Enter the array of 3x4: ");
+	for(i=0;i<3;i++)
+	{
+		for(j=0;j<4;j++)
+		{
+			scanf("%d",*(x+i)+j);
+		}
+	}
+
+	printf("\n array of 3x4: \n");
+	for(i=0;i<3;i++)
+	{
+		for(j=0;j<4;j++)
+		{
+			printf("%5d",*(*(x+i)+j));
+		}
+		printf("\n");
+	}
+}
+
+//	also we can write
+
+#include <stdio.h>
+#include <stdlib.h>
+int main()
+{
+	int x[3][4];
+	int i,j;
+    	int (*p)[4];
+    	p=x;
+	printf("\n Enter the array of 3x4: ");
+	for(i=0;i<3;i++)
+	{
+		for(j=0;j<4;j++)
+		{
+			scanf("%d",*(p+i)+j);
+		}
+	}
+
+	printf("\n array of 3x4: \n");
+	for(i=0;i<3;i++)
+	{
+		for(j=0;j<4;j++)
+		{
+			printf("%5d",*(*(p+i)+j));
+		}
+		printf("\n");
+	}
+}
+
+//----------------------------------------------------------------------------------------
+
+
+		///  TYPES OF POINTER:
+
+	- Null pointer: 
+
+		Normally we decl the pointer as 
+
+			int *p; 
+
+			*p
+                        [ ] ---> ....     
+
+		By default it is pointing towards the random location.
+		to avoid this if we decl same as 
+
+			int *p=NULL;
+		
+		here NULL is constant decl. in stdio.h. and the pointer pointing
+		towards nothing
+
+	We can create a null pointer by assigning null value during the pointer declaration. 
+	This method is useful when you do not have any address assigned to the pointer. 
+	A null pointer always contains value 0.
+
+	- void pointer/generic pointer: 
+		A void pointer is also called as a generic pointer which is convertable to any type.
+ 		It does not have any standard data type. A void pointer is created by using the
+ 		keyword void. It can be used to store an address of any variable.
+
+#include <stdio.h>
+int main()
+{
+    void *p = NULL; 	//void pointer
+    int x=10;
+    double db=34.45;
+
+    printf("The size of pointer is:%d\n",sizeof(p));
+
+    p=&x;
+    printf("\n value of x is: %d",*(int*)p);
+
+    p=&db;
+    printf("\n value of db is: %lf",*(double*)p);
+    return 0;
+}
+
+
+	- wild pointer:
+		A pointer is said to be a wild pointer if it is not being initialized to anything.
+	 	These types of C pointers are not efficient because they may point to some unknown
+ 		memory location which may cause problems in our program and it may lead to crashing 
+		of the program. One should always be careful while working with wild pointers.
+
+#include <stdio.h>
+int main()
+{
+	int *p; 	//wild pointer
+	printf("\n%d",*p);
+	return 0;
+}
+
+	- Dangling pointer:
+		It is pointer refering towards the deallocated/deleted/dereferenced location.
+		Dangling pointer occurs at the time of the object destruction when the object is
+		deleted or de-allocated from memory without modifying the value of the pointer. 
+			
+int main()
+{
+    int *p,*q,cnt,i;
+
+	printf("\n Enter the element count: ");
+	scanf("%d",&cnt);
+
+	p=(int*)malloc(cnt*sizeof(int));      // allocates the memory for pointer
+	q=p;
+	printf("\n Enter the %d Nos: ",cnt);
+	for(i=0;i<cnt;i++)
+	{
+		scanf("%d",(p+i));
+	}
+
+	printf("\n Elements are: ");
+	for(i=0;i<cnt;i++)
+	{
+		printf("%5d",*(p+i));
+	}
+        free(p); 
+	   // Releases the allocated location, 
+                // After the releasing pointer becomes the Dangling pointer and q also.
+			
+	return 0;
+}
+	- Complex pointer: 
+		This is not a simple decl. It is quite complicated therefore it is known as
+		complex pointer
+			e.g. void (*ptr)(int (*)[2],int (*) void))
+
+
+	Before knowing how to read complex pointers then you should first know associativity 		and precedence.
+
+	Associativity: Order operators of equal precedence within an expression are employed.
+
+	Precedence: Operator precedence describes the order in which C reads expressions.
+
+
+	Operator		Precedence			Associative
+
+	(),[]			  1			    Left to Right
+
+	*,Identifier		  2			    Right to Left
+
+	Data Type		  3				–
+
+(): this operator is used to declare and define the function.
+[]: this is an array subscript operator.
+*: this is a pointer operator.
+Identifier: this is the name of a pointer.
+Data type: this is the type of variable.  
+
+
+		Reading the complex pointer
+
+			e.g.
+				char (*ptr)[3];  // block pointer
+				
+				void (*ptr)(int (*)[2],int (*) void))
+
+				double*(*(*ptr)(int))(double **,char c)
+
+		
+	- Near pointer
+		Near pointer means a pointer that is utilized to bit address of up to 16 bits within 
+		a given section of that computer memory which is 16 bit enabled.
+
+		It can only access data of the small size of about 64 kb within a given period, 
+		which is the main disadvantage of this type of pointer.
+			e.g.
+				 int near *ptr;
+
+	- Far pointer
+		A far pointer is typically 32 bit which can access memory outside that current 
+		segment. To utilize the far pointer, the compiler allows a segment register to 
+		save segment address, then another register to save offset inside the 
+		current segment.
+			e.g.
+				 int far *ptr;
+
+	- Huge pointr
+
+		Same as far pointer huge pointer is also typically 32 bit which can access outside 
+		the segment. A far pointer that is fixed and hence that part of that sector within
+ 		which they are located cannot be changed in any way; huge pointers can be.
+			e.g.
+				 char huge *far *a;
+
+*/
+//----------------------------------------------------------
+
+Direct and Indirect Access Pointers: 
+
+In C, there are two equivalent ways to access and manipulate a variable content
+
+Direct access: we use directly the variable name
+Indirect access: we use a pointer to the variable
+
+
+
+//----------------------------------------------------------------------
+
+    *p               x
+      [ 700 ] ----->  [11] [22] [33] [44] [55]
+                    700
+*/
+int main()
+{
+    int x[]={11,22,33,44,55};
+    int *p, i;
+
+    printf("\n Direct 1 - values are: ");
+    for(i=0;i<5;i++)
+    {
+        printf("%5d",x[i]);
+    }
+
+    printf("\n Direct 2 - values are: ");
+    for(i=0;i<5;i++)
+    {
+        printf("%5d",*(x+i));
+    }
+
+    p=&x[0];
+    printf("\n In-Direct - values are: ");
+    for(i=0;i<5;i++)
+    {
+        printf("%5d",*(p+i));
+    }
+    return 0;
+}
+
+//-------------------------------------------------------------------------------------------------------------
+
+	Pointer Arithmetic:
+	
+		*p			   0      1     2      3       4 
+		[ 300 ] --------------> [ 23 ] [ 45 ] [ 77 ] [ 92 ] [ 453 ]
+				       300	
+
+int main()
+{
+	int *p,*q,cnt,i;
+
+	printf("\n Enter the count: ");
+	scanf("%d",&cnt);
+
+	p=(int*)malloc(cnt*sizeof(int));
+	q=p;
+	printf("\n Enter the %d nos: ",cnt);
+	for(i=0;i<cnt;i++)
+	{
+		scanf("%d",p++);//(p+i)//&p[i]
+	}
+
+	//p=q;
+	printf("\n Enter the %d nos: ",cnt);
+	for(i=0;i<cnt;i++)
+	{
+		printf("%6d",*p++);
+	}
+	return 0;
+}
+
+//---------------------------------------------------------------------------------------------------------------
+
+	// Using the calloc(): It is same as the malloc(), only difference that
+				- init. the all blocks to 0 bydefault
+			        - Take two parameters i.e. element count and element size
+
+		syntax:
+	
+			ptr=(cast*)calloc(cnt,emement_size);
+
+
+int main()
+{
+	int *p,cnt,i;
+
+	printf("\n Enter the count: ");
+	scanf("%d",&cnt);
+
+	p=(int*)calloc(cnt,sizeof(int));
+    	printf("\n nos: ");
+	for(i=0;i<cnt;i++)
+	{
+		printf("%6d",*(p+i));// p[i]
+	}
+	printf("\n Enter the %d nos: ",cnt);
+	for(i=0;i<cnt;i++)
+	{
+		scanf("%d",(p+i));//&p[i]
+	}
+
+	printf("\n nos: ");
+	for(i=0;i<cnt;i++)
+	{
+		printf("%6d",*(p+i));//p[i]
+	}
+	free(p);
+	return 0;
+}
+
+//---------------------------------------------------------------------------------------------------------------
+
+	Using realloc(): It refers reallocation, It is used to change the size of currently allocated block, for which
+			 malloc() or calloc() is used. In the reallocation current memory block extended or if it is not possible
+			 then it will allocate the new block and maintain the previous values. default values are the
+			 garbage values.
+
+				p=realloc(p,new_size);
+
+
+int main()
+{
+	int *p,cnt,i;
+
+	printf("\n Enter the count: ");
+	scanf("%d",&cnt);
+
+	p=(int*)calloc(cnt, sizeof(int));
+
+	printf("\n Enter the %d nos: ",cnt);
+	for(i=0;i<cnt;i++)
+	{
+		scanf("%d",(p+i));
+	}
+
+	printf("\n nos: ");
+	for(i=0;i<cnt;i++)
+	{
+		printf("%6d",*(p+i));
+	}
+
+	i=cnt;
+
+	printf("\n Enter the New Count: ");
+	scanf("%d",&cnt);
+
+	p=realloc(p,cnt*sizeof(int));
+
+	printf("\n Enter the %d nos: ",cnt-i);
+	for( ;i<cnt;i++)
+	{
+		scanf("%d",(p+i));
+	}
+	printf("\n Now nos: ");
+	for(i=0;i<cnt;i++)
+	{
+		printf("%6d",*(p+i));
+	}
+	return 0;
+}

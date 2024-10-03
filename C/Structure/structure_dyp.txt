@@ -1,0 +1,1182 @@
+
+	------------------------------------- Structure ---------------------------------------
+
+
+Means we want to deal with regno, rno, nm,age, gen,per
+
+we have two options
+
+option 1: go for arrays
+option 2: go for structure
+
+
+
+	structure: It is user defined data type
+
+	syntax of type def:			     e.g.
+	
+		struct <tag_nm>				struct student	
+		{					{
+			<member 1>;				int regno;
+			<member 2>;				int rno;
+			<member 3>;				char nm[50];
+			<member 4>;				int age;
+			...					char gen;
+			<member N>;				float per;
+		};					};
+
+	decl. syntax:
+
+	struct <tag_nm> <var_nm>;			struct student s;
+
+					s _________________________________________________________________
+					  |______|______|___________________________________|_____|___|____|
+                                         s.regno   s.rno                 s.nm                s.age s.gen s.per
+
+                                         &s.regno  &s.rno               &s.nm              &s.age &s.gen &s.per 
+
+struct Color
+{
+	int r;
+	int g;
+	int b;
+};
+int main()
+{
+	struct Color c1={11,56,89};
+	printf("\n RGB value of Color:{%d,%d,%d}",c1.r,c1.g,c1.b);
+	return 0;
+}
+
+//------------------------------------------
+	using typedef:
+
+#include<stdio.h>
+typedef struct
+{
+	int r;
+	int g;
+	int b;
+}Color;
+int main()
+{
+	Color c1={11,56,89};
+	printf("\n RGB value of Color:{%d,%d,%d}",c1.r,c1.g,c1.b);
+	return 0;
+}
+
+//---------------------------------------------------------
+	Note that it may collect elements of same or different type, and the type may be built-in, derived or userdefined.
+
+	// init and display of structure variable
+
+struct student	
+{
+	int regno;
+	int rno;
+	char nm[50];
+	int age;
+	char gen;
+	float per;
+};
+
+int main()
+{
+	struct student s1={1234,66,"amol patil",28,'M',90.67};
+
+	printf("\n Student details: Reg No: %d \t RNO: %d \t Name: %s \t Gender:%c \t age: %d \t Percentage: %0.2f",s1.regno,s1.rno,s1.nm,s1.gen,s1.age,s1.per);
+
+	return 0;
+}
+
+
+//------------------------------------------------------------------------------------------------------
+
+		// input and display
+
+struct student	
+{
+	int regno;
+	int rno;
+	char nm[50];
+	int age;
+	char gen;
+	float per;
+};
+
+int main()
+{
+	struct student s1;
+	
+	printf("\n Enter the regno and rno of student: ");
+	scanf("%d %d",&s1.regno, &s1.rno);
+
+	printf("\n Enter the name: ");
+	gets(s1.nm);
+
+	printf("\n Enter the gender, age and percentage: ");
+	scanf("%c %d %f",&s1.gen,&s1.age,&s1.per);
+
+	printf("\n Student details: Reg No: %d \t RNO: %d \t Name: %s \t Gender:%c \t age: %d \t Percentage: %0.2f",s1.regno,s1.rno,s1.nm,s1.gen,s1.age,s1.per);
+
+	return 0;
+}
+
+//-----------------------------------------------------------------------------------------------------------
+
+	// WAP to input and display the information of 2 books
+
+#include <stdio.h>
+struct Book
+{
+	char name[50];
+	int isbn;
+	float price;
+	int not;
+};
+int main()
+{
+	struct Book b1,b2;
+
+	printf("\n Enter the name, isbn,price and topics for book 1: ");
+	fflush(stdin);
+	gets(b1.name);
+	scanf("%d %f %d",&b1.isbn, &b1.price, &b1.not);
+
+	printf("\n Enter the name, isbn,price and topics for book 2: ");
+	fflush(stdin);
+	gets(b2.name);
+	scanf("%d %f %d",&b2.isbn, &b2.price, &b2.not);
+
+	printf("\n Book 1: Name: %s \t ISBN NO: %d \n Price: %0.2f \t Topics: %d\n",b1.name,b1.isbn,b1.price,b1.not);
+	printf("\n Book 2: Name: %s \t ISBN NO: %d \n Price: %0.2f \t Topics: %d\n",b2.name,b2.isbn,b2.price,b2.not);
+
+	return 0;
+}
+
+//-------------------------------------------------------------------------------------------------------------
+
+	// passing structure variable to function
+
+#include <stdio.h>
+struct Book
+{
+	char name[50];
+	int isbn;
+	float price;
+	int not;
+};
+void display(struct Book);
+int main()
+{
+	struct Book b1,b2;
+
+	printf("\n Enter the name, isbn,price and topics for book 1: ");
+	fflush(stdin);
+	gets(b1.name);
+	scanf("%d %f %d",&b1.isbn, &b1.price, &b1.not);
+
+	printf("\n Enter the name, isbn,price and topics for book 2: ");
+	fflush(stdin);
+	gets(b2.name);
+	scanf("%d %f %d",&b2.isbn, &b2.price, &b2.not);
+
+	printf("\n Book 1:");
+    	display(b1);
+
+	printf("\n Book 2:");
+    	display(b2);
+
+	return 0;
+}
+void display(struct Book b)
+{
+    printf(" Name: %s \t ISBN NO: %d \n Price: %0.2f \t Topics: %d\n",b.name,b.isbn,b.price,b.not);
+}
+
+//----------------------------------------------------------------------------------------------------
+
+	// Note that any variable, it may be variable of structure, passed by value to function
+	// so in above case, for input, either we have to return book info or we need to pass by ref.
+
+	// above program with return
+struct Book
+{
+	char name[50];
+	int isbn;
+	float price;
+	int not;
+};
+void display(struct Book);
+struct Book input();
+int main()
+{
+	struct Book b1,b2;
+
+    b1=input();
+    b2=input();
+
+	printf("\n Book 1:");
+    display(b1);
+
+	printf("\n Book 2:");
+    display(b2);
+
+	return 0;
+}
+void display(struct Book b)
+{
+    printf(" Name: %s \t ISBN NO: %d \n Price: %0.2f \t Topics: %d\n",b.name,b.isbn,b.price,b.not);
+}
+struct Book input()
+{
+    struct Book b;
+    printf("\n Enter the name, isbn, price and topics for book : ");
+	fflush(stdin);
+	gets(b.name);
+	scanf("%d %f %d",&b.isbn, &b.price, &b.not);
+	return b;
+}
+
+//-------------------------------------------------------------------------------------------------------
+
+	// Using pointer to structure variable
+
+	// when we use the pointer to structure variable, then use -> rather than .
+
+#include <stdio.h>
+struct Book
+{
+	char name[50];
+	int isbn;
+	float price;
+	int not;
+};
+void display(struct Book);
+void input(struct Book*);
+int main()
+{
+	struct Book b1,b2;
+
+    input(&b1);
+    input(&b2);
+
+	printf("\n Book 1:");
+    display(b1);
+
+	printf("\n Book 2:");
+    display(b2);
+
+	return 0;
+}
+void display(struct Book b)
+{
+    printf(" Name: %s \t ISBN NO: %d \n Price: %0.2f \t Topics: %d\n",b.name,b.isbn,b.price,b.not);
+}
+void input(struct Book *b)
+{
+    printf("\n Enter the name, isbn, price and topics for book : ");
+	fflush(stdin);
+	gets(b->name);
+	scanf("%d %f %d",&b->isbn, &b->price, &b->not);
+}
+
+ // Note that &b.xxx gives address and b.xxx gives value
+ //  same as  &b->xxx and b->xxx resp. when we use pointer
+
+	lets see, 
+
+#include <stdio.h>
+struct Book
+{
+	char name[50];
+	int isbn;
+	float price;
+	int not;
+};
+void display(struct Book*);
+void input(struct Book*);
+int main()
+{
+	struct Book b1,b2;
+
+    input(&b1);
+    input(&b2);
+
+	printf("\n Book 1:");
+    display(&b1);
+
+	printf("\n Book 2:");
+    display(&b2);
+
+	return 0;
+}
+void display(struct Book *b)
+{
+    printf(" Name: %s \t ISBN NO: %d \n Price: %0.2f \t Topics: %d\n",b->name,b->isbn,b->price,b->not);
+}
+void input(struct Book *b)
+{
+    printf("\n Enter the name, isbn, price and topics for book : ");
+	fflush(stdin);
+	gets(b->name);
+	scanf("%d %f %d",&b->isbn, &b->price, &b->not);
+}
+
+//-----------------------------------------------------------------------------------------------
+
+		// Array of structure variables
+
+	bk  0    1    2   3    4
+	  [  ] [  ] [  ] [  ] [  ]
+
+	here individual location is variable of Book Type, so we have to access location as
+
+		- bk[i].xxx  for value
+		- &bk[i].xxx for address
+
+
+	// WAP to input and display the info of 3 books
+
+#include <stdio.h>
+struct Book
+{
+	char name[50];
+	int isbn;
+	float price;
+	int not;
+};
+int main()
+{
+	struct Book bk[3];
+	int i;
+
+	for(i=0;i<3;i++)
+	{
+		printf("\n Enter the name, isbn, price and topics for book %d \n",i+1);
+		gets(bk[i].name);
+		scanf("%d %f %d",&bk[i].isbn, &bk[i].price, &bk[i].not);
+	}
+
+	printf("\n Book List \n");
+	for(i=0;i<3;i++)
+	{
+		printf(" Name: %s \t ISBN NO: %d \n Price: %0.2f \t Topics: %d\n",bk[i].name,bk[i].isbn,bk[i].price,bk[i].not);		
+	}
+	return 0;	
+}
+
+//------------------------------------------------------------------------------------------------------
+
+	// passing the array of structure variable to function
+
+#include <stdio.h>
+struct Book
+{
+	char name[50];
+	int isbn;
+	float price;
+	int not;
+};
+void input(struct Book b[3])
+{
+    int i;
+	for(i=0;i<3;i++)
+	{
+		printf("\n Enter the name, isbn, price and topics for book %d \n",i+1);
+		fflush(stdin);
+		gets(b[i].name);
+		scanf("%d %f %d",&b[i].isbn, &b[i].price, &b[i].not);
+	}
+}
+void display(struct Book b[3])
+{
+    	int i;
+    	printf("\n Book List \n");
+	for(i=0;i<3;i++)
+	{
+		printf("\n Book %d:  Name: %s \t ISBN NO: %d \n Price: %0.2f \t Topics: %d\n",i+1, b[i].name,b[i].isbn,b[i].price,b[i].not);
+	}
+}
+int main()
+{
+	struct Book bk[3];
+	input(bk);
+    	display(bk);
+
+	return 0;
+}
+
+//------------------------------------------------------------------------------------------------------
+
+	// passing the pointer structure variables to function
+
+	// Enter the info. of N Books and display the list. (access using array notations)
+
+	*bk
+	 [  ] -----> [][][][]... cnt
+
+
+#include <stdio.h>
+struct Book
+{
+	char name[50];
+	int isbn;
+	float price;
+	int not;
+};
+int main()
+{
+	int cnt,i;
+	struct Book *bk;
+	printf("\n Enter the Book Count: ");
+	scanf("%d",&cnt);
+
+	bk=(struct Book*)malloc(cnt*sizeof(struct Book));
+
+	// access using array notations
+	for(i=0;i<cnt;i++)
+	{
+		printf("\n Enter the name, isbn, price and topics for book %d \n",i+1);
+		fflush(stdin);
+		gets(bk[i].name);
+		scanf("%d %f %d",&bk[i].isbn, &bk[i].price, &bk[i].not);
+	}
+
+	printf("\n Book List \n");
+	for(i=0;i<cnt;i++)
+	{
+		printf(" Name: %s \t ISBN NO: %d \n Price: %0.2f \t Topics: %d\n",bk[i].name,bk[i].isbn,bk[i].price,bk[i].not);
+	}
+	return 0;
+
+}
+
+//------------------------------------------
+
+	// access using Pointer notations
+
+
+	*bk
+	 [300] -----> [][][][]... cnt
+                    300
+
+	bk:      300
+	(bk+i):  address of ith location
+
+	(bk+i)-> xxx   (value at ith location)
+	&(bk+i)-> xxx   (Address of ith location)
+	
+
+
+
+#include <stdio.h>
+struct Book
+{
+	char name[50];
+	int isbn;
+	float price;
+	int not;
+};
+int main()
+{
+	int cnt,i;
+	struct Book *bk;
+	printf("\n Enter the Book Count: ");
+	scanf("%d",&cnt);
+
+	bk=(struct Book*)malloc(cnt*sizeof(struct Book));
+	for(i=0;i<cnt;i++)
+	{
+		printf("\n Enter the name, isbn, price and topics for book %d \n",i+1);
+		fflush(stdin);
+		gets((bk+i)->name);
+		scanf("%d %f %d",&(bk+i)->isbn, &(bk+i)->price, &(bk+i)->not);
+	}
+
+	printf("\n Book List \n");
+	for(i=0;i<cnt;i++)
+	{
+		printf(" Name: %s \t ISBN NO: %d \n Price: %0.2f \t Topics: %d\n",(bk+i)->name,(bk+i)->isbn,(bk+i)->price,(bk+i)->not);
+	}
+	return 0;
+
+}
+
+//-------------------------------------------------------------------------------------------------------
+
+	// returning the array from function
+
+	// returning single element
+
+#include <stdio.h>
+struct Book
+{
+	char name[50];
+	int isbn;
+	float price;
+	int not;
+};
+void input(struct Book b[3])
+{
+    int i;
+	for(i=0;i<3;i++)
+	{
+		printf("\n Enter the name, isbn, price and topics for book %d \n",i+1);
+		fflush(stdin);
+		gets(b[i].name);
+		scanf("%d %f %d",&b[i].isbn, &b[i].price, &b[i].not);
+	}
+}
+void display(struct Book b[3])
+{
+    	int i;
+    	printf("\n Book List \n");
+	for(i=0;i<3;i++)
+	{
+		printf("\n Book %d:  Name: %s \t ISBN NO: %d \n Price: %0.2f \t Topics: %d\n",i+1, b[i].name,b[i].isbn,b[i].price,b[i].not);
+	}
+}
+struct Book getmaxpricebook(struct Book b[])
+{
+	int i,pos=0;
+	for(i=1;i<3;i++)
+	{
+		if(b[i].price>b[pos].price)
+		{
+			pos=i;
+		}
+	}
+	return b[pos];
+}
+int main()
+{
+	struct Book bk[3];
+	struct Book t;
+
+	input(bk);
+    	display(bk);
+	
+	t=getmaxpricebook(bk);	
+	printf("\n Book with max price:  Name: %s \t ISBN NO: %d \n Price: %0.2f \t Topics: %d\n", t.name, t.isbn, t.price, t.not);
+	return 0;
+}
+
+//-------------------------------------------------------------------------------------------------------------
+
+	// returning array
+
+#include <stdio.h>
+struct Book
+{
+	char name[50];
+	int isbn;
+	float price;
+	int not;
+};
+void input(struct Book b[3])
+{
+    int i;
+	for(i=0;i<3;i++)
+	{
+		printf("\n Enter the name, isbn, price and topics for book %d \n",i+1);
+		fflush(stdin);
+		gets(b[i].name);
+		scanf("%d %f %d",&b[i].isbn, &b[i].price, &b[i].not);
+	}
+}
+void display( struct Book b[3])
+{
+    int i;
+    printf("\n Book List \n");
+	for(i=0;i<3;i++)
+	{
+		printf("\n Book %d:  Name: %s \t ISBN NO: %d \n Price: %0.2f \t Topics: %d\n",i+1, b[i].name,b[i].isbn,b[i].price,b[i].not);
+	}
+}
+struct Book* getcopy(struct Book b[3])
+{
+	int i;
+	static struct Book t[3];
+	for(i=0;i<3;i++)
+	{
+		t[i]=b[i];
+	}
+	return t;
+}
+int main()
+{
+    int i;
+	static struct Book bk[3];
+	struct Book *p;
+
+	input(bk);
+    display(bk);
+
+	p=getcopy(bk);
+    printf("\n\n copied Book List \n");
+	for(i=0;i<3;i++)
+	{
+		printf("\n Book %d:  Name: %s \t ISBN NO: %d \n Price: %0.2f \t Topics: %d\n",i+1, (p+i)->name,(p+i)->isbn,(p+i)->price,(p+i)->not);
+	}
+	return 0;
+}
+
+//--------------------------------------------------------------------------------------------------------
+
+	// returning pointer
+
+
+#include <stdio.h>
+struct Book
+{
+	char name[50];
+	int isbn;
+	float price;
+	int not;
+};
+int cnt=0;
+void input(struct Book b[3])
+{
+    int i;
+	for(i=0;i<3;i++)
+	{
+		printf("\n Enter the name, isbn, price and topics for book %d \n",i+1);
+		fflush(stdin);
+		gets(b[i].name);
+		scanf("%d %f %d",&b[i].isbn, &b[i].price, &b[i].not);
+	}
+}
+void display( struct Book b[3])
+{
+    int i;
+    printf("\n Book List \n");
+	for(i=0;i<3;i++)
+	{
+		printf("\n Book %d:  Name: %s \t ISBN NO: %d \n Price: %0.2f \t Topics: %d\n",i+1, b[i].name,b[i].isbn,b[i].price,b[i].not);
+	}
+}
+struct Book* getprocemaxthan100(struct Book b[3])
+{
+	int i,j;
+	static struct Book *t;
+    for(i=0;i<3;i++)
+    {
+        if(b[i].price>100)
+            cnt++;
+    }
+    t=(struct Book*)malloc(cnt*sizeof(struct Book));
+	for(i=0,j=0;i<3;i++)
+	{
+	    if(b[i].price>100)
+            t[j++]=b[i];
+	}
+	return t;
+}
+int main()
+{
+    int i;
+	struct Book bk[3];
+	struct Book *p;
+
+	input(bk);
+    display(bk);
+
+	p=getprocemaxthan100(bk);
+    printf("\n\n Book List having price greater than 100 \n");
+	for(i=0;i<cnt;i++)
+	{
+		printf("\n Book %d:  Name: %s \t ISBN NO: %d \n Price: %0.2f \t Topics: %d\n",i+1, (p+i)->name,(p+i)->isbn,(p+i)->price,(p+i)->not);
+	}
+	return 0;
+}
+
+//--------------------------------------------------------------------------------------------
+
+	//  Array as a member of structure
+
+struct student
+{
+	int rno;
+	int mrk[3];
+	float per;
+};
+
+int main()
+{
+	// variable
+	int i,tot=0;
+	struct student s;
+
+	printf("\n Enter the student details");
+	printf("\n Enter the rno: ");
+	scanf("%d",&s.rno);
+	printf("\n Enter the marks in 3 subjects: ");
+	for(i=0;i<3;i++)
+	{
+		scanf("%d",&s.mrk[i]);
+		tot=tot+s.mrk[i];
+	}
+	s.per=tot/3.0;
+
+	printf("\n --------- Student Details --------- \n");
+	printf("RNO: %d \t Percentage: %0.2f",s.rno,s.per);
+	printf("\n Marks: ");
+	for(i=0;i<3;i++)
+	{
+		printf("%5d",s.mrk[i]);
+	}
+	return 0;
+}
+
+//-----------------------------------------------------------------------------------------------
+
+	/// array of structure variables when array as a member
+
+#include <stdio.h>
+struct student
+{
+	int rno;
+	int mrk[3];
+	float per;
+};
+
+int main()
+{
+	// variable
+	int i,j,tot;
+	struct student s[2];
+
+	printf("\n Enter the student details");
+	for(i=0;i<2;i++)
+	{
+		printf("\n Enter the rno of student %d: ",i+1);
+		scanf("%d",&s[i].rno);
+		printf("\n Enter the marks in 3 subjects: ");
+		tot=0;
+		for(j=0;j<3;j++)
+		{
+			scanf("%d",&s[i].mrk[j]);
+			tot=tot+s[i].mrk[j];
+		}
+		s[i].per=tot/3.0;
+	}
+	printf("\n --------- Student Details --------- \n");
+	printf("\n Enter the student details");
+	for(i=0;i<2;i++)
+	{
+		printf("\n\n student %d: \nRNO: %d \t Percentage: %0.2f",i+1,s[i].rno,s[i].per);
+		printf("\n Marks: ");
+		for(j=0;j<3;j++)
+		{
+			printf("%5d",s[i].mrk[j]);
+		}
+	}
+	return 0;
+}
+
+//-----------------------------------------------------------------------------------------------
+
+	/// pointer to structure variables when array as a member.
+
+///-----------------------------------------------------------------------------------------------
+
+	// Implementation of stacks using structure
+	
+#include <stdio.h>
+#define SIZE 5
+struct stack
+{
+	int ar[SIZE];
+	int top;
+};
+int main()
+{
+	struct stack s1,s2;
+	int opt;
+
+	s1.top=-1;
+	s2.top=-1;
+	while(1)
+	{
+		printf("\n ------------- Menu ------------\n");
+		printf("\n 1.Push \n 2.pop \n 3.stop");
+		printf("\n Enter your option: ");
+		scanf("%d",&opt);
+		switch(opt)
+		{
+			case 1:
+				printf("\n choose 1 for stack1 and 2 for stack2: ");
+				scanf("%d",&opt);
+				if(opt==1)
+				{
+					if(s1.top<(SIZE-1))
+					{
+						printf("\n Enter the number: ");
+						s1.top++;
+						scanf("%d",&s1.ar[s1.top]);
+					}
+					else
+					{
+						printf("\n Stack is Full");
+					}
+				}
+				if(opt==2)
+				{
+					if(s2.top<(SIZE-1))
+					{
+						printf("\n Enter the number: ");
+						s2.top++;
+						scanf("%d",&s2.ar[s2.top]);
+					}
+					else
+					{
+						printf("\n Stack is Full");
+					}
+				}
+				break;
+			case 2:
+				printf("\n choose 1 for stack1 and 2 for stack2: ");
+				scanf("%d",&opt);
+				if(opt==1)
+				{
+					if(s1.top!=-1)
+					{
+						printf("After pop operation: %d",s1.ar[s1.top]);
+						s1.top--;
+					}
+					else
+					{
+						printf("\n Stack is empty");
+					}
+				}
+				if(opt==2)
+				{
+					if(s2.top!=-1)
+					{
+						printf("After pop operation: %d",s2.ar[s2.top]);
+						s2.top--;
+					}
+					else
+					{
+						printf("\n Stack is empty");
+					}
+				}
+				break;
+			case 3:
+				exit(0);
+			default:
+				printf("\n Incorrect Option");
+		}
+	}
+}
+
+//----------------------------------------------------------------------------------------------
+
+	/// variable structure variables when pointer as a member.
+	/// Array of structure variables when pointer as a member.
+	/// pointer to structure variables when pointer as a member.
+
+//----------------------------------------------------------------------------------------------
+
+	// variable of another structure as a member of structure
+
+#include <stdio.h>
+#include <stdio.h>
+struct Date
+{
+    int dd;
+    int mm;
+    int yyyy;
+};
+struct student
+{
+	int rno;
+    struct Date exdt;
+	int mrk[3];
+	float per;
+};
+
+int main()
+{
+	int i,j,tot;
+	struct student s[2];
+
+	printf("\n Enter the student details");
+	for(i=0;i<2;i++)
+	{
+		printf("\n Enter the rno of student %d: ",i+1);
+		scanf("%d",&s[i].rno);
+		printf("\n Enter the Exam Date: ");
+		scanf("%d %d %d",&s[i].exdt.dd, &s[i].exdt.mm, &s[i].exdt.yyyy );
+		printf("\n Enter the marks in 3 subjects: ");
+		tot=0;
+		for(j=0;j<3;j++)
+		{
+			scanf("%d",&s[i].mrk[j]);
+			tot=tot+s[i].mrk[j];
+		}
+		s[i].per=tot/3.0;
+	}
+	printf("\n --------- Student Details --------- \n");
+	printf("\n Enter the student details");
+	for(i=0;i<2;i++)
+	{
+		printf("\n\n student %d: \nRNO: %d \t Percentage: %0.2f",i+1,s[i].rno,s[i].per);
+		printf("\n Exam Date: %d-%d-%d",s[i].exdt.dd, s[i].exdt.mm, s[i].exdt.yyyy);
+		printf("\n Marks: ");
+		for(j=0;j<3;j++)
+		{
+			printf("%5d",s[i].mrk[j]);
+		}
+	}
+	return 0;
+}
+
+//--------------------------------------------------------------------------------------------
+
+	// variable and pointer of structure when variable of another structure as a member of structure
+	// variable, array and pointer of structure when array/pointer of another structure as a member of structure
+
+//---------------------------------------------------------------------------------------------
+
+	// self referable structure
+
+#include<stdio.h>
+struct student
+{
+	int altno;
+	float hsc;
+	float cet;
+	struct student *next;
+};
+void main()
+{
+	struct student *start, *last, *tmp;
+	int opt;
+	start=NULL;
+	while(1)
+	{
+		printf("\n ---------- Menu ----------\n");
+		printf("\n 1.Insert \n 2.Display \n 3.Stop");
+		printf("\n Select your option: ");
+		scanf("%d",&opt);
+
+		switch(opt)
+		{
+			case 1:
+				tmp=(struct student*)malloc(sizeof(struct student));
+				printf("\n Enter the alt no, hsc percentage and cet marks of student: ");
+				scanf("%d %f %f",&tmp->altno,&tmp->hsc,&tmp->cet);
+				tmp->next=NULL;
+				if(start==NULL)
+				{
+					start=tmp;
+					last=tmp;
+				}
+				else
+				{
+					last->next=tmp;
+					last=tmp;
+				}
+				break;
+			case 2:
+				tmp=start;
+				while(tmp)
+				{
+					printf("\n Alt No: %d \t HSC Marks: %0.2f \t CET Marks: %0.2f",tmp->altno,tmp->hsc,tmp->cet);
+					tmp=tmp->next;
+				}
+				break;
+			case 3:
+				exit(0);
+			default:
+				printf("\n Incorrect Option...!!!");
+		}
+
+	}
+}
+
+
+//------------------------------------------------------------------------------------------------------------------------------
+	
+	// Implementing (insert-HW) and Delete Operations
+
+#include<stdio.h>
+#include<stdlib.h>
+struct Node
+{
+	int data;
+	struct Node *next;
+};
+int main()
+{
+	struct Node *start, *last, *tmp, *t;
+	int i, opt,cnt=0,pos, val;
+	start=NULL;
+	while(1)
+	{
+		printf("\n ======= Menu ======== \n");
+		printf("\n 1.insert \n 2.delete \n 3.display \n 4.stop");
+
+        printf("\n select your option: ");
+		scanf("%d",&opt);
+		switch(opt)
+		{
+			case 1:
+				tmp=(struct Node*)malloc(sizeof(struct Node));
+				printf("\n Enter the Data: ");
+				scanf("%d",&tmp->data);
+				tmp->next=NULL;
+				if(start==NULL)
+				{
+					start=tmp;
+					last=tmp;
+				}
+				else
+				{
+					last->next=tmp;
+					last=tmp;
+				}
+				cnt++;
+				break;
+            case 2:
+                    printf("\n ---- Sub-Menu ----\n");
+                    printf("\n 1.Delete From Start \n 2.From Last \n 3.From Position \n 4.using Value");
+                    printf("\n select option: ");
+                    scanf("%d",&opt);
+                    if(opt==1)
+                    {
+                        tmp=start;
+                        start=tmp->next; // start=start->next;
+                        free(tmp);
+                        cnt--;
+                    }
+                    else if(opt==2)
+                    {
+                        tmp=start;
+                        while(tmp->next!=last)
+                        {
+                            tmp=tmp->next;
+                        }
+                        tmp->next=NULL;
+                        free(last);
+                        last=tmp;
+
+                        cnt--;
+                    }
+                    else if(opt==3)
+                    {
+                        printf("\n Enter the Node Position: ");
+                        scanf("%d",&pos);
+                        if(pos>cnt)
+                        {
+                            printf("\n Improper Position");
+                        }
+                        else
+                        {
+                            if(pos==1)
+                            {
+                                tmp=start;
+                                start=tmp->next; // start=start->next;
+                                free(tmp);
+                            }
+                            else if(pos==cnt)
+                            {
+                                tmp=start;
+                                while(tmp->next!=last)
+                                {
+                                    tmp=tmp->next;
+                                }
+                                tmp->next=NULL;
+                                free(last);
+                                last=tmp;
+                            }
+                            else
+                            {
+                                tmp=start;
+                                i=1;
+                                while(i<(pos-1))
+                                {
+                                    tmp=tmp->next;
+                                    i++;
+                                }
+                                t=tmp->next;
+                                tmp->next=t->next;
+                                free(t);
+                            }
+                        }
+                        cnt--;
+                    }
+                    else if(opt==4)
+                    {
+                        printf("\n Enter the value: ");
+                        scanf("%d",&val);
+                        if(start->data==val)
+                        {
+                                tmp=start;
+                                start=tmp->next; // start=start->next;
+                                free(tmp);
+                        }
+                        else if(last->data==val)
+                        {
+                                tmp=start;
+                                while(tmp->next!=last)
+                                {
+                                    tmp=tmp->next;
+                                }
+                                tmp->next=NULL;
+                                free(last);
+                                last=tmp;
+                        }
+                        else
+                        {
+                            tmp=start;
+                            while(tmp->data!=val)
+                            {
+                                t=tmp;
+                                tmp=tmp->next;
+                            }
+                            t->next=tmp->next;
+                            free(tmp);
+                        }
+                        cnt--;
+                    }
+                    else
+                    {
+                        printf("\n Incorrect Option: ");
+                    }
+                break;
+			case 3:
+			    printf("\n Node Count: %d\n",cnt);
+				tmp=start;
+				while(tmp)
+				{
+					printf("%7d",tmp->data);
+					tmp=tmp->next;
+				}
+				break;
+			case 4:
+				exit(0);
+			default:
+				printf("\n Incorrect Option...!!!");
+		}
+	}
+	return 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
