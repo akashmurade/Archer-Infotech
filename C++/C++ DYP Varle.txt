@@ -362,7 +362,6 @@ int main()
 
     return 0;
 }
-// pnter
 ///-------------------------------------------------------------------------------------------
 
 - Using #define Preprocessor Directive (C++98):  
@@ -1945,14 +1944,1153 @@ int main()
 	return 0;
 }
 
+//-------------------------------------------------------------------------------------------------------------
+	
+	// Function overloading
+
+class Rect
+{
+	int len;
+	int brd;
+    public:
+	void in()
+	{
+		cout<<endl<<"Enter the length and Breadth of rect: ";
+		cin>>len>>brd;
+	}
+	void in(int a)
+	{
+		len=a;
+		brd=a;
+	}	
+	void in(int a1, int a2)
+	{
+		len=a1;
+		brd=a2;
+	}
+	void out()
+	{
+		cout<<endl<<"Length: "<<len<<"\t Breadth: "<<brd;
+	}
+	int area()
+	{
+		return (len*brd);
+	}
+};
+int main()
+{
+	Rect rob1;
+	rob1.in();
+	rob1.out();
+	cout<<endl<<"Area of rect-1: "<<rob1.area();
+
+	Rect rob2;
+	rob2.in(5);
+	rob2.out();
+	cout<<endl<<"Area of rect-2: "<<rob2.area();
+
+	Rect rob3;
+	int x,y;
+	cout<<endl<<"Enter the length and Breadth of rect: ";
+	cin>>x>>y;
+	rob3.in(x,y);
+	rob3.out();
+	cout<<endl<<"Area of rect-3: "<<rob3.area();
+
+	return 0;
+}
+//-------------------------------------------------------------------------------------------------------------
+
+	// Nesting of member function
+
+	//  Define the class Number and define some functions within it to process the value.
+#include<iostream>
+using namespace std;
+class Number
+{
+	int no;
+    public:
+	void input(int a)
+	{
+		no=a;
+	}
+	void output()
+	{
+		cout<<endl<<"Number is: "<<no;
+	}
+	int getreverse()
+	{
+		int rev=0;
+		int n=no;
+		while(n!=0)
+		{
+			rev=(rev*10)+(n%10);
+			n=n/10;
+		}
+		return rev;
+	}
+	char ispalindrome()
+	{
+		if(no==getreverse())
+			return 'y';
+		else
+			return 'n';
+	}
+};
+int main()
+{
+	int t;
+	cout<<endl<<"Enter the no: ";
+	cin>>t;
+
+	Number nob;
+	nob.input(t);
+	nob.output();
+	cout<<endl<<"Reverse is: "<<nob.getreverse();
+
+	Number ob1;
+	cout<<endl<<"Enter the no: ";
+	cin>>t;
+	ob1.input(t);
+	ob1.output();
+
+	char ans=ob1.ispalindrome();
+	if(ans=='y')
+		cout<<endl<<"Number is Palindrome";
+	else
+		cout<<endl<<"Number is not Palindrome";
+
+
+	return 0;
+}
+
+//-------------------------------------------------------------------------------------------------------------
+
+	// Array as a member of class
+
+class MyArray
+{
+	int x[10];
+	void in()
+	{
+		cout<<endl<<"Enter the 10 nos: ";
+		for(int i=0;i<10;i++)
+		{
+			cin>>x[i];
+		}
+	}
+	void out()
+	{
+		cout<<endl<<"Enter the 10 nos: ";
+		for(int i=0;i<10;i++)
+		{
+			cout<<"    "<<x[i];
+		}
+	}
+};
+
+int main()
+{
+	MyArray ob1;
+
+	ob1.in();
+	ob1.out();
+
+	return 0;
+}
+
+
+//-------------------------------------------------------------------------------
+
+	// Add one more member function
+
+#include<iostream>
+#include<string.h>
+using namespace std;
+class MyArray
+{
+	int x[10];
+   public:
+	void in()
+	{
+		cout<<endl<<"Enter the 10 nos: ";
+		for(int i=0;i<10;i++)
+		{
+			cin>>x[i];
+		}
+	}
+	void out()
+	{
+		cout<<endl<<"Enter the 10 nos: ";
+		for(int i=0;i<10;i++)
+		{
+			cout<<"    "<<x[i];
+		}
+	}
+	int getprimecount()
+	{
+	    int i,cnt=0,d,flg;
+	    for(i=0;i<10;i++)
+        {
+            d=2;
+            flg=0;
+            while(d<=(x[i]/2))
+            {
+                if(x[i]%d==0)
+                {
+                    flg=1;
+                    break;
+                }
+                d++;
+            }
+            if(flg==0)
+                cnt++;
+        }
+        return cnt;
+	}
+};
+
+int main()
+{
+	MyArray ob1;
+
+	ob1.in();
+	ob1.out();
+
+	int t=ob1.getprimecount();
+	cout<<endl<<"Prime Count is: "<<t;
+
+	return 0;
+}
+
+//----------------------------------------------------------------------------------------------------
+
+	// Pointer as a member of class
+
+class MyDynamicType
+{
+	int *p;
+	int cnt;
+      public:
+	void in()
+	{
+		cout<<endl<<"Enter the count: ";
+		cin>>cnt;
+		p=new int[cnt];
+
+		cout<<endl<<"Enter the "<<cnt<<" elements: ";
+		for(int i=0;i<cnt;i++)
+		{
+			cin>>*(p+i);
+		}
+
+	}	
+	void out()
+	{
+		cout<<endl<<"Elements are: ";
+		for(int i=0;i<cnt;i++)
+		{
+			cout<<"   "<<*(p+i);
+		}
+	}
+	int countEvens()
+	{
+		int ec=0;
+		for(int i=0;i<cnt;i++)
+		{
+			if(*(p+i)%2==0)
+			{
+				ec++;
+			}
+		}
+		return ec;
+	}
+};
+
+int main()
+{
+	MyDynamicType ob;
+
+	ob.in();
+	ob.out();
+	cout<<endl<<"Even Count: "<<ob.countEvens();
+
+	return 0;
+}
+
+//----------------------------------------------------------------------------------------------------------
+  
+   homework
+
+	// Menu driven program
+	// we have to store the runs scored by 3 players in N matches
+	// find current top scorer
+
+//---------------------------------------------------------------------------------------------------------
+
+	// Passing object as an argument to member function
+
+#include<iostream>
+#include<string.h>
+using namespace std;
+class Complex
+{
+	int real;
+	float img;
+     public:
+	void input()
+	{
+		cout<<endl<<"Enter the real part of number: ";
+		cin>>real;
+		cout<<endl<<"Enter the img part of number: ";
+		cin>>img;
+	}
+	void output()
+	{
+		cout<<real<<"+j"<<img;
+	}
+	void addcomplex(Complex a, Complex b)
+	{
+		real=a.real+b.real;
+		img=a.img+b.img;
+	}
+};
+
+int main()
+{
+	Complex c1,c2,c3;
+
+	c1.input();
+	c2.input();
+
+	cout<<endl<<"C1: ";
+	c1.output();
+
+	cout<<endl<<"C2: ";
+	c2.output();
+
+	c3.addcomplex(c1,c2);
+
+	cout<<endl<<"C3: ";
+	c3.output();
+
+	return 0;
+}
+
+//---------------------------------------------------------------------------------------------------------
+
+	// Another way - * Returning the object from member function *
+
+#include<iostream>
+#include<string.h>
+using namespace std;
+class Complex
+{
+	int real;
+	float img;
+     public:
+	void input()
+	{
+		cout<<endl<<"Enter the real part of number: ";
+		cin>>real;
+		cout<<endl<<"Enter the img part of number: ";
+		cin>>img;
+	}
+	void output()
+	{
+		cout<<real<<"+j"<<img;
+	}
+	Complex addcomplex(Complex a)
+	{
+		Complex t;
+		t.real=real+a.real;
+		t.img=img+a.img;
+		return t;
+	}
+};
+
+int main()
+{
+	Complex c1,c2,c3;
+
+	c1.input();
+	c2.input();
+
+	cout<<endl<<"C1: ";
+	c1.output();
+
+	cout<<endl<<"C2: ";
+	c2.output();
+
+	c3=c1.addcomplex(c2);
+
+	cout<<endl<<"C3: ";
+	c3.output();
+
+	return 0;
+}
+
+//---------------------------------------------------------------------------------------------------------
+
+
+	// Using friend function
+
+#include<iostream>
+#include<string.h>
+using namespace std;
+class Complex
+{
+	int real;
+	float img;
+     public:
+	void input()
+	{
+		cout<<endl<<"Enter the real part of number: ";
+		cin>>real;
+		cout<<endl<<"Enter the img part of number: ";
+		cin>>img;
+	}
+	void output()
+	{
+		cout<<real<<"+j"<<img;
+	}
+	friend Complex addcomplex(Complex a, Complex b);
+};
+
+Complex addcomplex(Complex a, Complex b)
+{
+	Complex t;
+	t.real=a.real+b.real;
+	t.img=a.img+b.img;
+	return t;
+}
+int main()
+{
+	Complex c1,c2,c3;
+
+	c1.input();
+	c2.input();
+
+	cout<<endl<<"C1: ";
+	c1.output();
+
+	cout<<endl<<"C2: ";
+	c2.output();
+
+	c3=addcomplex(c1,c2);
+
+	cout<<endl<<"C3: ";
+	c3.output();
+
+	return 0;
+}
+
+//------------------------------------------------------------------------------------------------------------
+
+	// Write a program to add two time objects
+
+class Time
+{
+	int hh;
+	int mm;
+	int ss;
+     public:
+	void intime()
+	{
+		cout<<endl<<"Enter the HH:MM:SS: ";
+		cin>>hh>>mm>>ss;
+	}
+	void outtime()
+	{
+		cout<<hh<<":"<<mm<<":"<<ss;
+	}
+	Time addtime(Time a)				// 3 : 40 : 45
+	{						// 5 : 30 : 50
+		Time tmp;				//-1----1-------
+		tmp.ss = ss + a.ss;			// 9 : 11 : 35 
+		tmp.mm = mm + a.mm + (tmp.ss/60);
+		tmp.ss = tmp.ss%60;
+		
+		tmp.hh = hh + a.hh + (tmp.mm/60);
+		tmp.mm = tmp.mm%60;
+
+		return tmp;
+	}
+};
+int main()
+{
+	Time t1, t2, t3;
+
+	t1.intime();
+	t2.intime();
+
+	t3=t2.addtime(t1);
+
+	cout<<endl<<"T1: "; t1.outtime();
+	cout<<endl<<"T2: "; t2.outtime();
+	cout<<endl<<"T3: "; t3.outtime();
+
+	return 0;
+}
+
+
+//------------------------------------------------------------------------------
+
+	// another way
+
+class Time
+{
+	int hh;
+	int mm;
+	int ss;
+     public:
+	void intime()
+	{
+		cout<<endl<<"Enter the HH:MM:SS: ";
+		cin>>hh>>mm>>ss;
+	}
+	void outtime()
+	{
+		cout<<hh<<":"<<mm<<":"<<ss;
+	}
+	void addtime(Time a,Time b)				// 3 : 40 : 45
+	{						// 5 : 30 : 50
+							//-1----1-------
+		ss = b.ss + a.ss;			// 9 : 11 : 35 
+		mm = b.mm + a.mm + (ss/60);
+		ss = ss%60;
+		
+		hh = b.hh + a.hh + (mm/60);
+		mm = mm%60;
+	}
+};
+int main()
+{
+	Time t1, t2, t3;
+
+	t1.intime();
+	t2.intime();
+
+	t3.addtime(t1,t2);
+
+	cout<<endl<<"T1: "; t1.outtime();
+	cout<<endl<<"T2: "; t2.outtime();
+	cout<<endl<<"T3: "; t3.outtime();
+
+	return 0;
+}
+
+//----------------------------------------------------------------------------------------
+
+
+#include<iostream>
+#include<string.h>
+using namespace std;
+
+class Time
+{
+	int hh;
+	int mm;
+	int ss;
+     public:
+	void intime()
+	{
+		cout<<endl<<"Enter the HH:MM:SS: ";
+		cin>>hh>>mm>>ss;
+	}
+	void outtime()
+	{
+		cout<<hh<<":"<<mm<<":"<<ss;
+	}
+	void addtime(Time a,Time b)			// 3 : 40 : 45
+	{						// 5 : 30 : 50
+							//-1----1-------
+		ss = b.ss + a.ss;			// 9 : 11 : 35
+		mm = b.mm + a.mm + (ss/60);
+		ss = ss%60;
+
+		hh = b.hh + a.hh + (mm/60);
+		mm = mm%60;
+	}
+};
+int main()
+{
+	Time t1, t2, t3;
+
+	t1.intime();
+	t2.intime();
+
+	t3.addtime(t1,t2);
+
+	cout<<endl<<"T1: "; t1.outtime();
+	cout<<endl<<"T2: "; t2.outtime();
+	cout<<endl<<"T3: "; t3.outtime();
+
+	return 0;
+}
+
+//---------------------------------------------------------------------------------------
 
 
 
+#include<iostream>
+#include<string.h>
+using namespace std;
+
+class Time
+{
+	int hh;
+	int mm;
+	int ss;
+     public:
+	void intime()
+	{
+		cout<<endl<<"Enter the HH:MM:SS: ";
+		cin>>hh>>mm>>ss;
+	}
+	void outtime()
+	{
+		cout<<hh<<":"<<mm<<":"<<ss;
+	}
+	void addtime(int x,Time b)			// 3 : 40 : 55
+	{						// 10: 10 : 10
+							//-1----1-------
+		ss = b.ss + x;				// 13 : 51 : 05
+		mm = b.mm + x + (ss/60);
+		ss = ss%60;
+
+		hh = b.hh + x + (mm/60);
+		mm = mm%60;
+	}
+};
+int main()
+{
+	Time t1, t2, t3;
+
+	t1.intime();
+	t2.intime();
+
+	t3.addtime(10,t2);
+
+	cout<<endl<<"T1: "; t1.outtime();
+	cout<<endl<<"T2: "; t2.outtime();
+	cout<<endl<<"T3: "; t3.outtime();
+
+	return 0;
+}
+
+//==============================================================================================================
+
+	// static data member and static member function
+
+class Item
+{
+	int ic;
+	float ip;
+	static float tot;
+    public:
+	void in()
+	{
+		cout<<endl<<"Enter the code and price: ";
+		cin>>ic>>ip;
+		tot=tot+ip;
+	}
+	void out()
+	{
+		cout<<endl<<"Item Code: "<<ic<<"\t Price: "<<ip;
+	}
+	void showtot()
+	{
+		cout<<"\n Total Bill: "<<tot;
+	}
+};
+float Item::tot;
+int main()
+{
+	Item i1, i2, i3;
+
+	i1.in();
+	i2.in();
+	i3.in();
+	
+	i1.out();
+	i2.out();
+	i3.out();
+	
+	i1.showtot();	// i_.showtot();
+
+	return 0;
+}
+
+//--------------------------------------------------------------------------------------------------------
+
+	// Using static data member and static member function
 
 
+#include<iostream>
+#include<string.h>
+using namespace std;
+class Item
+{
+	int ic;
+	float ip;
+	static float tot;
+    public:
+	void in()
+	{
+		cout<<endl<<"Enter the code and price: ";
+		cin>>ic>>ip;
+		tot=tot+ip;
+	}
+	void out()
+	{
+		cout<<endl<<"Item Code: "<<ic<<"\t Price: "<<ip;
+	}
+	static void showtot()
+	{
+		cout<<"\n Total Bill: "<<tot;
+	}
+};
+//float Item::tot;
+float Item::tot=100; 
+int main()
+{
+	Item::showtot();
+	Item i1, i2, i3;
+
+	i1.in();
+	i2.in();
+	i3.in();
+
+	i1.out();
+	i2.out();
+	i3.out();
+
+	Item::showtot();	
+
+	return 0;
+}
 
 
+//============================================================================================
 
+	// another example
+
+#include<iostream>
+#include<string.h>
+using namespace std;
+
+class Player
+{
+	int id;
+	char nm[50];
+	int score;
+	static int m50,m100;
+    public:
+	void input()
+	{
+		cout<<endl<<"Enter the name, id and runs scored by players";
+		cin>>nm>>id>>score;
+		if(score>=100)
+		{
+			m100++;
+		}
+		else if(score>=50)
+		{
+			m50++;
+		}
+	}
+	void output()
+	{
+		cout<<endl<<"Name: "<<nm<<"\t Id: "<<id<<"\t Runs scored: "<<score;
+	}
+	static void getcn_fif()
+	{
+		cout<<endl<<"No of 100s: "<<m100<<"\t No of 50s: "<<m50;
+	}
+};
+int Player::m50, Player::m100;
+int main()
+{
+	Player m1[11];
+
+
+	for(int i=0;i<11;i++)
+	{
+		m1[i].input();
+	}
+
+	cout<<endl<<"------------------ Score Card ------------------\n";
+	for(int i=0;i<11;i++)
+	{
+		m1[i].output();
+	}
+	Player::getcn_fif();
+
+	return 0;
+}
+
+///---------------------------------------------------------------------------------------------
+
+	// Friend Function
+
+		- outside function as a friend of class
+		- Member function of one class as a friend of another
+		- friend class - all member functions of one class as a friend of another class
+
+
+	// - outside function as a friend of class
+
+#include <iostream>
+using namespace std;
+class Person
+{
+   private: 
+	char nm[50];
+	int age;
+   public: 
+	void in()
+	{
+		cout<<endl<<"Enter the name of person: ";
+		cin.getline(nm,50);
+
+		cout<<endl<<"Enter the age: ";
+		cin>>age;
+	}	
+	void display()
+	{
+		cout<<endl<<"Person Details - Name: "<<nm<<"\t Age: "<<age;
+	}
+	friend void showinfo(Person);
+};
+void showinfo(Person a)
+{
+	cout<<endl<<"Person Information - Name: "<<a.nm<<"\t Age: "<<a.age;
+}
+int main()
+{
+	Person ob;
+	ob.in();
+	ob.display();
+
+	showinfo(ob);	
+	return 0;
+}
+
+//--------------------------------------------------------------------------------------------------
+
+	// Outside function as a friend of two or more classes
+
+
+#include<iostream>
+#include<string.h>
+using namespace std;
+class Student; // Forward decl.
+class Person
+{
+   private:
+	char nm[50];
+	int age;
+   public:
+	void in()
+	{
+		cout<<endl<<"Enter the name of person: ";
+		cin.getline(nm,50);
+
+		cout<<endl<<"Enter the age: ";
+		cin>>age;
+	}
+	void display()
+	{
+		cout<<endl<<"Person Details - Name: "<<nm<<"\t Age: "<<age;
+	}
+	friend void FindElder(Person a, Student b);
+};
+class Student
+{
+   private:
+	char nm[50];
+	int age;
+   public:
+	void in()
+	{
+		cout<<endl<<"Enter the name of student: ";
+		cin.ignore();
+		cin.getline(nm,50);
+
+		cout<<endl<<"Enter the age: ";
+		cin>>age;
+	}
+	void display()
+	{
+		cout<<endl<<"Student Details - Name: "<<nm<<"\t Age: "<<age;
+	}
+	friend void FindElder(Person a,Student b);
+};
+
+void FindElder(Person a, Student b)
+{
+	if(a.age>b.age)
+		cout<<endl<<"Elder Information - Name: "<<a.nm<<"\t Age: "<<a.age;
+	else
+		cout<<endl<<"Elder Information - Name: "<<b.nm<<"\t Age: "<<b.age;
+}
+int main()
+{
+	Person p;
+	p.in();
+	p.display();
+
+	Student s;
+	s.in();
+	s.display();
+
+	FindElder(p,s);
+	return 0;
+}
+
+//---------------------------------------------------------------------------------------------------------
+
+	// - Member function of one class as a friend of another
+
+#include<iostream>
+#include<string.h>
+using namespace std;
+class Person;
+class Student
+{
+   private:
+	char nm[50];
+	int age;
+   public:
+	void in()
+	{
+		cout<<endl<<"Enter the name of student: ";
+		cin.ignore();
+		cin.getline(nm,50);
+
+		cout<<endl<<"Enter the age: ";
+		cin>>age;
+	}
+	void display()
+	{
+		cout<<endl<<"Student Details - Name: "<<nm<<"\t Age: "<<age;
+	}
+	void findelder(Person p);
+};
+
+class Person
+{
+   private:
+	char nm[50];
+	int age;
+   public:
+	void in()
+	{
+		cout<<endl<<"Enter the name of person: ";
+		cin.getline(nm,50);
+
+		cout<<endl<<"Enter the age: ";
+		cin>>age;
+	}
+	void display()
+	{
+		cout<<endl<<"Person Details - Name: "<<nm<<"\t Age: "<<age;
+	}
+	friend void Student::findelder(Person p);
+};
+
+void Student::findelder(Person p)
+{
+    cout<<endl<<"Elder Details"<<endl;
+    if(age>p.age)
+    {
+        display();
+    }
+    else
+    {
+        p.display();
+    }
+}
+
+int main()
+{
+	Person p;
+	p.in();
+
+	Student s;
+	s.in();
+
+	p.display();
+	s.display();
+
+	s.findelder(p);
+	return 0;
+}
+//---------------------------------------------------------------------------------------------------------
+
+	// - friend class - all member functions of one class as a friend of another class
+
+#include<iostream>
+#include<string.h>
+using namespace std;
+class B;
+class A
+{
+   private:
+	int a;
+	friend class B;
+};
+class B
+{
+    private:
+	int b;
+    public:
+	void in(A& ob)
+	{
+		cout<<"Enter the val of a: ";
+		cin>>ob.a;
+		cout<<"Enter the val of b: ";
+		cin>>b;
+	}
+	void out(A ob)
+	{
+		cout<<endl<<"a: "<<ob.a;
+		cout<<endl<<"b: "<<b;
+	}
+};
+int main()
+{
+	A ob1;
+	B ob2;
+
+	ob2.in(ob1);
+	ob2.out(ob1);
+
+	return 0;
+}
+
+//---------------------------------------------------------------------------------------------
+
+	// Swaping the private data of class using friend function
+
+#include<iostream>
+#include<string.h>
+using namespace std;
+
+class B;
+class A
+{
+   private:
+	int a;
+   public:
+	void in()
+	{
+		cout<<"Enter the val of a: ";
+		cin>>a;
+	}
+	void out()
+	{
+		cout<<endl<<"a: "<<a;
+	}
+	friend void swapdata(A &a1, B &b1);
+};
+class B
+{
+    private:
+	int b;
+    public:
+	void input()
+	{
+		cout<<"Enter the val of b: ";
+		cin>>b;
+	}
+	void output()
+	{
+		cout<<endl<<"b: "<<b;
+	}
+	friend void swapdata(A &a1, B &b1);
+};
+void swapdata(A &a1, B &b1)
+{
+    int tmp;
+    tmp=a1.a;
+    a1.a=b1.b;
+    b1.b=tmp;
+}
+int main()
+{
+    A ob1;
+    B ob2;
+
+    ob1.in();
+    ob2.input();
+
+    cout<<endl<<"---------- Before Swap -------------";
+    ob1.out();
+    ob2.output();
+
+    swapdata(ob1,ob2);
+
+    cout<<endl<<"---------- After Swap -------------";
+    ob1.out();
+    ob2.output();
+
+    return 0;
+}
+
+//========================================================================================
+//========================================================================================
+
+	Constructor and Destructor
+
+#include<iostream>
+#include<string.h>
+using namespace std;
+
+class Sample
+{
+	int data;
+    public:
+	Sample()
+	{
+		cout<<"\n Object is created";
+		data=100;
+	}
+	~Sample()
+	{
+		cout<<"\n Object is Deleted";
+	}
+	void indata()
+	{
+		cout<<endl<<"Enter the data: ";
+		cin>>data;
+	}
+	void outdata()
+	{
+		cout<<"Data is: "<<data;
+	}
+};
+int main()
+{
+	Sample ob1;
+
+	cout<<endl<<"Before input: ";
+    	cout<<endl<<"For Ob1: ";
+	ob1.outdata();
+
+	ob1.indata();
+    	cout<<endl<<"For Ob1: ";
+	ob1.outdata();
+
+	{
+	    Sample ob2;
+	    cout<<endl<<"For Ob2: ";
+	    ob2.outdata();
+	}
+    	cout<<endl<<"Main ends";
+	return 0;
+}
 
 
 
