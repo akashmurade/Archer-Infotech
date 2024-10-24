@@ -3,7 +3,7 @@
 #include <iostream>
 using namespace std;
 
-class Student 
+class Student
 {
     private:
     char nm[40];
@@ -40,7 +40,7 @@ int main()
 #include <string.h>
 using namespace std;
 
-class Student 
+class Student
 {
     private:
     char nm[40];
@@ -86,7 +86,7 @@ int main()
 #include <iostream>
 using namespace std;
 
-class Student 
+class Student
 {
     private:
     char nm[40];
@@ -125,7 +125,7 @@ int main()
 #include <iostream>
 using namespace std;
 
-class Student 
+class Student
 {
     private:
     char nm[40];
@@ -150,7 +150,7 @@ class Student
 int main()
 {
     Student s[2];
-    
+
     // Input
     for(int i = 0; i < 2; i++) {
         s[i].input();
@@ -168,7 +168,7 @@ int main()
 #include <iostream>
 using namespace std;
 
-class Student 
+class Student
 {
     private:
     char nm[40];
@@ -195,7 +195,7 @@ int main()
     int cnt;
     cout << "\nEnter number of students: ";
     cin >> cnt;
-    
+
     Student *s = new Student[cnt];
 
     // Input
@@ -279,7 +279,7 @@ class Rect
         cout << "\nEnter Length and breadth of Rectangle: ";
         cin >> len >> bre;
     }
-    
+
     void in(int side)
     {
         len = side;
@@ -328,11 +328,11 @@ int main()
 #include <iostream>
 using namespace std;
 
-class Number 
+class Number
 {
     int n;
     public:
-    
+
     void in() {
         cout << "\nEnter number: ";
         cin >> n;
@@ -486,7 +486,7 @@ class Complex
         cout << "\nEnter real and imaginery part of complex number: ";
         cin >> real >> img;
     }
-    void in(int r, int i) 
+    void in(int r, int i)
     {
         real = r;
         img = i;
@@ -529,7 +529,7 @@ class Player
     int pid;
     int *matchScores;
     int noOfMatches;
-    
+
     public:
     void in(int playerID)
     {
@@ -552,11 +552,11 @@ class Player
         }
     }
 
-    void insert(int score) 
+    void insert(int score)
     {
         // matchScores = (int *)realloc(matchScores, sizeof(int) * (noOfMatches + 1));
         // matchScores[noOfMatches++] = score;
-    
+
         // Other option
         int* temp = matchScores;
         matchScores = new int[noOfMatches + 1];
@@ -595,7 +595,7 @@ int main()
                     cout << "\nEnter score: ";
                     cin >> s;
                     p[pno - 1].insert(s);
-                    cout << "\nScore Inserted."; 
+                    cout << "\nScore Inserted.";
                 }
                 else {
                     cout << "\nPlayer doesn't exist.";
@@ -683,14 +683,14 @@ class Person
     {
         cout << "\nEnter name of person: ";
         cin.getline(nm, 50);
-        
+
         cout << "\nEnter age: ";
         cin >> age;
-    }  
-    
+    }
+
     void out()
     {
-        cout << "\nPerson Details\nName: " << nm << "\nAge: " << age; 
+        cout << "\nPerson Details\nName: " << nm << "\nAge: " << age;
     }
 
     friend void changeAge(Person&);
@@ -713,7 +713,7 @@ int main()
 
     cout << "\nBefore Change: ";
     p.out();
-    
+
     return 0;
 }
 
@@ -894,7 +894,6 @@ int main()
 }
 
 // Constructor and Destructor
-*/
 #include <iostream>
 using namespace std;
 
@@ -906,12 +905,12 @@ class Num
     {
         cout << "\nObject is Created.";
     }
-    
+
     ~Num()
     {
         cout << "\nObject is Destroyed.";
     }
-    
+
     void indata()
     {
         cout << "\nEnter the data: ";
@@ -927,9 +926,746 @@ class Num
 int main()
 {
     Num n;
-    
+
     n.indata();
     n.outdata();
     return 0;
 }
 
+//defining the constructor outside of class
+#include <iostream>
+using namespace std;
+
+class Num
+{
+    int n;
+    public:
+    Num();
+
+    void indata()
+    {
+        cout << "\nEnter the data: ";
+        cin >> n;
+    }
+
+    void outdata()
+    {
+        cout << "\nNumber: " << n;
+    }
+};
+
+Num::Num() {
+    printf("\nConstructor is called.");
+}
+
+int main()
+{
+    Num n;
+
+    n.indata();
+    n.outdata();
+    return 0;
+}
+
+// - Parameterised Constructor : Constructor which collects an arguments.
+#include <iostream>
+using namespace std;
+
+class Num
+{
+    int n;
+    public:
+    Num()
+    {
+        cout << "\nObject is Created.";
+    }
+
+    Num(int no) {
+        n = no;
+    }
+
+    void indata()
+    {
+        cout << "\nEnter the data: ";
+        cin >> n;
+    }
+
+    void outdata()
+    {
+        cout << "\nNumber: " << n;
+    }
+};
+
+int main()
+{
+    Num n(10);
+    n.outdata();
+    return 0;
+}
+
+    // Destructors: It is same as that of default constructor, but preceeded with ~(tidel) sign, and
+            // invoked automatically, when object moves out of scope.
+
+            // - note carefuly that, it will not collecting any argument.
+            // - It is actually used to release the resources hold by the object. means it will be
+            //   used to perform the last operation on the object like file closeing, just before
+            //   becoming inaccessible.
+
+// Dynamic Constructor: Used to allocated the memory for class member.
+#include <iostream>
+using namespace std;
+
+class DArray
+{
+    int* arr;
+    int n;
+    public:
+    DArray()
+    {
+        cout << "\nEnter number of elements: ";
+        cin >> n;
+
+        arr = new int[n];
+        cout << "\nEnter " << n << " elements: ";
+        for(int i = 0; i < n; i++) {
+            cin >> arr[i];
+        }
+    }
+
+    ~DArray() {
+        cout << "\nArray Elements are: ";
+        for(int i = 0; i < n; i++) {
+            cout << "\t" << arr[i];
+        }
+        free(arr);
+    }
+};
+
+int main()
+{
+    DArray d;
+    return 0;
+}
+
+//  copy constructor
+#include <iostream>
+using namespace std;
+
+class Num
+{
+    int n;
+    public:
+    Num()
+    {
+        cout << "\nObject is Created.";
+    }
+
+    Num(int no) {
+        n = no;
+    }
+
+    // Copy Constructor
+    Num(Num &Obj) {
+        n = Obj.n;
+    }
+
+    void indata()
+    {
+        cout << "\nEnter the data: ";
+        cin >> n;
+    }
+
+    void outdata()
+    {
+        cout << "\nNumber: " << n;
+    }
+};
+
+int main()
+{
+    Num n(10);
+    n.outdata();
+    Num n2(n);
+    n2.outdata();
+    return 0;
+}
+
+// Passing default arguments to constructor:
+#include <iostream>
+using namespace std;
+class Time
+{
+    int hours;
+    int minutes;
+    int seconds;
+
+public:
+    Time()
+    {
+        hours = 0;
+        minutes = 0;
+        seconds = 0;
+    }
+    Time(int a)
+    {
+        hours = a;
+        minutes = a;
+        seconds = a;
+    }
+    Time(int a, int b, int c = 10)
+    {
+        hours = a;
+        minutes = b;
+        seconds = c;
+    }
+    void showTime()
+    {
+        cout << hours << " : " << minutes << " : " << seconds << endl;
+    }
+};
+int main()
+{
+    Time t1;
+    t1.showTime();
+
+    Time t2(10);
+    t2.showTime();
+
+    Time t3(1, 2); // here seconds are taken as 10 by default
+    t3.showTime();
+    return 0;
+}
+
+// Constructor Overloading: It simply refers to defining multiple constructors in a same class,
+// but differ in the signature(prototype).
+#include <iostream>
+using namespace std;
+class Time
+{
+    int hours;
+    int minutes;
+    int seconds;
+
+public:
+    Time()
+    {
+        hours = 0;
+        minutes = 0;
+        seconds = 0;
+    }
+    Time(int a)
+    {
+        hours = a;
+        minutes = a;
+        seconds = a;
+    }
+    Time(int a, int b, int c = 10)
+    {
+        hours = a;
+        minutes = b;
+        seconds = c;
+    }
+    void showTime()
+    {
+        cout << hours << " : " << minutes << " : " << seconds << endl;
+    }
+};
+int main()
+{
+    Time t1;
+    t1.showTime();
+
+    Time t2(10);
+    t2.showTime();
+
+    Time t3(1, 2); // here seconds are taken as 10 by default
+    t3.showTime();
+    return 0;
+}
+
+// defining const member in class and its initialisation using initialisation list
+#include <iostream>
+using namespace std;
+
+class Num
+{
+    const int n;
+
+public:
+    Num() : n(10)
+    {
+        // n = 100; // error: assignment of read-only member 'Num::n'
+    }
+
+    Num(int no) : n(no)
+    {
+        // n = 200; // error: assignment of read-only member 'Num::n'
+    }
+
+    void outdata()
+    {
+        cout << "\nNumber: " << n;
+    }
+};
+
+int main()
+{
+    Num n;
+    n.outdata();
+    return 0;
+}
+
+// const object and const function
+
+#include <iostream>
+using namespace std;
+
+class Num
+{
+    int n;
+
+public:
+    Num()
+    {
+        n = 0;
+    }
+
+    Num(int no)
+    {
+        n = no;
+    }
+
+    void indata()
+    {
+        cout << "\nEnter the data: ";
+        cin >> n;
+    }
+
+    void outdata() const
+    {
+        cout << "\nNumber: " << n;
+    }
+};
+
+int main()
+{
+    const Num n;
+    // n.outdata(); // error: passing 'const Num' as 'this' argument discards qualifiers // error comes if outdata is not const function
+    n.outdata();
+    return 0;
+}
+
+// Inheritance
+// Single Inheritance - public - allow access to inherited public members through object
+#include <iostream>
+using namespace std;
+
+class Person
+{
+    int uid;
+    char name[30];
+
+public:
+    void in()
+    {
+        cout << "\nEnter UID: ";
+        cin >> uid;
+        cout << "\nEnter Name: ";
+        cin >> name;
+    }
+
+    void out()
+    {
+        cout << "\nUID: " << uid << "\nName: " << name;
+    }
+};
+
+class Employee : public Person
+{
+    float sal;
+
+public:
+    void input()
+    {
+        cout << "\nEnter Salary: ";
+        cin >> sal;
+    }
+
+    void output()
+    {
+        cout << "\nSalary: " << sal;
+    }
+};
+
+int main()
+{
+    Employee e;
+    e.in();
+    e.input();
+    e.out();
+    e.output();
+    return 0;
+}
+
+// Single Inheritance: (public - called base methods from child class methods )
+#include <iostream>
+using namespace std;
+
+class Person
+{
+    int uid;
+    char name[30];
+
+public:
+    void in()
+    {
+        cout << "\nEnter UID: ";
+        cin >> uid;
+        cout << "\nEnter Name: ";
+        cin >> name;
+    }
+
+    void out()
+    {
+        cout << "\nUID: " << uid << "\nName: " << name;
+    }
+};
+
+class Employee : private Person
+{
+    float sal;
+
+public:
+    void input()
+    {
+        in();
+        cout << "\nEnter Salary: ";
+        cin >> sal;
+    }
+
+    void output()
+    {
+        out();
+        cout << "\nSalary: " << sal;
+    }
+};
+
+int main()
+{
+    Employee e;
+    // in and out methods cannot be called since Employee has inherited person privately
+    // e.in();
+    e.input();
+    // e.out();
+    e.output();
+    return 0;
+}
+
+// Multi-level Inheritance: one to one relationship, more than two layers
+// Using the constructors in inheritance
+#include <iostream>
+using namespace std;
+
+class A
+{
+    int n1;
+
+public:
+    A()
+    {
+        cout << "\nIn Constructor of class A.";
+        n1 = 10;
+    }
+
+    A(int n)
+    {
+        n1 = n;
+    }
+
+    void inA()
+    {
+        cout << "\nEnter n1: ";
+        cin >> n1;
+    }
+
+    void outA()
+    {
+        cout << "\nN1(in A): " << n1;
+    }
+};
+
+class B : public A
+{
+    int n2;
+
+public:
+    B()
+    {
+        cout << "\nIn Constructor of class B.";
+        n2 = 100;
+    }
+
+    B(int a) : A(a)
+    {
+        n2 = a;
+    }
+
+    B(int a, int b) : A(a)
+    {
+        n2 = b;
+    }
+
+    void inB()
+    {
+        cout << "\nEnter n2: ";
+        cin >> n2;
+    }
+
+    void outB()
+    {
+        outA();
+        cout << "\nN2(in B): " << n2;
+    }
+};
+
+class C : public B
+{
+    int n3;
+
+public:
+    C()
+    {
+        cout << "\nIn Constructor of class C.";
+        n3 = 1000;
+    }
+
+    C(int a) : B(a)
+    {
+        n3 = a;
+    }
+
+    C(int a, int b, int c) : B(a, b)
+    {
+        n3 = c;
+    }
+
+    void inC()
+    {
+        cout << "\nEnter n3: ";
+        cin >> n3;
+    }
+
+    void outC()
+    {
+        outB();
+        cout << "\nN3(in C): " << n3;
+    }
+};
+
+int main()
+{
+    C c1(1, 2, 3);
+    c1.outC();
+
+    C c2(1);
+    c2.outC();
+
+    C c3;
+    c3.outC();
+    return 0;
+}
+
+// Multiple Inheritance:  In this type of inheritance, child class gains properties from two or more
+    base classes.
+#include <iostream>
+using namespace std;
+
+class Vehicle
+{
+public:
+    Vehicle()
+    {
+        cout << "\nVehicle componenet initialized.";
+    }
+    void hasWheels()
+    {
+        cout << "\nMachine has wheels.";
+    }
+};
+
+class Gadget
+{
+public:
+    Gadget()
+    {
+        cout << "\nGadget componenet initialized.";
+    }
+    void hasScreen()
+    {
+        cout << "\nMachine has screen.";
+    }
+};
+
+class SmartCar : public Vehicle, public Gadget
+{
+public:
+    SmartCar()
+    {
+        cout << "\nSmartCar initialized.";
+    }
+    void description()
+    {
+        cout << "\nMachine is a smart car";
+        hasWheels();
+        hasScreen();
+    }
+};
+
+int main()
+{
+    SmartCar sc;
+    sc.description();
+    return 0;
+}
+
+// Hybrid Inheritance
+// - using <class_nm>::
+#include <iostream>
+using namespace std;
+
+class Device
+{
+public:
+    Device()
+    {
+        cout << "\nDevice initialized.";
+    }
+
+    void powerOn()
+    {
+        cout << "\nDevice is powered on.";
+    }
+};
+
+class SmartDevice : public Device
+{
+public:
+    SmartDevice()
+    {
+        cout << "\nSmartDevice initialized.";
+    }
+
+    void hasWifi()
+    {
+        cout << "\nSmartDevice has wifi v3.5";
+    }
+};
+
+class TouchScreen : public Device
+{
+public:
+    TouchScreen()
+    {
+        cout << "\nTouchScreen initialized.";
+    }
+
+    void hasTouchSupport()
+    {
+        cout << "\nTouchScreen has touch support.";
+    }
+};
+
+class Tablet : public SmartDevice, public TouchScreen
+{
+public:
+    Tablet()
+    {
+        cout << "\nTablet initialized.";
+    }
+
+    void tabletInfo()
+    {
+        SmartDevice::powerOn(); // to remove ambiguity
+        cout << "\nTablet Info: ";
+        hasWifi();
+        hasTouchSupport();
+    }
+};
+
+int main()
+{
+    Tablet t;
+    t.tabletInfo();
+    return 0;
+}
+
+// - using Virtual base class
+*/
+#include <iostream>
+using namespace std;
+
+class Device
+{
+public:
+    Device()
+    {
+        cout << "\nDevice initialized.";
+    }
+
+    void powerOn()
+    {
+        cout << "\nDevice is powered on.";
+    }
+};
+
+class SmartDevice : public virtual Device
+{
+public:
+    SmartDevice()
+    {
+        cout << "\nSmartDevice initialized.";
+    }
+
+    void hasWifi()
+    {
+        cout << "\nSmartDevice has wifi v3.5";
+    }
+};
+
+class TouchScreen : public virtual Device
+{
+public:
+    TouchScreen()
+    {
+        cout << "\nTouchScreen initialized.";
+    }
+
+    void hasTouchSupport()
+    {
+        cout << "\nTouchScreen has touch support.";
+    }
+};
+
+class Tablet : public SmartDevice, public TouchScreen
+{
+public:
+    Tablet()
+    {
+        cout << "\nTablet initialized.";
+    }
+
+    void tabletInfo()
+    {
+        powerOn();
+        cout << "\nTablet Info: ";
+        hasWifi();
+        hasTouchSupport();
+    }
+};
+
+int main()
+{
+    Tablet t;
+    t.tabletInfo();
+    return 0;
+}

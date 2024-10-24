@@ -1333,12 +1333,6 @@ Again we have to see different functions listed below, after knowing the class a
 
 	// lets use the structure
 
-
-
-
-
-
-
 struct BankAccount			//	b
 {					//	[         |     |        ]
 	char nm[40];			//         b.nm    b.accno  b.pass
@@ -2729,7 +2723,67 @@ int main()
 
 	return 0;
 }
+//----------------------------------------------------------------------------------------------
+	
+	// Using static methods
 
+#include<iostream>
+#include<string.h>
+using namespace std;
+
+class Number
+{
+    public:
+	static int findsqure(int n)
+	{
+		return n*n;
+	}
+	static int findcube(int n)
+	{
+		return n*n*n;
+	}
+	static char iseven(int n)
+	{
+		if(n%2==0)
+			return 'y';
+		else
+			return 'n';
+	}
+	static int getmax(int n1, int n2)
+	{
+		if(n1>n2)
+			return n1;
+		else
+			return n2;
+	}
+};
+
+int main()
+{
+	int no;
+
+	cout<<endl<<"Enter any no: ";
+	cin>>no;
+	cout<<"\n squre of number is: "<<Number::findsqure(no);
+
+	cout<<endl<<"Enter any no: ";
+	cin>>no;
+	cout<<"\n Cube of number is: "<<Number::findcube(no);
+
+	if(Number::iseven(no)=='y')
+	{
+		cout<<endl<<"Number is even";
+	}
+	else
+	{
+		cout<<endl<<"Number is Odd";
+	}
+
+	int t=Number::getmax(no,100);
+	cout<<endl<<"Max no: "<<t;
+
+	return 0;
+}
 ///---------------------------------------------------------------------------------------------
 
 	// Friend Function
@@ -3044,6 +3098,25 @@ int main()
 
 	Constructor and Destructor
 
+		Constructor: These are special public member function of class, having name same as that of
+			     class in which it is declared, don't have any return type, not even void and 
+			     invoked automatically when object of class is created.
+
+			There are different types of constructors, which are as listed below
+				- Default Constructor
+				- Parameterised Constructor
+				- Dynamic Constructor
+				- copy constructor
+
+
+	// Destructors: It is same as that of default constructor, but preceeded with ~(tidel) sign, and
+			invoked automatically, when object moves out of scope.
+
+			- note carefuly that, it will not collecting any argument.
+			- It is actually used to release the resources hold by the object. means it will be
+			  used to perform the last operation on the object like file closeing, just before
+			  becoming inaccessible.
+
 #include<iostream>
 #include<string.h>
 using namespace std;
@@ -3092,12 +3165,4008 @@ int main()
 	return 0;
 }
 
+//-------------------------------------------------------------------------------------------------
+
+#include<iostream>
+#include<string.h>
+using namespace std;
+class Demo
+{
+	static int cnt;
+    public:
+	Demo()
+	{
+		cnt++;
+		cout<<"\n Object "<<cnt<<" is created";
+	}
+	~Demo()
+	{
+		cout<<"\n Object "<<cnt<<" is deleted";
+		cnt--;
+	}
+};
+int Demo::cnt;
+int main()
+{
+	cout<<endl<<"\n program start";
+
+	Demo d1,d2;
+
+	cout<<endl<<"\n In main";
+	{
+		cout<<endl<<"\n At start of inner scope";
+		Demo d3,d4;
+		cout<<endl<<"\n At end of inner scope";
+	}
+	cout<<endl<<"\n out of inner scope";
+
+	cout<<endl<<"\n program end";
+
+	return 0;
+}
+
+//---------------------------------------------------------------------------------------------------------------
+
+	// Lets see the different types of constructor
+
+
+	- Default Constructor: It will not collect any argument.
+class Demo
+{
+	int x;
+    public:
+	Demo() // Default constructor
+	{
+		x=10;
+		cout<<"In Default Constructor";
+	}
+	void input()
+	{
+		cout<<endl<<"\n Enter the data: ";
+		cin>>x;
+	}
+	void output()
+	{
+		cout<<endl<<"x is: "<<x;
+	}
+}
+int main()
+{
+	Demo ob;
+
+	ob.output();
+
+	ob.input();
+	ob.output();
+
+	return 0;
+}
+
+//-----------------------------------------------------------------------------------------------------------
+
+ //defining the constructor outside of class
+
+
+class Demo
+{
+	int x;
+    public:
+	Demo();
+	void input()
+	{
+		cout<<endl<<"\n Enter the data: ";
+		cin>>x;
+	}
+	void output()
+	{
+		cout<<endl<<"x is: "<<x;
+	}
+}
+Demo::Demo() // Default constructor
+{
+	x=10;
+	cout<<"In Default Constructor";
+}
+int main()
+{
+	Demo ob;
+
+	ob.output();
+
+	ob.input();
+	ob.output();
+
+	return 0;
+}
+
+
+/---------------------------------------------------------------------------------------------------------------------
+
+// - Parameterised Constructor : Constructor which collects an arguments.
+
+#include<iostream>
+using namespace std;
+class Demo
+{
+    private:
+	int x;
+	float y;
+	double z;
+    public:
+	Demo()// Default constructor
+	{
+		cout<<endl<<"In Default constructor";
+		x=1;
+		y=2.3;
+		z=56.341;
+	}
+	Demo(int t)//Parameterised constructor
+	{
+	    cout<<endl<<"In Parameterised constructor-1";
+	    x=t;
+	    y=t;
+	    z=t;
+	}
+	Demo(int a1, float a2, double a3) // Parameterised constructor
+	{
+	    cout<<endl<<"In Parameterised constructor-2";
+	    x=a1;
+	    y=a2;
+	    z=a3;
+	}
+	void out()
+	{
+		cout<<endl<<"x="<<x<<"\t y="<<y<<"\t z="<<z;
+	}
+};
+int main()
+{
+	Demo ob1;
+	ob1.out();
+
+	int a=11;
+	float b=5.3;
+	double c=34.23;
+	Demo ob2(a,b,c); // implicit call
+	ob2.out();
+
+	Demo ob3=Demo(a,b,c); // explicit call
+	ob3.out();
+	
+	Demo ob4(10);
+	ob4.out();
+
+	return 0;
+}
+
+//----------------------------------------------------------------------------------------------
+
+	// Dynamic Constructor: Used to allocated the memory for class member.
+
+#include <iostream>
+#include <iomanip>
+using namespace std;
+
+class Demo
+{
+    private:
+	int *p;
+	int ec;
+    public:
+	Demo() // dynamic constructor
+	{
+		p=new int[5];
+		ec=5;
+		cout<<endl<<"Enter 5 Nos: ";
+		for(int i=0;i<5;i++)
+		{
+		    cin>>*(p+i);
+		}
+	}
+	Demo(int cnt) // dynamic constructor
+	{
+		p=new int[cnt];
+		ec=cnt;
+		cout<<endl<<"Enter "<<cnt<<" Nos: ";
+		for(int i=0;i<ec;i++)
+		{
+		    cin>>*(p+i);
+		}
+	}
+	void out()
+	{
+		cout<<endl<<"Elements are: ";
+		for(int i=0;i<ec;i++)
+		{
+			cout<<setw(5)<<*(p+i);
+		}
+	}
+};
+
+int main()
+{
+	Demo ob1;
+	ob1.out();
+
+	Demo ob2(7);
+	ob2.out();
+	
+	return 0;
+}
+
+//---------------------------------------------------------------------------------------------------------
+
+	//  copy constructor
+
+#include <iostream>
+#include <iomanip>
+using namespace std;
+class Demo
+{
+    private:
+	int x;
+	float y;
+	double z;
+    public:
+	Demo()	// Default constructor
+	{
+		cout<<endl<<"In Default constructor";
+		x=1;
+		y=2.3;
+		z=56.341;
+	}
+	Demo(int a1, float a2, double a3) // Parameterized constructor
+	{
+		cout<<endl<<"In Parameterized constructor";
+	    x=a1;
+	    y=a2;
+	    z=a3;
+	}
+	Demo(Demo &t) // Copy constructor
+	{
+	    cout<<endl<<"In Copy constructor";
+	    x=t.x;
+	    y=t.y;
+	    z=t.z;
+	}
+	void out()
+	{
+		cout<<endl<<"x="<<x<<"\t y="<<y<<"\t z="<<z;
+	}
+};
+int main()
+{
+	Demo ob1;
+	ob1.out();
+
+	Demo ob2(11,2.3,12.45); 
+	ob2.out();
+	
+	Demo ob4(ob2);
+	ob4.out();
+
+	return 0;
+}
+
+//-----------------------------------------------------------------------------------------------
+
+//-----------------------------------------------------------------------------------------------
+
+	// Passing default arguments to constructor:
+
+class Time
+{
+    private:
+	int hours;
+	int mins;
+	int secs;
+    public:
+	Time()
+	{
+		hours=0;
+		mins=0;
+		secs=0;
+	}
+	Time(int a)
+	{
+		hours=a;
+		mins=a;
+		secs=a;
+	}
+	Time(int a1, int a2, int a3=10) // check carefully that it will not creating ambiguilty
+	{
+		hours=a1;
+		mins=a2;
+		secs=a3;
+	}
+	void showtime()
+	{
+		cout<<endl<<"Time is: "<<hours<<":"<<mins<<":"<<secs;
+	}
+}; 
+int main()
+{
+	Time t1;
+	t1.showtime();
+
+	Time t2(5);
+	t2.showtime();
+
+	Time t3(2,30,50);
+	t3.showtime();
+
+	Time t4(2,30);
+	t4.showtime();
+
+	return 0;
+}
+
+//-------------------------------------------------------------------------------------------------------------
+
+	// Constructor Overloading: It simply refers to defining multiple constructors in a same class,
+				    but differ in the signature(prototype).
+
+	e.g. It above example, we have decl. 3 different constructors as shown
+
+
+class Time
+{
+    private:
+	int hours;
+	int mins;
+	int secs;
+    public:
+	Time()
+	{
+		hours=0;
+		mins=0;
+		secs=0;
+	}
+	Time(int a)
+	{
+		hours=a;
+		mins=a;
+		secs=a;
+	}
+	Time(int a1, int a2, int a3=10) // check carefully that it will not creating ambiguilty
+	{
+		hours=a1;
+		mins=a2;
+		secs=a3;
+	}	
+	.......
+}; 
+
+//-----------------------------------------------------------------------------------------------------
+
+	// Destructors: It is same as that of default constructor, but preceeded with ~(tidel) sign, and
+			invoked automatically, when object moves out of scope.
+
+			- note carefuly that, it will not collecting any argument.
+			- It is actually used to release the resources hold by the object. means it will be
+			  used to perform the last operation on the object like file closeing, just before
+			  becoming inaccessible.
+
+class Demo
+{
+    public:
+	Demo()
+	{
+		cout<<endl<<"Object is Created";
+	}
+	~Demo()
+	{
+		cout<<endl<<"Object is Deleted";
+	}
+};
+int main()
+{
+	demo ob1;
+	return 0;
+}
+
+//---------------------------------------
+
+#include <iostream>
+#include <iomanip>
+using namespace std;
+
+class Demo
+{
+    private:
+	int *p;
+	int ec;
+    public:
+	Demo() // dynamic constructor
+	{
+		p=new int[5];
+		ec=5;
+		cout<<endl<<"Enter 5 Nos: ";
+		for(int i=0;i<5;i++)
+		{
+		    cin>>*(p+i);
+		}
+	}
+	void out()
+	{
+		cout<<endl<<"Elements are: ";
+		for(int i=0;i<ec;i++)
+		{
+			cout<<setw(5)<<*(p+i);
+		}
+	}
+	~Demo()
+	{
+	    delete p;
+	}
+};
+
+int main()
+{
+    {
+	Demo ob1;
+    	ob1.out();
+    }
+	//......
+	return 0;
+}
+
+//-------------------------------------------------------------------------------------------
+
+	// defining const member in class and its initialisation using initialisation list
+
+#include <iostream>
+#include <iomanip>
+using namespace std;
+
+class Sample
+{
+    private:
+	const int x;
+    public:
+	Sample(): x(10)
+	{
+		// x=1000; //error: assignment of read-only member 'Sample::x'|
+	}
+	Sample(int a):x(a)
+	{	
+		// x=2000; //error: assignment of read-only member 'Sample::x'|	
+	}
+	void show()
+	{
+		cout<<endl<<"x is "<<x;
+	}
+};
+int main()
+{
+	Sample s1;
+	s1.show();
+	
+	Sample s2(20);
+	s2.show();
+
+	return 0;
+}
+
+- Note carefully that initialisation list will work before the constructor body.
+
+#include <iostream>
+#include <iomanip>
+using namespace std;
+
+class Sample
+{
+    private:
+	const int x;
+    public:
+	Sample(): x(10)
+	{
+	    cout<<endl<<"In Default Constructor x is "<<x;
+	}
+	Sample(int a):x(a)
+	{
+	    cout<<endl<<"In para Constructor x is "<<x;
+	}
+};
+int main()
+{
+	Sample s1;
+	
+	Sample s2(20);
+
+	return 0;
+}
+
+//---------------------------------------
+
+	// You can use the initialisation list to init. multiple members also
+
+class Sample
+{
+    private:
+	int x;
+	float y;
+	double z;
+    public:
+	Sample():x(10), y(4.5), z(5.45)
+	{	
+		cout<<endl<<"In Default Constructor";
+	}
+	Sample(int a):x(a), y(a), z(a)
+	{
+		cout<<endl<<"In Para-1 Constructor";	
+	}
+	Sample(int a, float b, double c):x(a), y(b), z(c)
+	{
+		cout<<endl<<"In para-2 Constructor";	
+	}
+	void display()
+	{
+		cout<<endl<<"x="<<x<<"\t y="<<y<<"\t z="<<z;
+	}
+};
+int main()
+{
+	Sample s1;
+	s1.display();
+	
+	Sample s2(100);
+	s2.display();
+	
+	Sample s3(10,23.45,78.453);
+	s3.display();
+
+	return 0;
+}
+
+//-----------------------------------------------------------------------------------------
+//-----------------------------------------------------------------------------------------
+
+	// const object and const function
+
+#include <iostream>
+using namespace std ;
+
+class Sample
+{
+    private:
+	int x;
+	float y;
+    public:
+	Sample()
+	{
+		x=10;
+		y=12.34;
+	}
+	Sample(int a, float b)
+	{
+		x=a;
+		y=b;
+	}
+	void modify()
+	{
+	    y=x=111;
+	}
+	void display() const    // constant function
+	{
+	    // x=11;    // will generate an error coz the object is constant
+		cout<<endl<<"x="<<x<<"\t y="<<y;
+	}
+};
+int main()
+{
+	const Sample s1; // const object
+	s1.display();
+
+	const Sample s2(56, 89.67); // const object
+	s2.display();
+	
+	// s2.modify();     // will generate an error coz the object is constant
+
+	return 0;
+}
+
+//------------------------------------------------------------------------------------------
+
+	// Dynamic initialisation of object
+
+ // Using the constructor for the memory allocation and destructor for memory release
+
+	**p                       0     1    2    3    4 
+	 [ 400 ] ------------->  [600] [  ] [  ] [  ] [  ]
+                               400 |    |    ......
+				   |    V
+				   |    [0][0][0]
+				   V
+				   [0][0][0][0][0]
+				  600
+*/
+
+#include <iostream>
+#include <iomanip>
+using namespace std ;
+class Student
+{
+    private:
+	int **p;
+	int *sub;
+	int sc;
+    public:
+	Student(){}
+	Student(int n)
+	{	
+		sc=n;
+		int i,j;
+		p=(int**)malloc(n*sizeof(int*));
+		sub=(int*)malloc(n*sizeof(int));
+		for(i=0;i<n;i++)
+		{
+			cout<<endl<<"Enter the subject count of "<<(i+1)<<" student:";
+			cin>>*(sub+i);
+			*(p+i)=(int*)malloc(*(sub+i)*sizeof(int));
+			for(j=0;j<*(sub+i);j++)
+			{
+				*(*(p+i)+j)=0;
+			}
+		}
+	}
+	void inputdata()
+	{		
+		int i,j;
+		cout<<endl<<"Enter the marks of "<<sc<<" students: ";
+		for(i=0;i<sc;i++)
+		{
+			cout<<endl<<"Enter the marks in "<<*(sub+i)<<" subjects: ";
+			for(j=0;j<*(sub+i);j++)
+			{
+				cin>>*(*(p+i)+j);
+			}
+		}
+		
+	}
+	void outputdata()
+	{		
+		int i,j;
+		cout<<endl<<"The marks of "<<sc<<" students: \n";
+		for(i=0;i<sc;i++)
+		{
+			cout<<endl<<"Student "<<i+1<<": ";
+			for(j=0;j<*(sub+i);j++)
+			{
+				cout<<setw(8)<<*(*(p+i)+j);
+			}
+		}		
+	}
+	~Student()
+	{
+		int i,j;
+		for(i=0;i<sc;i++)
+		{
+			free(*(p+i));	
+			cout<<endl<<"Memory released - student "<<(i+1);
+		}
+		free(p);
+	}
+};
+int main()
+{
+	cout<<endl<<"Enter the student count: ";
+	int cnt;
+	cin>>cnt;
+	Student s1(cnt);
+
+	s1.inputdata();
+	s1.outputdata();
+
+	return 0;
+}
+
+//-----------------------------------
+
+#include <iostream>
+#include <iomanip>
+using namespace std ;
+class Student
+{
+    private:
+	int **p;
+	int *sub;
+	int sc;
+    public:
+	Student(){}
+	Student(int n)
+	{	
+		sc=n;
+		int i,j;
+		// p=(int**)malloc(n*sizeof(int*));
+		p=new int*[n];
+		//sub=(int*)malloc(n*sizeof(int));
+		sub=new int[n];
+		for(i=0;i<n;i++)
+		{
+			cout<<endl<<"Enter the subject count of "<<(i+1)<<" student:";
+			cin>>*(sub+i);
+			// *(p+i)=(int*)malloc(*(sub+i)*sizeof(int));
+			*(p+i)=new int[*(sub+i)];
+			for(j=0;j<*(sub+i);j++)
+			{
+				*(*(p+i)+j)=0;
+			}
+		}
+	}
+	void inputdata()
+	{		
+		int i,j;
+		cout<<endl<<"Enter the marks of "<<sc<<" students: ";
+		for(i=0;i<sc;i++)
+		{
+			cout<<endl<<"Enter the marks in "<<*(sub+i)<<" subjects: ";
+			for(j=0;j<*(sub+i);j++)
+			{
+				cin>>*(*(p+i)+j);
+			}
+		}
+		
+	}
+	void outputdata()
+	{		
+		int i,j;
+		cout<<endl<<"The marks of "<<sc<<" students: \n";
+		for(i=0;i<sc;i++)
+		{
+			cout<<endl<<"Student "<<i+1<<": ";
+			for(j=0;j<*(sub+i);j++)
+			{
+				cout<<setw(8)<<*(*(p+i)+j);
+			}
+		}		
+	}
+	~Student()
+	{
+		int i,j;
+		for(i=0;i<sc;i++)
+		{
+			//free(*(p+i));	
+			delete *(p+i);
+			cout<<endl<<"Memory released - student "<<(i+1);
+		}
+		//free(p);
+		delete p;
+	}
+};
+int main()
+{
+	cout<<endl<<"Enter the student count: ";
+	int cnt;
+	cin>>cnt;
+	Student s1(cnt);
+
+	s1.inputdata();
+	s1.outputdata();
+
+	return 0;
+}
+
+//---------------------------------------------------------------------------------------------------------------------- 
+//---------------------------------------------------------------------------------------------------------------------- 
+
+		---------------------------- Operator Overloading ---------------------------------
+
+//---------------------------------------------------------------------------------------------
+
+		// Operator Overloading and Type Conversion
+
+	In this topic, we have to see another special function which will be called when
+	we operate an operator on the object, In that case type definition of object must
+	contain that special function.
+
+	That function called special coz its name starts with operator keyword and ends with
+	the operator symbol to which you want to assign an additional meaning.
+
+	i.e.
+		<returning_type> operator<op>(<argument_list>)
+		{
+			-------------------;
+			-------------------;
+			-------------------;
+			-------------------;
+		}
+
+ lets see simple example,
+
+class Sample
+{
+	int x;
+   public:
+	void in()
+	{	
+		//------------------
+	}
+	void out()
+	{	
+		//------------------
+	}
+	void operator-()
+	{
+		cout<<endl<<"-operator operated on sample object";
+	}
+};
+int main()
+{
+	Sample ob1;
+	
+	-ob1;		// ob1.operator-()
+
+	return 0;
+}
+
+ ------ Output ------
+
+-operator operated on sample object
+Process returned 0 (0x0)   execution time : 0.054 s
+Press any key to continue.
+
+	// lets use the +
+
+#include<iostream>
+#include<string.h>
+using namespace std;
+class Sample
+{
+	int x;
+   public:
+	void in()
+	{
+		//------------------
+	}
+	void out()
+	{
+		//------------------
+	}
+	void operator-()
+	{
+		cout<<endl<<"-operator operated on sample object";
+	}
+	void operator+(Sample t)
+	{
+		cout<<endl<<"+operator operated on sample objects";
+	}
+};
+int main()
+{
+	Sample ob1,ob2;
+
+	ob1+ob2;        /// ob1.operator+(ob2)
+
+	return 0;
+}
+
+---------- Output ------------
++operator operated on sample objects
+Process returned 0 (0x0)   execution time : 0.132 s
+Press any key to continue.
+
+//--------------------------------------------------------------------------------------------
+
+	// Performing unary operation
+
+	// overloading - operator to get opposite value of an object
+
+#include<iostream>
+#include<string.h>
+using namespace std;
+class Number
+{
+    private:
+	int x;
+	float y;
+    public:
+	Number()
+	{
+		x=1;
+		y=1.1;
+	}
+	Number(int a, float b)
+	{
+		x=a;
+		y=b;
+	}
+	void in()
+	{
+		cout<<endl<<"Enter the values of x and y: ";
+		cin>>x>>y;
+	}
+	void out()
+	{
+		cout<<"\n x="<<x<<"\t y="<<y;
+	}
+	void operator-()
+	{
+		x=-x;
+		y=-y;
+	}
+};
+int main()
+{
+	Number n1(34,67.23);
+	n1.out();
+	-n1;	// Internally it will be called as n1.operator-()
+	n1.out();
+
+	Number n2;
+	n2.in();
+	n2.out();
+	-n2;
+	n2.out();
+	return 0;
+}
+
+//--------------------------------------------------------------
+
+	// overloading - operator to get an object multi by 10
+
+
+#include<iostream>
+#include<string.h>
+using namespace std;
+class Number
+{
+    private:
+	int x;
+	float y;
+    public:
+	Number()
+	{
+		x=1;
+		y=1.1;
+	}
+	Number(int a, float b)
+	{
+		x=a;
+		y=b;
+	}
+	void in()
+	{
+		cout<<endl<<"Enter the values of x and y: ";
+		cin>>x>>y;
+	}
+	void out()
+	{
+		cout<<"\n x="<<x<<"\t y="<<y;
+	}
+	void operator-()
+	{
+		x*=10;
+		y*=10;
+	}
+};
+int main()
+{
+	Number n1(34,67.23);
+	n1.out();
+	-n1;	// Internally it will be called as n1.operator-()
+	n1.out();
+
+	return 0;
+}
+
+
+//-----------------------------------------------------------------------------------------
+
+	// Overloading unary operator as a friend
+
+#include <iostream>
+using namespace std;
+class Number
+{
+    private:
+	int x;
+	float y;
+    public:
+	Number()
+	{
+		x=1;
+		y=1.1;
+	}
+	Number(int a, float b)
+	{
+		x=a;
+		y=b;
+	}
+	void in()
+	{
+		cout<<endl<<"Enter the values of x and y: ";
+		cin>>x>>y;
+	}
+	void out()
+	{
+		cout<<"x="<<x<<"\t y="<<y;
+	}
+    friend void operator-(Number &n);
+};
+void operator-(Number &n)
+{
+	n.x=-n.x;
+	n.y=-n.y;
+}
+int main()
+{
+	Number n1(2,-4.3);
+
+	cout<<endl<<"N1: ";	n1.out();
+	-n1;	// indirectly it called as operator-(n1)
+	cout<<endl<<"N1: ";	n1.out();
+
+	return 0;
+}
+
+//-----------------------------------------------------------------------------------------
+
+	// Overloading the binary operators
+
+	// WAP to add two complex numbers using + operator
+
+#include <iostream>
+using namespace std;
+class Complex
+{
+	int real;
+	float img;
+    public:
+	Complex()
+	{
+		real=1;
+		img=1.1;
+	}
+	Complex(int a1, float a2)
+	{
+		real=a1;
+		img=a2;
+	}
+	Complex(Complex &t)
+	{
+		real=t.real;
+		img=t.img;
+	}
+	void indata()
+	{
+		cout<<endl<<"Enter the real and img part of complex number: ";
+		cin>>real>>img;
+	}
+	void outdata()
+	{
+		cout<<real<<"+j"<<img;
+	}
+	Complex operator+(Complex c)
+	{
+        Complex tmp;
+        tmp.real=real+c.real;
+        tmp.img=img+c.img;
+        return tmp;
+	}
+};
+int main()
+{
+	Complex c1(4,6.7);
+
+	Complex c2;
+	c2.indata();
+
+	cout<<endl<<"C1: ";	c1.outdata();
+	cout<<endl<<"C2: ";	c2.outdata();
+
+	Complex c3;
+	c3=c1+c2;	///c3=c1.operator+(c2);
+	cout<<endl<<"C3: ";	c3.outdata();
+
+	return 0;
+}
+
+//--------------------------------------------------------------------------------------------------------
+
+	// // WAP to add two complex numbers using + operator using friend
+
+#include <iostream>
+using namespace std;
+class Complex
+{
+	int real;
+	float img;
+    public:
+	Complex()
+	{
+		real=1;
+		img=1.1;
+	}
+	Complex(int a1, float a2)
+	{
+		real=a1;
+		img=a2;
+	}
+	Complex(Complex &t)
+	{
+		real=t.real;
+		img=t.img;
+	}
+	void indata()
+	{
+		cout<<endl<<"Enter the real and img part of complex number: ";
+		cin>>real>>img;
+	}
+	void outdata()
+	{
+		cout<<real<<"+j"<<img;
+	}
+    friend Complex operator+(Complex ca, Complex cb);
+};
+Complex operator+(Complex ca, Complex cb)
+{
+    Complex tmp;
+    tmp.real=ca.real+cb.real;
+    tmp.img=ca.img+cb.img;
+    return tmp;
+}
+int main()
+{
+	Complex c1(4,6.7);
+
+	Complex c2;
+	c2.indata();
+
+	cout<<endl<<"C1: ";	c1.outdata();
+	cout<<endl<<"C2: ";	c2.outdata();
+
+	Complex c3;
+	c3=c1+c2;	///c3=operator+(c1,c2);
+	cout<<endl<<"C3: ";	c3.outdata();
+
+	return 0;
+}
+
+//-----------------------------------------------------------------------------------------------------------
+
+	// Write a program to add two time objects by overloading '+' operator.
+
+class Time
+{
+	int hh;
+	int mm;
+	int ss;
+     public:
+	void intime()
+	{
+		cout<<endl<<"Enter the HH:MM:SS: ";
+		cin>>hh>>mm>>ss;
+	}
+	void outtime()
+	{
+		cout<<hh<<":"<<mm<<":"<<ss;
+	}
+	Time operator+(Time a)				// 3 : 40 : 45
+	{						// 5 : 30 : 50
+		Time tmp;				//-1----1-------
+		tmp.ss = ss + a.ss;			// 9 : 11 : 35 
+		tmp.mm = mm + a.mm + (tmp.ss/60);
+		tmp.ss = tmp.ss%60;
+		
+		tmp.hh = hh + a.hh + (tmp.mm/60);
+		tmp.mm = tmp.mm%60;
+
+		return tmp;
+	}
+};
+int main()
+{
+	Time t1, t2, t3;
+
+	t1.intime();
+	t2.intime();
+
+	t3=t1+t2;		// t3=t1.addtime(t2);
+
+	cout<<endl<<"T1: "; t1.outtime();
+	cout<<endl<<"T2: "; t2.outtime();
+	cout<<endl<<"T3: "; t3.outtime();
+
+	return 0;
+}
+
+//--------------------------------------------------------------------------------------------------------------
+	
+	// Overloading of operator<op> function
+
+	// Now i want to add 5:5:5 in time t1 and for that i want to write as c3=t1+5 or c3=5+t1
+#include <iostream>
+using namespace std;
+class Time
+{
+	int hh;
+	int mm;
+	int ss;
+     public:
+	void intime()
+	{
+		cout<<endl<<"Enter the HH:MM:SS: ";
+		cin>>hh>>mm>>ss;
+	}
+	void outtime()
+	{
+		cout<<hh<<":"<<mm<<":"<<ss;
+	}
+	Time operator+(Time a)
+	{
+	    cout<<endl<<"Inside Time class - Time operator+(Time a)";
+		Time tmp;
+		tmp.ss = ss + a.ss;
+		tmp.mm = mm + a.mm + (tmp.ss/60);
+		tmp.ss = tmp.ss%60;
+
+		tmp.hh = hh + a.hh + (tmp.mm/60);
+		tmp.mm = tmp.mm%60;
+
+		return tmp;
+	}
+	Time operator+(int n)
+	{
+	    cout<<endl<<"Inside Time class - Time operator+(int n)";
+		Time tmp;
+		tmp.ss = ss + n;
+		tmp.mm = mm + n + (tmp.ss/60);
+		tmp.ss = tmp.ss%60;
+
+		tmp.hh = hh + n + (tmp.mm/60);
+		tmp.mm = tmp.mm%60;
+
+		return tmp;
+	}
+	friend Time operator+(int n, Time t);
+};
+Time operator+(int n, Time t)
+{
+    cout<<endl<<"Outside Time class - Time operator+(int n, Time t)";
+    Time tmp;
+    tmp.ss = t.ss + n;
+    tmp.mm = t.mm + n + (tmp.ss/60);
+    tmp.ss = tmp.ss%60;
+
+    tmp.hh = t.hh + n + (tmp.mm/60);
+    tmp.mm = tmp.mm%60;
+
+    return tmp;
+}
+int main()
+{
+	Time t1, t2, t3;
+
+	t1.intime();
+	t2.intime();
+
+	t3=t1+t2;		// t3=t1.addtime(t2);
+
+	cout<<endl<<"T1: "; t1.outtime();
+	cout<<endl<<"T2: "; t2.outtime();
+	cout<<endl<<"T3: "; t3.outtime();
+
+	t3=t1+5;    /// t3=t1.operator+(5)
+	cout<<endl<<"T3: "; t3.outtime();
+
+    	t3=5+t1;    /// t3=operator+(5,t1)
+	cout<<endl<<"T3: "; t3.outtime();
+
+	return 0;
+}
+
+//-----------------------------------------------------------------------------------------------------------------
+
+	// WAP to join two strings using + operator
+
+#include <iostream>
+#include <string.h>
+using namespace std;
+
+class String
+{
+	char data[50];
+    public:
+	String(){}
+	String(char t[])
+	{
+		strcpy(data,t);
+	}
+	void setString()
+	{
+		cout<<endl<<"Enter the String: ";
+		cin.getline(data,50);
+	}
+	char* getString()
+	{
+		return data;
+	}
+	String operator+(String s)
+	{
+	    String tmp;
+	    strcpy(tmp.data,data);
+	    strcat(tmp.data,s.data);
+	    return tmp;
+	}
+};
+int main()
+{
+	String s1("Hello All ");
+
+	String s2;
+	s2.setString();
+
+	cout<<endl<<"S1: "<<s1.getString();
+	cout<<endl<<"S2: "<<s2.getString();
+
+	String s3;
+	s3=s1+s2;       /// s3=s1.operator+(s2)
+	cout<<endl<<"S3: "<<s3.getString();
+
+	return 0;
+}
+//-----------------------------------------------------------------------------------
+
+// Overloading >> and << operators
+    
+class Demo
+{
+
+  public:
+  friend void operator>>(istream& is, Demo ob);  
+  friend void operator<<(ostream& os, Demo ob);  
+};
+void operator>>(istream& is, Demo ob)
+{
+    cout<<endl<<"Data Input";
+}
+void operator<<(ostream& os, Demo ob)
+{
+    cout<<endl<<"Data Display";
+}
+int main()
+{
+    Demo d;
+    
+    cin>>d;	// operator>>(cin, d)
+    cout<<d;	// operator<<(cout, d)
+    
+    return 0;
+}
+
+//------------------------------------------------------------------------------------------
+
+#include <iostream>
+#include <string.h>
+using namespace std;
+class Demo
+{
+    int f1;
+    double f2;
+  public:
+      Demo()
+      {
+          f1=0;
+          f2=0.0;
+      }
+    friend void operator>>(istream& is, Demo &ob);
+    friend void operator<<(ostream& os, Demo ob);
+};
+void operator>>(istream& is, Demo &ob)
+{
+    cout<<endl<<"Input Data: ";
+    is>>ob.f1>>ob.f2;
+}
+void operator<<(ostream& os, Demo ob)
+{
+    cout<<endl<<"Data Display: ";
+    os<<ob.f1<<"   "<<ob.f2;
+}
+int main()
+{
+    Demo d;
+
+    cin>>d;	// operator>>(cin, d)
+    cout<<d;	// operator<<(cout, d)
+
+    return 0;
+}
+
+//-----------------------------------------------------------------------------------------------------
+//-------------------------------------------------------------------------------------------
+#include <iostream>
+using namespace std;
+
+class Array 
+{
+  private:
+    int* data;
+    int size;
+
+  public:
+    Array(int size) : size(size) 
+    {
+        data = new int[size];
+    }
+
+    ~Array() 
+    {
+        delete[] data;
+    }
+    friend ostream& operator<<(ostream& os,  Array& arr);
+    friend istream& operator>>(istream& is, Array& arr) 
+};
+    // Overloading << operator for displaying array
+ostream& operator<<(ostream& os,  Array& arr) 
+{
+    for (int i = 0; i < arr.size; ++i) 
+    {
+        os << arr.data[i] << " ";
+    }
+    return os;
+}
+    // Overloading >> operator for inputting array
+istream& operator>>(istream& is, Array& arr) 
+{
+    for (int i = 0; i < arr.size; ++i) 
+    {
+        is >> arr.data[i];
+    }
+    return is;
+}
+
+int main() {
+    int size;
+    cout << "Enter the size of the array: ";
+    cin >> size;
+
+    Array arr(size);
+
+    cout << "Enter " << size << " elements for the array:\n";
+    cin >> arr; // operator>>()
+
+    cout << "Array elements are: " << arr << std::endl; // operator<<()
+
+    return 0;
+}
+
+//------------------------------------------------------------------------------------
+//-----------------------------------------------------------------------------------------------------
+#include <iostream>
+#include <string.h>
+using namespace std;
+#include <iostream>
+#include <string.h>
+using namespace std;
+
+class String
+{
+	char data[50];
+    public:
+	String(){}
+	String(char t[])
+	{
+		strcpy(data,t);
+	}
+	void setString()
+	{
+		cout<<endl<<"Enter the String: ";
+		cin.getline(data,50);
+	}
+	char* getString()
+	{
+		return data;
+	}
+	String operator+(String s)
+	{
+	    String tmp;
+	    strcpy(tmp.data,data);
+	    strcat(tmp.data,s.data);
+	    return tmp;
+	}
+	int operator/(char ch)
+	{
+		int i,cnt=0;
+
+		for(i=0;data[i]!='\0';i++)
+		{
+			if(data[i]==ch)
+			{
+				cnt++;
+			}
+		}
+		return cnt;
+	}
+};
+int main()
+{
+	String s1;
+	s1.setString();
+	cout<<endl<<"S1: "<<s1.getString();
+
+	int t = s1/'a';		// s1.operator/(ch)
+
+	cout<<endl<<"character present "<<t<<" times.";
+
+	return 0;
+}
+
+	
+
+//-----------------------------------------------------------------------------------------------------
+
+	
+Overloadable Operators in C++:
+
+In C++, operator overloading allows you to define or modify the behavior of most built-in operators for user-defined types (like classes or structs). The following categories explain which operators can be overloaded, which must be overloaded using a friend function, and which cannot be overloaded at all.
+
+Operators that Can Be Overloaded
+Most operators in C++ can be overloaded. This allows you to define custom behavior when using these operators with your classes or structs. The overloadable operators include:
+
+Arithmetic Operators: +, -, *, /, %
+Compound Assignment Operators: +=, -=, *=, /=, %=
+Relational (Comparison) Operators: ==, !=, <, >, <=, >=
+Logical Operators: &&, ||, !
+Bitwise Operators: &, |, ^, ~, <<, >>
+Increment and Decrement Operators: ++, --
+Subscript Operator: []
+Function Call Operator: ()
+Dereference Operator: *
+Pointer-to-Member Access Operator: ->
+Type Conversion Operator: Custom type conversions (operator type())
+
+Operators that are Overloaded Using Friend Functions:
+
+Some operators must be overloaded using friend functions rather than member functions because of the way they operate on operands. These are generally operators where the left-hand operand is not of the class type or when both operands need to be treated symmetrically.
+
+Stream Insertion and Extraction Operators: <<, >>
+These operators are typically used for input/output operations and are overloaded using friend functions because they involve ostream or istream as the left operand, which cannot be made a member of your class.
+Relational Operators (sometimes): ==, <, >, etc.
+While these can be overloaded as member functions, friend functions are often used for symmetric operations where both operands need to be treated equally.
+
+Operators that Cannot Be Overloaded: 
+
+Not all operators in C++ can be overloaded. This is because certain operators have fixed meanings and semantics in the language that cannot or should not be altered for custom types.
+
+Scope Resolution Operator: ::
+Member Access Operator: .
+Pointer-to-Member Access Through Dot Operator: .*
+Sizeof Operator: sizeof
+Conditional (Ternary) Operator: ? :
+
+These operators are integral to the functioning of the C++ language itself and thus cannot be modified.
+
+//----------------------------------------------------------------------------------------------------------------------
+
+//------------------------------------------------------------------------------------
+
+	// Type conversion in C++:
+
+
+	int x=10;
+	double y=x; // here int converted to double.
+
+	y=(double)x/3
+
+	Then we have to see, now the type conversion happens in classes.
+
+	- base type to class type (default conversion) - constructor
+	- class type to base type (conversion function) - member function/ operator overload
+	- class type to another class type (source to destination conversion)
+
+
+- base type to class type:
+
+class Complex
+{
+	int real;
+	float img;
+    public:
+	Complex()
+	{
+		real=1;
+		img=1.1;
+	}
+	Complex(int a1, float a2)
+	{
+		real=a1;
+		img=a2;
+	}
+
+	.......
+}
+
+...
+
+	Complex ob(3,45.41);
+
+//--------------------------------------------------------
+
+	// - class type to base type
+
+	class String
+{
+	char data[50];
+    public:
+	String(){}
+	String(char t[])
+	{
+		strcpy(data,t);
+	}
+	void setString()
+	{
+		cout<<endl<<"Enter the String: ";
+		cin.getline(data,50);
+	}
+	char* getString()
+	{
+		return data;
+	}
+	String operator+(String s)
+	{
+	    String tmp;
+	    strcpy(tmp.data,data);
+	    strcat(tmp.data,s.data);
+	    return tmp;
+	}
+	int operator/(char ch)
+	{
+		int i,cnt=0;
+
+		for(i=0;data[i]!='\0';i++)
+		{
+			if(data[i]==ch)
+			{
+				cnt++;
+			}
+		}
+		return cnt;
+	}
+};
+
+
+	int t = s1/'a';		// s1.operator/(ch)
+
+	char *s=s1.getString();
+
+//-----------------------------------------------------------------
+
+	// - class type to another class type 
+
+
+#include <iostream>
+using namespace std;
+class Rect;
+class Square
+{
+    private: 
+	int side;
+    public:
+	Square()
+	{
+		side=0;
+	}
+	Square(int t)
+	{
+		side=t;
+	}
+	int area()
+	{
+		return (side*side);
+	}
+	friend class Rect;
+};
+class Rect
+{
+    private:
+	int l;
+	int b;
+    public:
+	Rect()
+	{
+		l=b=0;
+	}
+	Rect(int a1, int a2)
+	{
+		l=a1;
+		b=a2;
+	}
+	Rect(Square t)
+	{
+		l=b=t.side;
+	}
+	int area()
+	{
+		return (l*b);
+	}
+};
+int main()
+{
+	int n=5;
+	Square s1(n); // base type converted into class type
+	int a=s1.area(); // class type converted into base type
+	cout<<endl<<"Area of Square: "<<a;
+
+	Rect r1(s1); // class type to another class type
+	a=r1.area();
+	cout<<endl<<"Area of Rect: "<<a;
+
+	return 0;
+}
+
+//-------------------------------------------------------------------------------------------------------------------
+//-------------------------------------------------------------------------------------------------------------------
+
+	// Relationship between Classes - Inheritance and Association
+
+ Suppose we dec. multiple classes
+
+i.e.
+
+	class A				class B
+	{				{
+		------------;			--------------;
+		------------;			--------------;
+		------------;			--------------;
+		------------;			--------------;
+	};				};
+
+	These are individual or independent classes. Now we have see, how the relationship
+	is formed between two or more classes.
+
+	Why to form the relationship between two or more classes:
+		- Code reusability.
+		- Cost cutting
+		- to avoid code redundancy
+	
+	There are two different ways of forming the relationship between classes
+	
+	1. Inheritance(IS-A Relationship): Tight coupling (Blood Relation)
+	2. Association(HAS-A Relationship): Loose coupling
 
 
 
+	Lets see, Inheritance first,
+
+	class A			// parent / base / super
+	{
+		....;
+	};
+	class B:public A	// child / derived / sub
+	{
+		.....;
+	};
+
+	In this case class B having blood relationship with class A, so it will inherit some
+	properties from class A. Means when we create the object of class B, we will gain the
+	memory space for both classes.
+
+	It is known as IS-A relationship, lets see the example
+
+		  class Person					class Animal
+			|						|
+		---------------------				--------------------
+		|	     	    |				|	|	   |
+	   class Student	class Employee            class Cow  class Dog  class Human
+
+
+	   Student  IS-A Person					Cow   IS-A Animal
+	   Employee IS-A Person					Dog   IS-A Animal
+								Human IS-A Animal
+
+
+	Now, lets discuss Association,
+
+	class Engine
+	{
+	};
+	class MusicPlayer
+	{
+	};
+	class Car
+	{
+		Engine e;
+		MusicPlayer mp;
+	};
+
+	Car HAS-A Engine
+	Car HAS-A MusicPlayer
+
+
+	This Association is divided in to two sub types
+
+		a.Aggregation
+		b.Composition
+
+	class Teacher
+	{
+	};
+	class Trade
+	{
+	};
+
+	class College
+	{
+		Teacher t1[50];
+		Trade t2[6];
+	};	
+
+	College 	- Container Object
+	Teacher, Trade  - Content Object
+
+	- If Content object having exsistance evenif Container Object not present,
+	  then such relationship called as Aggregation. where both classes have
+	  weak bond between each other.
+
+	- If Exsistence of Container Object and Content Object strictly dependents
+	  on each other i.e. Exsistence of any one is useless then it is known as a
+	  composition. Here both classes forms strong bond between each other.
+
+	lets see one another example
+
+		        Car
+			 |
+		--------------------
+		|		   |
+	     Engine		MusicPlayer
+
+	Car-Engine 	- forms strong bond - Composition
+	Car-MusicPlayer	- forms weak Bond   - Aggregation
+
+	Composition is also known as PART-OF Relationship.
+
+
+	______________________________________________________
+	|						      |
+	|	Association 				      |
+	|    ____________________________________________     |
+	|    |						|     |
+	|    |  Aggregation			        |     |
+	|    |    _________________________________     |     |
+	|    |    |                               |     |     |
+	|    |    | Composition			  |     |     |
+	|    |    |_______________________________|     |     |
+	|    |__________________________________________|     |
+	|_____________________________________________________|     
+
+
+ //----------------------------------------------------------------------------
+
+
+	Now, Lets start the INHERITANCE in Detail..!!
+	
+	It is act of defining the new class using the pre-defined classes.
+        It will provide the next level of reusability
+
+    consider the example, in normal case,
+
+    class employee              class student           class Teacher           class Driver
+    {                           {                       {                       {
+        char name[50];              char name[50];         char name[50];           char name[50];
+        int age;                    int age;                int age;                int age;
+        -----------;                -----------;            -----------;            -----------;
+        -----------;                -----------;            -----------;            -----------;
+        -----------;                -----------;            -----------;            -----------;
+        -----------;                -----------;            -----------;            -----------;
+    };                          };                      };                      };
+
+  some elements are there in each class, and every class having code related to IO of those
+    member, which is code repetition and can be avoided using the class inheritance as
+
+
+    /// syntax of inheritance
+
+    class <base/super/parent_class>
+    {
+        ........;
+    };
+    class <derived/sub/child_class> : <visibility_Modifier> <base_class_nm>
+    {
+        --------;
+        --------;
+    };
+
+
+ e.g.
+
+        class person
+        {
+            char name[50];
+            int age;
+            --------------;
+            --------------;
+            --------------;
+        };
+
+
+class employee:public person    class student:public person     class Teacher:public person        class Driver:public person
+{                               {                               {                                  {
+    -----------;                      -----------;                   -----------;                        -----------;
+    -----------;                      -----------;                   -----------;                        -----------;
+    -----------;                      -----------;                   -----------;                        -----------;
+};                              };                              };                                };
+
+
+class person
+{
+	int uid;
+	char name[30];
+     public:
+	void input()
+	{
+		cout<<endl<<"Enter the name: ";
+		cin>>name;
+		cout<<endl<<"Enter the uid: ";
+		cin>>uid;
+	}
+	void output()
+	{
+		cout<<endl<<"Name: "<<name<<"\t UID: "<<uid;
+	}
+};
+class employee:public person
+{
+	float sal;
+     public:
+	void set()
+	{
+		cout<<"Enter the salary: ";
+		cin>>sal;
+	}
+	void show()
+	{
+		cout<<endl<<"Salary: "<<sal;
+	}
+};
+
+int main()
+{
+	cout<<endl<<"====================="<<endl;
+	person p;
+	// ..... able to deal with person info
+		
+	cout<<endl<<"====================="<<endl;
+	employee e;
+	// ..... able to deal with person-employee info
+
+	return 0;
+}
+	
+	This  is the example showing how the relationship is formed and how the clases are
+	refered when the objects are created.
 
 
 
+///--------------------------------------------------------------------------------------------
+
+        /// Types of Inheritance
 
 
+            single          Multi-level          hierarchical        Multiple         Hybrid
+          Inheritance       Inheritance           Inheritance       Inheritance     Inheritance
 
+             [   ] A            [     ]  A             [ ] A           A       B       [ ]A                  A
+               |                   |                    |              [ ]     [ ]      |                   [ ]
+               |                [     ]  B        --------------        |_______|      [ ] B                 |
+               V                   |              |            |             |          |         D     -------------
+             [   ]  B           [     ]  C       [ ]B         [ ]c          [ ]        [ ] C     [ ]    |           |
+                                                  |            |             C          |         |    [ ] B       [ ] C
+                                              ---------      ---------                 [ ] -------|     |___________|
+                                              |        |     |   |    |                 Z                     |
+                                             [ ]      [ ]   [ ] [ ]  [ ]                                     [ ]
+                                              D        E     F   G    H                                       D
+
+    - Single Inheritance:   One to one relationship, two layers
+    - Multi-level Inheritance: one to one relationship, more than two layers
+    - Hierarchical Inheritance: One to many relationship
+    - Multiple Inheritance: many to one relationship
+    - Hybrid Inheritance: combinations of any two or more inheritance
+
+//--------------------------------------------------------------------------------------
+
+	- Single Inheritance: (public - called all methods from main() )
+
+#include <iostream>
+#include <string.h>
+using namespace std;
+
+class person
+{
+	int uid;
+	char name[30];
+     public:
+	void input()
+	{
+		cout<<endl<<"Enter the name: ";
+		cin>>name;
+		cout<<endl<<"Enter the uid: ";
+		cin>>uid;
+	}
+	void output()
+	{
+		cout<<endl<<"Name: "<<name<<"\t UID: "<<uid;
+	}
+};
+class employee:public person
+{
+	float sal;
+     public:
+	void set()
+	{
+		cout<<"Enter the salary: ";
+		cin>>sal;
+	}
+	void show()
+	{
+		cout<<endl<<"Salary: "<<sal;
+	}
+};
+
+int main()
+{
+	cout<<endl<<"====================="<<endl;
+	person p;
+	p.input();
+	p.output();
+
+	cout<<endl<<"====================="<<endl;
+	employee e;
+	e.input();
+	e.set();
+
+	e.output();
+	e.show();
+
+	return 0;
+}
+
+//-------------------------------------------------------------------
+
+	- Single Inheritance: (public - called base methods from child class methods )
+
+#include <iostream>
+#include <string.h>
+using namespace std;
+
+class person
+{
+	int uid;
+	char name[30];
+     public:
+	void input()
+	{
+		cout<<endl<<"Enter the name: ";
+		cin>>name;
+		cout<<endl<<"Enter the uid: ";
+		cin>>uid;
+	}
+	void output()
+	{
+		cout<<endl<<"Name: "<<name<<"\t UID: "<<uid;
+	}
+};
+class employee:public person
+{
+	float sal;
+     public:
+	void set()
+	{
+	    input();
+		cout<<"Enter the salary: ";
+		cin>>sal;
+	}
+	void show()
+	{
+	    output();
+		cout<<endl<<"Salary: "<<sal;
+	}
+};
+
+int main()
+{
+	cout<<endl<<"====================="<<endl;
+	person p;
+	p.input();
+	p.output();
+
+	cout<<endl<<"====================="<<endl;
+	employee e;
+	e.set();
+	e.show();
+
+	return 0;
+}
+
+
+//----------------------------------------------------------------------------------------------
+
+	- Single Inheritance: (private - called inherited methods only from the child methods  )
+
+#include <iostream>
+#include <string.h>
+using namespace std;
+
+class person
+{
+	int uid;
+	char name[30];
+     public:
+	void input()
+	{
+		cout<<endl<<"Enter the name: ";
+		cin>>name;
+		cout<<endl<<"Enter the uid: ";
+		cin>>uid;
+	}
+	void output()
+	{
+		cout<<endl<<"Name: "<<name<<"\t UID: "<<uid;
+	}
+};
+class employee:private person
+{
+	float sal;
+     public:
+	void set()
+	{
+        	input();
+		cout<<"Enter the salary: ";
+		cin>>sal;
+	}
+	void show()
+	{
+        	output();
+		cout<<endl<<"Salary: "<<sal;
+	}
+};
+
+int main()
+{
+	cout<<endl<<"====================="<<endl;
+	person p;
+	p.input();
+	p.output();
+
+	cout<<endl<<"====================="<<endl;
+	employee e;
+	e.set();
+	e.show();
+
+	return 0;
+}
+
+//-----------------------------------------------------------------------------------------------------
+
+	// Another example
+
+class Vehical
+{
+	int no;
+	char type[40];
+    public:
+	void set()
+	{
+		cout<<endl<<"Enter the Type of vehical: ";
+		cin>>type;
+		cout<<endl<<"Enter the vehical number: ";
+		cin>>no;
+	}
+	void show()
+	{
+		cout<<endl<<"Type: "<<type<<"\t Number: "<<no;
+	}
+};
+
+class Car:private Vehical
+{
+	char color[40];
+	int model_no;
+    public:
+	void in()
+	{
+		set();
+		cout<<endl<<"Enter the color of Car: ";
+		cin>>color;
+		cout<<endl<<"Enter the model no of Car: ";
+		cin>>model_no;
+	}
+	void out()
+	{
+		show();
+		cout<<endl<<"Color: "<<color<<"Model_No: "<<model_no;
+	}
+};
+
+int main()
+{
+	 Car cob;
+
+	cob.in();
+	cob.out();
+
+	return 0;
+}
+
+//-------------------------------------------------------
+
+
+class Vehical
+{
+	int no;
+	char type[40];
+    public:
+	void set()
+	{
+		cout<<endl<<"Enter the Type of vehical: ";
+		cin>>type;
+		cout<<endl<<"Enter the vehical number: ";
+		cin>>no;
+	}
+	void show()
+	{
+		cout<<endl<<"Type: "<<type<<"\t Number: "<<no;
+	}
+};
+
+class Train:public Vehical
+{
+	char name[40];
+    public:
+	void in()
+	{
+		set();
+		cout<<endl<<"Enter the name of train: ";
+		cin>>name;
+	}
+	void out()
+	{
+		show();
+		cout<<endl<<"Name of Train: "<<name;
+	}
+};
+
+int main()
+{
+	Train tob;
+
+	tob.in();
+	tob.out();
+
+	return 0;
+}
+
+//--------------------------------------------------------------------------------------------
+
+	//   - Multi-level Inheritance: one to one relationship, more than two layers
+
+
+	 [   ] Vehical
+	   |
+	   |
+	 [   ] Train
+	   |
+	   |
+	 [   ] Ticket
+
+
+#include <iostream>
+#include <string.h>
+using namespace std;
+
+class Vehical
+{
+	int no;
+	char type[40];
+    public:
+	void set()
+	{
+		cout<<endl<<"Enter the Type of vehical: ";
+		cin>>type;
+		cout<<endl<<"Enter the vehical number: ";
+		cin>>no;
+	}
+	void show()
+	{
+		cout<<endl<<"Type: "<<type<<"\t Number: "<<no;
+	}
+};
+
+class Train:public Vehical
+{
+	char name[40];
+    public:
+	void in()
+	{
+		set();
+		cout<<endl<<"Enter the name of train: ";
+		cin>>name;
+	}
+	void out()
+	{
+		show();
+		cout<<endl<<"Name of Train: "<<name;
+	}
+};
+class Ticket:private Train
+{
+	char pnm[40];
+	int inr;
+     public:
+	void setTicket()
+	{
+		in();
+		cout<<endl<<"Enter the name of person: ";
+		cin>>pnm;
+		cout<<endl<<"Enter the ticket price: ";
+		cin>>inr;
+	}
+	void showTicket()
+	{
+		out();
+		cout<<endl<<" Name of Person: "<<pnm<<"\t Paid Rs. "<<inr;
+	}
+};
+
+int main()
+{
+	Ticket t1;
+
+	t1.setTicket();
+	t1.showTicket();
+
+	return 0;
+}
+
+//---------------------------------------------------------------------------------
+
+	// Using the constructors in inheritance
+
+	When you create object of any child then first it will allocate the memory for
+	base data member, then its member dunctions are decl. and then it will execute the
+	construcor of base. and perform operations in same sequence for its child.
+
+#include <iostream>
+#include <string.h>
+using namespace std;
+class A
+{
+	int n1;
+     public:
+	A()
+	{
+		cout<<endl<<"In the default constructor of A";
+		n1=10;
+	}
+	void setA()
+	{
+		cout<<endl<<"Enter any No: ";
+		cin>>n1;
+	}
+	void showA()
+	{
+		cout<<endl<<"A-n1 is: "<<n1;
+	}
+};
+class B:public A
+{
+	int n2;
+     public:
+	B()
+	{
+		cout<<endl<<"In the default constructor of B";
+		n2=100;
+	}
+	void setB()
+	{
+		cout<<endl<<"Enter any No: ";
+		cin>>n2;
+	}
+	void showB()
+	{
+		showA();
+		cout<<endl<<"B-n2 is: "<<n2;
+	}
+};
+
+int main()
+{
+	B ob;
+	ob.showB();
+	return 0;
+}
+
+//-----------------------------------------------------------------------------------------
+
+	// invoking parameterized constructors of base class
+
+class A
+{
+	int n1;
+     public:
+	A()
+	{
+		cout<<endl<<"In the default constructor of A";
+		n1=10;
+	}
+	void setA()
+	{
+		cout<<endl<<"Enter any No: ";
+		cin>>n1;
+	}
+	void showA()
+	{
+		cout<<endl<<"A-n1 is: "<<n1;
+	}
+};
+class B:public A
+{
+	int n2;
+     public:
+	B()
+	{
+		cout<<endl<<"In the default constructor of B";
+		n2=100;
+	}
+	void setB()
+	{
+		cout<<endl<<"Enter any No: ";
+		cin>>n2;
+	}
+	void showB()
+	{
+		showA();
+		cout<<endl<<"B-n2 is: "<<n2;
+	}
+};
+class C:public B
+{
+	int n3;
+     public:
+	C()
+	{
+		cout<<endl<<"In the default constructor of C";
+		n3=1000;
+	}
+	void setC()
+	{
+		cout<<endl<<"Enter any No: ";
+		cin>>n3;
+	}
+	void showC()
+	{
+		showB();
+		cout<<endl<<"C-n3 is: "<<n3;
+	}
+};
+
+int main()
+{
+	C ob1;
+	ob1.showC();
+	return 0;
+}
+
+//--------------------------------------------------------------------------------------------
+
+#include <iostream>
+using namespace std;
+class A
+{
+	int n1;
+     public:
+	A()
+	{
+		cout<<endl<<"In the default constructor of A";
+		n1=10;
+	}
+	A(int a)
+	{
+		cout<<endl<<"In the para-1 constructor of A";
+		n1=a;
+	}
+	void setA()
+	{
+		cout<<endl<<"Enter any No: ";
+		cin>>n1;
+	}
+	void showA()
+	{
+		cout<<endl<<"A-n1 is: "<<n1;
+	}
+};
+class B:public A
+{
+	int n2;
+     public:
+	B()
+	{
+		cout<<endl<<"In the default constructor of B";
+		n2=100;
+	}
+	B(int a):A(a)
+	{
+		cout<<endl<<"In the para-1 constructor of B";
+		n2=a;
+	}
+	B(int x, int y):A(x)
+	{
+		cout<<endl<<"In the para-2 constructor of B";
+		n2=y;
+	}
+	void setB()
+	{
+		cout<<endl<<"Enter any No: ";
+		cin>>n2;
+	}
+	void showB()
+	{
+		showA();
+		cout<<endl<<"B-n2 is: "<<n2;
+	}
+};
+class C:public B
+{
+	int n3;
+     public:
+	C()
+	{
+		cout<<endl<<"In the default constructor of C";
+		n3=1000;
+	}
+	C(int a):B(a)
+	{
+		cout<<endl<<"In the para-1 constructor of C";
+		n3=a;
+	}
+	C(int x, int y, int z):B(x,y)
+	{
+		cout<<endl<<"In the para-2 constructor of C";
+		n3=z;
+	}
+	void setC()
+	{
+		cout<<endl<<"Enter any No: ";
+		cin>>n3;
+	}
+	void showC()
+	{
+		showB();
+		cout<<endl<<"C-n3 is: "<<n3;
+	}
+};
+
+int main()
+{
+	C ob1;
+	ob1.showC();
+
+	C ob2(123);
+	ob2.showC();
+
+	C ob3(11,22,33);    // C ob3=C(11,22,33);
+	ob3.showC();
+	return 0;
+}
+
+
+///------------------------------------------------------------------------------------------------------------------
+
+	// Function overloading in the inheritance
+
+	 A single class may contain two or more functions having same name and with different signature called
+	 function overloading
+
+#include <iostream>
+using namespace std;
+class A
+{
+	int n1;
+     public:
+	A()
+	{
+		cout<<endl<<"In the default constructor of A";
+		n1=10;
+	}
+	void setA()
+	{
+		cout<<endl<<"Enter any No: ";
+		cin>>n1;
+	}
+	void setA(int t)
+	{
+		n1=t;
+	}
+	void showA()
+	{
+		cout<<endl<<"A-n1 is: "<<n1;
+	}
+};
+class B:public A
+{
+	int n2;
+     public:
+	B()
+	{
+		cout<<endl<<"In the default constructor of B";
+		n2=100;
+	}
+	void setB()
+	{
+		setA();
+		cout<<endl<<"Enter any No: ";
+		cin>>n2;
+	}
+	void setB(int t1,int t2)
+	{
+		setA(t1);
+		n2=t2;
+	}
+	void showB()
+	{
+		showA();
+		cout<<endl<<"B-n2 is: "<<n2;
+	}
+};
+
+int main()
+{
+	B ob1;
+	ob1.showB();
+
+	B ob2;
+	ob2.setB();
+	ob2.showB();
+
+	B ob3;
+	ob3.setB(12,34);
+	ob3.showB();
+
+	
+	return 0;
+}
+
+//--------------------------------------------------------------------------------------------------------
+
+	// Function overriding: when base class function is redefined in child class, and that function will
+	   			be invoked using object of child class then then the child class copy will be
+				executed by disabling the inherited base class copy of function. this overrule 
+				is called as function overriding.
+
+class Demo
+{
+    public:
+	void msg()
+	{
+		cout<<endl<<"In Demo Class";
+	}
+};
+
+class Test:public Demo
+{
+    public:
+	void msg()
+	{
+		cout<<endl<<"In Test Class";
+	}
+};
+
+int main()
+{
+	Test ob;
+	ob.msg();
+	return 0;
+}
+
+//--------------------------------------------------
+
+	In such case if you want to call the base version of function then use the class name as
+
+	<base_class_name>::<function_nm>();
+
+#include <iostream>
+using namespace std;
+class Demo
+{
+    public:
+	void msg()
+	{
+		cout<<endl<<"In Demo Class";
+	}
+};
+
+class Test:public Demo
+{
+    public:
+	void msg()
+	{
+	    /// Demo::msg();   #1
+		cout<<endl<<"In Test Class";
+	}
+};
+
+int main()
+{
+	Test ob;
+	/// ob.msg(); #1
+	ob.Demo::msg();
+	return 0;
+}
+
+
+//---------------------------------------------------------------------------
+#include <iostream>
+using namespace std;
+
+class Person
+{
+	int uid;
+	char nm[45];
+	int age;
+     public:
+	void in()
+	{
+		cout<<endl<<"Enter the name of person: ";
+		cin>>nm;
+
+		cout<<endl<<"Enter the UID and Age of person: ";
+		cin>>uid>>age;
+	}
+	void out()
+	{
+		cout<<endl<<"Name of person: "<<nm;
+		cout<<endl<<"UID: "<<uid<<"\t Age: "<<age;
+	}
+};
+class Student:private Person
+{
+	int rno;
+	float ssc;
+	float hsc;
+     public:
+	void input()
+	{
+		in();
+		cout<<endl<<"Enter the rno, ssc percentage and hsc percentage: ";
+		cin>>rno>>ssc>>hsc;
+	}
+	void out()
+	{
+		Person::out();
+		cout<<endl<<"RNo: "<<rno<<"\t ssc percentage: "<<ssc<<"\t hsc percentage: "<<hsc;
+		//out();
+	}
+};
+int main()
+{
+	Student ob;
+
+	ob.input();
+	ob.out();
+
+	return 0;
+}
+
+//-------------------------------------------------------------------------------------------------------------------
+
+	Using "protected": It is visibility modifier/Accessibility specifier, which is used to inherite
+			   base class member without loosing its data hiding.
+
+			   We can say that it is "Inheritable Private"
+
+					 Inheritance visibility
+
+	   Base class		private		protected	public	
+
+	private Memebers	NI		NI		NI
+
+	protected Memebers	private		protected	protected
+
+	public Memebers		private		protected	public
+
+#include <iostream>
+using namespace std;
+class A
+{
+   protected:
+	int no;
+};
+class B:public A
+{
+	int tmp;
+     public:
+	void in()
+	{
+		cout<<endl<<"Enter any two nos: ";
+		cin>>no>>tmp;
+	}
+	void out()
+	{
+		cout<<endl<<"No: "<<no<<"\t Tmp: "<<tmp;
+	}
+};
+int main()
+{
+	B ob;
+	ob.in();
+	ob.out();
+	//cout<<endl<<"no inherited from A: "<<ob.no; //error: 'int A::no' is protected within this context|
+
+	return 0;
+}
+
+//-------------------------------------------------------------------------------------------------------------------------
+
+	// Demostrate the use of protected in multi-level inheritance
+
+	[   ] Person
+	  |
+	  |
+	[   ] Student
+ class Student:private Person
+	  |
+	  |
+	[   ] Result  
+ class Result:protected Student
+
+#include<string.h>
+#include<iostream>
+using namespace std;
+class Person
+{
+     private:
+	int uid;
+	char name[50];
+     public:
+	Person()
+	{
+		uid=0;
+		strcpy(name,"undefined");
+		cout<<endl<<"Personal info init. completed";
+	}
+	void in()
+	{
+		cout<<endl<<"Enter the Name: ";
+		cin>>name;
+		cout<<endl<<"Enter the UID: ";
+		cin>>uid;
+	}
+	void out()
+	{
+		cout<<endl<<"Name: "<<name<<"\t UID: "<<uid;
+	}
+};
+class Student:private Person
+{
+     private:
+	int esn;
+	protected:
+	int phy;
+	int chem;
+	int maths;
+     public:
+	Student()
+	{
+		esn=phy=chem=maths=0;
+		cout<<endl<<"Student info init. completed";
+	}
+	void input()
+	{
+	    in();
+		cout<<endl<<"Enter the ESN: ";
+		cin>>esn;
+
+		cout<<endl<<"Enter the marks obtained in PCM: ";
+		cin>>phy>>chem>>maths;
+	}
+	void output()
+	{
+		out();
+		cout<<endl<<"Exam Seat No: "<<esn;
+		cout<<endl<<"Marks: Phy: "<<phy<<"\t Chem: "<<chem<<"\t Maths: "<<maths;
+	}
+};
+class Result:protected Student
+{
+     private:
+	char status[50];
+	float per;
+     public:
+	Result()
+	{
+		strcpy(status,"Not_set");
+		cout<<endl<<"Result info init. completed"<<endl;
+	}
+	void setdata()
+	{
+	    input();
+	    if(phy>=40 && chem>=40 && maths>=40)
+        {
+            per=(phy+chem+maths)/3.0;
+            strcpy(status,"Pass");
+        }
+        else
+        {
+            strcpy(status,"Fail");
+        }
+	}
+	void showdata()
+	{
+		output();
+		if(strcmp(status,"Pass")==0)
+            cout<<endl<<"Result Status: "<<status<<" with percentage: "<<per<<endl;
+        else
+            cout<<endl<<"Result Status: "<<status<<endl;
+	}
+};
+
+int main()
+{
+	Result rob;
+
+	rob.showdata();
+
+	rob.setdata();
+	rob.showdata();
+
+	return 0;
+}
+
+
+//---------------------------------------------------------------------------------------------------------------
+
+	// Hierarchical Inheritance
+
+			
+				Person
+				  |
+		---------------------------------
+		|		|		|
+              Student	      Employee	      Driver
+		|		|		|
+	----------------    --------------      ----------
+ 	|	|      |    |	  |	 |	|	 |	
+      Arts   Engg    Medi  HR    GM    ACC     LMV      HMV
+
+
+//---------------------------------------------------------------------------------------------------------------
+
+	// Multiple Inheritance:  In this type of inheritance, child class gains properties from two or more
+				  base classes. 
+
+ in()	[   ] Person		[   ] Student	input()
+ out()	  |			  |		output()
+	  |			  |
+	  |_______________________|
+	   	     |
+	  	     |
+	in()	   [   ] Result  input()
+	out()	  setdata();	 output()
+		  showdata();
+ 	class Result:protected Student,private Person
+
+#include<string.h>
+#include<iostream>
+using namespace std;
+class Person
+{
+     private:
+	int uid;
+	char name[50];
+     public:
+	Person()
+	{
+		uid=0;
+		strcpy(name,"undefined");
+		cout<<endl<<"Personal info init. completed";
+	}
+	void in()
+	{
+		cout<<endl<<"Enter the Name: ";
+		cin>>name;
+		cout<<endl<<"Enter the UID: ";
+		cin>>uid;
+	}
+	void out()
+	{
+		cout<<endl<<"Name: "<<name<<"\t UID: "<<uid;
+	}
+};
+class Student
+{
+     private:
+	int esn;
+	protected:
+	int phy;
+	int chem;
+	int maths;
+     public:
+	Student()
+	{
+		esn=phy=chem=maths=0;
+		cout<<endl<<"Student info init. completed";
+	}
+	void input()
+	{
+		cout<<endl<<"Enter the ESN: ";
+		cin>>esn;
+
+		cout<<endl<<"Enter the marks obtained in PCM: ";
+		cin>>phy>>chem>>maths;
+	}
+	void output()
+	{
+		cout<<endl<<"Exam Seat No: "<<esn;
+		cout<<endl<<"Marks: Phy: "<<phy<<"\t Chem: "<<chem<<"\t Maths: "<<maths;
+	}
+};
+class Result:protected Student,private Person
+{
+     private:
+	char status[50];
+	float per;
+     public:
+	Result()
+	{
+		strcpy(status,"Not_set");
+		cout<<endl<<"Result info init. completed"<<endl;
+	}
+	void setdata()
+	{
+	    input();
+	    in();
+	    if(phy>=40 && chem>=40 && maths>=40)
+        {
+            per=(phy+chem+maths)/3.0;
+            strcpy(status,"Pass");
+        }
+        else
+        {
+            strcpy(status,"Fail");
+        }
+	}
+	void showdata()
+	{
+		output();
+		out();
+		if(strcmp(status,"Pass")==0)
+            cout<<endl<<"Result Status: "<<status<<" with percentage: "<<per<<endl;
+        else
+            cout<<endl<<"Result Status: "<<status<<endl;
+	}
+};
+
+int main()
+{
+	Result rob;
+
+	rob.showdata();
+
+	rob.setdata();
+	rob.showdata();
+
+	return 0;
+}
+
+//---------------------------------------------------------------------------------------------------------------
+
+ in()	[   ] Person		[   ] Student	input()
+ out()	  |			  |		out()
+	  |			  |
+	  |_______________________|
+	   	     |
+	  	     |
+	in()	   [   ] Result  input()
+	out()	  setdata();	 out()
+		  showdata();
+
+ 	class Result:protected Student,private Person
+#include<string.h>
+#include<iostream>
+using namespace std;
+class Person
+{
+     private:
+	int uid;
+	char name[50];
+     public:
+	Person()
+	{
+		uid=0;
+		strcpy(name,"undefined");
+		cout<<endl<<"Personal info init. completed";
+	}
+	void in()
+	{
+		cout<<endl<<"Enter the Name: ";
+		cin>>name;
+		cout<<endl<<"Enter the UID: ";
+		cin>>uid;
+	}
+	void out()
+	{
+		cout<<endl<<"Name: "<<name<<"\t UID: "<<uid;
+	}
+};
+class Student
+{
+     private:
+	int esn;
+	protected:
+	int phy;
+	int chem;
+	int maths;
+     public:
+	Student()
+	{
+		esn=phy=chem=maths=0;
+		cout<<endl<<"Student info init. completed";
+	}
+	void input()
+	{
+		cout<<endl<<"Enter the ESN: ";
+		cin>>esn;
+
+		cout<<endl<<"Enter the marks obtained in PCM: ";
+		cin>>phy>>chem>>maths;
+	}
+	void out()
+	{
+		cout<<endl<<"Exam Seat No: "<<esn;
+		cout<<endl<<"Marks: Phy: "<<phy<<"\t Chem: "<<chem<<"\t Maths: "<<maths;
+	}
+};
+class Result:protected Student,private Person
+{
+     private:
+	char status[50];
+	float per;
+     public:
+	Result()
+	{
+		strcpy(status,"Not_set");
+		cout<<endl<<"Result info init. completed"<<endl;
+	}
+	void setdata()
+	{
+	    input();
+	    in();
+	    if(phy>=40 && chem>=40 && maths>=40)
+        {
+            per=(phy+chem+maths)/3.0;
+            strcpy(status,"Pass");
+        }
+        else
+        {
+            strcpy(status,"Fail");
+        }
+	}
+	void showdata()
+	{
+		out(); /// error: reference to 'out' is ambiguous
+		if(strcmp(status,"Pass")==0)
+            cout<<endl<<"Result Status: "<<status<<" with percentage: "<<per<<endl;
+        else
+            cout<<endl<<"Result Status: "<<status<<endl;
+	}
+};
+
+int main()
+{
+	Result rob;
+
+	rob.showdata();
+
+	rob.setdata();
+	rob.showdata();
+
+	return 0;
+}
+
+	Note that, class Result contains two copies of out(), inherited from class Person and class Student.
+	When we make a call to out() using object of class Result, the there will be confusion which leads to
+	an error, called as Ambiguous Error.
+
+	That error can be resolved using <class_nm>:: operator as shown below 
+#include<string.h>
+#include<iostream>
+using namespace std;
+class Person
+{
+     private:
+	int uid;
+	char name[50];
+     public:
+	Person()
+	{
+		uid=0;
+		strcpy(name,"undefined");
+		cout<<endl<<"Personal info init. completed";
+	}
+	void in()
+	{
+		cout<<endl<<"Enter the Name: ";
+		cin>>name;
+		cout<<endl<<"Enter the UID: ";
+		cin>>uid;
+	}
+	void out()
+	{
+		cout<<endl<<"Name: "<<name<<"\t UID: "<<uid;
+	}
+};
+class Student
+{
+     private:
+	int esn;
+	protected:
+	int phy;
+	int chem;
+	int maths;
+     public:
+	Student()
+	{
+		esn=phy=chem=maths=0;
+		cout<<endl<<"Student info init. completed";
+	}
+	void input()
+	{
+		cout<<endl<<"Enter the ESN: ";
+		cin>>esn;
+
+		cout<<endl<<"Enter the marks obtained in PCM: ";
+		cin>>phy>>chem>>maths;
+	}
+	void out()
+	{
+		cout<<endl<<"Exam Seat No: "<<esn;
+		cout<<endl<<"Marks: Phy: "<<phy<<"\t Chem: "<<chem<<"\t Maths: "<<maths;
+	}
+};
+class Result:protected Student,private Person
+{
+     private:
+	char status[50];
+	float per;
+     public:
+	Result()
+	{
+		strcpy(status,"Not_set");
+		cout<<endl<<"Result info init. completed"<<endl;
+	}
+	void setdata()
+	{
+	    input();
+	    in();
+	    if(phy>=40 && chem>=40 && maths>=40)
+        {
+            per=(phy+chem+maths)/3.0;
+            strcpy(status,"Pass");
+        }
+        else
+        {
+            strcpy(status,"Fail");
+        }
+	}
+	void showdata()
+	{
+		Student::out();
+		Person::out();
+		if(strcmp(status,"Pass")==0)
+            cout<<endl<<"Result Status: "<<status<<" with percentage: "<<per<<endl;
+        else
+            cout<<endl<<"Result Status: "<<status<<endl;
+	}
+};
+
+int main()
+{
+	Result rob;
+
+	rob.showdata();
+
+	rob.setdata();
+	rob.showdata();
+
+	return 0;
+}
+
+
+or in different manner, you can use it as
+
+#include<string.h>
+#include<iostream>
+using namespace std;
+class Person
+{
+     private:
+	int uid;
+	char name[50];
+     public:
+	Person()
+	{
+		uid=0;
+		strcpy(name,"undefined");
+		cout<<endl<<"Personal info init. completed";
+	}
+	void in()
+	{
+		cout<<endl<<"Enter the Name: ";
+		cin>>name;
+		cout<<endl<<"Enter the UID: ";
+		cin>>uid;
+	}
+	void out()
+	{
+		cout<<endl<<"Name: "<<name<<"\t UID: "<<uid;
+	}
+};
+class Student
+{
+     private:
+	int esn;
+	protected:
+	int phy;
+	int chem;
+	int maths;
+     public:
+	Student()
+	{
+		esn=phy=chem=maths=0;
+		cout<<endl<<"Student info init. completed";
+	}
+	void input()
+	{
+		cout<<endl<<"Enter the ESN: ";
+		cin>>esn;
+
+		cout<<endl<<"Enter the marks obtained in PCM: ";
+		cin>>phy>>chem>>maths;
+	}
+	void out()
+	{
+		cout<<endl<<"Exam Seat No: "<<esn;
+		cout<<endl<<"Marks: Phy: "<<phy<<"\t Chem: "<<chem<<"\t Maths: "<<maths;
+	}
+};
+class Result:public Student,public Person
+{
+     private:
+	char status[50];
+	float per;
+     public:
+	Result()
+	{
+		strcpy(status,"Not_set");
+		cout<<endl<<"Result info init. completed"<<endl;
+	}
+	void setdata()
+	{
+	    input();
+	    in();
+	    if(phy>=40 && chem>=40 && maths>=40)
+        {
+            per=(phy+chem+maths)/3.0;
+            strcpy(status,"Pass");
+        }
+        else
+        {
+            strcpy(status,"Fail");
+        }
+	}
+	void showdata()
+	{
+		if(strcmp(status,"Pass")==0)
+            cout<<endl<<"Result Status: "<<status<<" with percentage: "<<per<<endl;
+        else
+            cout<<endl<<"Result Status: "<<status<<endl;
+	}
+};
+
+int main()
+{
+	Result rob;
+
+	rob.showdata();
+
+	rob.setdata();
+	rob.Student::out();
+	rob.Person::out();
+	rob.showdata();
+
+	return 0;
+}
+
+//---------------------------------------------------------------------------------------------------------------
+
+
+	Hybrid inheritance: Combination of any two inh.
+
+	[   ] Person
+	  |
+	  |
+	[   ] Student		       Sport	
+ class Student:private Person	      [    ]
+	  |				|
+	  |				|
+	[   ]---------------------------| 
+	Result  
+ class Result:protected Student,private sport
+
+#include<string.h>
+#include<iostream>
+using namespace std;
+class Person
+{
+     private:
+	int uid;
+	char name[50];
+     public:
+	Person()
+	{
+		uid=0;
+		strcpy(name,"undefined");
+		cout<<endl<<"Personal info init. completed";
+	}
+	void in()
+	{
+		cout<<endl<<"Enter the Name: ";
+		cin>>name;
+		cout<<endl<<"Enter the UID: ";
+		cin>>uid;
+	}
+	void out()
+	{
+		cout<<endl<<"Name: "<<name<<"\t UID: "<<uid;
+	}
+};
+class Student:private Person
+{
+     private:
+	int esn;
+	protected:
+	int phy;
+	int chem;
+	int maths;
+     public:
+	Student()
+	{
+		esn=phy=chem=maths=0;
+		cout<<endl<<"Student info init. completed";
+	}
+	void input()
+	{
+	    in();
+		cout<<endl<<"Enter the ESN: ";
+		cin>>esn;
+
+		cout<<endl<<"Enter the marks obtained in PCM: ";
+		cin>>phy>>chem>>maths;
+	}
+	void output()
+	{
+		out();
+		cout<<endl<<"Exam Seat No: "<<esn;
+		cout<<endl<<"Marks: Phy: "<<phy<<"\t Chem: "<<chem<<"\t Maths: "<<maths;
+	}
+};
+class Sport
+{
+     private:
+	char sportnm[40];
+	int grd;
+     public:
+	void indata()
+	{
+		cout<<endl<<"Enter the sport name: ";
+		cin>>sportnm;
+		cout<<endl<<"Enter the grade: ";
+		cin>>grd;
+	}
+	void outdata()
+	{
+		cout<<endl<<"Sport Name: "<<sportnm<<"\t Grade: "<<grd;
+	}	
+};
+class Result:protected Student, private Sport
+{
+     private:
+	char status[50];
+	float per;
+     public:
+	Result()
+	{
+		strcpy(status,"Not_set");
+		cout<<endl<<"Result info init. completed"<<endl;
+	}
+	void setdata()
+	{
+	    input();
+	    indata();
+	    if(phy>=40 && chem>=40 && maths>=40)
+        {
+            per=(phy+chem+maths)/3.0;
+            strcpy(status,"Pass");
+        }
+        else
+        {
+            strcpy(status,"Fail");
+        }
+	}
+	void showdata()
+	{
+		output();
+		outdata();
+		if(strcmp(status,"Pass")==0)
+            cout<<endl<<"Result Status: "<<status<<" with percentage: "<<per<<endl;
+        else
+            cout<<endl<<"Result Status: "<<status<<endl;
+	}
+};
+
+int main()
+{
+	Result rob;
+
+	rob.setdata();
+	rob.showdata();
+
+	return 0;
+}
+
+//-----------------------------------------------------------------------------------------------
+
+	// Note that there may be a possibility of ambiguous error, but un Diamond Shape inheritance
+	// there is always ambigugos error. Lets see,
+
+	
+		
+		     in()	[   ] Person	out()
+				  |
+	  ________________________|________________________
+	  |						   |
+     in() |  out()				      in() |  out()
+  input() |  output()				   indata()|  outdata()
+	Student		      	 			 Sport	
+ 	[   ] 	      					[    ]					
+  class Student:public  Person			class Sport:public Person
+	  |						  |
+	  |-----------------------------------------------| 
+				  |
+		in() out()	Result		in()  out()
+	input() output()	[   ]		indata()  outdata()
+			  setdata()  showdata()
+		class Result: public Student,public Sport
+
+#include<string.h>
+#include<iostream>
+using namespace std;
+class Person
+{
+     private:
+	int uid;
+	char name[50];
+     public:
+	Person()
+	{
+		uid=0;
+		strcpy(name,"undefined");
+		cout<<endl<<"Personal info init. completed";
+	}
+	void in()
+	{
+		cout<<endl<<"Enter the Name: ";
+		cin>>name;
+		cout<<endl<<"Enter the UID: ";
+		cin>>uid;
+	}
+	void out()
+	{
+		cout<<endl<<"Name: "<<name<<"\t UID: "<<uid;
+	}
+};
+class Student:public Person
+{
+     private:
+	int esn;
+	protected:
+	int phy;
+	int chem;
+	int maths;
+     public:
+	Student()
+	{
+		esn=phy=chem=maths=0;
+		cout<<endl<<"Student info init. completed";
+	}
+	void input()
+	{	    
+		cout<<endl<<"Enter the ESN: ";
+		cin>>esn;
+
+		cout<<endl<<"Enter the marks obtained in PCM: ";
+		cin>>phy>>chem>>maths;
+	}
+	void output()
+	{		
+		cout<<endl<<"Exam Seat No: "<<esn;
+		cout<<endl<<"Marks: Phy: "<<phy<<"\t Chem: "<<chem<<"\t Maths: "<<maths;
+	}
+};
+class Sport:public Person
+{
+     private:
+	char sportnm[40];
+	int grd;
+     public:
+	void indata()
+	{
+		cout<<endl<<"Enter the sport name: ";
+		cin>>sportnm;
+		cout<<endl<<"Enter the grade: ";
+		cin>>grd;
+	}
+	void outdata()
+	{
+		cout<<endl<<"Sport Name: "<<sportnm<<"\t Grade: "<<grd;
+	}	
+};
+class Result:protected Student, private Sport
+{
+     private:
+	char status[50];
+	float per;
+     public:
+	Result()
+	{
+		strcpy(status,"Not_set");
+		cout<<endl<<"Result info init. completed"<<endl;
+	}
+	void setdata()
+	{
+	    if(phy>=40 && chem>=40 && maths>=40)
+        {
+            per=(phy+chem+maths)/3.0;
+            strcpy(status,"Pass");
+        }
+        else
+        {
+            strcpy(status,"Fail");
+        }
+	}
+	void showdata()
+	{
+		if(strcmp(status,"Pass")==0)
+            cout<<endl<<"Result Status: "<<status<<" with percentage: "<<per<<endl;
+        else
+            cout<<endl<<"Result Status: "<<status<<endl;
+	}
+};
+
+int main()
+{
+	Result rob;
+
+	rob.in();
+	rob.input();
+	rob.indata();
+	rob.setdata();
+
+	rob.out();
+	rob.output();
+	rob.outdata();
+	rob.showdata();
+
+	return 0;
+}
+
+  As Two copies of in()/out() are present in result, one via class Student and another via Sport.
+  there are two places where ambiguous error will be generated.
+
+	i.e.	rob.in();
+		rob.out();
+
+	We have avoid these errors, and there are two different ways,
+
+	- using <class_nm>::
+	- using Virtual base class
+
+
+	- using <class_nm>:: 
+	    ---------------    
+		This ways allows you to select single copy when there are two or more inherited
+	        copies having same signature.
+
+#include<string.h>
+#include<iostream>
+using namespace std;
+class Person
+{
+     private:
+	int uid;
+	char name[50];
+     public:
+	Person()
+	{
+		uid=0;
+		strcpy(name,"undefined");
+		cout<<endl<<"Personal info init. completed";
+	}
+	void in()
+	{
+		cout<<endl<<"Enter the Name: ";
+		cin>>name;
+		cout<<endl<<"Enter the UID: ";
+		cin>>uid;
+	}
+	void out()
+	{
+		cout<<endl<<"Name: "<<name<<"\t UID: "<<uid;
+	}
+};
+class Student:public Person
+{
+     private:
+	int esn;
+	protected:
+	int phy;
+	int chem;
+	int maths;
+     public:
+	Student()
+	{
+		esn=phy=chem=maths=0;
+		cout<<endl<<"Student info init. completed";
+	}
+	void input()
+	{
+		cout<<endl<<"Enter the ESN: ";
+		cin>>esn;
+
+		cout<<endl<<"Enter the marks obtained in PCM: ";
+		cin>>phy>>chem>>maths;
+	}
+	void output()
+	{
+		cout<<endl<<"Exam Seat No: "<<esn;
+		cout<<endl<<"Marks: Phy: "<<phy<<"\t Chem: "<<chem<<"\t Maths: "<<maths;
+	}
+};
+class Sport:public Person
+{
+     private:
+	char sportnm[40];
+	int grd;
+     public:
+	void indata()
+	{
+		cout<<endl<<"Enter the sport name: ";
+		cin>>sportnm;
+		cout<<endl<<"Enter the grade: ";
+		cin>>grd;
+	}
+	void outdata()
+	{
+		cout<<endl<<"Sport Name: "<<sportnm<<"\t Grade: "<<grd;
+	}
+};
+class Result:public Student, public Sport
+{
+     private:
+	char status[50];
+	float per;
+     public:
+	Result()
+	{
+		strcpy(status,"Not_set");
+		cout<<endl<<"Result info init. completed"<<endl;
+	}
+	void setdata()
+	{
+	    if(phy>=40 && chem>=40 && maths>=40)
+        {
+            per=(phy+chem+maths)/3.0;
+            strcpy(status,"Pass");
+        }
+        else
+        {
+            strcpy(status,"Fail");
+        }
+	}
+	void showdata()
+	{
+		if(strcmp(status,"Pass")==0)
+            cout<<endl<<"Result Status: "<<status<<" with percentage: "<<per<<endl;
+        else
+            cout<<endl<<"Result Status: "<<status<<endl;
+	}
+};
+
+int main()
+{
+	Result rob;
+
+	rob.Student::in();
+	rob.input();
+	rob.indata();
+	rob.setdata();
+
+	rob.Student::out();
+	rob.output();
+	rob.outdata();
+	rob.showdata();
+
+	return 0;
+}
+
+//------------------------------
+
+	
+	- using Virtual base class:
+	---------------------------
+		This way avoids the trversal of multiple copies in child class.
+		
+	
+		
+			     in()	[   ] Person	out()
+					  |
+		  ________________________|________________________
+		  |			  |			   |
+	     in() |  out()		  |		      in() |  out()
+	  input() |  output()		  V		   indata()|  outdata()
+		Student		      	  |			 Sport	
+	 	[   ] 	      		  |			[    ]					
+  class Student:virtual public Person	  |		class Sport:public virtual Person
+		  |			  |			  |
+		  |-----------------------O-----------------------| 
+					  |
+			in() 		Result		out()
+		input() output()	[   ]		indata()  outdata()
+				  setdata()  showdata()
+			class Result: public Student,public Sport
+
+
+    Normally in diamond shape inheritance (or in the multiple/hybrid inheritance),
+    means where a class gains the properties from two or more classes, if the child
+    class contains two or more inherited copies of functions having same name and the
+    child don't have the native function having same name, then it will generate the
+    ambiguous error. which can be corrected using two different ways.
+
+        - Using <class_name>::<fun_nm>();
+        - Using virtual base class
+
+    The virtual base class is not a direct base, it is present in the top hierarchy
+    of selected class, Normally in diamond shape inheritance, the base class functions
+    are inherited to child via two different ways, i.e. via left hand child and via right
+    hand child, in such case child class contents the multiple copies of functions having
+    same signature and which are from ultimate base class. which leads to ambiguous
+    condition, to avoid this we need to make a provision to pass the single copy
+    to the child class and it is done by using virtual keyword in the inheritance of
+    intermediate base classes. Due to that only single copy of function is passed to child
+    from the intermediate base classes which are inherited as virtual, means the result
+    is same like the child class inherits the ultimate base.therefore that ultimate base
+    class is called as virtual base class.
+
+    In above example, Student class is virtual base class.
+
+#include<string.h>
+#include<iostream>
+using namespace std;
+class Person
+{
+     private:
+	int uid;
+	char name[50];
+     public:
+	Person()
+	{
+		uid=0;
+		strcpy(name,"undefined");
+		cout<<endl<<"Personal info init. completed";
+	}
+	void in()
+	{
+		cout<<endl<<"Enter the Name: ";
+		cin>>name;
+		cout<<endl<<"Enter the UID: ";
+		cin>>uid;
+	}
+	void out()
+	{
+		cout<<endl<<"Name: "<<name<<"\t UID: "<<uid;
+	}
+};
+class Student:virtual public Person
+{
+     private:
+	int esn;
+	protected:
+	int phy;
+	int chem;
+	int maths;
+     public:
+	Student()
+	{
+		esn=phy=chem=maths=0;
+		cout<<endl<<"Student info init. completed";
+	}
+	void input()
+	{
+		cout<<endl<<"Enter the ESN: ";
+		cin>>esn;
+
+		cout<<endl<<"Enter the marks obtained in PCM: ";
+		cin>>phy>>chem>>maths;
+	}
+	void output()
+	{
+		cout<<endl<<"Exam Seat No: "<<esn;
+		cout<<endl<<"Marks: Phy: "<<phy<<"\t Chem: "<<chem<<"\t Maths: "<<maths;
+	}
+};
+class Sport:virtual public Person
+{
+     private:
+	char sportnm[40];
+	int grd;
+     public:
+	void indata()
+	{
+		cout<<endl<<"Enter the sport name: ";
+		cin>>sportnm;
+		cout<<endl<<"Enter the grade: ";
+		cin>>grd;
+	}
+	void outdata()
+	{
+		cout<<endl<<"Sport Name: "<<sportnm<<"\t Grade: "<<grd;
+	}
+};
+class Result:public Student, public Sport
+{
+     private:
+	char status[50];
+	float per;
+     public:
+	Result()
+	{
+		strcpy(status,"Not_set");
+		cout<<endl<<"Result info init. completed"<<endl;
+	}
+	void setdata()
+	{
+	    if(phy>=40 && chem>=40 && maths>=40)
+        {
+            per=(phy+chem+maths)/3.0;
+            strcpy(status,"Pass");
+        }
+        else
+        {
+            strcpy(status,"Fail");
+        }
+	}
+	void showdata()
+	{
+		if(strcmp(status,"Pass")==0)
+            cout<<endl<<"Result Status: "<<status<<" with percentage: "<<per<<endl;
+        else
+            cout<<endl<<"Result Status: "<<status<<endl;
+	}
+};
+
+int main()
+{
+	Result rob;
+
+	rob.in();
+	rob.input();
+	rob.indata();
+	rob.setdata();
+
+	rob.out();
+	rob.output();
+	rob.outdata();
+	rob.showdata();
+
+	return 0;
+}
