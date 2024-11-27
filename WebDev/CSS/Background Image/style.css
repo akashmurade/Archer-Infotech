@@ -1,0 +1,12 @@
+section {
+  color: white;
+  background-image: url("ill.jpg");
+  background-position: right;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  height: 5rem;
+  width: 40rem;
+  padding: 10rem 2rem;
+  text-align: center;
+  float: right;
+}

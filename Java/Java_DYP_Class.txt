@@ -1,0 +1,8476 @@
+
+---------------- Java Programming -----------------------
+
+	Computer ---> 
+	Language --->
+	Programming Languages --> 
+
+
+
+		     SIMULA
+		     COBOL								   |-- Sun Microsystem --> Java
+	Assembly --> Fortran ----> ALGOL60 --> CPL --> BCPL-----> B -----> C ----> C++ ====|-- Microsoft corpo.--> .Net
+		     RPG	    (1960)   (1963)    (1967)    (1970)   (1972) (1983-84) |-- CWI -------------> Python
+		     BASIC								   |
+		     Pascal
+		     ....
+
+
+	// History of Java: 
+
+
+		- JAMES GOSLING Introduced the Java Programming language.
+
+		- Initially he started with the platform independancy, and developed GreenTalk with ext. (*.gt)
+
+		- After some days he joined the Sun Microsystem, as head of green project team, formed to develop
+
+		- The platform independent language as a internal tools of the company to develop application
+		  for different consumer electronic product.
+
+		 - 1990 --> Touch sencetive application
+
+		 - 1991 -> language named Oak is introduced.
+
+		 - 1995 --> OAK renamed as Java
+
+// Different versions of Java: 
+
+		1995 - jdk alpha and beta
+		1996 - jdk 1.0
+		1997 - jdk 1.1
+
+		1998 - J2SE 1.2
+		2000 - J2SE 1.3 
+		2002 - J2SE 1.4 
+		
+		2004 - J2SE 5.0 
+
+		2006 - Java SE 6
+		2011 - Java SE 7 
+		2014 - Java SE 8 
+		
+		2017 - Java SE 9                   Onwards ---> JSE 9 ...
+		2018 - Java SE 10 (March)
+		     - Java SE 11 (September)
+
+		2019 - Java SE 12 (March)
+		     - Java SE 13 (September)
+
+		2020 - Java SE 14 (March)
+		     - Java SE 15 (September)
+
+		2021 - Java SE 16 (March)
+		     - Java SE 17 (September)
+
+		Java SE 18 (to be released by March 2022)
+
+
+
+// ---------------------------------------------------------------------------------------------
+
+	Different Java Editions:
+
+
+			     |-> J2SE(Standard Edition)
+			     |
+ 		Java --------|-> J2EE(Enterprise Edition)
+			     |
+			     |-> J2ME( Micro Edition)
+
+
+// ----------------------------------------------------------------------------------------------
+
+	// Java Environment: 
+
+	Platform = OS + Processor Arct.
+
+	It is basically divided into 2 parts
+
+		jre --> java runtime environment: Needed to run the java program
+		jdk ---> java developement Needed to develop and run the java program
+
+//----------------------------------------------------------------------------------------------------------
+
+
+	// Java Buzzwords (Features of Java)	
+
+		-  Simple 
+		-  Object Oriented
+		-  Portable
+		-  Platform Independent
+		-  secure
+		-  Robust
+		-  Architecture neutral
+		-  half compiled and half Interpreted
+		-  Multithreaded
+		-  Distributed
+		-  Dynamic
+		-  High Performance
+//------------------------------------------------------------------------------------------------------------
+
+	// Differences Between C and Java
+
+		https://www.interviewbit.com/blog/difference-between-c-and-java/
+
+
+	// Differences Between C++ and Java
+
+		https://www.interviewbit.com/blog/difference-between-cpp-and-java/
+
+
+
+//----------------------------------------------------------------------------------------------------------
+
+// Execution flow of C/C++ and Java	
+
+
+		C/C++									Java
+
+	Instructions		Progr_nm					     *.java
+		|_________________|							|
+			 |								|	
+			 |         Debug					     Compile(javac)	
+	source code	*.c/*.cpp <---|							|
+			 |            |							|
+			 |            |						    *.class
+		      Compile ------->| Compile-time 				    (byte code)	              		 ^
+			 |            | error						|                	 Compile |
+			 |            |							|			===================
+	backup file    *.bak          |					-------------------------------------   Interpreter |
+			 |            |					|		|		| ..                V
+			 |            |				       JVM             JVM             JVM --> (Platform dependent JVM)	
+	 Linker -------->| ---------> |  Linker error			|		|		|
+			 |            |                               Windows         Linux            MAC  
+			 |            |                                 | 		|		|                          
+	object code    *.obj	      |				     Native code    Native code     Native code	
+			 |            |					|		|		|
+			 |	      ^				      Run              RUN             Run	
+     Executable file   *.exe	      |                                 |               |               |
+			 |	      |	                             Output           Output          Output  
+		   	Run --------->| Runtime Error
+			 |
+		       Output							WRITE ONCE RUN EVERYWHERE	
+
+
+
+//---------------------------------------------------------------------------------------------------------
+
+
+	Java Editors and IDE's
+	======================
+
+		Editor: Notepad, Editplus, Notepad++ ...
+		
+		IDE: Best Java IDEs
+			Eclipse. Platform – Linux/macOS/Solaris/Windows. ...
+			NetBeans. Platform – Linux/macOS/Solaris/Windows. ...
+			IntelliJ IDEA. Platform – Linux/macOS/Windows. ...
+			BlueJ. Platform – Linux/macOS/Windows. ...
+			(Oracle) JDeveloper. Platform – Linux/macOS/Windows. 
+
+
+	Now we have see, how to write a code where:
+
+		1. Use any editor/ide
+
+		2. Install jdk/jre (https://www.oracle.com/in/java/technologies/javase/javase8-archive-downloads.html)
+
+		3. Use notepad as a editor and write a code as
+
+			class <cls_nm>
+			{
+				public static void main(String []args)
+				{
+					------------------;
+					------------------;
+					program_body ;
+					------------------;
+					------------------;
+				}
+			}
+
+			class Demo
+			{
+				public static void main(String []args)
+				{
+					System.out.print("Welcome to Java Programming");
+				}
+			}
+
+		4. Save the code in C:\Program Files\Java\jdk-17.0.1\bin As <class_nm>.java
+
+		5. win+r --> cmd --> enter (attend the folder where the source file, compiler and interpreter is present) as
+
+			C:\Users\hp>cd\
+			C:\>cd "Program Files\Java\jdk-17.0.1\bin"
+			C:\Program Files\Java\jdk-17.0.1\bin>javac Demo.java     (compilation where you get the bytecode (*.class) )
+			C:\Program Files\Java\jdk-17.0.1\bin>java Demo  	 (Byte code interpretation)
+				Welcome to Java Programming
+			C:\Program Files\Java\jdk-17.0.1\bin>
+
+	//------------------------------------------------------------------------------------------------------------------
+
+	How to run, same code when source file (*.java) is in different folder
+				
+			C:\Users\hp>e:
+			E:\>cd myjavafiles
+			E:\myjavafiles>javac First.java
+
+				'javac' is not recognized as an internal or external command,
+				operable program or batch file.
+
+			E:\myjavafiles>set path=C:\Program Files\Java\jdk-17.0.1\bin
+			E:\myjavafiles>javac First.java
+			E:\myjavafiles>java First
+				Welcome to Java Programming-First
+			E:\myjavafiles>
+
+		Note that the path is applicable till the current session of the command prompt.
+		to set the path in the permanent manner set the path in Environmeent variable
+
+
+		Setting the environment variable: this pc --> rh+ click ---> properties --> adv. system settings
+						--> Advanced tab --> environment variable --> user variable path
+
+
+				-if already path is there -> edit --> new-> paste path (C:\Program Files\Java\jdk-17.0.1\bin)
+
+				otherwise  user variable path--> new and write
+
+				variable name --> path
+				variable value --> C:\Program Files\Java\jdk-17.0.1\bin) --> ok....
+
+//-------------------------------------------------------------------------------------------------------------
+	Youtube Link: https://youtu.be/RBxum7M3B94?si=jepmNZAtetZfJKFp
+//-------------------------------------------------------------------------------------------------------------
+
+
+	Details of welcome program:
+	============================
+
+	class WelcomeProg
+	{
+		public static void main(String []args)
+		{
+			System.out.print("Welcome to Java by Archer InfoTech");
+		}
+	}
+	
+	Line 1: class WelcomeProg:
+
+			class: It is keyword which allows you to create your own type.
+			WelcomeProg: this is name of UDT, it must be valide identifier. Internally in java lib, the have
+					  choosen, First letter of class name in uppercase and all other in lowercase if it is
+					  made from from one word, if multiple words then first character of each word in ucase
+					  and all other in lcase.
+
+						e.g.	First, Demo, FirstProgram, ExampleDemoWelcome
+					It is recommended, not compalsory
+
+	Line 3: public static void main(String []args) 
+
+			public: it is used to define the visiblity of method main(), coz the javac and java are not members of class
+				as a outsiders they must have access to class members therefore visibility is public.
+
+			static: The static members gains the memory space when class is loaded into memory, no need of object
+				creation. therefore the method main() decl. as static
+
+			void: It is returning type of method main(), it is void coz java program does not return any value to OS
+
+			main(): It is method name, and as it is main(), it is considered as a starting point of of your program
+
+			String []args: String is Built-in class from java.lang package, it is language support package, which is 
+					imported bydefault. []args it is array of arguments, which is passed automatically at the
+					time of execution from commandline, in absence null is collected.
+					simply it is array of objects.
+
+	Line 5:  System.out.print("Welcome to Java");
+
+			"Welcome to Java" : It is data, to be displayed
+			print() is a method from PrintStream class used to display the data on screen.
+			out is predefined object of PrintStream class, declare ed as a static in System class
+			System is a class from java.lang package.
+
+
+	>>javac WelcomeProg.java (WelcomeProg - is a file name)
+	>>java WelcomeProg (WelcomeProg - class name containing main() method)
+
+ //-----------------------------------------------------------------------------------------------------------------------
+
+	// When we write a file generaly we keep file name and main class name same, but it may be different
+	   In such case, compile using file name and run using main class name.
+	
+	   if a java file having two or more class defined within it, then there are those number of class
+	   files, from which we have to use class name containing main() to run the program.
+
+	lets see ...
+
+class Sample
+{
+}
+class Test
+{
+}
+class WelcomeProgram
+{
+	public static void main(String []args)
+	{
+		System.out.print("Welcome to Java by Archer InfoTech");
+	}
+}
+
+ --------- output ----------
+
+C:\Users\archerinfotech>d:
+
+D:\>cd jdyp
+
+D:\jdyp>javac Welcome.java
+
+D:\jdyp>java WelcomeProgram
+Welcome to Java by Archer InfoTech
+D:\jdyp>
+
+//------------------------------------------------------------------------------------------
+
+	// Knowing the String []args
+
+	 - args : It refers to arguments, you can choose any name for it rather than args
+	 - [] args: It represents array name
+	 - String []args: Array of String objects, where String is class from java.lang package,
+			  which is imported bydefault  
+
+class MainArgu
+{
+	public static void main(String []args)
+	{
+		System.out.println(args);
+		System.out.println("0 - "+args[0]);
+		System.out.println("1 - "+args[1]);
+		System.out.println("2 - "+args[2]);
+	}
+}
+
+/*
+  ------- How to run --------
+
+	case 1:
+		D:\jdyp>javac MainArgu.java
+
+		D:\jdyp>java MainArgu
+		[Ljava.lang.String;@4517d9a3
+		Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: Index 0 out of bounds for length 0
+       		 at MainArgu.main(MainArgu.java:6)
+
+	case 2:
+
+		D:\jdyp>javac MainArgu.java
+
+		D:\jdyp>java MainArgu hello all
+		[Ljava.lang.String;@4517d9a3
+		0 - hello
+		1 - all
+		Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: Index 2 out of bounds for length 2
+        		at MainArgu.main(MainArgu.java:8)
+
+	case 3:
+		D:\jdyp>javac MainArgu.java
+
+		D:\jdyp>java MainArgu good morning all
+		[Ljava.lang.String;@4517d9a3
+		0 - good
+		1 - morning
+		2 - all
+
+		D:\jdyp>java MainArgu good morning all of you
+		[Ljava.lang.String;@4517d9a3
+		0 - good
+		1 - morning
+		2 - all
+
+		D:\jdyp>java MainArgu try 123 or 456
+		[Ljava.lang.String;@4517d9a3
+		0 - try
+		1 - 123
+		2 - or
+
+ * Note that when there is no any argument at location, the interpreter will generate an error message at
+   runtime class Exception which will terminate the program.
+
+*/
+
+//----------------------------------------------------------------------------------------------------
+
+	Now we need to proceed using the path fillowed in the C and C++
+
+	i.e.
+				constant
+	charcter set -----> 	keyword ------> Instructions ----> program ----> module ---> software
+				variable
+
+
+	Java Character set:
+
+		- ASCII(American Standard Code for Information Interchange):  Provides the binary string to all symbols present
+		  in the US English, which are used in different electronic devices.
+
+		- ASCII used to code in english, but java supports different human understable languages for coding. means java
+		  having rich character set as cmp to c/c++. The Standard Code system names unicode system used in the 
+		  java which provides the 16 bit binary string to each symbol for different languages.     
+
+		What is difference between ASCII and UNICODE.
+		 - ASCII is suitable for basic, English-only text.
+		 - Unicode is a comprehensive encoding system that supports global languages and symbols, making it the standard 
+		   for modern computing.
+
+
+
+	// Constants: These are the elements in the program having fix value.
+
+							      Java Constants
+								    |
+							---------------------------
+							|			  |
+						    Numeric 		     Non-Numeric
+							|			  |
+						-----------------	-----------------
+						|		|	|		|	
+					   Integer     floating-point  character     String
+					-6,4,56    -5.3,7.0,78.6755    'a', '$'     "A", "Hello"		
+									'H' '4'	     "a123"
+
+	// Keyword: These are reserved words, whose meaning is already known to compiler. 
+
+
+		abstract	continue	for		new		switch
+
+		assert***	default		goto*		package		synchronized
+	
+		boolean		do		if		private		this
+
+		break		double		implements	protected	throw
+
+		byte		else		import		public		throws
+
+		case		enum****	instanceof	return		transient
+
+		catch		extends		int		short		try
+
+		char		final		interface	static		void
+
+		class		finally		long		strictfp**	volatile
+
+		const*		float		native		super		while 
+
+		*	 	not used
+		**	 	added in 1.2
+		***	 	added in 1.4
+		****	 	added in 5.0
+
+	(https://docs.oracle.com/javase/tutorial/java/nutsandbolts/_keywords.html)
+
+
+ 	Java Data Types: Tool used for the memory allocation.
+
+		- Primitive data types: These are provided by the language itself. e.g. int, char, byte..
+		- Non-Primitive data types: The are defined by the programmers according to the need. e.g. class, interface
+
+
+						Java Data Types
+							|
+					---------------------------------
+					|				|
+				Primitive Data Types		Non-Primitive Data Types
+					|				|
+			   --------------------------              - String
+			   |			    |   	   - Array
+		      Numeric		 	boolean	   	   - Vector
+			  |	                (1 bit)
+			------------------
+			|		 |
+		   Integrals	      character	
+			|                |
+	-------------------------      char(2)		
+	|			|				
+      integer		     floating point    		
+      |				|					 
+      |- byte (1)		|- float(4)    
+      |- short (2)		|- double(8)
+      |- int(4)
+      |- long(8)
+
+
+	- The defalt integer value is considered as a int and default fractional value considered as double.
+	- When you decl the variable, java demands for the init. of variables, otherwise it will generate the
+	  error message, 
+				"variable xxx might not have been initialized"
+
+	- When the value of variable having higher type is assigned to variable of lower type, then it will
+	  generate the error message
+
+		e.g.
+			a=c;	gives the following error, when a is byte variable and c is int variable
+
+			"possible lossy conversion from int to byte" 
+		 
+		In such case, where you want to convert the value from higther type to lower type, go for
+		the type casting;
+
+			i.e.	a=(byte)c;
+
+		Note carefully that, lower type to higher type promoted automatically.
+
+	- The long costant is represented using 'l' or 'L' as a prefix and for the float 'f' or 'F' is used.
+
+	- Java allows you to decl. the variables anywhere in the program, just decl before using it.
+
+
+	* What is difference between C,C++ data types and java data types?
+	* Why java character needs 2 bytes?
+	* Which are different higher level anguages used to code in java.
+
+class Values
+{
+	public static void main(String []args)
+	{
+		int x=10;
+		byte b=(byte)x;
+		short s=(short)x;
+		long l=25;
+		System.out.println("\n x="+x+"\t b="+b+"\t s="+s+"\t l="+l);
+
+		float f1=45.23F;
+		double d1=f1;
+		System.out.println("\n f1="+f1+"\t d1="+d1);
+
+		float f2=(float)d1;
+		System.out.println("\n f2="+f2);
+	}
+
+}
+
+	----------- Execution Attempts ----------
+
+D:\jdyp>javac Values.java
+Values.java:6: error: incompatible types: possible lossy conversion from int to byte
+                byte b=x;
+                       ^
+Values.java:7: error: incompatible types: possible lossy conversion from int to short
+                short s=x;
+                        ^
+Values.java:11: error: incompatible types: possible lossy conversion from double to float
+                float f1=45.23;
+                         ^
+Values.java:15: error: incompatible types: possible lossy conversion from double to float
+                float f2=d1;
+                         ^
+4 errors
+
+// after changing 
+
+D:\jdyp>javac Values.java
+
+D:\jdyp>java Values
+
+ x=10    b=10    s=10    l=25
+
+ f1=45.23        d1=45.22999954223633
+
+ f2=45.23
+
+
+	* What is widening conversion and narrowing conversion?
+
+	In Java, widening conversion and narrowing conversion are two types of type conversions that occur when a value of one 
+	data type is converted to another. These conversions happen in the context of primitive data types and determine whether 
+	data is safely transformed or if precision might be lost.
+
+	- Widening Conversion (Implicit Conversion): Converting a smaller (or less precise) data type to a larger (or more precise) 
+	  data type. This is done automatically by the Java compiler because there’s no risk of data loss.
+
+	- Narrowing Conversion (Explicit Conversion): Converting a larger (or more precise) data type to a smaller (or less precise) 
+	  data type. This is not done automatically because there’s a risk of data loss or truncation.
+
+
+//----------------------------------------------------------------------------------------------------------------------
+
+	// Different ways of Data Input in Java
+
+ 1. Data Input by direct init
+
+class InputUsinginit
+{
+	public static void main(String []args)
+	{
+		int x=134;	
+		byte b=10;	
+		char ch='$';	
+		double db=56.2323;
+		float ft=3.4F;
+		boolean b=true;
+
+		System.out.println("x="+x);		
+		System.out.println("b="+b);
+		System.out.println("value of ch is "+ch);
+		System.out.println("db is"+db);
+		System.out.println("float value "+ft);
+		System.out.println("boolean value "+b);
+	}
+}
+
+//----------------------------------------------------------------------------------------
+
+ 2. Data Input as a commandline argument
+
+class DataInputCmdln
+{
+	public static void main(String []args)
+	{
+		String s1="-",s2="-";
+
+		s1=args[0];
+		s2=args[1];
+
+		System.out.printn("String s1 is: "+s1);
+		System.out.printn("String s2 is: "+s2);
+	}
+}
+output:
+
+E:\javapfsdn23>javac DataInputCmdln.java
+
+E:\javapfsdn23>java DataInputCmdln hello all
+String s1 is: hello
+String s2 is: all
+
+E:\javapfsdn23>java DataInputCmdln hello
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: Index 1 out of bounds for length 1
+        at DataInputCmdln.main(DataInputCmdln.java:8)
+
+E:\javapfsdn23>java DataInputCmdln
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: Index 0 out of bounds for length 0
+        at DataInputCmdln.main(DataInputCmdln.java:7)
+
+
+How to deal with such runtime errors called exception, which are generated when we will try to 
+access the location which is not present.
+
+
+class DataInputCmdln
+{
+	public static void main(String []args)
+	{
+		String s1="-",s2="-";
+
+		try
+		{
+			s1=args[0];
+			s2=args[1];
+		}
+		catch(Exception e){}
+
+		System.out.println("String s1 is: "+s1);
+		System.out.println("String s2 is: "+s2);
+	}
+}
+
+output:
+
+E:\javapfsdn23>javac DataInputCmdln.java
+
+E:\javapfsdn23>java DataInputCmdln hello all
+String s1 is: hello
+String s2 is: all
+
+E:\javapfsdn23>java DataInputCmdln hello
+String s1 is: hello
+String s2 is: -
+
+E:\javapfsdn23>java DataInputCmdln
+String s1 is: -
+String s2 is: -
+
+
+//----------------------------------------------------------------------------------------------------
+
+We know the input is in form of strings and is is true even when we try to pass numeric 
+values coz they are automatically converted into strings, then how to input the numeric values
+
+class DataInputCmdln
+{
+	public static void main(String []args)
+	{
+		int x=args[0];
+		double y=args[1];
+
+		System.out.println("x is: "+x);
+		System.out.println("y is: "+y);
+	}
+}
+
+on compile 
+
+
+E:\javapfsdn23>javac DataInputCmdlnNumeric.java
+DataInputCmdlnNumeric.java:6: error: incompatible types: String cannot be converted to int
+                int x=args[0];
+                          ^
+DataInputCmdlnNumeric.java:7: error: incompatible types: String cannot be converted to double
+                double y=args[1];
+                             ^
+2 errors
+
+can be eliminated using ...
+class DataInputCmdlnNumeric
+{
+	public static void main(String []args)
+	{
+		String x=args[0]; // "12"--> 12
+		String y=args[1];
+
+		System.out.println("x is: "+x);
+		System.out.println("y is: "+y);
+		System.out.println("Sum is: "+(x+y));
+	}
+}
+
+will gives....!! 
+D:\jdyp>javac DataInputCmdlnNumeric.java
+
+D:\jdyp>java DataInputCmdlnNumeric 12 34
+x is: 12
+y is: 34
+Sum is: 1234
+
+To get correct output...
+we have to convert the arguments in args(which are always Strings). into the required primitive
+data type. And for that we have use pre-defined functionality,
+
+ i.e. there are group of classes defined to represent the primitive type into equivalent 
+ object type, known as "Wrapper Classes". All such class having method
+
+	static <return_type> parse<xxxx>(String arg);
+
+ which will convert the string into curresponding primitive numeric value.	
+
+	byte --> Byte
+	short --> Short
+	int --> Integer
+	long --> Long
+	float --> Float
+	double --> Double
+
+
+class DataInputCmdlnNumeric
+{
+	public static void main(String []args)
+	{
+		int x=Integer.parseInt(args[0]); // "12"--> 12
+		double y=Double.parseDouble(args[1]);
+
+		System.out.println("x is: "+x);
+		System.out.println("y is: "+y);
+		System.out.println("Sum is: "+(x+y));
+	}
+}
+E:\javapfsdn23>javac DataInputCmdlnNumeric.java
+
+E:\javapfsdn23>java DataInputCmdlnNumeric
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: Index 0 out of bounds for length 0
+        at DataInputCmdlnNumeric.main(DataInputCmdlnNumeric.java:6)
+
+E:\javapfsdn23>java DataInputCmdlnNumeric 12 67.45
+x is: 12
+y is: 67.45
+Sum is: 79.45
+
+//-------------------------------------------------------------------------------------------
+
+	// 3. Input using java.io.InputStreamReader and java.io.BufferedReader
+
+	In this communication InputStreamReader and BufferedReader are predefined classes from java.io Package.
+	from which InputStreamReader communicates with default sterams System.in and provides the data to 
+	BufferedReader and then after processing that data converted into string by the BufferedReader using
+	methods like readLine().
+
+	* How may default stream are present in java.
+	- In Java, three default streams are provided for handling input and output. These streams are part of 
+	  the java.lang.System class and are available by default for every Java application
+
+		- System.in:  Used to read input from the standard input stream, typically the keyboard.
+		- System.out: Used to write output to the standard output stream, typically the console.
+		- System.err: Used to write output to the standard error stream, typically for logging 
+			      or error messages.
+
+ // Input different values from keyboard and just display them.
+
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+class IOUsingBI
+{
+	public static void main(String []args)
+	{
+		InputStreamReader isr = new InputStreamReader(System.in);
+		BufferedReader br = new BufferedReader(isr);
+
+		System.out.println("\n Enter the string: ");
+		String str = br.readLine();
+		
+		System.out.println("\n Enter the int value: ");
+		int x=Integer.parseInt(br.readLine());
+		
+		System.out.println("\n Enter the fractional value: ");
+		double y=Double.parseDouble(br.readLine());
+
+		System.out.println("\n Enter the short value: ");
+		Short z=Short.parseShort(br.readLine());
+
+		System.out.printn("\n str: "+str+"\n x="+x+"\n y="+y+"\n z="+z);
+	}
+}
+
+D:\jdyp>javac IOUsingBI.java
+IOUsingBI.java:12: error: unreported exception IOException; must be caught or declared to be thrown
+                String str = br.readLine();
+                                        ^
+IOUsingBI.java:15: error: unreported exception IOException; must be caught or declared to be thrown
+                int x=Integer.parseInt(br.readLine());
+                                                  ^
+IOUsingBI.java:18: error: unreported exception IOException; must be caught or declared to be thrown
+                double y=Double.parseDouble(br.readLine());
+                                                       ^
+IOUsingBI.java:21: error: unreported exception IOException; must be caught or declared to be thrown
+                Short z=Short.parseShort(br.readLine());
+                                                    ^
+4 errors
+
+	// Now we have two options to solve the problem.
+		
+	- Use try-catch block
+	- use throws clause
+
+
+ - using try-catch
+
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+class IOUsingBI
+{
+	public static void main(String []args)
+	{
+		InputStreamReader isr = new InputStreamReader(System.in);
+		BufferedReader br = new BufferedReader(isr);
+
+		try
+		{
+			System.out.println("\n Enter the string: ");
+			String str = br.readLine();
+		
+			System.out.println("\n Enter the int value: ");
+			int x=Integer.parseInt(br.readLine());
+		
+			System.out.println("\n Enter the fractional value: ");
+			double y=Double.parseDouble(br.readLine());
+
+			System.out.println("\n Enter the short value: ");
+			Short z=Short.parseShort(br.readLine());
+
+			System.out.println("\n str: "+str+"\n x="+x+"\n y="+y+"\n z="+z);
+		}
+		catch(Exception e){ }
+	}
+}
+
+ ------ Output -----------------
+
+D:\jdyp>javac IOUsingBI.java
+
+D:\jdyp>java IOUsingBI
+
+ Enter the string:
+hello
+
+ Enter the int value:
+12
+
+ Enter the fractional value:
+6.7
+
+ Enter the short value:
+34
+
+ str: hello
+ x=12
+ y=6.7
+ z=34
+
+	// Character input using java.io.InputStreamReader and java.io.BufferedReader
+	
+- use throws clause
+
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+class CharIOUsingBI
+{
+	public static void main(String []args) throws Exception
+	{
+		InputStreamReader isr = new InputStreamReader(System.in);
+		BufferedReader br = new BufferedReader(isr);
+		char ch=' ';
+		
+		System.out.println("\n Enter the character: ");
+		ch = br.readLine().charAt(0);
+		
+		System.out.println("\n character is="+ch);
+	}
+}
+
+
+//-------------------------------------------------------------------------------------------
+
+	4. Using java.util.Scanner to take the input from keyboard
+
+import java.util.Scanner;
+class InputUsingScannerObject
+{
+	public static void main(String []args)
+	{
+		Scanner sc=new Scanner(System.in);
+
+		String str="";
+		int x=0;
+		double db=0.0;
+		char ch='$';
+
+		System.out.println("Enter any String: ");
+		str=sc.nextLine();
+
+		System.out.println("Enter any int value: ");
+		x=sc.nextInt();
+
+		System.out.println("Enter any double value: ");
+		db=sc.nextDouble();
+
+		System.out.println("Enter any character: ");
+		ch=sc.next().charAt(0);
+
+		System.out.println("String str: "+str);
+		System.out.println("int value: "+x);
+		System.out.println("double value: "+db);
+		System.out.println("char value: "+ch);		
+	}
+}
+
+output:
+
+E:\javapfsdn23>javac InputUsingScannerObject.java
+
+E:\javapfsdn23>java InputUsingScannerObject
+Enter any String:
+aaaa
+Enter any int value:
+12
+Enter any double value:
+3.3
+Enter any character:
+r
+String str: aaaa
+int value: 12
+double value: 3.3
+char value: r
+
+ //-------------------------------------------------------------------------------------------------------
+
+	5. Using javax.swing.JOptionPane.showInputDialog()
+
+import javax.swing.JOptionPane;
+class InputUsingShowIpDialog
+{
+	public static void main(String []args)
+	{
+		int x=0;
+		double y=0.0;
+
+		x=Integer.parseInt(JOptionPane.showInputDialog("Enter any int value: "));	
+		y=Double.parseDouble(JOptionPane.showInputDialog("Enter any double value: "));	
+
+		System.out.println("int value: "+x);
+		System.out.println("double value: "+y);		
+	}
+}	
+
+///=========================================================================================================================
+
+// Operators in Java: Operators are used to process the data. There are following operators
+			      present in the java.
+
+			- Assignment Operators (= and short-hand operators)
+			- Unary Operators ( - ++ -- (type) )
+			- Arithmetic Operators ( + - * / % )
+			- Relational Operators ( < <= > >= == != )
+			- Logical Operators (&& || !)
+			- conditional Operator ( ? : )
+			- Bitwise Operators (& | ^ >> << >>>)
+			- special Operators (. and instanceof )
+
+
+
+
+- Assignment Operators (= and short-hand operators): will assigns constant value at its rh+, value of variable at its rh+ or
+			answer of exper at its rh+ to variable at left.
+
+		e.g.
+			int x=10;	int y=x;	int z=x+y;
+
+			shorthand expr: 	suppose,	x=x+10	can be written as x+=10;
+								x=x/10  --> x/=10
+								....
+
+class DemoAssignment
+{
+	public static void main(String []args)
+	{
+		int x=10;
+		int y=x;
+		int z=x+y;
+	
+		System.out.println("\n x="+x+"\t y="+y+"\t z="+z);
+
+		x+=100;
+		y*=2;
+		System.out.println("\n x="+x+"\t y="+y+"\t z="+z);
+
+	}
+}
+
+//-------------------------------------------------------------------------------------------------------------------
+
+- Unary Operators ( - ++ -- (type) )
+
+	- will gives oppisite value
+	++ incr by 1
+	-- decr by 1
+
+		inc/dec
+		  |
+	--------------------------
+	|			|
+     pre 		      post
+  (++x, --x)		  (x++, x--)		
+
+
+	++x  <-----> x=x+1	<------> x++
+	--x  <-----> x=x-1      <------> x--
+
+	when these operators are used in the expression, 
+
+		pre --> expr --> post
+
+	suppose x=5, and y=9
+
+		z = ++x + y-- ;
+
+	- find the basic expr
+	- operate all pre operators
+	- calc. the basic expr. with current values
+	- operator all post operators
+
+	- x becomes 6
+	- assigned 15 to z
+	-y becomes 8
+
+import java.util.Scanner;
+class DemoUnary
+{
+	public static void main(String []args)
+	{
+		int x=0;
+		int y=0;
+		int z=0;
+	
+		Scanner sc= new Scanner(System.in);
+		System.out.println("\n Enter the values of x and y: ");
+		x=sc.nextInt();
+		y=sc.nextInt();
+
+		z=-x;
+		x++;
+		--y;
+		System.out.println("\n x="+x+"\t y="+y+"\t z="+z);
+
+		z=++x+y--;
+		System.out.println("\n x="+x+"\t y="+y+"\t z="+z);
+	}
+}
+
+//------------------------------------------------------------------------
+
+
+	(type): It refers to type casting, means changing the data type of variable obly at the of calc.
+
+
+import java.util.Scanner;
+class DemoCasting
+{
+	public static void main(String []args)
+	{
+		int x=0,y=0;
+		double z=0;
+	
+		Scanner sc= new Scanner(System.in);
+		System.out.println("\n Enter the values of x and y: ");
+		x=sc.nextInt();
+		y=sc.nextInt();  // 13, 5
+
+		z=x/y;		
+		System.out.println("\n x="+x+"\t y="+y+"\t z="+z);
+
+		z=(double)x/y;		
+		System.out.println("\n x="+x+"\t y="+y+"\t z="+z);
+
+		z=x/(double)y;		
+		System.out.println("\n x="+x+"\t y="+y+"\t z="+z);
+
+		z=(double)x/(double)y;		
+		System.out.println("\n x="+x+"\t y="+y+"\t z="+z);
+
+	}
+}
+
+output: 
+E:\jprodyp>javac DemoCasting.java
+
+E:\jprodyp>java DemoCasting
+
+ Enter the values of x and y:
+13
+5
+
+ x=13    y=5     z=2.0
+
+ x=13    y=5     z=2.6
+
+ x=13    y=5     z=2.6
+
+ x=13    y=5     z=2.6
+
+//----------------------------------------------------------------------------------------
+- Arithmetic Operators ( + - * / % )
+
+	// program to calc the simple interst.
+
+import java.io.InputStreamReader;
+import java.io.BufferedReader;
+class DemoArith
+{
+	public static void main(String []args) throws Exception
+	{
+		BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+		int p=0,n=0;
+		double r=0.0,si=0.0;
+
+		System.out.println("Enter the value of p: ");
+		p=Integer.parseInt(br.readLine());
+
+		System.out.println("Enter the value of r: ");
+		r=Double.parseDouble(br.readLine());
+
+		System.out.println("Enter the value of n: ");
+		n=Integer.parseInt(br.readLine());
+	
+		si=(p*r*n)/100;
+
+		System.out.println("Simple Interst is: "+si);
+	}
+}
+
+
+	Using % and / operator
+
+	lets see simple example, we have to calculate 13/5
+
+		   2 <------------- (13/5)
+		________
+	      5 )  13
+		 - 10
+		---------
+		    3 <----------- (13%5)
+
+ lets see some examples, ovserve the result and write the conclusion
+
+	13/5=2		13%5=3
+	27/7=3		27%7=6
+	67/9=7		67%9=4
+	123/10=12	123%10=3
+	459/10=45	459%10=9
+	3857/10=385	3857%10=7
+	7/10=0		7%10=7
+
+	- Div by 10 eliminates the last digit from number.
+	  and mod by 10 gives the last digit.
+	- In N/D, when N<D then div is 0 and rem is N
+
+   // Enter any 3 digit number from keyboard and find addition of its all digits.
+  // no=285 then ans = 5+8+2 => 15
+
+import java.util.Scanner;
+class DemoDivMod
+{
+	public static void main(String []args)
+	{
+		int no=0,rem=0,tot=0;
+		Scanner sc=new Scanner(System.in);
+
+		System.out.println("\n Enter any 3 digit number: ");
+		no=sc.nextInt(); //285
+	
+		rem=no%10; //5
+		tot=tot+rem; // 0+5=5
+		no=no/10; //28
+	
+		rem=no%10; //8
+		tot=tot+rem; // 5+8=13
+		no=no/10; //2	
+
+		rem=no%10; //2
+		tot=tot+rem; // 13+2=15
+		no=no/10; //0
+
+		System.out.println("\n Total is "+tot);
+	}		
+} 
+
+Unlike C/C++, Here in java you can operate the % operator on fractional and -ve values,
+when you operate the % operator on -ve values the sign of ans is taken as the sign of N form N/D.
+class DemoMod
+{
+	public static void main(String []args)
+	{
+		int x=-13, y=5, z=-2;
+
+		System.out.println("-%+: "+(x%y));
+		System.out.println("-%-: "+(x%z));
+		System.out.println("+%-: "+(21%z));
+		System.out.println("+%+: "+(33%4));
+
+		System.out.println("+%+: "+(33.5%4));
+		System.out.println("+%+: "+(36.5%2.3));
+	}
+}
+
+//-----------------------------------------------------------------------------------------
+
+	// Relational Operators: (<, <=, >, >= ==, !=): These operators are used to find the
+		relation between two operands. It will forms the condition which is useful in the
+		conditional conditional control statements.
+
+		thw ans of condition is boolean value true when it is true and false when false.
+
+
+	suppose x=23	y=5;
+
+		x>y	----> true 	means if we write z=x>y then true assigned to z.
+
+		x!=y	----> true 
+		
+		y<1	----> false
+		
+		x%10==0 ----> false 
+
+		100%y==0 ---> true 
+
+class DemoRel
+{
+	public static void main(String []args)
+	{
+		int x=23,y=5;
+		boolean b;
+		System.out.println("\n x is: "+x+"\t y is: "+y);
+
+		b=x>y;
+		System.out.println("\n (x>y) is: "+b);
+
+		b=x!=y;
+		System.out.println("\n (x!=y) is: "+b);
+
+		b=y<1;
+		System.out.println("\n (y<1) is: "+b);
+
+		b=x%10==0;
+		System.out.println("\n (x%10==0) is: "+b);
+
+		b=100%y==0;
+		System.out.println("\n (100%y==0) is: "+b);
+		
+	}
+}
+output
+
+E:\jprodyp>javac DemoRel.java
+
+E:\jprodyp>java DemoRel
+
+ x is: 23 y is: 5
+
+ (x>y) is: true
+
+ (x!=y) is: true
+
+ (y<1) is: false
+
+ (x%10==0) is: false
+
+ (100%y==0) is: true
+
+//-----------------------------------------------------------------------------------------------
+
+	/// Logical Operator ( && || !): These operators are used to join two or more conditions
+
+		when the conditions are joind by
+
+		- && --> gives true only when both true otherwise false
+		- || --> gives false only when both false otherwise true
+		- !  --> gives
+				!(true) ---> false
+				!(false) ---> true
+				
+
+	suppose x=23	y=5;
+
+		(x>y)&&(y<100)	----> true 
+		(x>y)&&(y>100)	----> false
+
+		(x>y)||(y>100)	----> true 
+		(x<y)||(y>100)	----> false
+	
+		!(x!=y)	----> false 	
+		!(y<1)	----> true
+
+
+class DemoLogical
+{
+	public static void main(String []args)
+	{
+		int x=23,y=5;
+		boolean b;
+		System.out.println("\n x is: "+x+"\t y is: "+y);
+
+		b=(x>y)&&(y<100);
+		System.out.println("\n ((x>y)&&(y<100)) is: "+b);
+
+		b=(x>y)&&(y>100);
+		System.out.println("\n ((x>y)&&(y>100)) is: "+b);
+
+		b=(x>y)||(y>100);
+		System.out.println("\n ((x>y)||(y>100)) is: "+b);
+
+		b=(x<y)||(y>100);
+		System.out.println("\n ((x<y)||(y>100)) is: "+b);
+
+		b=!(x!=y);
+		System.out.println("\n (!(x!=y)) is: "+b);
+
+		b=!(y<1);
+		System.out.println("\n (!(y<1)) is: "+b);
+		
+	}
+}
+
+output: 
+E:\jprodyp>javac DemoLogical.java
+
+E:\jprodyp>java DemoLogical
+
+ x is: 23        y is: 5
+
+ ((x>y)&&(y<100)) is: true
+
+ ((x>y)&&(y>100)) is: false
+
+ ((x>y)||(y>100)) is: true
+
+ ((x<y)||(y>100)) is: false
+
+ (!(x!=y)) is: false
+
+ (!(y<1)) is: true
+
+///--------------------------------------------------------------------------------------
+// Conditional operator or ternary operator or if-then-else operator(?:):
+
+		This is the only operator which has decision abiity.
+	
+		syntax:
+
+			<condition> ? <options>;
+
+			<condition> ? <true_part> : <false_part> ;
+
+	// WAP to find the max from 2 nos
+
+import java.util.Scanner;
+class DemoConditionalOperator
+{
+	public static void main(String []args)
+	{
+		Scanner sc=new Scanner(System.in);
+		int x=0,y=0;
+
+		System.out.println("\n Enter any two nos: ");
+		x=sc.nextInt();
+		y=sc.nextInt();
+
+		int z = (x>y) ? x : y ;
+		System.out.println("\n Max no: "+z);
+	}
+}
+
+output:
+E:\jprodyp>javac DemoConditionalOperator.java
+
+E:\jprodyp>java DemoConditionalOperator
+
+ Enter any two nos:
+45
+78
+
+ Max no: 78
+
+E:\jprodyp>java DemoConditionalOperator
+
+ Enter any two nos:
+90
+23
+
+ Max no: 90
+
+///------- Nesting of conditional operators
+
+
+	// WAP to find the max from 3 nos
+
+import java.util.Scanner;
+class DemoConditionalOperator1
+{
+	public static void main(String []args)
+	{
+		Scanner sc=new Scanner(System.in);
+		int x=0,y=0,z=0;
+
+		System.out.println("\n Enter any three nos: ");
+		x=sc.nextInt();
+		y=sc.nextInt();
+		z=sc.nextInt();
+
+		int max = (x>y) ? (x>z?x:z) : (y>z?y:z) ;
+		System.out.println("\n Max no: "+max);
+	}
+}
+
+output:
+E:\jprodyp>javac DemoConditionalOperator1.java
+
+E:\jprodyp>java DemoConditionalOperator1
+
+ Enter any three  nos:
+11
+22
+33
+
+ Max no: 33
+
+E:\jprodyp>java DemoConditionalOperator1
+
+ Enter any three nos:
+111
+22
+33
+
+ Max no: 111
+
+E:\jprodyp>java DemoConditionalOperator1
+
+ Enter any three nos:
+11
+222
+33
+
+ Max no: 222
+
+//-----------------------------------------------------------------------------------------------------------
+
+
+//-----------------------------------------------------------------------------------------------------------------------
+
+   	/// Bitwise Operator: [ & | ^ >> << >>> ]
+ 
+    These operators are used in the bit level operations.
+
+        & ==> 1 & 1 -> 1 otherwise 0
+        | ==> 0 | 0 -> 0 otherwise 1
+
+              0^0
+        ^ -->     ==> 0 otherwise 1
+              1^1
+
+    suppose x=10       y=12
+
+        (0000 1010)     (0000 1100)
+
+    (x&y)       (x|y)       (x^y)
+
+    1010        1010        1010
+   &1100       |1100       ^1100
+  ========    ========     =======
+    1000        1110        0110
+    (8)          (14)        (6)
+
+
+    x=10 (0000 1010)     y=12  (0000 1100)
+
+     z=x<<2              z=y>>2
+       (0010 1000)       (0000 0011)
+       ==>40            ==> 3
+
+
+class DemoBitwise
+{
+	public static void main(String []args)
+	{
+		int x=10,y=12;
+		System.out.println("\n (x&y) is"+ (x&y) );
+
+		System.out.println("\n (x|y) is"+ (x|y) );
+
+		System.out.println("\n (x^y) is"+ (x^y) );
+
+		System.out.println("\n (x<<2) is"+ (x<<2) );
+
+		System.out.println("\n (y>>2) is"+ (y>>2) );
+		
+	}
+}
+
+//---------------------------------------------------------------------------------------------------------------------------------
+
+	Associativity and precedence are fundamental concepts in programming that determine how operators 
+	are evaluated in expressions.
+
+	Precedence: Precedence refers to the order in which operators are evaluated when multiple operators 
+		    are present in an expression. Operators with higher precedence are evaluated first.
+
+	Associativity: Associativity defines the order in which operators with the same precedence are 
+		       evaluated. There are two types of associativity:
+
+			1. Left-to-Right (LTR): Operators are evaluated from left to right.
+			2. Right-to-Left (RTL): Operators are evaluated from right to left.
+
+Java Operator Precedence and Associativity Table:
+
+Here's a summary of Java operators, their precedence, and associativity:
+
+| Operator        		| Precedence 	| Associativity |
+| ---             		| ---       	| ---          	|
+| Postfix ([])    		| 1         	| LTR         	|
+| Unary (+, -, !) 		| 2         	| RTL          	|
+| Multiplicative (*, /, %) 	| 3 		| LTR          	|
+| Additive (+, -) 		| 4         	| LTR          	|
+| Shift (<<, >>, >>>) 		| 5 		| LTR       	|
+| Relational (<, >, <=, >=) 	| 6 		| LTR          	|
+| Equality (==, !=) 		| 7 		| LTR          	|
+| Bitwise AND (&) 		| 8         	| LTR          	|
+| Bitwise XOR (^) 		| 9         	| LTR          	|
+| Bitwise OR (|)  		| 10        	| LTR          	|
+| Logical AND (&&) 		| 11 		| LTR          	|
+| Logical OR (||) 		| 12        	| LTR          	|
+| Ternary (? :)  		| 13        	| RTL         	|
+| Assignment (=, +=, -=, ...) 	| 14 		| RTL          	|
+
+Examples:
+
+1. Expression: 2 + 3 * 4
+
+Precedence: Multiplication (*) has higher precedence than addition (+).
+Evaluation: 2 + (3 * 4) = 2 + 12 = 14
+
+1. Expression: 5 - 3 + 2
+
+Precedence: Subtraction (-) and addition (+) have the same precedence.
+Associativity: Left-to-Right.
+Evaluation: (5 - 3) + 2 = 2 + 2 = 4
+
+1. Expression: true && false || true
+
+Precedence: Logical AND (&&) has higher precedence than Logical OR (||).
+Associativity: Left-to-Right.
+Evaluation: (true && false) || true = false || true = true
+
+1. Expression: x = 5 + 3
+
+Precedence: Addition (+) has higher precedence than assignment (=).
+Associativity: Right-to-Left.
+Evaluation: x = (5 + 3) = x = 8
+
+//---------------------------------------------------------------------------------------------------------------------------------
+
+// Control Statements in Java: 
+
+
+				Control Statements
+					|
+			-------------------------------------
+			|				    |
+		   Conditional				Un-Conditional
+			|					|
+	------------------------------	        ---------------------------------
+	|		|	    |		|	|		|	|
+      Decision	      Loop	  case	       break   continue     lbl.break	return
+	|		|	    |				    and 
+	|- if()		|- for()   switch			    lbl. continue	
+	|- if() else	|- while()
+	|- nesting	|- do..while()
+	|- ladder
+
+
+//  Decision Conditional Control statment: 
+
+	
+	// Using if(): used to decide, execute the block of code or not. That block is mentioned in the program as
+
+			syntax:
+				if(<condi>)
+				{
+					-------------;
+					-------------;
+					block of code;
+					-------------;
+					-------------;
+				}
+				
+	- Block of code will be executed only when the condition is true otherwise it will be skipped
+
+import java.io.InputStreamReader;
+import java.io.BufferedReader;
+class DemoIf
+{
+	public static void main(String []args)
+	{
+		InputStreamReader isr=new InputStreamReader(System.in);
+		BufferedReader br=new BufferedReader(isr);
+
+		int a=0;
+		try
+		{
+			System.out.println("Enter the value of a: ");
+			a=Integer.parseInt(br.readLine());
+		}
+		catch(Exception e){}		
+
+		if(a%7==0)
+		{
+			System.out.println("Entered no is div by 7 ");
+		}
+		if(a%7!=0)
+		{
+			System.out.println("Entered no is not div by 7 ");
+		}
+	}
+}
+
+//-----------------------------------------------------------------------------------
+
+
+	// Using if() else: It is used when you want to execute any one code block from two different blocks
+	//		    according to condition.
+
+
+		syntax:
+			if(<condi>)
+			{
+				-----------------;
+				---------------;
+				----------------;
+			}
+			else 
+			{
+				-----------------;
+				---------------;
+				----------------;
+			}
+
+		when <condi> is  TRUE --> will execute the if() block only
+				 FALSE -> will execute the else block only
+
+import java.io.InputStreamReader;
+import java.io.BufferedReader;
+class DemoIfElse
+{
+	public static void main(String []args)
+	{
+		InputStreamReader isr=new InputStreamReader(System.in);
+		BufferedReader br=new BufferedReader(isr);
+
+		int a=0;
+		try
+		{
+			System.out.println("Enter the value of a: ");
+			a=Integer.parseInt(br.readLine());
+		}
+		catch(Exception e){}		
+
+		if(a%7==0)
+		{
+			System.out.println("Entered no is div by 7 ");
+		}
+		else
+		{
+			System.out.println("Entered no is not div by 7 ");
+		}
+	}
+}
+
+
+	// 	Using Nesting of if() else:
+
+			Nesting refers to using one control statment in to same or another control statement
+
+
+	some combinations:
+
+
+		if()				if()				if()			if()
+		{				{				{			{
+			if()				if()			}				if()
+			{				{			else				{
+			}				}			{				}
+		}					else				if()		}
+							{				{		else
+							}				}		{
+						}				}				if()
+														{
+														}
+													}
+
+
+		
+		if()					if()
+		{					{
+			if()					if()	
+			{					{
+			}					}
+		}						else
+		else						{
+		{						}
+			if()				}
+			{				else
+			}				{
+			else					if()
+			{					{
+			}					}
+		}						else
+								{
+								}
+							}
+
+
+class DemoIfElseNesting
+{
+	public static void main(String []args)
+	{
+		int a=Integer.parseInt(args[0]);
+		int b=Integer.parseInt(args[1]);
+		int c=Integer.parseInt(args[2]);
+
+		if(a>b)
+		{
+			if(a>c)
+			{
+				System.out.println("\n a is max");
+			}
+			else
+			{
+				System.out.println("\n c is max");
+			}
+		}	
+		else
+		{
+			if(b>c)
+			{
+				System.out.println("\n b is max");
+			}
+			else
+			{
+				System.out.println("\n c is max");
+			}
+		}
+	}
+}
+
+//---------------------------------------------------------------------------------------------------------------------
+
+
+	// Using if() else Ladder
+
+	syntax:
+
+		if(<>)
+		{
+			---------;
+			---------;
+		}
+		else if(<>)
+		{
+			---------;
+			---------;
+		}
+		else if(<>)
+		{
+			---------;
+			---------;
+		}
+		else if(<>)
+		{
+			---------;
+			---------;
+		}
+		[<else>]
+		{
+			---------;
+			---------;
+		}
+
+
+	// Enter the co-ordinates of point in 2D system, and display the exact location of that point.
+
+
+			       y axis
+                                ^
+                       II QD    |   I QD
+                                |
+                        -+      |   ++
+                                |
+                  <-------------|------------> x axis
+                                |(0,0)
+                                |
+                        --      |   +-
+                                |
+                    III QD      V     IV QD
+
+
+
+                There are 7 different possibilities.
+
+import java.util.Scanner;
+class DemoIfElseLadder
+{
+	public static void main(String []args)
+	{
+    		int x=0,y=0;
+		Scanner sc=new Scanner(System.in);
+
+    		System.out.println("\n Enter the x cord: ");
+    		x=sc.nextInt();
+    		System.out.println("\n Enter the y cord: ");
+    		y=sc.nextInt();
+
+    		if(x>0&&y>0)
+    		{
+        		System.out.println("\n Point present in I st qd");
+    		}
+    		else if(x<0&&y>0)
+    		{
+        		System.out.println("\n point present in II nd qd");
+    		}
+    		else if(x<0&&y<0)
+    		{
+        		System.out.println("\n Point is present in 3 rd qd");
+    		}
+    		else if(x>0&&y<0)
+    		{
+        		System.out.println("\n Point is present in 4 th qd");
+    		}
+    		else if(x!=0&&y==0)
+    		{
+        		System.out.println("\n Point is present on x axis");
+    		}
+    		else if(x==0&&y!=0)
+    		{
+        		System.out.println("\n Point is present on y axis");
+    		}
+    		else 
+    		{
+        		System.out.println("\n Point present at org");
+    		}
+	}
+}
+
+
+------------------------------------------------------------------------------------------------------------------------------------
+
+		// Using the Loops in Java: Loops are used to avoid the continue repitition of code in the program.
+					 There are three different loops in C.
+
+				1. For() loop		2. While() loop		3. do..While() loop
+
+
+
+	1. For() loop:
+
+		syntax:	
+				
+			for( [<init>] ; <condi> ; [<inc/dec/stat/expr>] )					
+			{									
+				--------------;							   
+				--------------;						
+				--------------;							 
+				--------------;							
+				--------------;				
+			}
+		
+
+
+import javax.swing.JOptionPane;
+class DemoFor
+{
+	public static void main(String []args)
+	{
+		int no=Integer.parseInt(JOptionPane.showInputDialog("Enterany number:"));
+	
+		int t=0,tot=0;
+		for(t=no;no!=0;no=no/10)
+		{
+			tot=tot+(no%10); 
+		}
+		System.out.println("\n Addition of all digits from "+t+" is "+tot");
+	}
+}
+
+                ///-------------------------------------------------------------------------------------------------------------------------
+
+	//  Using while loop: 
+
+		Again the aim is same i.e. used to avoid the code rep.
+
+		syntax:
+			while(<cond>)
+			{
+				----------------;
+				----------------;
+				----------------;
+				----------------;
+				****************;
+			}
+
+			- It will execute the body of loop, till the condition is true.
+
+			- <init> block is absent in while() but you have init. the iterator before starting of loop.
+
+			- <inc/dec> block is absent, but you have to add atleast one statement which will make the <cond> false
+			  after some iterations. otherwise it will attend the infinite looping
+
+
+	/// WAP to display 1 to 15 nos using while loop
+
+class DemoWhile
+{
+	public static void main(String []args)
+	{
+		int i;
+
+		i=1;
+		while(i<=15)
+		{
+			System.out.println(" "+i);
+			i++;
+		}
+	}
+}
+
+//-------------------------------------------------------------------------------------------
+	/// WAP to display list of odd nos from 1 to 50 using while loop.
+
+class DemoWhile
+{
+	public static void main(String []args)
+	{
+		int i;
+
+		i=1;
+		while(i<=50)
+		{
+			if(i%2!=0)
+			{
+				System.out.println(" "+i);
+			}
+			i++;
+		}
+	}
+}
+
+//--------------------------------------------------------------------------
+
+
+	// WAP to find the entered number is prime
+
+import java.util.*;
+class DemoWhile
+{
+	public static void main(String []args)
+	{
+		Scanner sc=new Scanner(System.in);
+
+		System.out.println("\n Enter any no: ");
+		int no=sc.nextInt();
+		int d=2;
+		int flg=0;
+		while(d<=(no/2))
+		{
+			if(no%d==0)
+			{
+				flg=1;
+				break;
+			}
+			d++;
+		}
+		if(flg==0)
+		{
+			System.out.println("\n Entered no is prime ");
+		}
+		else
+		{
+			System.out.println("\n Entered no is not prime ");
+		}
+	}
+}
+
+//-----------------------------------------------------------------------------------------
+
+	/// using  do while()
+
+	syntax:
+
+	do
+	{
+		----------;
+		----------;
+		----------;
+		----------;
+		----------;
+	}while(<cond>);
+
+// Display list of prime nos from given range 
+
+import java.util.*;
+class DemoWhile
+{
+	public static void main(String []args)
+	{
+		Scanner sc=new Scanner(System.in);
+
+		System.out.println("\n Enter the range starts from: ");
+		int n1=sc.nextInt();
+		System.out.println("\n Enter the range ends to: ");
+		int n2=sc.nextInt();
+
+		int d=2,flg=0;
+		System.out.println("\n List of prime nos: ");
+		for(no=n1;no<=n2;no++)
+		{
+			d=2;
+			flg=0;
+			while(d<=(no/2))
+			{
+				if(no%d==0)
+				{
+					flg=1;
+					break;
+				}
+				d++;
+			}
+			if(flg==0)
+				System.out.println("  "+no);
+		}
+	}
+
+//------------------------------------------------------------------------------------------------------------------------------
+	
+	// WAP to display *
+
+class StarPattern
+{
+	public static void main(String []args)
+	{
+		System.out.print("*")
+	}
+}
+
+
+class StarPattern
+{
+	public static void main(String []args)
+	{
+		System.out.print("*");
+	}
+}
+
+//-----------------------------------------------------
+
+	WAP to print 
+	*****
+
+class StarPattern
+{
+	public static void main(String []args)
+	{
+		int j=0;
+		for(j=0;j<5;j++)
+		{
+			System.out.print("*");
+		}
+	}
+}
+
+
+
+//-----------------------------------------------------
+
+	WAP to print 
+	*****
+	*****
+	*****
+	*****
+	*****
+
+class StarPattern
+{
+	public static void main(String []args)
+	{
+		int i, j=0;
+		for(i=0;i<5;i++)
+		{
+			for(j=0;j<5;j++)
+			{
+				System.out.print("*");
+			}
+			System.out.print("\n");
+		}
+	}
+}
+
+//-----------------------------------------------------
+
+	WAP to print 
+           j
+        01234 
+	*****  i=0
+	*   *  i=1
+	*   *  i=2
+	*   *  i=3
+	*****  i=4
+
+class StarPattern
+{
+	public static void main(String []args)
+	{
+		int i, j=0;
+		for(i=0;i<5;i++) // No of lines
+		{
+			for(j=0;j<5;j++) // no of cols
+			{
+				if(i==0 || i==4)
+				{
+					System.out.print("*");
+				}
+				else if(j==0 || j==4)
+				{
+					System.out.print("*");
+				}
+				else
+				{
+					System.out.print(" ");
+				}
+			}
+			System.out.print("\n");
+		}
+	}
+}
+
+//-------------------------------------------------------------------------------------
+
+	WAP to print 
+	* 
+	** 
+	*** 
+	**** 
+	*****
+
+
+class StarPattern
+{
+	public static void main(String []args)
+	{
+		int i, j=0;
+
+		for(i=0;i<5;i++)
+		{
+			for(j=0;j<5;j++)
+			{
+				if(j<=i)
+				{
+					System.out.print("*");	
+				}			
+			}
+			System.out.print("\n");
+		}
+	}
+}
+
+
+
+//-----------------------------------------------------
+
+	WAP to print 
+	*****
+	**** 
+	*** 
+	** 
+	* 
+
+class StarPattern
+{
+	public static void main(String []args)
+	{
+		int i, j=0;
+
+		for(i=0;i<5;i++)
+		{
+			for(j=0;j<5;j++)
+			{
+				if(j<(5-i))
+				{
+					System.out.print("*");	
+				}			
+			}
+			System.out.print("\n");
+		}
+	}
+}
+
+//---------------------------------------------------------------------
+
+		*
+	       ***
+	      *****
+	     *******
+	    *********
+           *********** 	
+
+class StarPattern
+{
+	public static void main(String []args)
+	{
+		int i, j=0;
+		for(i=0;i<6;i++)
+		{
+			for(j=0;j<(6+i);j++)
+			{
+				if(j<(5-i))
+				{
+					System.out.print(" ");	
+				}
+				else
+				{
+					System.out.print("*");
+				}
+			}
+			System.out.print("\n");
+		}
+	}
+}
+
+//-------------------------------------------------------------------------
+ 
+     1
+    222
+   33333
+  4444444
+ 555555555
+66666666666
+
+class StarPattern
+{
+	public static void main(String []args)
+	{
+		int i, j=0;
+		for(i=0;i<6;i++)
+		{
+			for(j=0;j<(6+i);j++)
+			{
+				if(j<(5-i))
+				{
+					System.out.print(" ");	
+				}
+				else
+				{
+					System.out.print(i+1);
+				}
+			}
+			System.out.print("\n");
+		}
+	}
+}
+
+//---------------------------------------------------------------------------------
+
+
+     A
+    ABC
+   ABCDE
+  ABCDEFG
+ ABCDEFGHI
+ABCDEFGHIJK
+
+class StarPattern
+{
+	public static void main(String []args)
+	{
+		int i, j=0;
+		char ch;
+		for(i=0;i<6;i++)
+		{
+			ch='A';
+			for(j=0;j<(6+i);j++)
+			{
+				if(j<(5-i))
+				{
+					System.out.print(" ");	
+				}
+				else
+				{
+					System.out.print(ch);
+					ch++;
+				}
+			}
+			System.out.print("\n");
+		}
+	}
+}
+
+//----------------------------------------------------------------------------------------
+
+switch(): It is used in the menu driven programming.
+
+	syntax:
+		
+		switch(<opt>)
+		{
+			case <CC>:
+				---------;
+				---------;
+				break;
+			case <CC>:
+				---------;
+				---------;
+				break;
+			case <CC>:
+				---------;
+				---------;
+				break;
+			case <CC>:
+				---------;
+				---------;
+				break;
+			[<default>]:
+				-----------;
+				----------;
+		}
+		------------------;
+
+
+	The switch case is used when there are more possibilities, and from which we have to 
+	choose any one according to users choice.
+
+
+import java.util.Scanner;
+class DemoSwitch
+{
+	public static void main(String []args)
+	{
+		Scanner sc=new Scanner(System.in);
+		int opt=0;
+		double a=0.0, b=0.0, ans=0.0;
+
+		System.out.println("\n*** Menu ****");
+		System.out.println("1.add \n 2.sub \n 3.multi \n 4.div ");
+		System.out.println("select your option: ");
+		opt=sc.nextInt();
+
+		System.out.println("Enter any two nos: ");
+		a=sc.nextDouble();
+		b=sc.nextDouble();
+		
+		switch(opt)
+		{
+			case 1:
+				ans=a+b;
+				break;
+			case 2:
+				ans=a-b;
+				break;
+			case 3:
+				ans=a*b;
+				break;
+			case 4:
+				ans=a/b;
+				break;
+			default:
+				System.out.println("\n Incorrect Option");			
+		}	
+		System.out.println("\n Ans is: "+ans);					
+	}
+}
+
+//--------------------------------------------------------------------------------------
+
+	// Using the character as a option (both lcase and ucase for a single case)
+
+import java.util.Scanner;
+class DemoSwitch
+{
+	public static void main(String []args)
+	{
+		Scanner sc=new Scanner(System.in);
+		char opt=0;
+		double a=0.0, b=0.0, ans=0.0;
+
+		System.out.println("\n*** Menu ****");
+		System.out.println(" a.add \n b.sub \n c.multi \n d.div ");
+		System.out.println("select your option: ");
+		opt=sc.nextLine().charAt(0);
+
+		System.out.println("Enter any two nos: ");
+		a=sc.nextDouble();
+		b=sc.nextDouble();
+		
+		switch(opt)
+		{
+			case 'A':
+			case 'a':
+				ans=a+b;
+				break;
+			case 'B':
+			case 'b':
+				ans=a-b;
+				break;
+			case 'C':
+			case 'c':
+				ans=a*b;
+				break;
+			case 'D':
+			case 'd':
+				ans=a/b;
+				break;
+			default:
+				System.out.println("\n Incorrect Option");			
+		}	
+		System.out.println("\n Ans is: "+ans);					
+	}
+}
+//-------------------------------------------------------------------------------------------
+
+import java.util.Scanner;
+class DemoSwitch
+{
+	public static void main(String []args)
+	{
+		Scanner sc=new Scanner(System.in);
+		int i=0, opt=0;
+		double a=0.0, b=0.0, ans=0.0;
+
+		while(i<3)
+		{
+			i++;
+			System.out.println("\n*** Menu ****");
+			System.out.println("1.add \n 2.sub \n 3.multi \n 4.div ");
+			System.out.println("select your option: ");
+			opt=sc.nextInt();
+
+			System.out.println("Enter any two nos: ");
+			a=sc.nextDouble();
+			b=sc.nextDouble();
+		
+			switch(opt)
+			{
+				case 1:
+					ans=a+b;
+					break;
+				case 2:
+					ans=a-b;
+					break;
+				case 3:
+					ans=a*b;
+					break;
+				case 4:
+					ans=a/b;
+					break;
+				default:
+					System.out.println("\n Incorrect Option");			
+			}	
+			System.out.println("\n Ans is: "+ans);					
+		}
+	}
+}
+//-------------------------------------------------------------------------------------------
+
+	// Using the switch within infinite loop (Termination using break)
+
+import java.util.Scanner;
+class DemoSwitch
+{
+	public static void main(String []args)
+	{
+		Scanner sc=new Scanner(System.in);
+		int opt=0;
+		double a=0.0, b=0.0, ans=0.0;
+
+		while(true)
+		{
+			System.out.println("\n*** Menu ****");
+			System.out.println("1.add \n 2.sub \n 3.multi \n 4.div \n 5.stop");
+			System.out.println("select your option: ");
+			opt=sc.nextInt();
+
+			if(opt==5)
+				break;
+
+			System.out.println("Enter any two nos: ");
+			a=sc.nextDouble();
+			b=sc.nextDouble();
+		
+			switch(opt)
+			{
+				case 1:
+					ans=a+b;
+					break;
+				case 2:
+					ans=a-b;
+					break;
+				case 3:
+					ans=a*b;
+					break;
+				case 4:
+					ans=a/b;
+					break;
+				default:
+					System.out.println("\n Incorrect Option");			
+			}	
+			System.out.println("\n Ans is: "+ans);					
+		}
+	}
+}
+
+
+
+//-------------------------------------------------------------------------------------------
+
+	// Using the switch within infinite loop (Termination using System.exit(0) )
+
+import java.util.Scanner;
+class DemoSwitch
+{
+	public static void main(String []args)
+	{
+		Scanner sc=new Scanner(System.in);
+		int opt=0;
+		double a=0.0, b=0.0, ans=0.0;
+
+		while(true)
+		{
+			System.out.println("\n*** Menu ****");
+			System.out.println("1.add \n 2.sub \n 3.multi \n 4.div \n 5.stop");
+			System.out.println("select your option: ");
+			opt=sc.nextInt();
+			System.out.println("Enter any two nos: ");
+			a=sc.nextDouble();
+			b=sc.nextDouble();
+		
+			switch(opt)
+			{
+				case 1:
+					ans=a+b;
+					break;
+				case 2:
+					ans=a-b;
+					break;
+				case 3:
+					ans=a*b;
+					break;
+				case 4:
+					ans=a/b;
+					break;
+				case 5:
+					System.exit(0);
+				default:
+					System.out.println("\n Incorrect Option");			
+			}	
+			System.out.println("\n Ans is: "+ans);					
+		}
+	}
+}
+//---------------------------------------------------------------------------------------
+
+	// We can use string as a case constant.
+import java.util.Scanner;
+class DemoSwitchStr
+{
+	public static void main(String []args)
+	{
+		Scanner sc=new Scanner(System.in);
+		
+		double a=0.0, b=0.0, ans=0.0;
+
+		System.out.println("\n*** Menu ****");
+		System.out.println("add \n sub \n multi \n div ");
+		System.out.println("select your option: ");
+		String opt=sc.nextLine();
+
+		System.out.println("Enter any two nos: ");
+		a=sc.nextDouble();
+		b=sc.nextDouble();
+		
+		switch(opt)
+		{
+			case "add":
+				ans=a+b;
+				break;
+			case "sub":
+				ans=a-b;
+				break;
+			case "multi":
+				ans=a*b;
+				break;
+			case "div":
+				ans=a/b;
+				break;
+			default:
+				System.out.println("\n Incorrect Option");			
+		}	
+		System.out.println("\n Ans is: "+ans);					
+	}
+}
+//---------------------------------------------------------------------------------------
+
+	Unconditional control statements: The control statement does not need any condition.
+
+	NOTE: In Java goto is not present.
+
+	- using the continue: It will keep the enclosing loop in the running condition without
+			      considering the remaining body of loop.
+
+class DemoContinue
+{
+	public static void main(String []args)
+	{
+		int i,j;
+
+		for(i=0;i<10;i++)
+		{
+			System.out.print("-");
+			for(j=0;j<10;j++)
+			{
+				if(j>i)
+				{
+					continue;
+				}
+				System.out.print("*");
+			}
+			System.out.println();
+		}
+	}
+}
+
+//-----------------------------------------------------------------------
+
+			  
+		// Using Labelled Continue: It will keep loop in running condition, not only
+					   enclosing, but outer loops using label(tag)
+
+class DemoLabelledContinue
+{
+	public static void main(String []args)
+	{
+		int i,j;
+
+		outer:for(i=0;i<10;i++)
+		{			
+			System.out.print("-");
+			for(j=0;j<10;j++)
+			{
+				if(i>5)
+				{
+					continue outer;
+				}
+				if(j>i)
+				{
+					continue;
+				}
+				System.out.print("*");
+			}
+			System.out.println();
+		}
+	}
+}		
+
+
+//-----------------------------------------------------------------------
+
+// Using the break ans labelled break
+
+
+class DemoBreak
+{
+	public static void main(String []args)
+	{
+		int i,j;
+
+		for(i=0;i<10;i++)
+		{
+			System.out.print("-");
+			for(j=0;j<10;j++)
+			{
+				if(j>i)
+				{
+					break;
+				}
+				System.out.print(""+j);
+			}
+			System.out.println();
+		}
+	}
+}
+
+//----------------------------------------------------------------------------------------------
+
+class DemoLabelledBreak
+{
+	public static void main(String []args)
+	{
+		int i,j;
+
+		outer:for(i=0;i<10;i++)
+		{
+			System.out.print("-");
+			for(j=0;j<10;j++)
+			{
+				if(i>5)
+				{
+					break outer;
+				}
+				if(j>i)
+				{
+					break;
+				}
+				System.out.print(""+j);
+			}
+			System.out.println();
+		}
+	}
+}	
+
+
+//---------------------------------------------------------------------------------------
+
+	// Using return: pass back the value from called method to calling function method.
+
+//===============================================================================================
+//===============================================================================================
+//===============================================================================================
+//===============================================================================================
+
+	// Array in Java
+
+	It is ordered collection of indexed elements having same data type which are
+	conti. arranged in the memory.
+
+	Decl. Syntax:
+	
+		<data_type> <arr_nm>[];		<data_type> []<arr_nm>;	
+
+		e.g.
+		int ar[];			int []ar;
+
+	* Note 
+		- In this decl, <element_count> is absent.
+		- Above decl. creates the reference only.(same as pointer variable in C)
+
+		In above both cases,
+
+		ar
+		 [  ]
+
+
+	To allocate the memnory we need to use new keyword as..
+
+		- Syntax
+			<data_type> []<arr_nm> = new <data_type>[<size>];
+
+			e.g.
+				int []ar = new int[5];
+
+			ar
+			[   ] ----------------> [] [] [] [] []
+
+	* Note that, Here in java array gains the dynamic memory space(like pointer in C), and
+	  new keyword used to allocate the memory for it.
+
+	// Init of array in java
+
+	It is simple and same as we have seen in the C-C++, except [] does not contains the SIZE.
+
+	e.g.
+		int []x = {12,45,83,42,39};
+
+		x            0    1    2    3    4 
+		[ ] ------> [12] [45] [83] [42] [39]
+
+	// WAP to init and display the array.
+
+class InitArray
+{
+	public static void main(String []args)
+	{
+		int []x = {12,45,83,42,39,78};
+
+		System.out.println("\n1. Array elements are: ");
+		for(int i=0 ; i<6 ; i++)
+		{
+			System.out.print("   "+x[i]);
+		}
+
+		System.out.println("\n2. Array elements are: ");
+		for(int i=0 ; i<x.length ; i++)
+		{
+			System.out.print("   "+x[i]);
+		}
+
+		// using for-each loop
+		System.out.println("\n3. Array elements are: ");
+		for(int val : x)
+		{
+			System.out.print("   "+val);
+		}
+	}
+}
+
+//-----------------------------------------------------------------------------------
+
+	Array input and display - using BufferedReader and InputStreamReader
+
+import java.io.*;
+class ArrayIOBI
+{
+	public static void main(String []args) throws Exception
+	{
+		int []ar = new int[5];
+
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
+		System.out.println("\n Enter array: ");
+		for(int i=0 ; i<5 ; i++)
+		{
+			ar[i]=Integer.parseInt(br.readLine());
+		}
+
+		System.out.println("\n1. Array elements are: ");
+		for(int i=0 ; i<ar.length ; i++)
+		{
+			System.out.print("   "+ar[i]);
+		}
+	}
+}
+
+//-----------------------------------------------------------------------------------
+
+	Array input and display - using Scanner
+
+import java.util.Scanner;
+class ArrayIOSI
+{
+	public static void main(String []args) 
+	{
+		int []ar = new int[5];
+
+		Scanner sc = new Scanner(System.in);
+
+		System.out.println("\n Enter array: ");
+		for(int i=0 ; i<5 ; i++)
+		{
+			ar[i]=sc.nextInt();
+		}
+
+		System.out.println("\n1. Array elements are: ");
+		for(int i=0 ; i<ar.length ; i++)
+		{
+			System.out.print("   "+ar[i]);
+		}
+	}
+}
+
+//-----------------------------------------------------------------------------------
+
+	Array input and display - using Commandline arguments
+
+import java.util.Scanner;
+class ArrayIOSI
+{
+	public static void main(String []args) 
+	{
+		int []ar = new int[5];
+
+		Scanner sc = new Scanner(System.in);
+
+		System.out.println("\n Enter array: ");
+		for(int i=0 ; i<5 ; i++)
+		{
+			ar[i]=sc.nextInt();
+		}
+
+		System.out.println("\n1. Array elements are: ");
+		for(int i=0 ; i<ar.length ; i++)
+		{
+			System.out.print("   "+ar[i]);
+		}
+	}
+}
+
+//-----------------------------------------------------------------------------------
+
+	Array input and display - showInputDialog()
+
+import javax.swing.JOptionPane;
+class ArrayIOSIDialog
+{
+	public static void main(String []args) 
+	{
+		String data = JOptionPane.showInputDialog("Enter the Space seperated array of integers");
+		System.out.println("Entered string: "+data);
+
+		String []nums = data.split(" ");
+		int []ar = new int[nums.length];		
+
+		System.out.println("\n Enter array: ");
+		for(int i=0 ; i<nums.length ; i++)
+		{
+			ar[i]=Integer.parseInt(nums[i]);
+		}
+
+		System.out.println("\n1. Array elements are: ");
+		for(int x : ar)
+		{
+			System.out.print("    "+x);
+		}
+	}
+}
+
+//-----------------------------------------------------------------------------------------------------------
+
+	// Dynamic Memory Allocation ( Using java array as a pointer)
+
+import java.util.Scanner;
+class DynamicAllocation
+{
+	public static void main(String []args)
+	{
+		Scanner sc = new Scanner(System.in);
+
+		System.out.println("\n Enter the Element count: ");
+		int cnt=sc.nextInt();
+		int []a = new int[cnt];
+
+		System.out.println("Enter the "+cnt+" Elements: ");
+		for(int i=0;i<cnt;i++)
+		{
+			a[i]=sc.nextInt();
+		}
+
+		System.out.println("Elements: ");
+		for(int t : a)
+		{			
+			System.out.println("  "+t);
+		}
+	}
+}
+
+//---------------------------------------------------------------------------------------------
+	
+	// Some Array Operations
+
+	 - search
+	 - sort
+	 - sortrange
+	 - insert
+	 - delete
+	 - reverse
+	 - copy
+	 - copyrange
+	 - Reverse Copy
+	 - merge
+	 - split
+	 - concate
+	 - compare
+	 - fill
+	 - fillrange
+
+//---------------------------------------------------------------------------------------------
+	
+	// Characher Array in Java:
+
+		decl. syntax:
+		
+			char []<ar_nm>;
+			e.g.
+				char []ch;	// creates reference only
+				char []ch={'H','e','l','l','o'}; // init of character array
+
+	Note that in java input is not inform of characters, it is in form of String. so no any
+	special way is there to input the character array. The class String used to represent the
+	character coection in its equivalent object form, having one method names toCharArray(),
+	used to convert string into character array.
+
+	here character array and String are different
+
+	*What is difference between character array and String?
+
+import java.util.*;
+class DemoCharArray
+{
+	public static void main(String []args)
+	{
+		char []ch;	// creates reference only
+		char []ch1={'H','e','l','l','o'}; // init of character array
+
+		Scanner sc = new Scanner(System.in);
+
+		System.out.print("\n Enter the any string: ");
+		String str=sc.nextLine();
+		
+		System.out.println("Entered String: "+str);
+
+		ch=str.toCharArray();
+		System.out.println("Converted String: ");
+
+		for(char t : ch)
+		{
+			System.out.print(" "+t);
+		}
+	}
+}
+
+//--------------------------------------------------------------------------------------------------------
+
+	Multi-dimentional Array: Collection of references to another arrays.
+
+	<data_type> [][]<ar_ name>;	-->	int [][]ar;
+
+						  ar
+						   [ ]
+
+	memory allocation:
+						
+	<data_type> [][]<ar_ name> = new <data_type>[rows][cols] ;
+
+		
+	case 1:	int [][]ar = new int[3][];
+
+			ar
+			[  ] -------->  [ ]
+					[ ]
+					[ ]
+
+
+		
+	case 2:	int [][]ar = new int[3][4];
+
+			ar
+			[  ] -------->  [ ]------>[][][][]
+					[ ]------>[][][][]
+					[ ]------>[][][][]
+
+
+	// init. of 2D Array:
+
+class Init2dArray
+{
+	public static void main(String []args)
+	{
+		int [][]ar = { {12,34,45,56}, {11,22,33,44}, {10,20,30,40} };
+
+		System.out.println("Array elements are");
+		for(int i=0;i<3;i++)
+		{
+			for(int j=0;j<4;j++)
+			{
+				System.out.print("  "+ar[i][j]);
+			}
+			System.out.println();
+		}
+		System.out.println("\n Array elements are");
+		for(int i=0;i<ar.length;i++)
+		{
+			for(int j=0;j<ar[i].length;j++)
+			{
+				System.out.print("  "+ar[i][j]);
+			}
+			System.out.println();
+		}
+	}
+}
+//----------------------------------------------------------------------------------------
+	// input and display 2D Array of 3x4
+
+import java.util.Scanner;
+class Init2dArray
+{
+	public static void main(String []args)
+	{
+		int [][]ar = new int[3][4];
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter the Array elements");
+		for(int i=0;i<3;i++)
+		{
+			for(int j=0;j<4;j++)
+			{
+				ar[i][j] = sc.nextInt();
+			}
+		}
+		System.out.println("\n Array elements are");
+		for(int i=0;i<ar.length;i++)
+		{
+			for(int j=0;j<ar[i].length;j++)
+			{
+				System.out.print("  "+ar[i][j]);
+			}
+			System.out.println();
+		}
+	}
+}
+
+///--------------------------------------------------------------------------------------
+
+	// WAP to perform matrix multi.
+
+import java.util.Scanner;
+class Array2DMulti
+{
+	public static void main(String []args)
+	{
+		Scanner sc=new Scanner(System.in);
+		int [][]x=new int[3][3];
+		int [][]y=new int[3][3];
+		int [][]z=new int[3][3];
+		int i,j,k;
+
+		System.out.println("Enter array of 3x3: \n");
+		for(i=0;i<3;i++)
+		{
+			for(j=0;j<3;j++)
+			{
+				x[i][j]=sc.nextInt();
+			}
+			System.out.println();
+		}
+
+		System.out.println("Enter another array of 3x3: \n");
+		for(i=0;i<3;i++)
+		{
+			for(j=0;j<3;j++)
+			{
+				y[i][j]=sc.nextInt();
+			}
+			System.out.println();
+		}
+
+		// multi.
+		for(i=0;i<x.length;i++)
+		{
+			for(j=0;j<x[i].length;j++)
+			{
+				z[i][j]=0;
+				for(k=0;k<x[i].length;k++)
+				{
+					z[i][j]=z[i][j]+(x[i][k]*y[k][j]);
+				}
+			}
+		}
+		
+		System.out.println("\n Array elements are: \n");
+		for(i=0;i<x.length;i++)
+		{
+			for(j=0;j<x[i].length;j++)
+			{
+				System.out.print("  "+x[i][j]);
+			}
+			System.out.print("\t");
+			for(j=0;j<y[i].length;j++)
+			{
+				System.out.print("  "+y[i][j]);
+			}
+			System.out.print("\t");
+			for(j=0;j<z[i].length;j++)
+			{
+				System.out.print("  "+z[i][j]);
+			}
+			System.out.println();
+		}
+	}
+}
+///-----------------------------------------------------------------------------------------
+
+ // Different operations of matrix:
+
+	- Tranpose
+	- unit matrix
+	- upper triangular
+	- lower triangular
+	- diagonal
+	
+///-----------------------------------------------------------------------------------------
+
+	// Variable size Array or Jagged Array
+
+	suppose, you decl. an array as,
+
+		int [][]x=new int[3][];
+
+	then see the memory map is as shown below,
+
+		x
+		[ ] --------->  [ ]
+				[ ]
+				[ ]
+			  These all 3 are the references, which will able to refer
+			  dynamically created location of correct type, having any SIZE. 
+
+	Means to store data, we need to allocate memory for each location. So we need to
+	write it as,
+	
+		x[0]=new int[5];
+		x[1]=new int[7];
+		x[2]=new int[4];
+
+		x
+		[ ] --------->  [ ] -------> [][][][][]
+				[ ] -------> [][][][][][][]
+				[ ] -------> [][][][]
+
+	So Note that, In Jagged array(variable size array) size(length) of every row
+	may be different.
+
+lets see the example.
+
+	We have to create a 2D array to store runs of N player scored in M matches. where
+	M may be different for each player.
+
+import java.util.Scanner;
+class DemoJagged
+{
+	public static void main(String []args)
+	{
+		Scanner sc=new Scanner(System.in);
+		System.out.println("\n Enter the player count: ");
+		int pcnt = sc.nextInt();
+		int [][]data = new int[pcnt][];
+
+		System.out.println("\n Enter the details of "+pcnt+" Players");
+		for(int i=0;i<data.length;i++)
+		{
+			System.out.println("\n Enter the march count of player "+(i+1)+": ");
+			int mcnt=sc.nextInt();
+			data[i] = new int[mcnt];
+			System.out.println("\n Enter the runs scored by player: ");
+			for(int j=0;j<data[i].length;j++)
+			{
+				System.out.println("\n Match "+(j+1)+": ");
+				data[i][j]=sc.nextInt();
+			}
+		}
+
+		System.out.println("\n Score Board");
+
+		int i=1;
+		for(int []p : data)
+		{
+			System.out.print("\n Player "+(i++)+": ");
+			for(int r : p)
+			{
+				System.out.print("  "+r);
+			}
+			System.out.println();
+		}
+	}
+}
+
+//-----------------------------------------------------------------------------------------------------------
+
+	// POINTER - EXPLICIT POINTER IS NOT PRESENT IN JAVA, COZ ITS NEED ALREADY FULLFILLED BY ARRAY.
+		     BUT AS OBJECT GAINS THE DYNAMIC MEMORY SPACE, IMPLICITELY IT IS HANDLED BY POINTER.
+		     SO IT IS NOT PRESENT FOR AS A PROGRAMMER.
+
+
+		- Why pointer is not present in java?
+
+
+//===================================================================================================================
+
+	// OOPs in Java
+
+	What we have seen in C++,
+
+	- Fundamantals - class, Object, Data Hiding, Encapsulation, Abstraction
+	- Methods - Method Overloading,and Overriding
+	- Static members (static variables, and static methods)
+	- constructors and destructors
+	- Inheritance: single, multi-level, Multiple, Hierarchical, Hybrid, virtual base class
+	- Polymorphism - virtual function, pure virtual function, abstract class.
+	- Operator Overloading
+
+
+	// Fundamantals of Object Oriented Programming:
+
+	  1. class: It is user defined data type, which allows you to define a type using data member(instance
+		   variables) and member functions(Methods). It is just blueprint, which divides the members
+		   in the private, protected, public and default(No keyword) visibility mofifiers.
+
+		Syntax:
+			class <class_name>
+			{
+				<visibility> <data_type> <var_nm>;
+				<visibility> <return_type> <method_nm>();
+				.......
+			}
+
+		e.g.
+			class Demo
+			{
+				private int x;
+				private double y;
+				float z;
+				public void input() {......}
+				public void display() {......}
+			}
+
+		*Note: Remember that, visibility modifier must be used as a type qualifier for each member,
+		       Absence of any keyword it will be considered as default.	and unlike C++, class does not 
+		       ends with ;
+
+	The visibility of class members in Java:	
+	
+	 - private:   member is only accessible within the same class.
+	 - protected: member is accessible within its own package and by subclasses form same of different packages
+	 - public: member is accessible from any class, both inside and outside the package.
+	 - default / Package-Private (no modifier)class member is accessible only within its own package.
+	
+	2. Object: It is variable of class type or we can define it as it is standard implementation of class.
+		or can be defined as, It is runtime entity - which encapsulates the data and code used to
+		process that data.
+
+		Syntax:
+			<class_nm> <object_nm> = new <class_constructor>();
+
+	*Note that, C++ style decl. creates the REFERENCE VARIABLE only(like a pointer variable).
+
+	 i.e.
+		Demo ob;		ob
+					 [  ]
+
+		Demo ob = new Demo();	
+		
+		 ob
+		 [  ] -------> [ Memory allocated for object ] 
+
+
+	** There is one unwritten rule, which recommanded for programmers and it is followed in
+	   java internally while designing the library.
+
+		- Method Names Should Be Verb-Phrase that describes what the method does.
+		- Method names should start with a lowercase letter, and each subsequent word should start 
+		  with an uppercase letter. This is called lower camel case.
+		  e.g.
+			calculateTotal(), sendEmail(), getUserDetails(), setAccountBalance()
+
+		- Constants are typically written in uppercase letters with words separated by underscores (_), 
+		  a style known as screaming snake case.
+		  e.g.
+			MAX_WIDTH, PI, DEFAULT_TIMEOUT
+
+		- Class names should follow Upper Camel Case (also called Pascal Case), where the first letter 
+		  of each word is capitalized and there are no spaces or underscores.
+		  e.g.
+			Person, EmployeeDetails, AccountManager
+			
+
+	3. data hiding: The private data of class is not accessible directly using the dot
+			operator, means that data is get hided from outside world, which is
+			known as data hiding.  
+				
+			The Data Hiding provides the security to data.
+
+	4. Encapsulation: Wrapping up of data members and member functions together under
+			  single unit is known as encapsulation. 
+
+			Here in class the data member and member functions are encapsulated together.
+				
+	5. Abstraction: In simple words "Without knowing too much about it"
+			It is an art of defining the new type(class) without including its background details.
+
+			here in case of class and object, we dont think about the amount of
+			memory as well as its representation in the memory(memory map), means
+			we are abstract about it.
+
+			The data types which supports abstraction known as Abstract Data Types (ADT)
+
+
+//---------------------------------------------------------------------------------------------------------------------
+
+
+	ob
+	 [  ] -------> [------------------]
+
+class Demo
+{
+	private int x;
+	public void in(){
+		x=100;
+	}
+	public void out(){
+		System.out.println("x="+x);
+	}
+}
+class MainClass
+{
+	public static void main(String []args)
+	{
+		Demo ob = new Demo();
+
+		ob.in();
+		ob.out();
+	}
+}
+
+//--------------------------------------------------------------------------
+
+import java.util.Scanner;
+class Person
+{
+	private String name;
+	private int age;
+	private double hig;
+	public void setPersonDetails()
+	{
+		Scanner sc=new Scanner(System.in);
+
+		System.out.println("Enter the name: ");
+		name=sc.nextLine();
+
+		System.out.println("Enter the age: ");
+		age=sc.nextInt();
+
+		System.out.println("Enter the height: ");
+		hig=sc.nextDouble();
+	}
+	public void showPersonDetails()
+	{
+		System.out.println("Name: "+name+"\t Age: "+age+"\t Height: "+hig);
+	}	
+}
+
+class MainClassExample
+{
+	public static void main(String []args)
+	{
+		Person p1 = new Person();
+		p1.setPersonDetails();
+		p1.showPersonDetails();
+
+		Person p2 = new Person();
+		p2.setPersonDetails();
+		p2.showPersonDetails();
+	}
+}
+
+
+//------------------------------------------------------------------------------
+	
+	// We can write same program as
+
+import java.util.Scanner;
+class Person
+{
+	private String name;
+	private int age;
+	private double hig;
+	public void setPersonDetails(String nm, int ag, double h)
+	{
+		name=nm;
+		age=ag;
+		hig=h;
+	}
+	public void showPersonDetails()
+	{
+		System.out.println("Name: "+name+"\t Age: "+age+"\t Height: "+hig);
+	}	
+}
+
+class MainClassExample1
+{
+	public static void main(String []args)
+	{
+
+		Scanner sc=new Scanner(System.in);
+
+		System.out.println("Enter the name: ");
+		String name=sc.nextLine();
+		System.out.println("Enter the age: ");
+		int age=sc.nextInt();
+		System.out.println("Enter the height: ");
+		double hig=sc.nextDouble();
+
+		Person p1 = new Person();
+		p1.setPersonDetails(name, age, hig);
+		
+		System.out.println("Enter the name: ");
+		name=sc.nextLine();
+		System.out.println("Enter the age: ");
+		age=sc.nextInt();
+		System.out.println("Enter the height: ");
+		hig=sc.nextDouble();
+
+		Person p2 = new Person();
+		p2.setPersonDetails(name, age, hig);
+
+
+		p1.showPersonDetails();
+		p2.showPersonDetails();
+	}
+}
+
+//-----------------------------------------------------------------------------------------
+
+	// Again can be written as
+
+import java.util.Scanner;
+class Person
+{
+	private String name;
+	private int age;
+	private double hig;
+	public void setPersonDetails()
+	{
+		Scanner sc=new Scanner(System.in);
+
+		System.out.println("Enter the name: ");
+		name=sc.nextLine();
+
+		System.out.println("Enter the age: ");
+		age=sc.nextInt();
+
+		System.out.println("Enter the height: ");
+		hig=sc.nextDouble();
+	}
+	public String getName()
+	{
+		return name;
+	}
+	public int getAge()
+	{
+		return age;
+	}	
+	public double getHeight()
+	{
+		return hig;
+	}
+}
+
+class MainClassExample3
+{
+	public static void main(String []args)
+	{
+		Person p1=new Person();
+		p1.setPersonDetails();
+
+		Person p2=new Person();
+		p2.setPersonDetails();
+
+		System.out.println("Name: "+p1.getName()+"\t Age: "+p1.getAge()+"\t Height: "+p1.getHeight());
+		System.out.println("Name: "+p2.getName()+"\t Age: "+p2.getAge()+"\t Height: "+p2.getHeight());
+	}
+}
+
+//-----------------------------------------------------------------------------------------------------------
+
+	// Write a class Number to hold one int value and arrange some methods to process that int value.
+
+import java.util.Scanner;
+class Number
+{
+	private int no;
+	public void setNumber(int n) 
+	{
+		no=n;
+	}
+	public int getNumber()
+	{
+		return no;
+	}
+	public int findReverse()
+	{
+		int n=no;
+
+		int rev=0;
+		while(n!=0)
+		{
+			rev = (rev*10) + (n%10);
+			n = n/10;
+		}
+		return rev;
+	}
+	public char isPalindrome()
+	{
+		if(no==findReverse())
+			return 'y';
+		else
+			return 'n';
+	}
+	public String isEvenOrOdd()
+	{
+		if(no%2==0)
+			return "even";
+		else
+			return "odd";
+	}
+	public void isPrime()
+	{	
+		int d=2,flg=0;
+		while(d<=(no/2))
+		{
+			if(no%d==0)
+			{
+				flg=1;
+				break;
+			}
+			d++;
+		}
+		if(flg==0)
+			System.out.println("Number is Prime");
+		else
+			System.out.println("Number is not Prime");
+	}
+	public int findMax(int h)
+	{
+		int ans = (no>h) ? no : h;
+		return ans;
+	}
+}
+
+class DemoNumber
+{
+	public static void main(String []args)
+	{
+		Number nob = new Number();
+
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter the Number: ");
+		int t=sc.nextInt();
+
+		nob.setNumber(t);
+
+		System.out.println("\n Number is: "+nob.getNumber());
+
+		int r = nob.findReverse();
+		System.out.println("\n Reverse Number is: "+r);
+
+		char ans=nob.isPalindrome();
+		if(ans=='y')
+			System.out.println("\n Number is Palindrome");
+		else
+			System.out.println("\n Number is Not Palindrome");
+
+		System.out.println("\n Number is: "+nob.isEvenOrOdd());
+
+		nob.isPrime();
+
+		System.out.println("Enter the Number: ");
+		int k=sc.nextInt();
+
+		int max=nob.findMax(k);
+		System.out.println("max Number: "+max);
+	}
+}
+
+//------------------------------------------------------------------------------------------------------------		
+
+	// Write a program to represent an array as a object and perform some operations on that array object.
+
+import java.util.Scanner;
+class MyArray
+{
+	private int []x;
+	public void fill(int t)
+	{
+		x=new int[5];
+		for(int i=0;i<x.length;i++)
+		{
+			x[i]=t;
+		}
+	}
+	public void in()
+	{
+		Scanner sc = new Scanner(System.in);
+		System.out.print("\n Enter element count: ");
+		int k=sc.nextInt();
+		x=new int[k];
+		 
+		System.out.print("Enter the "+k+" Elements: ");
+		for(int i=0;i<k;i++)
+		{
+			x[i] = sc.nextInt();
+		}
+	}
+	public void out()
+	{
+		System.out.print("\n Elements are: ");
+		for(int val : x)
+		{
+			System.out.print("   "+val);
+		}
+	}
+	public int search(int t)
+	{
+		for(int i=0;i<x.length;i++)
+		{
+			if(x[i]==t)
+				return i;
+		}
+		return -1;
+	}
+}
+class MyArrayExample
+{
+	public static void main(String[] args) 
+	{
+		MyArray ob = new MyArray();
+		ob.fill(3);
+		ob.out();
+
+		ob.in();
+		ob.out();
+
+		Scanner sc = new Scanner(System.in);
+		System.out.println("\n Enter the element to be searched: ");
+		int n=sc.nextInt();
+		int pos = ob.search(n);
+		if(pos==-1)
+			System.out.println("\n Number is not present in an array");
+		else
+			System.out.println("\n Number is present at "+pos+" position");
+	}
+}
+
+//--------------------------------------------------------------------------------------
+
+	// Create the class employee and hjust input and display the employee data.
+
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+class Employee
+{
+	private int id;
+	private String name;
+	private double sal;
+	public void inputInformation() throws Exception
+	{
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
+		System.out.println("Enter the Name: ");
+		name=br.readLine();
+		
+		System.out.println("Enter the id: ");
+		id=Integer.parseInt(br.readLine());
+
+		System.out.println("Enter the salary: ");
+		sal=Double.parseDouble(br.readLine());
+	}
+	public void showInformation()
+	{
+		System.out.println("Employee Name: "+name+"\t ID: "+id+"\t Salary: "+sal);
+	}	
+}
+
+class MainClassEmployee
+{
+	public static void main(String []args) throws Exception
+	{
+		Employee e1=new Employee();
+
+		e1.inputInformation();
+		e1.showInformation();
+	}
+}
+
+//-----------------------------------------------------------------------------------------------------------
+
+	// Creating Anonymous Object:
+
+	Anonymous Object is an instance of class which can not be refered by any referance variable 
+	when it is created. we are able to call the methods from same instance only once at the time
+	of decl.
+	It's often used for situations where you only need an object temporarily, without the need to store 
+	or reuse it. You cannot refer to or modify the object later since it is not stored in a variable.
+
+class DemoObj
+{
+	public void show()
+	{
+		System.out.println("\n In the DemoObj-show()");
+	}
+}
+
+class MainDemoObj
+{
+	public static void main(String []args)
+	{
+		// Creating Anonymous Object
+		new DemoObj().show();
+		new DemoObj().show();
+	}
+}
+
+
+//------------------------------------------------------------------------------------------------
+
+	// Defining main() method in same class
+
+class DemoMainSameClass
+{
+	private int x=1;
+	private double y=2.2;
+	public static void main(String []args)
+	{
+		System.out.println("\n main() started");
+		
+		System.out.println("\n x="+x);
+		System.out.println("\n y="+y);
+
+		System.out.println("\n main() end");
+	}
+}
+
+---------- On Compile ---------------
+Y:\jsmall>javac DemoMainSameClass.java
+DemoMainSameClass.java:9: error: non-static variable x cannot be referenced from a static context
+                System.out.println("\n x="+x);
+                                           ^
+DemoMainSameClass.java:10: error: non-static variable y cannot be referenced from a static context
+                System.out.println("\n y="+y);
+                                           ^
+
+
+// Now i want to create multiple instances
+
+	 Note that if you want to access the members of class where main() is defined then also you need to 
+  	 create the object of same class and access the methods.
+	 
+
+class DemoMainSameClass
+{
+	private int x=1;
+	private double y=2.2;
+	public static void main(String []args)
+	{
+		System.out.println("\n main() started");
+		
+		DemoMainSameClass ob1 = new DemoMainSameClass();
+		System.out.println("\n ob1.x="+ob1.x);
+		System.out.println("\n ob1.y="+ob1.y);
+		
+		DemoMainSameClass ob2 = new DemoMainSameClass();
+		System.out.println("\n ob2.x="+ob2.x);
+		System.out.println("\n ob2.y="+ob2.y);
+
+		System.out.println("\n main() end");
+	}
+}
+
+
+// another ways is decl thode variables as static
+
+class DemoMainSameClass
+{
+	private static int x=1;
+	private static double y=2.2;
+	public static void main(String []args)
+	{
+		System.out.println("\n main() started");
+		
+		System.out.println("\n x="+x);
+		System.out.println("\n y="+y);
+
+		System.out.println("\n main() end");
+	}
+}
+
+//-----------------------------------------------------------------------------
+
+	// Defining methods within main() class
+
+class DemoMainMethod
+{
+	public void sampleMethod()
+	{
+		System.out.println("\n In sampleMethod()");
+	}
+	public static void main(String []args)
+	{
+		System.out.println("\n main() starts");
+		sampleMethod();
+		System.out.println("\n main() end");
+	}
+}
+
+ ------------- On Compile -----------------
+
+Y:\jsmall>javac DemoMainMethod.java
+DemoMainMethod.java:10: error: non-static method sampleMethod() cannot be referenced from a static context
+                sampleMethod();
+                ^
+1 error
+
+	Solution: 
+	- Decl. sampleMethod() method as static	OR
+	- Create an object of class DemoMainMethod and call sampleMethod()
+
+
+//---------------------------------------------------------------------------------------------------
+
+	// WAP to input and display the data of two students
+
+import java.util.Scanner;
+class Student
+{
+	private int id;
+	private double per;
+
+	public void in()
+	{
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter the student ID: ");
+		id=sc.nextInt();
+
+		System.out.println("Enter the Percentage: ");
+		per=sc.nextDouble();
+	}
+	public void out()
+	{
+		System.out.println("\n Student ID: "+id+"\n Percentage: "+per);
+	}
+}
+class DemoStudent
+{
+	public static void main(String []args)
+	{
+		Student s1=new Student();
+		s1.in();
+		s1.out();
+
+		Student s2=new Student();
+		s2.in();
+		s2.out();
+	}
+}	
+
+//--------------------------------------------------------------
+
+	// Or can be passed from the main()
+
+import java.util.Scanner;
+class Student
+{
+	private int id;
+	private double per;
+
+	public void in(int t1, double t2)
+	{
+		id=t1;
+		per=t2;
+	}
+	public void out()
+	{
+		System.out.println("\n Student ID: "+id+"\n Percentage: "+per);
+	}
+}
+class DemoStudent
+{
+	public static void main(String []args)
+	{
+		Scanner sc=new Scanner(System.in);
+
+		System.out.println("Enter the student ID: ");
+		int sid=sc.nextInt();
+		System.out.println("Enter the Percentage: ");
+		double sper=sc.nextDouble();
+
+		Student s1=new Student();
+		s1.in(sid,sper);
+		s1.out();
+
+		//-----------------------------------------------
+
+		System.out.println("Enter the student ID: ");
+		sid=sc.nextInt();
+		System.out.println("Enter the Percentage: ");
+		sper=sc.nextDouble();
+
+		Student s2=new Student();
+		s2.in(sid,sper);
+		s2.out();
+	}
+}	
+
+//------------------------------------------------------------------------------------------------------
+
+	// Method overloading with class
+
+	Method overloading in Java allows you to define multiple methods with the same name but different parameter
+	lists. It increases the flexibility, readability, and maintainability of your code. Just remember that
+	overloading depends on differences in the method signatures (the method name and parameters), not the 
+	return type, and visibility.
+
+import java.util.Scanner;
+class Student
+{
+	private int id;
+	private double per;
+	public void in()
+	{
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter the student ID: ");
+		id=sc.nextInt();
+
+		System.out.println("Enter the Percentage: ");
+		per=sc.nextDouble();
+	}
+	public void in(int t1, double t2)
+	{
+		id=t1;
+		per=t2;
+	}
+	public void out()
+	{
+		System.out.println("\n Student ID: "+id+"\n Percentage: "+per);
+	}
+}
+class DemoStudent
+{
+	public static void main(String []args)
+	{
+		Scanner sc=new Scanner(System.in);
+		
+		Student s1=new Student();
+		s1.in();
+		s1.out();
+		//-----------------------------------------------
+
+		System.out.println("Enter the student ID: ");
+		sid=sc.nextInt();
+		System.out.println("Enter the Percentage: ");
+		sper=sc.nextDouble();
+		Student s2=new Student();
+		s2.in(sid,sper);
+		s2.out();
+	}
+}	
+
+
+	In above program, there are two different copies of in() method i.e.
+
+		public void in()
+		public void in(int t1, double t2)
+
+	as a class contains two copies of function having same name and differ in terms of
+	signature, it is known as "Method Overloading"
+
+//---------------------------------------------------------------------------------------------------------
+
+	// Lets discuss the class by value and class by refernce.
+
+	- We know that, In C++, variable are passed by value bydefault. If you want to pass them
+	  byreference then pointer is used.
+
+class SwapDemo
+{
+	public static void swap(int a, int b)
+	{
+		int tmp;
+		tmp=a;
+		a=b;
+		b=tmp;
+	}
+	public static void main(String[]args)
+	{
+		int x=10, y=20;
+		System.out.println("\n Before Interchange x="+x+"\t y="+y);
+		swap(x,y);
+		System.out.println("\n After Interchange x="+x+"\t y="+y);
+	}
+}
+
+ ----- Output -------
+Y:\jsmall>javac SwapDemo.java
+Y:\jsmall>java SwapDemo
+ Before Interchange x=10   y=20
+ After Interchange x=10  y=20
+
+	Means java variables are passed by value bydefault. Then how to pass the byreference coz, in c++,
+	pointer is used, here in java pointer is absent.
+
+	solution is that, pass the values in form of object, coz object bydefault passesd by reference.
+	for that,
+	 - create custom class to reperent the int value in its equivalent object from. OR
+	 - User wrapper classes.
+
+
+	// Lets first confirm that, Object is bydefault passed by reference.
+
+class Int
+{
+	private int data;
+	public void setData(int data)
+	{
+		this.data=data;
+	}
+	public int getData()
+	{
+		return data;
+	}
+}
+class ObjByRefConfirm
+{
+	public static void sample(Int t)
+	{
+		t.setData(t.getData()+100);
+	}
+	public static void main(String[]args)
+	{
+		int x=10;
+		Int obx = new Int();
+		obx.setData(x);
+
+		System.out.println("Before - x="+obx.getData());
+		sample(obx);
+		System.out.println("After - x="+obx.getData());		
+	}
+}
+
+ --- Output ----
+
+Y:\jsmall>javac ObjByRefConfirm.java
+
+Y:\jsmall>java ObjByRefConfirm
+Before - x=10
+After - x=110
+
+	It is confirmation, that Object passed by reference.
+
+//--------------------------------------------------------------------------------------------
+
+	// Use same class for swapping
+
+
+---------------- Java Programming -----------------------
+
+	Computer ---> 
+	Language --->
+	Programming Languages --> 
+
+
+
+		     SIMULA
+		     COBOL								   |-- Sun Microsystem --> Java
+	Assembly --> Fortran ----> ALGOL60 --> CPL --> BCPL-----> B -----> C ----> C++ ====|-- Microsoft corpo.--> .Net
+		     RPG	    (1960)   (1963)    (1967)    (1970)   (1972) (1983-84) |-- CWI -------------> Python
+		     BASIC								   |
+		     Pascal
+		     ....
+
+
+	// History of Java: 
+
+
+		- JAMES GOSLING Introduced the Java Programming language.
+
+		- Initially he started with the platform independancy, and developed GreenTalk with ext. (*.gt)
+
+		- After some days he joined the Sun Microsystem, as head of green project team, formed to develop
+
+		- The platform independent language as a internal tools of the company to develop application
+		  for different consumer electronic product.
+
+		 - 1990 --> Touch sencetive application
+
+		 - 1991 -> language named Oak is introduced.
+
+		 - 1995 --> OAK renamed as Java
+
+// Different versions of Java: 
+
+		1995 - jdk alpha and beta
+		1996 - jdk 1.0
+		1997 - jdk 1.1
+
+		1998 - J2SE 1.2
+		2000 - J2SE 1.3 
+		2002 - J2SE 1.4 
+		
+		2004 - J2SE 5.0 
+
+		2006 - Java SE 6
+		2011 - Java SE 7 
+		2014 - Java SE 8 
+		
+		2017 - Java SE 9                   Onwards ---> JSE 9 ...
+		2018 - Java SE 10 (March)
+		     - Java SE 11 (September)
+
+		2019 - Java SE 12 (March)
+		     - Java SE 13 (September)
+
+		2020 - Java SE 14 (March)
+		     - Java SE 15 (September)
+
+		2021 - Java SE 16 (March)
+		     - Java SE 17 (September)
+
+		Java SE 18 (to be released by March 2022)
+
+
+
+// ---------------------------------------------------------------------------------------------
+
+	Different Java Editions:
+
+
+			     |-> J2SE(Standard Edition)
+			     |
+ 		Java --------|-> J2EE(Enterprise Edition)
+			     |
+			     |-> J2ME( Micro Edition)
+
+
+// ----------------------------------------------------------------------------------------------
+
+	// Java Environment: 
+
+	Platform = OS + Processor Arct.
+
+	It is basically divided into 2 parts
+
+		jre --> java runtime environment: Needed to run the java program
+		jdk ---> java developement Needed to develop and run the java program
+
+//----------------------------------------------------------------------------------------------------------
+
+
+	// Java Buzzwords (Features of Java)	
+
+		-  Simple 
+		-  Object Oriented
+		-  Portable
+		-  Platform Independent
+		-  secure
+		-  Robust
+		-  Architecture neutral
+		-  half compiled and half Interpreted
+		-  Multithreaded
+		-  Distributed
+		-  Dynamic
+		-  High Performance
+//------------------------------------------------------------------------------------------------------------
+
+	// Differences Between C and Java
+
+		https://www.interviewbit.com/blog/difference-between-c-and-java/
+
+
+	// Differences Between C++ and Java
+
+		https://www.interviewbit.com/blog/difference-between-cpp-and-java/
+
+
+
+//----------------------------------------------------------------------------------------------------------
+
+// Execution flow of C/C++ and Java	
+
+
+		C/C++									Java
+
+	Instructions		Progr_nm					     *.java
+		|_________________|							|
+			 |								|	
+			 |         Debug					     Compile(javac)	
+	source code	*.c/*.cpp <---|							|
+			 |            |							|
+			 |            |						    *.class
+		      Compile ------->| Compile-time 				    (byte code)	              		 ^
+			 |            | error						|                	 Compile |
+			 |            |							|			===================
+	backup file    *.bak          |					-------------------------------------   Interpreter |
+			 |            |					|		|		| ..                V
+			 |            |				       JVM             JVM             JVM --> (Platform dependent JVM)	
+	 Linker -------->| ---------> |  Linker error			|		|		|
+			 |            |                               Windows         Linux            MAC  
+			 |            |                                 | 		|		|                          
+	object code    *.obj	      |				     Native code    Native code     Native code	
+			 |            |					|		|		|
+			 |	      ^				      Run              RUN             Run	
+     Executable file   *.exe	      |                                 |               |               |
+			 |	      |	                             Output           Output          Output  
+		   	Run --------->| Runtime Error
+			 |
+		       Output							WRITE ONCE RUN EVERYWHERE	
+
+
+
+//---------------------------------------------------------------------------------------------------------
+
+
+	Java Editors and IDE's
+	======================
+
+		Editor: Notepad, Editplus, Notepad++ ...
+		
+		IDE: Best Java IDEs
+			Eclipse. Platform – Linux/macOS/Solaris/Windows. ...
+			NetBeans. Platform – Linux/macOS/Solaris/Windows. ...
+			IntelliJ IDEA. Platform – Linux/macOS/Windows. ...
+			BlueJ. Platform – Linux/macOS/Windows. ...
+			(Oracle) JDeveloper. Platform – Linux/macOS/Windows. 
+
+
+	Now we have see, how to write a code where:
+
+		1. Use any editor/ide
+
+		2. Install jdk/jre (https://www.oracle.com/in/java/technologies/javase/javase8-archive-downloads.html)
+
+		3. Use notepad as a editor and write a code as
+
+			class <cls_nm>
+			{
+				public static void main(String []args)
+				{
+					------------------;
+					------------------;
+					program_body ;
+					------------------;
+					------------------;
+				}
+			}
+
+			class Demo
+			{
+				public static void main(String []args)
+				{
+					System.out.print("Welcome to Java Programming");
+				}
+			}
+
+		4. Save the code in C:\Program Files\Java\jdk-17.0.1\bin As <class_nm>.java
+
+		5. win+r --> cmd --> enter (attend the folder where the source file, compiler and interpreter is present) as
+
+			C:\Users\hp>cd\
+			C:\>cd "Program Files\Java\jdk-17.0.1\bin"
+			C:\Program Files\Java\jdk-17.0.1\bin>javac Demo.java     (compilation where you get the bytecode (*.class) )
+			C:\Program Files\Java\jdk-17.0.1\bin>java Demo  	 (Byte code interpretation)
+				Welcome to Java Programming
+			C:\Program Files\Java\jdk-17.0.1\bin>
+
+	//------------------------------------------------------------------------------------------------------------------
+
+	How to run, same code when source file (*.java) is in different folder
+				
+			C:\Users\hp>e:
+			E:\>cd myjavafiles
+			E:\myjavafiles>javac First.java
+
+				'javac' is not recognized as an internal or external command,
+				operable program or batch file.
+
+			E:\myjavafiles>set path=C:\Program Files\Java\jdk-17.0.1\bin
+			E:\myjavafiles>javac First.java
+			E:\myjavafiles>java First
+				Welcome to Java Programming-First
+			E:\myjavafiles>
+
+		Note that the path is applicable till the current session of the command prompt.
+		to set the path in the permanent manner set the path in Environmeent variable
+
+
+		Setting the environment variable: this pc --> rh+ click ---> properties --> adv. system settings
+						--> Advanced tab --> environment variable --> user variable path
+
+
+				-if already path is there -> edit --> new-> paste path (C:\Program Files\Java\jdk-17.0.1\bin)
+
+				otherwise  user variable path--> new and write
+
+				variable name --> path
+				variable value --> C:\Program Files\Java\jdk-17.0.1\bin) --> ok....
+
+//-------------------------------------------------------------------------------------------------------------
+	Youtube Link: https://youtu.be/RBxum7M3B94?si=jepmNZAtetZfJKFp
+//-------------------------------------------------------------------------------------------------------------
+
+
+	Details of welcome program:
+	============================
+
+	class WelcomeProg
+	{
+		public static void main(String []args)
+		{
+			System.out.print("Welcome to Java by Archer InfoTech");
+		}
+	}
+	
+	Line 1: class WelcomeProg:
+
+			class: It is keyword which allows you to create your own type.
+			WelcomeProg: this is name of UDT, it must be valide identifier. Internally in java lib, the have
+					  choosen, First letter of class name in uppercase and all other in lowercase if it is
+					  made from from one word, if multiple words then first character of each word in ucase
+					  and all other in lcase.
+
+						e.g.	First, Demo, FirstProgram, ExampleDemoWelcome
+					It is recommended, not compalsory
+
+	Line 3: public static void main(String []args) 
+
+			public: it is used to define the visiblity of method main(), coz the javac and java are not members of class
+				as a outsiders they must have access to class members therefore visibility is public.
+
+			static: The static members gains the memory space when class is loaded into memory, no need of object
+				creation. therefore the method main() decl. as static
+
+			void: It is returning type of method main(), it is void coz java program does not return any value to OS
+
+			main(): It is method name, and as it is main(), it is considered as a starting point of of your program
+
+			String []args: String is Built-in class from java.lang package, it is language support package, which is 
+					imported bydefault. []args it is array of arguments, which is passed automatically at the
+					time of execution from commandline, in absence null is collected.
+					simply it is array of objects.
+
+	Line 5:  System.out.print("Welcome to Java");
+
+			"Welcome to Java" : It is data, to be displayed
+			print() is a method from PrintStream class used to display the data on screen.
+			out is predefined object of PrintStream class, declare ed as a static in System class
+			System is a class from java.lang package.
+
+
+	>>javac WelcomeProg.java (WelcomeProg - is a file name)
+	>>java WelcomeProg (WelcomeProg - class name containing main() method)
+
+ //-----------------------------------------------------------------------------------------------------------------------
+
+	// When we write a file generaly we keep file name and main class name same, but it may be different
+	   In such case, compile using file name and run using main class name.
+	
+	   if a java file having two or more class defined within it, then there are those number of class
+	   files, from which we have to use class name containing main() to run the program.
+
+	lets see ...
+
+class Sample
+{
+}
+class Test
+{
+}
+class WelcomeProgram
+{
+	public static void main(String []args)
+	{
+		System.out.print("Welcome to Java by Archer InfoTech");
+	}
+}
+
+ --------- output ----------
+
+C:\Users\archerinfotech>d:
+
+D:\>cd jdyp
+
+D:\jdyp>javac Welcome.java
+
+D:\jdyp>java WelcomeProgram
+Welcome to Java by Archer InfoTech
+D:\jdyp>
+
+//------------------------------------------------------------------------------------------
+
+	// Knowing the String []args
+
+	 - args : It refers to arguments, you can choose any name for it rather than args
+	 - [] args: It represents array name
+	 - String []args: Array of String objects, where String is class from java.lang package,
+			  which is imported bydefault  
+
+class MainArgu
+{
+	public static void main(String []args)
+	{
+		System.out.println(args);
+		System.out.println("0 - "+args[0]);
+		System.out.println("1 - "+args[1]);
+		System.out.println("2 - "+args[2]);
+	}
+}
+
+/*
+  ------- How to run --------
+
+	case 1:
+		D:\jdyp>javac MainArgu.java
+
+		D:\jdyp>java MainArgu
+		[Ljava.lang.String;@4517d9a3
+		Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: Index 0 out of bounds for length 0
+       		 at MainArgu.main(MainArgu.java:6)
+
+	case 2:
+
+		D:\jdyp>javac MainArgu.java
+
+		D:\jdyp>java MainArgu hello all
+		[Ljava.lang.String;@4517d9a3
+		0 - hello
+		1 - all
+		Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: Index 2 out of bounds for length 2
+        		at MainArgu.main(MainArgu.java:8)
+
+	case 3:
+		D:\jdyp>javac MainArgu.java
+
+		D:\jdyp>java MainArgu good morning all
+		[Ljava.lang.String;@4517d9a3
+		0 - good
+		1 - morning
+		2 - all
+
+		D:\jdyp>java MainArgu good morning all of you
+		[Ljava.lang.String;@4517d9a3
+		0 - good
+		1 - morning
+		2 - all
+
+		D:\jdyp>java MainArgu try 123 or 456
+		[Ljava.lang.String;@4517d9a3
+		0 - try
+		1 - 123
+		2 - or
+
+ * Note that when there is no any argument at location, the interpreter will generate an error message at
+   runtime class Exception which will terminate the program.
+
+*/
+
+//----------------------------------------------------------------------------------------------------
+
+	Now we need to proceed using the path fillowed in the C and C++
+
+	i.e.
+				constant
+	charcter set -----> 	keyword ------> Instructions ----> program ----> module ---> software
+				variable
+
+
+	Java Character set:
+
+		- ASCII(American Standard Code for Information Interchange):  Provides the binary string to all symbols present
+		  in the US English, which are used in different electronic devices.
+
+		- ASCII used to code in english, but java supports different human understable languages for coding. means java
+		  having rich character set as cmp to c/c++. The Standard Code system names unicode system used in the 
+		  java which provides the 16 bit binary string to each symbol for different languages.     
+
+		What is difference between ASCII and UNICODE.
+		 - ASCII is suitable for basic, English-only text.
+		 - Unicode is a comprehensive encoding system that supports global languages and symbols, making it the standard 
+		   for modern computing.
+
+
+
+	// Constants: These are the elements in the program having fix value.
+
+							      Java Constants
+								    |
+							---------------------------
+							|			  |
+						    Numeric 		     Non-Numeric
+							|			  |
+						-----------------	-----------------
+						|		|	|		|	
+					   Integer     floating-point  character     String
+					-6,4,56    -5.3,7.0,78.6755    'a', '$'     "A", "Hello"		
+									'H' '4'	     "a123"
+
+	// Keyword: These are reserved words, whose meaning is already known to compiler. 
+
+
+		abstract	continue	for		new		switch
+
+		assert***	default		goto*		package		synchronized
+	
+		boolean		do		if		private		this
+
+		break		double		implements	protected	throw
+
+		byte		else		import		public		throws
+
+		case		enum****	instanceof	return		transient
+
+		catch		extends		int		short		try
+
+		char		final		interface	static		void
+
+		class		finally		long		strictfp**	volatile
+
+		const*		float		native		super		while 
+
+		*	 	not used
+		**	 	added in 1.2
+		***	 	added in 1.4
+		****	 	added in 5.0
+
+	(https://docs.oracle.com/javase/tutorial/java/nutsandbolts/_keywords.html)
+
+
+ 	Java Data Types: Tool used for the memory allocation.
+
+		- Primitive data types: These are provided by the language itself. e.g. int, char, byte..
+		- Non-Primitive data types: The are defined by the programmers according to the need. e.g. class, interface
+
+
+						Java Data Types
+							|
+					---------------------------------
+					|				|
+				Primitive Data Types		Non-Primitive Data Types
+					|				|
+			   --------------------------              - String
+			   |			    |   	   - Array
+		      Numeric		 	boolean	   	   - Vector
+			  |	                (1 bit)
+			------------------
+			|		 |
+		   Integrals	      character	
+			|                |
+	-------------------------      char(2)		
+	|			|				
+      integer		     floating point    		
+      |				|					 
+      |- byte (1)		|- float(4)    
+      |- short (2)		|- double(8)
+      |- int(4)
+      |- long(8)
+
+
+	- The defalt integer value is considered as a int and default fractional value considered as double.
+	- When you decl the variable, java demands for the init. of variables, otherwise it will generate the
+	  error message, 
+				"variable xxx might not have been initialized"
+
+	- When the value of variable having higher type is assigned to variable of lower type, then it will
+	  generate the error message
+
+		e.g.
+			a=c;	gives the following error, when a is byte variable and c is int variable
+
+			"possible lossy conversion from int to byte" 
+		 
+		In such case, where you want to convert the value from higther type to lower type, go for
+		the type casting;
+
+			i.e.	a=(byte)c;
+
+		Note carefully that, lower type to higher type promoted automatically.
+
+	- The long costant is represented using 'l' or 'L' as a prefix and for the float 'f' or 'F' is used.
+
+	- Java allows you to decl. the variables anywhere in the program, just decl before using it.
+
+
+	* What is difference between C,C++ data types and java data types?
+	* Why java character needs 2 bytes?
+	* Which are different higher level anguages used to code in java.
+
+class Values
+{
+	public static void main(String []args)
+	{
+		int x=10;
+		byte b=(byte)x;
+		short s=(short)x;
+		long l=25;
+		System.out.println("\n x="+x+"\t b="+b+"\t s="+s+"\t l="+l);
+
+		float f1=45.23F;
+		double d1=f1;
+		System.out.println("\n f1="+f1+"\t d1="+d1);
+
+		float f2=(float)d1;
+		System.out.println("\n f2="+f2);
+	}
+
+}
+
+	----------- Execution Attempts ----------
+
+D:\jdyp>javac Values.java
+Values.java:6: error: incompatible types: possible lossy conversion from int to byte
+                byte b=x;
+                       ^
+Values.java:7: error: incompatible types: possible lossy conversion from int to short
+                short s=x;
+                        ^
+Values.java:11: error: incompatible types: possible lossy conversion from double to float
+                float f1=45.23;
+                         ^
+Values.java:15: error: incompatible types: possible lossy conversion from double to float
+                float f2=d1;
+                         ^
+4 errors
+
+// after changing 
+
+D:\jdyp>javac Values.java
+
+D:\jdyp>java Values
+
+ x=10    b=10    s=10    l=25
+
+ f1=45.23        d1=45.22999954223633
+
+ f2=45.23
+
+
+	* What is widening conversion and narrowing conversion?
+
+	In Java, widening conversion and narrowing conversion are two types of type conversions that occur when a value of one 
+	data type is converted to another. These conversions happen in the context of primitive data types and determine whether 
+	data is safely transformed or if precision might be lost.
+
+	- Widening Conversion (Implicit Conversion): Converting a smaller (or less precise) data type to a larger (or more precise) 
+	  data type. This is done automatically by the Java compiler because there’s no risk of data loss.
+
+	- Narrowing Conversion (Explicit Conversion): Converting a larger (or more precise) data type to a smaller (or less precise) 
+	  data type. This is not done automatically because there’s a risk of data loss or truncation.
+
+
+//----------------------------------------------------------------------------------------------------------------------
+
+	// Different ways of Data Input in Java
+
+ 1. Data Input by direct init
+
+class InputUsinginit
+{
+	public static void main(String []args)
+	{
+		int x=134;	
+		byte b=10;	
+		char ch='$';	
+		double db=56.2323;
+		float ft=3.4F;
+		boolean b=true;
+
+		System.out.println("x="+x);		
+		System.out.println("b="+b);
+		System.out.println("value of ch is "+ch);
+		System.out.println("db is"+db);
+		System.out.println("float value "+ft);
+		System.out.println("boolean value "+b);
+	}
+}
+
+//----------------------------------------------------------------------------------------
+
+ 2. Data Input as a commandline argument
+
+class DataInputCmdln
+{
+	public static void main(String []args)
+	{
+		String s1="-",s2="-";
+
+		s1=args[0];
+		s2=args[1];
+
+		System.out.printn("String s1 is: "+s1);
+		System.out.printn("String s2 is: "+s2);
+	}
+}
+output:
+
+E:\javapfsdn23>javac DataInputCmdln.java
+
+E:\javapfsdn23>java DataInputCmdln hello all
+String s1 is: hello
+String s2 is: all
+
+E:\javapfsdn23>java DataInputCmdln hello
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: Index 1 out of bounds for length 1
+        at DataInputCmdln.main(DataInputCmdln.java:8)
+
+E:\javapfsdn23>java DataInputCmdln
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: Index 0 out of bounds for length 0
+        at DataInputCmdln.main(DataInputCmdln.java:7)
+
+
+How to deal with such runtime errors called exception, which are generated when we will try to 
+access the location which is not present.
+
+
+class DataInputCmdln
+{
+	public static void main(String []args)
+	{
+		String s1="-",s2="-";
+
+		try
+		{
+			s1=args[0];
+			s2=args[1];
+		}
+		catch(Exception e){}
+
+		System.out.println("String s1 is: "+s1);
+		System.out.println("String s2 is: "+s2);
+	}
+}
+
+output:
+
+E:\javapfsdn23>javac DataInputCmdln.java
+
+E:\javapfsdn23>java DataInputCmdln hello all
+String s1 is: hello
+String s2 is: all
+
+E:\javapfsdn23>java DataInputCmdln hello
+String s1 is: hello
+String s2 is: -
+
+E:\javapfsdn23>java DataInputCmdln
+String s1 is: -
+String s2 is: -
+
+
+//----------------------------------------------------------------------------------------------------
+
+We know the input is in form of strings and is is true even when we try to pass numeric 
+values coz they are automatically converted into strings, then how to input the numeric values
+
+class DataInputCmdln
+{
+	public static void main(String []args)
+	{
+		int x=args[0];
+		double y=args[1];
+
+		System.out.println("x is: "+x);
+		System.out.println("y is: "+y);
+	}
+}
+
+on compile 
+
+
+E:\javapfsdn23>javac DataInputCmdlnNumeric.java
+DataInputCmdlnNumeric.java:6: error: incompatible types: String cannot be converted to int
+                int x=args[0];
+                          ^
+DataInputCmdlnNumeric.java:7: error: incompatible types: String cannot be converted to double
+                double y=args[1];
+                             ^
+2 errors
+
+can be eliminated using ...
+class DataInputCmdlnNumeric
+{
+	public static void main(String []args)
+	{
+		String x=args[0]; // "12"--> 12
+		String y=args[1];
+
+		System.out.println("x is: "+x);
+		System.out.println("y is: "+y);
+		System.out.println("Sum is: "+(x+y));
+	}
+}
+
+will gives....!! 
+D:\jdyp>javac DataInputCmdlnNumeric.java
+
+D:\jdyp>java DataInputCmdlnNumeric 12 34
+x is: 12
+y is: 34
+Sum is: 1234
+
+To get correct output...
+we have to convert the arguments in args(which are always Strings). into the required primitive
+data type. And for that we have use pre-defined functionality,
+
+ i.e. there are group of classes defined to represent the primitive type into equivalent 
+ object type, known as "Wrapper Classes". All such class having method
+
+	static <return_type> parse<xxxx>(String arg);
+
+ which will convert the string into curresponding primitive numeric value.	
+
+	byte --> Byte
+	short --> Short
+	int --> Integer
+	long --> Long
+	float --> Float
+	double --> Double
+
+
+class DataInputCmdlnNumeric
+{
+	public static void main(String []args)
+	{
+		int x=Integer.parseInt(args[0]); // "12"--> 12
+		double y=Double.parseDouble(args[1]);
+
+		System.out.println("x is: "+x);
+		System.out.println("y is: "+y);
+		System.out.println("Sum is: "+(x+y));
+	}
+}
+E:\javapfsdn23>javac DataInputCmdlnNumeric.java
+
+E:\javapfsdn23>java DataInputCmdlnNumeric
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: Index 0 out of bounds for length 0
+        at DataInputCmdlnNumeric.main(DataInputCmdlnNumeric.java:6)
+
+E:\javapfsdn23>java DataInputCmdlnNumeric 12 67.45
+x is: 12
+y is: 67.45
+Sum is: 79.45
+
+//-------------------------------------------------------------------------------------------
+
+	// 3. Input using java.io.InputStreamReader and java.io.BufferedReader
+
+	In this communication InputStreamReader and BufferedReader are predefined classes from java.io Package.
+	from which InputStreamReader communicates with default sterams System.in and provides the data to 
+	BufferedReader and then after processing that data converted into string by the BufferedReader using
+	methods like readLine().
+
+	* How may default stream are present in java.
+	- In Java, three default streams are provided for handling input and output. These streams are part of 
+	  the java.lang.System class and are available by default for every Java application
+
+		- System.in:  Used to read input from the standard input stream, typically the keyboard.
+		- System.out: Used to write output to the standard output stream, typically the console.
+		- System.err: Used to write output to the standard error stream, typically for logging 
+			      or error messages.
+
+ // Input different values from keyboard and just display them.
+
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+class IOUsingBI
+{
+	public static void main(String []args)
+	{
+		InputStreamReader isr = new InputStreamReader(System.in);
+		BufferedReader br = new BufferedReader(isr);
+
+		System.out.println("\n Enter the string: ");
+		String str = br.readLine();
+		
+		System.out.println("\n Enter the int value: ");
+		int x=Integer.parseInt(br.readLine());
+		
+		System.out.println("\n Enter the fractional value: ");
+		double y=Double.parseDouble(br.readLine());
+
+		System.out.println("\n Enter the short value: ");
+		Short z=Short.parseShort(br.readLine());
+
+		System.out.printn("\n str: "+str+"\n x="+x+"\n y="+y+"\n z="+z);
+	}
+}
+
+D:\jdyp>javac IOUsingBI.java
+IOUsingBI.java:12: error: unreported exception IOException; must be caught or declared to be thrown
+                String str = br.readLine();
+                                        ^
+IOUsingBI.java:15: error: unreported exception IOException; must be caught or declared to be thrown
+                int x=Integer.parseInt(br.readLine());
+                                                  ^
+IOUsingBI.java:18: error: unreported exception IOException; must be caught or declared to be thrown
+                double y=Double.parseDouble(br.readLine());
+                                                       ^
+IOUsingBI.java:21: error: unreported exception IOException; must be caught or declared to be thrown
+                Short z=Short.parseShort(br.readLine());
+                                                    ^
+4 errors
+
+	// Now we have two options to solve the problem.
+		
+	- Use try-catch block
+	- use throws clause
+
+
+ - using try-catch
+
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+class IOUsingBI
+{
+	public static void main(String []args)
+	{
+		InputStreamReader isr = new InputStreamReader(System.in);
+		BufferedReader br = new BufferedReader(isr);
+
+		try
+		{
+			System.out.println("\n Enter the string: ");
+			String str = br.readLine();
+		
+			System.out.println("\n Enter the int value: ");
+			int x=Integer.parseInt(br.readLine());
+		
+			System.out.println("\n Enter the fractional value: ");
+			double y=Double.parseDouble(br.readLine());
+
+			System.out.println("\n Enter the short value: ");
+			Short z=Short.parseShort(br.readLine());
+
+			System.out.println("\n str: "+str+"\n x="+x+"\n y="+y+"\n z="+z);
+		}
+		catch(Exception e){ }
+	}
+}
+
+ ------ Output -----------------
+
+D:\jdyp>javac IOUsingBI.java
+
+D:\jdyp>java IOUsingBI
+
+ Enter the string:
+hello
+
+ Enter the int value:
+12
+
+ Enter the fractional value:
+6.7
+
+ Enter the short value:
+34
+
+ str: hello
+ x=12
+ y=6.7
+ z=34
+
+	// Character input using java.io.InputStreamReader and java.io.BufferedReader
+	
+- use throws clause
+
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+class CharIOUsingBI
+{
+	public static void main(String []args) throws Exception
+	{
+		InputStreamReader isr = new InputStreamReader(System.in);
+		BufferedReader br = new BufferedReader(isr);
+		char ch=' ';
+		
+		System.out.println("\n Enter the character: ");
+		ch = br.readLine().charAt(0);
+		
+		System.out.println("\n character is="+ch);
+	}
+}
+
+
+//-------------------------------------------------------------------------------------------
+
+	4. Using java.util.Scanner to take the input from keyboard
+
+import java.util.Scanner;
+class InputUsingScannerObject
+{
+	public static void main(String []args)
+	{
+		Scanner sc=new Scanner(System.in);
+
+		String str="";
+		int x=0;
+		double db=0.0;
+		char ch='$';
+
+		System.out.println("Enter any String: ");
+		str=sc.nextLine();
+
+		System.out.println("Enter any int value: ");
+		x=sc.nextInt();
+
+		System.out.println("Enter any double value: ");
+		db=sc.nextDouble();
+
+		System.out.println("Enter any character: ");
+		ch=sc.next().charAt(0);
+
+		System.out.println("String str: "+str);
+		System.out.println("int value: "+x);
+		System.out.println("double value: "+db);
+		System.out.println("char value: "+ch);		
+	}
+}
+
+output:
+
+E:\javapfsdn23>javac InputUsingScannerObject.java
+
+E:\javapfsdn23>java InputUsingScannerObject
+Enter any String:
+aaaa
+Enter any int value:
+12
+Enter any double value:
+3.3
+Enter any character:
+r
+String str: aaaa
+int value: 12
+double value: 3.3
+char value: r
+
+ //-------------------------------------------------------------------------------------------------------
+
+	5. Using javax.swing.JOptionPane.showInputDialog()
+
+import javax.swing.JOptionPane;
+class InputUsingShowIpDialog
+{
+	public static void main(String []args)
+	{
+		int x=0;
+		double y=0.0;
+
+		x=Integer.parseInt(JOptionPane.showInputDialog("Enter any int value: "));	
+		y=Double.parseDouble(JOptionPane.showInputDialog("Enter any double value: "));	
+
+		System.out.println("int value: "+x);
+		System.out.println("double value: "+y);		
+	}
+}	
+
+///=========================================================================================================================
+
+// Operators in Java: Operators are used to process the data. There are following operators
+			      present in the java.
+
+			- Assignment Operators (= and short-hand operators)
+			- Unary Operators ( - ++ -- (type) )
+			- Arithmetic Operators ( + - * / % )
+			- Relational Operators ( < <= > >= == != )
+			- Logical Operators (&& || !)
+			- conditional Operator ( ? : )
+			- Bitwise Operators (& | ^ >> << >>>)
+			- special Operators (. and instanceof )
+
+
+
+
+- Assignment Operators (= and short-hand operators): will assigns constant value at its rh+, value of variable at its rh+ or
+			answer of exper at its rh+ to variable at left.
+
+		e.g.
+			int x=10;	int y=x;	int z=x+y;
+
+			shorthand expr: 	suppose,	x=x+10	can be written as x+=10;
+								x=x/10  --> x/=10
+								....
+
+class DemoAssignment
+{
+	public static void main(String []args)
+	{
+		int x=10;
+		int y=x;
+		int z=x+y;
+	
+		System.out.println("\n x="+x+"\t y="+y+"\t z="+z);
+
+		x+=100;
+		y*=2;
+		System.out.println("\n x="+x+"\t y="+y+"\t z="+z);
+
+	}
+}
+
+//-------------------------------------------------------------------------------------------------------------------
+
+- Unary Operators ( - ++ -- (type) )
+
+	- will gives oppisite value
+	++ incr by 1
+	-- decr by 1
+
+		inc/dec
+		  |
+	--------------------------
+	|			|
+     pre 		      post
+  (++x, --x)		  (x++, x--)		
+
+
+	++x  <-----> x=x+1	<------> x++
+	--x  <-----> x=x-1      <------> x--
+
+	when these operators are used in the expression, 
+
+		pre --> expr --> post
+
+	suppose x=5, and y=9
+
+		z = ++x + y-- ;
+
+	- find the basic expr
+	- operate all pre operators
+	- calc. the basic expr. with current values
+	- operator all post operators
+
+	- x becomes 6
+	- assigned 15 to z
+	-y becomes 8
+
+import java.util.Scanner;
+class DemoUnary
+{
+	public static void main(String []args)
+	{
+		int x=0;
+		int y=0;
+		int z=0;
+	
+		Scanner sc= new Scanner(System.in);
+		System.out.println("\n Enter the values of x and y: ");
+		x=sc.nextInt();
+		y=sc.nextInt();
+
+		z=-x;
+		x++;
+		--y;
+		System.out.println("\n x="+x+"\t y="+y+"\t z="+z);
+
+		z=++x+y--;
+		System.out.println("\n x="+x+"\t y="+y+"\t z="+z);
+	}
+}
+
+//------------------------------------------------------------------------
+
+
+	(type): It refers to type casting, means changing the data type of variable obly at the of calc.
+
+
+import java.util.Scanner;
+class DemoCasting
+{
+	public static void main(String []args)
+	{
+		int x=0,y=0;
+		double z=0;
+	
+		Scanner sc= new Scanner(System.in);
+		System.out.println("\n Enter the values of x and y: ");
+		x=sc.nextInt();
+		y=sc.nextInt();  // 13, 5
+
+		z=x/y;		
+		System.out.println("\n x="+x+"\t y="+y+"\t z="+z);
+
+		z=(double)x/y;		
+		System.out.println("\n x="+x+"\t y="+y+"\t z="+z);
+
+		z=x/(double)y;		
+		System.out.println("\n x="+x+"\t y="+y+"\t z="+z);
+
+		z=(double)x/(double)y;		
+		System.out.println("\n x="+x+"\t y="+y+"\t z="+z);
+
+	}
+}
+
+output: 
+E:\jprodyp>javac DemoCasting.java
+
+E:\jprodyp>java DemoCasting
+
+ Enter the values of x and y:
+13
+5
+
+ x=13    y=5     z=2.0
+
+ x=13    y=5     z=2.6
+
+ x=13    y=5     z=2.6
+
+ x=13    y=5     z=2.6
+
+//----------------------------------------------------------------------------------------
+- Arithmetic Operators ( + - * / % )
+
+	// program to calc the simple interst.
+
+import java.io.InputStreamReader;
+import java.io.BufferedReader;
+class DemoArith
+{
+	public static void main(String []args) throws Exception
+	{
+		BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+		int p=0,n=0;
+		double r=0.0,si=0.0;
+
+		System.out.println("Enter the value of p: ");
+		p=Integer.parseInt(br.readLine());
+
+		System.out.println("Enter the value of r: ");
+		r=Double.parseDouble(br.readLine());
+
+		System.out.println("Enter the value of n: ");
+		n=Integer.parseInt(br.readLine());
+	
+		si=(p*r*n)/100;
+
+		System.out.println("Simple Interst is: "+si);
+	}
+}
+
+
+	Using % and / operator
+
+	lets see simple example, we have to calculate 13/5
+
+		   2 <------------- (13/5)
+		________
+	      5 )  13
+		 - 10
+		---------
+		    3 <----------- (13%5)
+
+ lets see some examples, ovserve the result and write the conclusion
+
+	13/5=2		13%5=3
+	27/7=3		27%7=6
+	67/9=7		67%9=4
+	123/10=12	123%10=3
+	459/10=45	459%10=9
+	3857/10=385	3857%10=7
+	7/10=0		7%10=7
+
+	- Div by 10 eliminates the last digit from number.
+	  and mod by 10 gives the last digit.
+	- In N/D, when N<D then div is 0 and rem is N
+
+   // Enter any 3 digit number from keyboard and find addition of its all digits.
+  // no=285 then ans = 5+8+2 => 15
+
+import java.util.Scanner;
+class DemoDivMod
+{
+	public static void main(String []args)
+	{
+		int no=0,rem=0,tot=0;
+		Scanner sc=new Scanner(System.in);
+
+		System.out.println("\n Enter any 3 digit number: ");
+		no=sc.nextInt(); //285
+	
+		rem=no%10; //5
+		tot=tot+rem; // 0+5=5
+		no=no/10; //28
+	
+		rem=no%10; //8
+		tot=tot+rem; // 5+8=13
+		no=no/10; //2	
+
+		rem=no%10; //2
+		tot=tot+rem; // 13+2=15
+		no=no/10; //0
+
+		System.out.println("\n Total is "+tot);
+	}		
+} 
+
+Unlike C/C++, Here in java you can operate the % operator on fractional and -ve values,
+when you operate the % operator on -ve values the sign of ans is taken as the sign of N form N/D.
+class DemoMod
+{
+	public static void main(String []args)
+	{
+		int x=-13, y=5, z=-2;
+
+		System.out.println("-%+: "+(x%y));
+		System.out.println("-%-: "+(x%z));
+		System.out.println("+%-: "+(21%z));
+		System.out.println("+%+: "+(33%4));
+
+		System.out.println("+%+: "+(33.5%4));
+		System.out.println("+%+: "+(36.5%2.3));
+	}
+}
+
+//-----------------------------------------------------------------------------------------
+
+	// Relational Operators: (<, <=, >, >= ==, !=): These operators are used to find the
+		relation between two operands. It will forms the condition which is useful in the
+		conditional conditional control statements.
+
+		thw ans of condition is boolean value true when it is true and false when false.
+
+
+	suppose x=23	y=5;
+
+		x>y	----> true 	means if we write z=x>y then true assigned to z.
+
+		x!=y	----> true 
+		
+		y<1	----> false
+		
+		x%10==0 ----> false 
+
+		100%y==0 ---> true 
+
+class DemoRel
+{
+	public static void main(String []args)
+	{
+		int x=23,y=5;
+		boolean b;
+		System.out.println("\n x is: "+x+"\t y is: "+y);
+
+		b=x>y;
+		System.out.println("\n (x>y) is: "+b);
+
+		b=x!=y;
+		System.out.println("\n (x!=y) is: "+b);
+
+		b=y<1;
+		System.out.println("\n (y<1) is: "+b);
+
+		b=x%10==0;
+		System.out.println("\n (x%10==0) is: "+b);
+
+		b=100%y==0;
+		System.out.println("\n (100%y==0) is: "+b);
+		
+	}
+}
+output
+
+E:\jprodyp>javac DemoRel.java
+
+E:\jprodyp>java DemoRel
+
+ x is: 23 y is: 5
+
+ (x>y) is: true
+
+ (x!=y) is: true
+
+ (y<1) is: false
+
+ (x%10==0) is: false
+
+ (100%y==0) is: true
+
+//-----------------------------------------------------------------------------------------------
+
+	/// Logical Operator ( && || !): These operators are used to join two or more conditions
+
+		when the conditions are joind by
+
+		- && --> gives true only when both true otherwise false
+		- || --> gives false only when both false otherwise true
+		- !  --> gives
+				!(true) ---> false
+				!(false) ---> true
+				
+
+	suppose x=23	y=5;
+
+		(x>y)&&(y<100)	----> true 
+		(x>y)&&(y>100)	----> false
+
+		(x>y)||(y>100)	----> true 
+		(x<y)||(y>100)	----> false
+	
+		!(x!=y)	----> false 	
+		!(y<1)	----> true
+
+
+class DemoLogical
+{
+	public static void main(String []args)
+	{
+		int x=23,y=5;
+		boolean b;
+		System.out.println("\n x is: "+x+"\t y is: "+y);
+
+		b=(x>y)&&(y<100);
+		System.out.println("\n ((x>y)&&(y<100)) is: "+b);
+
+		b=(x>y)&&(y>100);
+		System.out.println("\n ((x>y)&&(y>100)) is: "+b);
+
+		b=(x>y)||(y>100);
+		System.out.println("\n ((x>y)||(y>100)) is: "+b);
+
+		b=(x<y)||(y>100);
+		System.out.println("\n ((x<y)||(y>100)) is: "+b);
+
+		b=!(x!=y);
+		System.out.println("\n (!(x!=y)) is: "+b);
+
+		b=!(y<1);
+		System.out.println("\n (!(y<1)) is: "+b);
+		
+	}
+}
+
+output: 
+E:\jprodyp>javac DemoLogical.java
+
+E:\jprodyp>java DemoLogical
+
+ x is: 23        y is: 5
+
+ ((x>y)&&(y<100)) is: true
+
+ ((x>y)&&(y>100)) is: false
+
+ ((x>y)||(y>100)) is: true
+
+ ((x<y)||(y>100)) is: false
+
+ (!(x!=y)) is: false
+
+ (!(y<1)) is: true
+
+///--------------------------------------------------------------------------------------
+// Conditional operator or ternary operator or if-then-else operator(?:):
+
+		This is the only operator which has decision abiity.
+	
+		syntax:
+
+			<condition> ? <options>;
+
+			<condition> ? <true_part> : <false_part> ;
+
+	// WAP to find the max from 2 nos
+
+import java.util.Scanner;
+class DemoConditionalOperator
+{
+	public static void main(String []args)
+	{
+		Scanner sc=new Scanner(System.in);
+		int x=0,y=0;
+
+		System.out.println("\n Enter any two nos: ");
+		x=sc.nextInt();
+		y=sc.nextInt();
+
+		int z = (x>y) ? x : y ;
+		System.out.println("\n Max no: "+z);
+	}
+}
+
+output:
+E:\jprodyp>javac DemoConditionalOperator.java
+
+E:\jprodyp>java DemoConditionalOperator
+
+ Enter any two nos:
+45
+78
+
+ Max no: 78
+
+E:\jprodyp>java DemoConditionalOperator
+
+ Enter any two nos:
+90
+23
+
+ Max no: 90
+
+///------- Nesting of conditional operators
+
+
+	// WAP to find the max from 3 nos
+
+import java.util.Scanner;
+class DemoConditionalOperator1
+{
+	public static void main(String []args)
+	{
+		Scanner sc=new Scanner(System.in);
+		int x=0,y=0,z=0;
+
+		System.out.println("\n Enter any three nos: ");
+		x=sc.nextInt();
+		y=sc.nextInt();
+		z=sc.nextInt();
+
+		int max = (x>y) ? (x>z?x:z) : (y>z?y:z) ;
+		System.out.println("\n Max no: "+max);
+	}
+}
+
+output:
+E:\jprodyp>javac DemoConditionalOperator1.java
+
+E:\jprodyp>java DemoConditionalOperator1
+
+ Enter any three  nos:
+11
+22
+33
+
+ Max no: 33
+
+E:\jprodyp>java DemoConditionalOperator1
+
+ Enter any three nos:
+111
+22
+33
+
+ Max no: 111
+
+E:\jprodyp>java DemoConditionalOperator1
+
+ Enter any three nos:
+11
+222
+33
+
+ Max no: 222
+
+//-----------------------------------------------------------------------------------------------------------
+
+
+//-----------------------------------------------------------------------------------------------------------------------
+
+   	/// Bitwise Operator: [ & | ^ >> << >>> ]
+ 
+    These operators are used in the bit level operations.
+
+        & ==> 1 & 1 -> 1 otherwise 0
+        | ==> 0 | 0 -> 0 otherwise 1
+
+              0^0
+        ^ -->     ==> 0 otherwise 1
+              1^1
+
+    suppose x=10       y=12
+
+        (0000 1010)     (0000 1100)
+
+    (x&y)       (x|y)       (x^y)
+
+    1010        1010        1010
+   &1100       |1100       ^1100
+  ========    ========     =======
+    1000        1110        0110
+    (8)          (14)        (6)
+
+
+    x=10 (0000 1010)     y=12  (0000 1100)
+
+     z=x<<2              z=y>>2
+       (0010 1000)       (0000 0011)
+       ==>40            ==> 3
+
+
+class DemoBitwise
+{
+	public static void main(String []args)
+	{
+		int x=10,y=12;
+		System.out.println("\n (x&y) is"+ (x&y) );
+
+		System.out.println("\n (x|y) is"+ (x|y) );
+
+		System.out.println("\n (x^y) is"+ (x^y) );
+
+		System.out.println("\n (x<<2) is"+ (x<<2) );
+
+		System.out.println("\n (y>>2) is"+ (y>>2) );
+		
+	}
+}
+
+//---------------------------------------------------------------------------------------------------------------------------------
+
+	Associativity and precedence are fundamental concepts in programming that determine how operators 
+	are evaluated in expressions.
+
+	Precedence: Precedence refers to the order in which operators are evaluated when multiple operators 
+		    are present in an expression. Operators with higher precedence are evaluated first.
+
+	Associativity: Associativity defines the order in which operators with the same precedence are 
+		       evaluated. There are two types of associativity:
+
+			1. Left-to-Right (LTR): Operators are evaluated from left to right.
+			2. Right-to-Left (RTL): Operators are evaluated from right to left.
+
+Java Operator Precedence and Associativity Table:
+
+Here's a summary of Java operators, their precedence, and associativity:
+
+| Operator        		| Precedence 	| Associativity |
+| ---             		| ---       	| ---          	|
+| Postfix ([])    		| 1         	| LTR         	|
+| Unary (+, -, !) 		| 2         	| RTL          	|
+| Multiplicative (*, /, %) 	| 3 		| LTR          	|
+| Additive (+, -) 		| 4         	| LTR          	|
+| Shift (<<, >>, >>>) 		| 5 		| LTR       	|
+| Relational (<, >, <=, >=) 	| 6 		| LTR          	|
+| Equality (==, !=) 		| 7 		| LTR          	|
+| Bitwise AND (&) 		| 8         	| LTR          	|
+| Bitwise XOR (^) 		| 9         	| LTR          	|
+| Bitwise OR (|)  		| 10        	| LTR          	|
+| Logical AND (&&) 		| 11 		| LTR          	|
+| Logical OR (||) 		| 12        	| LTR          	|
+| Ternary (? :)  		| 13        	| RTL         	|
+| Assignment (=, +=, -=, ...) 	| 14 		| RTL          	|
+
+Examples:
+
+1. Expression: 2 + 3 * 4
+
+Precedence: Multiplication (*) has higher precedence than addition (+).
+Evaluation: 2 + (3 * 4) = 2 + 12 = 14
+
+1. Expression: 5 - 3 + 2
+
+Precedence: Subtraction (-) and addition (+) have the same precedence.
+Associativity: Left-to-Right.
+Evaluation: (5 - 3) + 2 = 2 + 2 = 4
+
+1. Expression: true && false || true
+
+Precedence: Logical AND (&&) has higher precedence than Logical OR (||).
+Associativity: Left-to-Right.
+Evaluation: (true && false) || true = false || true = true
+
+1. Expression: x = 5 + 3
+
+Precedence: Addition (+) has higher precedence than assignment (=).
+Associativity: Right-to-Left.
+Evaluation: x = (5 + 3) = x = 8
+
+//---------------------------------------------------------------------------------------------------------------------------------
+
+// Control Statements in Java: 
+
+
+				Control Statements
+					|
+			-------------------------------------
+			|				    |
+		   Conditional				Un-Conditional
+			|					|
+	------------------------------	        ---------------------------------
+	|		|	    |		|	|		|	|
+      Decision	      Loop	  case	       break   continue     lbl.break	return
+	|		|	    |				    and 
+	|- if()		|- for()   switch			    lbl. continue	
+	|- if() else	|- while()
+	|- nesting	|- do..while()
+	|- ladder
+
+
+//  Decision Conditional Control statment: 
+
+	
+	// Using if(): used to decide, execute the block of code or not. That block is mentioned in the program as
+
+			syntax:
+				if(<condi>)
+				{
+					-------------;
+					-------------;
+					block of code;
+					-------------;
+					-------------;
+				}
+				
+	- Block of code will be executed only when the condition is true otherwise it will be skipped
+
+import java.io.InputStreamReader;
+import java.io.BufferedReader;
+class DemoIf
+{
+	public static void main(String []args)
+	{
+		InputStreamReader isr=new InputStreamReader(System.in);
+		BufferedReader br=new BufferedReader(isr);
+
+		int a=0;
+		try
+		{
+			System.out.println("Enter the value of a: ");
+			a=Integer.parseInt(br.readLine());
+		}
+		catch(Exception e){}		
+
+		if(a%7==0)
+		{
+			System.out.println("Entered no is div by 7 ");
+		}
+		if(a%7!=0)
+		{
+			System.out.println("Entered no is not div by 7 ");
+		}
+	}
+}
+
+//-----------------------------------------------------------------------------------
+
+
+	// Using if() else: It is used when you want to execute any one code block from two different blocks
+	//		    according to condition.
+
+
+		syntax:
+			if(<condi>)
+			{
+				-----------------;
+				---------------;
+				----------------;
+			}
+			else 
+			{
+				-----------------;
+				---------------;
+				----------------;
+			}
+
+		when <condi> is  TRUE --> will execute the if() block only
+				 FALSE -> will execute the else block only
+
+import java.io.InputStreamReader;
+import java.io.BufferedReader;
+class DemoIfElse
+{
+	public static void main(String []args)
+	{
+		InputStreamReader isr=new InputStreamReader(System.in);
+		BufferedReader br=new BufferedReader(isr);
+
+		int a=0;
+		try
+		{
+			System.out.println("Enter the value of a: ");
+			a=Integer.parseInt(br.readLine());
+		}
+		catch(Exception e){}		
+
+		if(a%7==0)
+		{
+			System.out.println("Entered no is div by 7 ");
+		}
+		else
+		{
+			System.out.println("Entered no is not div by 7 ");
+		}
+	}
+}
+
+
+	// 	Using Nesting of if() else:
+
+			Nesting refers to using one control statment in to same or another control statement
+
+
+	some combinations:
+
+
+		if()				if()				if()			if()
+		{				{				{			{
+			if()				if()			}				if()
+			{				{			else				{
+			}				}			{				}
+		}					else				if()		}
+							{				{		else
+							}				}		{
+						}				}				if()
+														{
+														}
+													}
+
+
+		
+		if()					if()
+		{					{
+			if()					if()	
+			{					{
+			}					}
+		}						else
+		else						{
+		{						}
+			if()				}
+			{				else
+			}				{
+			else					if()
+			{					{
+			}					}
+		}						else
+								{
+								}
+							}
+
+
+class DemoIfElseNesting
+{
+	public static void main(String []args)
+	{
+		int a=Integer.parseInt(args[0]);
+		int b=Integer.parseInt(args[1]);
+		int c=Integer.parseInt(args[2]);
+
+		if(a>b)
+		{
+			if(a>c)
+			{
+				System.out.println("\n a is max");
+			}
+			else
+			{
+				System.out.println("\n c is max");
+			}
+		}	
+		else
+		{
+			if(b>c)
+			{
+				System.out.println("\n b is max");
+			}
+			else
+			{
+				System.out.println("\n c is max");
+			}
+		}
+	}
+}
+
+//---------------------------------------------------------------------------------------------------------------------
+
+
+	// Using if() else Ladder
+
+	syntax:
+
+		if(<>)
+		{
+			---------;
+			---------;
+		}
+		else if(<>)
+		{
+			---------;
+			---------;
+		}
+		else if(<>)
+		{
+			---------;
+			---------;
+		}
+		else if(<>)
+		{
+			---------;
+			---------;
+		}
+		[<else>]
+		{
+			---------;
+			---------;
+		}
+
+
+	// Enter the co-ordinates of point in 2D system, and display the exact location of that point.
+
+
+			       y axis
+                                ^
+                       II QD    |   I QD
+                                |
+                        -+      |   ++
+                                |
+                  <-------------|------------> x axis
+                                |(0,0)
+                                |
+                        --      |   +-
+                                |
+                    III QD      V     IV QD
+
+
+
+                There are 7 different possibilities.
+
+import java.util.Scanner;
+class DemoIfElseLadder
+{
+	public static void main(String []args)
+	{
+    		int x=0,y=0;
+		Scanner sc=new Scanner(System.in);
+
+    		System.out.println("\n Enter the x cord: ");
+    		x=sc.nextInt();
+    		System.out.println("\n Enter the y cord: ");
+    		y=sc.nextInt();
+
+    		if(x>0&&y>0)
+    		{
+        		System.out.println("\n Point present in I st qd");
+    		}
+    		else if(x<0&&y>0)
+    		{
+        		System.out.println("\n point present in II nd qd");
+    		}
+    		else if(x<0&&y<0)
+    		{
+        		System.out.println("\n Point is present in 3 rd qd");
+    		}
+    		else if(x>0&&y<0)
+    		{
+        		System.out.println("\n Point is present in 4 th qd");
+    		}
+    		else if(x!=0&&y==0)
+    		{
+        		System.out.println("\n Point is present on x axis");
+    		}
+    		else if(x==0&&y!=0)
+    		{
+        		System.out.println("\n Point is present on y axis");
+    		}
+    		else 
+    		{
+        		System.out.println("\n Point present at org");
+    		}
+	}
+}
+
+
+------------------------------------------------------------------------------------------------------------------------------------
+
+		// Using the Loops in Java: Loops are used to avoid the continue repitition of code in the program.
+					 There are three different loops in C.
+
+				1. For() loop		2. While() loop		3. do..While() loop
+
+
+
+	1. For() loop:
+
+		syntax:	
+				
+			for( [<init>] ; <condi> ; [<inc/dec/stat/expr>] )					
+			{									
+				--------------;							   
+				--------------;						
+				--------------;							 
+				--------------;							
+				--------------;				
+			}
+		
+
+
+import javax.swing.JOptionPane;
+class DemoFor
+{
+	public static void main(String []args)
+	{
+		int no=Integer.parseInt(JOptionPane.showInputDialog("Enterany number:"));
+	
+		int t=0,tot=0;
+		for(t=no;no!=0;no=no/10)
+		{
+			tot=tot+(no%10); 
+		}
+		System.out.println("\n Addition of all digits from "+t+" is "+tot");
+	}
+}
+
+                ///-------------------------------------------------------------------------------------------------------------------------
+
+	//  Using while loop: 
+
+		Again the aim is same i.e. used to avoid the code rep.
+
+		syntax:
+			while(<cond>)
+			{
+				----------------;
+				----------------;
+				----------------;
+				----------------;
+				****************;
+			}
+
+			- It will execute the body of loop, till the condition is true.
+
+			- <init> block is absent in while() but you have init. the iterator before starting of loop.
+
+			- <inc/dec> block is absent, but you have to add atleast one statement which will make the <cond> false
+			  after some iterations. otherwise it will attend the infinite looping
+
+
+	/// WAP to display 1 to 15 nos using while loop
+
+class DemoWhile
+{
+	public static void main(String []args)
+	{
+		int i;
+
+		i=1;
+		while(i<=15)
+		{
+			System.out.println(" "+i);
+			i++;
+		}
+	}
+}
+
+//-------------------------------------------------------------------------------------------
+	/// WAP to display list of odd nos from 1 to 50 using while loop.
+
+class DemoWhile
+{
+	public static void main(String []args)
+	{
+		int i;
+
+		i=1;
+		while(i<=50)
+		{
+			if(i%2!=0)
+			{
+				System.out.println(" "+i);
+			}
+			i++;
+		}
+	}
+}
+
+//--------------------------------------------------------------------------
+
+
+	// WAP to find the entered number is prime
+
+import java.util.*;
+class DemoWhile
+{
+	public static void main(String []args)
+	{
+		Scanner sc=new Scanner(System.in);
+
+		System.out.println("\n Enter any no: ");
+		int no=sc.nextInt();
+		int d=2;
+		int flg=0;
+		while(d<=(no/2))
+		{
+			if(no%d==0)
+			{
+				flg=1;
+				break;
+			}
+			d++;
+		}
+		if(flg==0)
+		{
+			System.out.println("\n Entered no is prime ");
+		}
+		else
+		{
+			System.out.println("\n Entered no is not prime ");
+		}
+	}
+}
+
+//-----------------------------------------------------------------------------------------
+
+	/// using  do while()
+
+	syntax:
+
+	do
+	{
+		----------;
+		----------;
+		----------;
+		----------;
+		----------;
+	}while(<cond>);
+
+// Display list of prime nos from given range 
+
+import java.util.*;
+class DemoWhile
+{
+	public static void main(String []args)
+	{
+		Scanner sc=new Scanner(System.in);
+
+		System.out.println("\n Enter the range starts from: ");
+		int n1=sc.nextInt();
+		System.out.println("\n Enter the range ends to: ");
+		int n2=sc.nextInt();
+
+		int d=2,flg=0;
+		System.out.println("\n List of prime nos: ");
+		for(no=n1;no<=n2;no++)
+		{
+			d=2;
+			flg=0;
+			while(d<=(no/2))
+			{
+				if(no%d==0)
+				{
+					flg=1;
+					break;
+				}
+				d++;
+			}
+			if(flg==0)
+				System.out.println("  "+no);
+		}
+	}
+
+//------------------------------------------------------------------------------------------------------------------------------
+	
+	// WAP to display *
+
+class StarPattern
+{
+	public static void main(String []args)
+	{
+		System.out.print("*")
+	}
+}
+
+
+class StarPattern
+{
+	public static void main(String []args)
+	{
+		System.out.print("*");
+	}
+}
+
+//-----------------------------------------------------
+
+	WAP to print 
+	*****
+
+class StarPattern
+{
+	public static void main(String []args)
+	{
+		int j=0;
+		for(j=0;j<5;j++)
+		{
+			System.out.print("*");
+		}
+	}
+}
+
+
+
+//-----------------------------------------------------
+
+	WAP to print 
+	*****
+	*****
+	*****
+	*****
+	*****
+
+class StarPattern
+{
+	public static void main(String []args)
+	{
+		int i, j=0;
+		for(i=0;i<5;i++)
+		{
+			for(j=0;j<5;j++)
+			{
+				System.out.print("*");
+			}
+			System.out.print("\n");
+		}
+	}
+}
+
+//-----------------------------------------------------
+
+	WAP to print 
+           j
+        01234 
+	*****  i=0
+	*   *  i=1
+	*   *  i=2
+	*   *  i=3
+	*****  i=4
+
+class StarPattern
+{
+	public static void main(String []args)
+	{
+		int i, j=0;
+		for(i=0;i<5;i++) // No of lines
+		{
+			for(j=0;j<5;j++) // no of cols
+			{
+				if(i==0 || i==4)
+				{
+					System.out.print("*");
+				}
+				else if(j==0 || j==4)
+				{
+					System.out.print("*");
+				}
+				else
+				{
+					System.out.print(" ");
+				}
+			}
+			System.out.print("\n");
+		}
+	}
+}
+
+//-------------------------------------------------------------------------------------
+
+	WAP to print 
+	* 
+	** 
+	*** 
+	**** 
+	*****
+
+
+class StarPattern
+{
+	public static void main(String []args)
+	{
+		int i, j=0;
+
+		for(i=0;i<5;i++)
+		{
+			for(j=0;j<5;j++)
+			{
+				if(j<=i)
+				{
+					System.out.print("*");	
+				}			
+			}
+			System.out.print("\n");
+		}
+	}
+}
+
+
+
+//-----------------------------------------------------
+
+	WAP to print 
+	*****
+	**** 
+	*** 
+	** 
+	* 
+
+class StarPattern
+{
+	public static void main(String []args)
+	{
+		int i, j=0;
+
+		for(i=0;i<5;i++)
+		{
+			for(j=0;j<5;j++)
+			{
+				if(j<(5-i))
+				{
+					System.out.print("*");	
+				}			
+			}
+			System.out.print("\n");
+		}
+	}
+}
+
+//---------------------------------------------------------------------
+
+		*
+	       ***
+	      *****
+	     *******
+	    *********
+           *********** 	
+
+class StarPattern
+{
+	public static void main(String []args)
+	{
+		int i, j=0;
+		for(i=0;i<6;i++)
+		{
+			for(j=0;j<(6+i);j++)
+			{
+				if(j<(5-i))
+				{
+					System.out.print(" ");	
+				}
+				else
+				{
+					System.out.print("*");
+				}
+			}
+			System.out.print("\n");
+		}
+	}
+}
+
+//-------------------------------------------------------------------------
+ 
+     1
+    222
+   33333
+  4444444
+ 555555555
+66666666666
+
+class StarPattern
+{
+	public static void main(String []args)
+	{
+		int i, j=0;
+		for(i=0;i<6;i++)
+		{
+			for(j=0;j<(6+i);j++)
+			{
+				if(j<(5-i))
+				{
+					System.out.print(" ");	
+				}
+				else
+				{
+					System.out.print(i+1);
+				}
+			}
+			System.out.print("\n");
+		}
+	}
+}
+
+//---------------------------------------------------------------------------------
+
+
+     A
+    ABC
+   ABCDE
+  ABCDEFG
+ ABCDEFGHI
+ABCDEFGHIJK
+
+class StarPattern
+{
+	public static void main(String []args)
+	{
+		int i, j=0;
+		char ch;
+		for(i=0;i<6;i++)
+		{
+			ch='A';
+			for(j=0;j<(6+i);j++)
+			{
+				if(j<(5-i))
+				{
+					System.out.print(" ");	
+				}
+				else
+				{
+					System.out.print(ch);
+					ch++;
+				}
+			}
+			System.out.print("\n");
+		}
+	}
+}
+
+//----------------------------------------------------------------------------------------
+
+switch(): It is used in the menu driven programming.
+
+	syntax:
+		
+		switch(<opt>)
+		{
+			case <CC>:
+				---------;
+				---------;
+				break;
+			case <CC>:
+				---------;
+				---------;
+				break;
+			case <CC>:
+				---------;
+				---------;
+				break;
+			case <CC>:
+				---------;
+				---------;
+				break;
+			[<default>]:
+				-----------;
+				----------;
+		}
+		------------------;
+
+
+	The switch case is used when there are more possibilities, and from which we have to 
+	choose any one according to users choice.
+
+
+import java.util.Scanner;
+class DemoSwitch
+{
+	public static void main(String []args)
+	{
+		Scanner sc=new Scanner(System.in);
+		int opt=0;
+		double a=0.0, b=0.0, ans=0.0;
+
+		System.out.println("\n*** Menu ****");
+		System.out.println("1.add \n 2.sub \n 3.multi \n 4.div ");
+		System.out.println("select your option: ");
+		opt=sc.nextInt();
+
+		System.out.println("Enter any two nos: ");
+		a=sc.nextDouble();
+		b=sc.nextDouble();
+		
+		switch(opt)
+		{
+			case 1:
+				ans=a+b;
+				break;
+			case 2:
+				ans=a-b;
+				break;
+			case 3:
+				ans=a*b;
+				break;
+			case 4:
+				ans=a/b;
+				break;
+			default:
+				System.out.println("\n Incorrect Option");			
+		}	
+		System.out.println("\n Ans is: "+ans);					
+	}
+}
+
+//--------------------------------------------------------------------------------------
+
+	// Using the character as a option (both lcase and ucase for a single case)
+
+import java.util.Scanner;
+class DemoSwitch
+{
+	public static void main(String []args)
+	{
+		Scanner sc=new Scanner(System.in);
+		char opt=0;
+		double a=0.0, b=0.0, ans=0.0;
+
+		System.out.println("\n*** Menu ****");
+		System.out.println(" a.add \n b.sub \n c.multi \n d.div ");
+		System.out.println("select your option: ");
+		opt=sc.nextLine().charAt(0);
+
+		System.out.println("Enter any two nos: ");
+		a=sc.nextDouble();
+		b=sc.nextDouble();
+		
+		switch(opt)
+		{
+			case 'A':
+			case 'a':
+				ans=a+b;
+				break;
+			case 'B':
+			case 'b':
+				ans=a-b;
+				break;
+			case 'C':
+			case 'c':
+				ans=a*b;
+				break;
+			case 'D':
+			case 'd':
+				ans=a/b;
+				break;
+			default:
+				System.out.println("\n Incorrect Option");			
+		}	
+		System.out.println("\n Ans is: "+ans);					
+	}
+}
+//-------------------------------------------------------------------------------------------
+
+import java.util.Scanner;
+class DemoSwitch
+{
+	public static void main(String []args)
+	{
+		Scanner sc=new Scanner(System.in);
+		int i=0, opt=0;
+		double a=0.0, b=0.0, ans=0.0;
+
+		while(i<3)
+		{
+			i++;
+			System.out.println("\n*** Menu ****");
+			System.out.println("1.add \n 2.sub \n 3.multi \n 4.div ");
+			System.out.println("select your option: ");
+			opt=sc.nextInt();
+
+			System.out.println("Enter any two nos: ");
+			a=sc.nextDouble();
+			b=sc.nextDouble();
+		
+			switch(opt)
+			{
+				case 1:
+					ans=a+b;
+					break;
+				case 2:
+					ans=a-b;
+					break;
+				case 3:
+					ans=a*b;
+					break;
+				case 4:
+					ans=a/b;
+					break;
+				default:
+					System.out.println("\n Incorrect Option");			
+			}	
+			System.out.println("\n Ans is: "+ans);					
+		}
+	}
+}
+//-------------------------------------------------------------------------------------------
+
+	// Using the switch within infinite loop (Termination using break)
+
+import java.util.Scanner;
+class DemoSwitch
+{
+	public static void main(String []args)
+	{
+		Scanner sc=new Scanner(System.in);
+		int opt=0;
+		double a=0.0, b=0.0, ans=0.0;
+
+		while(true)
+		{
+			System.out.println("\n*** Menu ****");
+			System.out.println("1.add \n 2.sub \n 3.multi \n 4.div \n 5.stop");
+			System.out.println("select your option: ");
+			opt=sc.nextInt();
+
+			if(opt==5)
+				break;
+
+			System.out.println("Enter any two nos: ");
+			a=sc.nextDouble();
+			b=sc.nextDouble();
+		
+			switch(opt)
+			{
+				case 1:
+					ans=a+b;
+					break;
+				case 2:
+					ans=a-b;
+					break;
+				case 3:
+					ans=a*b;
+					break;
+				case 4:
+					ans=a/b;
+					break;
+				default:
+					System.out.println("\n Incorrect Option");			
+			}	
+			System.out.println("\n Ans is: "+ans);					
+		}
+	}
+}
+
+
+
+//-------------------------------------------------------------------------------------------
+
+	// Using the switch within infinite loop (Termination using System.exit(0) )
+
+import java.util.Scanner;
+class DemoSwitch
+{
+	public static void main(String []args)
+	{
+		Scanner sc=new Scanner(System.in);
+		int opt=0;
+		double a=0.0, b=0.0, ans=0.0;
+
+		while(true)
+		{
+			System.out.println("\n*** Menu ****");
+			System.out.println("1.add \n 2.sub \n 3.multi \n 4.div \n 5.stop");
+			System.out.println("select your option: ");
+			opt=sc.nextInt();
+			System.out.println("Enter any two nos: ");
+			a=sc.nextDouble();
+			b=sc.nextDouble();
+		
+			switch(opt)
+			{
+				case 1:
+					ans=a+b;
+					break;
+				case 2:
+					ans=a-b;
+					break;
+				case 3:
+					ans=a*b;
+					break;
+				case 4:
+					ans=a/b;
+					break;
+				case 5:
+					System.exit(0);
+				default:
+					System.out.println("\n Incorrect Option");			
+			}	
+			System.out.println("\n Ans is: "+ans);					
+		}
+	}
+}
+//---------------------------------------------------------------------------------------
+
+	// We can use string as a case constant.
+import java.util.Scanner;
+class DemoSwitchStr
+{
+	public static void main(String []args)
+	{
+		Scanner sc=new Scanner(System.in);
+		
+		double a=0.0, b=0.0, ans=0.0;
+
+		System.out.println("\n*** Menu ****");
+		System.out.println("add \n sub \n multi \n div ");
+		System.out.println("select your option: ");
+		String opt=sc.nextLine();
+
+		System.out.println("Enter any two nos: ");
+		a=sc.nextDouble();
+		b=sc.nextDouble();
+		
+		switch(opt)
+		{
+			case "add":
+				ans=a+b;
+				break;
+			case "sub":
+				ans=a-b;
+				break;
+			case "multi":
+				ans=a*b;
+				break;
+			case "div":
+				ans=a/b;
+				break;
+			default:
+				System.out.println("\n Incorrect Option");			
+		}	
+		System.out.println("\n Ans is: "+ans);					
+	}
+}
+//---------------------------------------------------------------------------------------
+
+	Unconditional control statements: The control statement does not need any condition.
+
+	NOTE: In Java goto is not present.
+
+	- using the continue: It will keep the enclosing loop in the running condition without
+			      considering the remaining body of loop.
+
+class DemoContinue
+{
+	public static void main(String []args)
+	{
+		int i,j;
+
+		for(i=0;i<10;i++)
+		{
+			System.out.print("-");
+			for(j=0;j<10;j++)
+			{
+				if(j>i)
+				{
+					continue;
+				}
+				System.out.print("*");
+			}
+			System.out.println();
+		}
+	}
+}
+
+//-----------------------------------------------------------------------
+
+			  
+		// Using Labelled Continue: It will keep loop in running condition, not only
+					   enclosing, but outer loops using label(tag)
+
+class DemoLabelledContinue
+{
+	public static void main(String []args)
+	{
+		int i,j;
+
+		outer:for(i=0;i<10;i++)
+		{			
+			System.out.print("-");
+			for(j=0;j<10;j++)
+			{
+				if(i>5)
+				{
+					continue outer;
+				}
+				if(j>i)
+				{
+					continue;
+				}
+				System.out.print("*");
+			}
+			System.out.println();
+		}
+	}
+}		
+
+
+//-----------------------------------------------------------------------
+
+// Using the break ans labelled break
+
+
+class DemoBreak
+{
+	public static void main(String []args)
+	{
+		int i,j;
+
+		for(i=0;i<10;i++)
+		{
+			System.out.print("-");
+			for(j=0;j<10;j++)
+			{
+				if(j>i)
+				{
+					break;
+				}
+				System.out.print(""+j);
+			}
+			System.out.println();
+		}
+	}
+}
+
+//----------------------------------------------------------------------------------------------
+
+class DemoLabelledBreak
+{
+	public static void main(String []args)
+	{
+		int i,j;
+
+		outer:for(i=0;i<10;i++)
+		{
+			System.out.print("-");
+			for(j=0;j<10;j++)
+			{
+				if(i>5)
+				{
+					break outer;
+				}
+				if(j>i)
+				{
+					break;
+				}
+				System.out.print(""+j);
+			}
+			System.out.println();
+		}
+	}
+}	
+
+
+//---------------------------------------------------------------------------------------
+
+	// Using return: pass back the value from called method to calling function method.
+
+//===============================================================================================
+//===============================================================================================
+//===============================================================================================
+//===============================================================================================
+
+	// Array in Java
+
+	It is ordered collection of indexed elements having same data type which are
+	conti. arranged in the memory.
+
+	Decl. Syntax:
+	
+		<data_type> <arr_nm>[];		<data_type> []<arr_nm>;	
+
+		e.g.
+		int ar[];			int []ar;
+
+	* Note 
+		- In this decl, <element_count> is absent.
+		- Above decl. creates the reference only.(same as pointer variable in C)
+
+		In above both cases,
+
+		ar
+		 [  ]
+
+
+	To allocate the memnory we need to use new keyword as..
+
+		- Syntax
+			<data_type> []<arr_nm> = new <data_type>[<size>];
+
+			e.g.
+				int []ar = new int[5];
+
+			ar
+			[   ] ----------------> [] [] [] [] []
+
+	* Note that, Here in java array gains the dynamic memory space(like pointer in C), and
+	  new keyword used to allocate the memory for it.
+
+	// Init of array in java
+
+	It is simple and same as we have seen in the C-C++, except [] does not contains the SIZE.
+
+	e.g.
+		int []x = {12,45,83,42,39};
+
+		x            0    1    2    3    4 
+		[ ] ------> [12] [45] [83] [42] [39]
+
+	// WAP to init and display the array.
+
+class InitArray
+{
+	public static void main(String []args)
+	{
+		int []x = {12,45,83,42,39,78};
+
+		System.out.println("\n1. Array elements are: ");
+		for(int i=0 ; i<6 ; i++)
+		{
+			System.out.print("   "+x[i]);
+		}
+
+		System.out.println("\n2. Array elements are: ");
+		for(int i=0 ; i<x.length ; i++)
+		{
+			System.out.print("   "+x[i]);
+		}
+
+		// using for-each loop
+		System.out.println("\n3. Array elements are: ");
+		for(int val : x)
+		{
+			System.out.print("   "+val);
+		}
+	}
+}
+
+//-----------------------------------------------------------------------------------
+
+	Array input and display - using BufferedReader and InputStreamReader
+
+import java.io.*;
+class ArrayIOBI
+{
+	public static void main(String []args) throws Exception
+	{
+		int []ar = new int[5];
+
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
+		System.out.println("\n Enter array: ");
+		for(int i=0 ; i<5 ; i++)
+		{
+			ar[i]=Integer.parseInt(br.readLine());
+		}
+
+		System.out.println("\n1. Array elements are: ");
+		for(int i=0 ; i<ar.length ; i++)
+		{
+			System.out.print("   "+ar[i]);
+		}
+	}
+}
+
+//-----------------------------------------------------------------------------------
+
+	Array input and display - using Scanner
+
+import java.util.Scanner;
+class ArrayIOSI
+{
+	public static void main(String []args) 
+	{
+		int []ar = new int[5];
+
+		Scanner sc = new Scanner(System.in);
+
+		System.out.println("\n Enter array: ");
+		for(int i=0 ; i<5 ; i++)
+		{
+			ar[i]=sc.nextInt();
+		}
+
+		System.out.println("\n1. Array elements are: ");
+		for(int i=0 ; i<ar.length ; i++)
+		{
+			System.out.print("   "+ar[i]);
+		}
+	}
+}
+
+//-----------------------------------------------------------------------------------
+
+	Array input and display - using Commandline arguments
+
+import java.util.Scanner;
+class ArrayIOSI
+{
+	public static void main(String []args) 
+	{
+		int []ar = new int[5];
+
+		Scanner sc = new Scanner(System.in);
+
+		System.out.println("\n Enter array: ");
+		for(int i=0 ; i<5 ; i++)
+		{
+			ar[i]=sc.nextInt();
+		}
+
+		System.out.println("\n1. Array elements are: ");
+		for(int i=0 ; i<ar.length ; i++)
+		{
+			System.out.print("   "+ar[i]);
+		}
+	}
+}
+
+//-----------------------------------------------------------------------------------
+
+	Array input and display - showInputDialog()
+
+import javax.swing.JOptionPane;
+class ArrayIOSIDialog
+{
+	public static void main(String []args) 
+	{
+		String data = JOptionPane.showInputDialog("Enter the Space seperated array of integers");
+		System.out.println("Entered string: "+data);
+
+		String []nums = data.split(" ");
+		int []ar = new int[nums.length];		
+
+		System.out.println("\n Enter array: ");
+		for(int i=0 ; i<nums.length ; i++)
+		{
+			ar[i]=Integer.parseInt(nums[i]);
+		}
+
+		System.out.println("\n1. Array elements are: ");
+		for(int x : ar)
+		{
+			System.out.print("    "+x);
+		}
+	}
+}
+
+//-----------------------------------------------------------------------------------------------------------
+
+	// Dynamic Memory Allocation ( Using java array as a pointer)
+
+import java.util.Scanner;
+class DynamicAllocation
+{
+	public static void main(String []args)
+	{
+		Scanner sc = new Scanner(System.in);
+
+		System.out.println("\n Enter the Element count: ");
+		int cnt=sc.nextInt();
+		int []a = new int[cnt];
+
+		System.out.println("Enter the "+cnt+" Elements: ");
+		for(int i=0;i<cnt;i++)
+		{
+			a[i]=sc.nextInt();
+		}
+
+		System.out.println("Elements: ");
+		for(int t : a)
+		{			
+			System.out.println("  "+t);
+		}
+	}
+}
+
+//---------------------------------------------------------------------------------------------
+	
+	// Some Array Operations
+
+	 - search
+	 - sort
+	 - sortrange
+	 - insert
+	 - delete
+	 - reverse
+	 - copy
+	 - copyrange
+	 - Reverse Copy
+	 - merge
+	 - split
+	 - concate
+	 - compare
+	 - fill
+	 - fillrange
+
+//---------------------------------------------------------------------------------------------
+	
+	// Characher Array in Java:
+
+		decl. syntax:
+		
+			char []<ar_nm>;
+			e.g.
+				char []ch;	// creates reference only
+				char []ch={'H','e','l','l','o'}; // init of character array
+
+	Note that in java input is not inform of characters, it is in form of String. so no any
+	special way is there to input the character array. The class String used to represent the
+	character coection in its equivalent object form, having one method names toCharArray(),
+	used to convert string into character array.
+
+	here character array and String are different
+
+	*What is difference between character array and String?
+
+import java.util.*;
+class DemoCharArray
+{
+	public static void main(String []args)
+	{
+		char []ch;	// creates reference only
+		char []ch1={'H','e','l','l','o'}; // init of character array
+
+		Scanner sc = new Scanner(System.in);
+
+		System.out.print("\n Enter the any string: ");
+		String str=sc.nextLine();
+		
+		System.out.println("Entered String: "+str);
+
+		ch=str.toCharArray();
+		System.out.println("Converted String: ");
+
+		for(char t : ch)
+		{
+			System.out.print(" "+t);
+		}
+	}
+}
+
+//--------------------------------------------------------------------------------------------------------
+
+	Multi-dimentional Array: Collection of references to another arrays.
+
+	<data_type> [][]<ar_ name>;	-->	int [][]ar;
+
+						  ar
+						   [ ]
+
+	memory allocation:
+						
+	<data_type> [][]<ar_ name> = new <data_type>[rows][cols] ;
+
+		
+	case 1:	int [][]ar = new int[3][];
+
+			ar
+			[  ] -------->  [ ]
+					[ ]
+					[ ]
+
+
+		
+	case 2:	int [][]ar = new int[3][4];
+
+			ar
+			[  ] -------->  [ ]------>[][][][]
+					[ ]------>[][][][]
+					[ ]------>[][][][]
+
+
+	// init. of 2D Array:
+
+class Init2dArray
+{
+	public static void main(String []args)
+	{
+		int [][]ar = { {12,34,45,56}, {11,22,33,44}, {10,20,30,40} };
+
+		System.out.println("Array elements are");
+		for(int i=0;i<3;i++)
+		{
+			for(int j=0;j<4;j++)
+			{
+				System.out.print("  "+ar[i][j]);
+			}
+			System.out.println();
+		}
+		System.out.println("\n Array elements are");
+		for(int i=0;i<ar.length;i++)
+		{
+			for(int j=0;j<ar[i].length;j++)
+			{
+				System.out.print("  "+ar[i][j]);
+			}
+			System.out.println();
+		}
+	}
+}
+//----------------------------------------------------------------------------------------
+	// input and display 2D Array of 3x4
+
+import java.util.Scanner;
+class Init2dArray
+{
+	public static void main(String []args)
+	{
+		int [][]ar = new int[3][4];
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter the Array elements");
+		for(int i=0;i<3;i++)
+		{
+			for(int j=0;j<4;j++)
+			{
+				ar[i][j] = sc.nextInt();
+			}
+		}
+		System.out.println("\n Array elements are");
+		for(int i=0;i<ar.length;i++)
+		{
+			for(int j=0;j<ar[i].length;j++)
+			{
+				System.out.print("  "+ar[i][j]);
+			}
+			System.out.println();
+		}
+	}
+}
+
+///--------------------------------------------------------------------------------------
+
+	// WAP to perform matrix multi.
+
+import java.util.Scanner;
+class Array2DMulti
+{
+	public static void main(String []args)
+	{
+		Scanner sc=new Scanner(System.in);
+		int [][]x=new int[3][3];
+		int [][]y=new int[3][3];
+		int [][]z=new int[3][3];
+		int i,j,k;
+
+		System.out.println("Enter array of 3x3: \n");
+		for(i=0;i<3;i++)
+		{
+			for(j=0;j<3;j++)
+			{
+				x[i][j]=sc.nextInt();
+			}
+			System.out.println();
+		}
+
+		System.out.println("Enter another array of 3x3: \n");
+		for(i=0;i<3;i++)
+		{
+			for(j=0;j<3;j++)
+			{
+				y[i][j]=sc.nextInt();
+			}
+			System.out.println();
+		}
+
+		// multi.
+		for(i=0;i<x.length;i++)
+		{
+			for(j=0;j<x[i].length;j++)
+			{
+				z[i][j]=0;
+				for(k=0;k<x[i].length;k++)
+				{
+					z[i][j]=z[i][j]+(x[i][k]*y[k][j]);
+				}
+			}
+		}
+		
+		System.out.println("\n Array elements are: \n");
+		for(i=0;i<x.length;i++)
+		{
+			for(j=0;j<x[i].length;j++)
+			{
+				System.out.print("  "+x[i][j]);
+			}
+			System.out.print("\t");
+			for(j=0;j<y[i].length;j++)
+			{
+				System.out.print("  "+y[i][j]);
+			}
+			System.out.print("\t");
+			for(j=0;j<z[i].length;j++)
+			{
+				System.out.print("  "+z[i][j]);
+			}
+			System.out.println();
+		}
+	}
+}
+///-----------------------------------------------------------------------------------------
+
+ // Different operations of matrix:
+
+	- Tranpose
+	- unit matrix
+	- upper triangular
+	- lower triangular
+	- diagonal
+	
+///-----------------------------------------------------------------------------------------
+
+	// Variable size Array or Jagged Array
+
+	suppose, you decl. an array as,
+
+		int [][]x=new int[3][];
+
+	then see the memory map is as shown below,
+
+		x
+		[ ] --------->  [ ]
+				[ ]
+				[ ]
+			  These all 3 are the references, which will able to refer
+			  dynamically created location of correct type, having any SIZE. 
+
+	Means to store data, we need to allocate memory for each location. So we need to
+	write it as,
+	
+		x[0]=new int[5];
+		x[1]=new int[7];
+		x[2]=new int[4];
+
+		x
+		[ ] --------->  [ ] -------> [][][][][]
+				[ ] -------> [][][][][][][]
+				[ ] -------> [][][][]
+
+	So Note that, In Jagged array(variable size array) size(length) of every row
+	may be different.
+
+lets see the example.
+
+	We have to create a 2D array to store runs of N player scored in M matches. where
+	M may be different for each player.
+
+import java.util.Scanner;
+class DemoJagged
+{
+	public static void main(String []args)
+	{
+		Scanner sc=new Scanner(System.in);
+		System.out.println("\n Enter the player count: ");
+		int pcnt = sc.nextInt();
+		int [][]data = new int[pcnt][];
+
+		System.out.println("\n Enter the details of "+pcnt+" Players");
+		for(int i=0;i<data.length;i++)
+		{
+			System.out.println("\n Enter the march count of player "+(i+1)+": ");
+			int mcnt=sc.nextInt();
+			data[i] = new int[mcnt];
+			System.out.println("\n Enter the runs scored by player: ");
+			for(int j=0;j<data[i].length;j++)
+			{
+				System.out.println("\n Match "+(j+1)+": ");
+				data[i][j]=sc.nextInt();
+			}
+		}
+
+		System.out.println("\n Score Board");
+
+		int i=1;
+		for(int []p : data)
+		{
+			System.out.print("\n Player "+(i++)+": ");
+			for(int r : p)
+			{
+				System.out.print("  "+r);
+			}
+			System.out.println();
+		}
+	}
+}
+
+//-----------------------------------------------------------------------------------------------------------
+
+	// POINTER - EXPLICIT POINTER IS NOT PRESENT IN JAVA, COZ ITS NEED ALREADY FULLFILLED BY ARRAY.
+		     BUT AS OBJECT GAINS THE DYNAMIC MEMORY SPACE, IMPLICITELY IT IS HANDLED BY POINTER.
+		     SO IT IS NOT PRESENT FOR AS A PROGRAMMER.
+
+
+		- Why pointer is not present in java?
+
+
+//===================================================================================================================
+
+	// OOPs in Java
+
+	What we have seen in C++,
+
+	- Fundamantals - class, Object, Data Hiding, Encapsulation, Abstraction
+	- Methods - Method Overloading,and Overriding
+	- Static members (static variables, and static methods)
+	- constructors and destructors
+	- Inheritance: single, multi-level, Multiple, Hierarchical, Hybrid, virtual base class
+	- Polymorphism - virtual function, pure virtual function, abstract class.
+	- Operator Overloading
+
+
+	// Fundamantals of Object Oriented Programming:
+
+	  1. class: It is user defined data type, which allows you to define a type using data member(instance
+		   variables) and member functions(Methods). It is just blueprint, which divides the members
+		   in the private, protected, public and default(No keyword) visibility mofifiers.
+
+		Syntax:
+			class <class_name>
+			{
+				<visibility> <data_type> <var_nm>;
+				<visibility> <return_type> <method_nm>();
+				.......
+			}
+
+		e.g.
+			class Demo
+			{
+				private int x;
+				private double y;
+				float z;
+				public void input() {......}
+				public void display() {......}
+			}
+
+		*Note: Remember that, visibility modifier must be used as a type qualifier for each member,
+		       Absence of any keyword it will be considered as default.	and unlike C++, class does not 
+		       ends with ;
+
+	The visibility of class members in Java:	
+	
+	 - private:   member is only accessible within the same class.
+	 - protected: member is accessible within its own package and by subclasses form same of different packages
+	 - public: member is accessible from any class, both inside and outside the package.
+	 - default / Package-Private (no modifier)class member is accessible only within its own package.
+	
+	2. Object: It is variable of class type or we can define it as it is standard implementation of class.
+		or can be defined as, It is runtime entity - which encapsulates the data and code used to
+		process that data.
+
+		Syntax:
+			<class_nm> <object_nm> = new <class_constructor>();
+
+	*Note that, C++ style decl. creates the REFERENCE VARIABLE only(like a pointer variable).
+
+	 i.e.
+		Demo ob;		ob
+					 [  ]
+
+		Demo ob = new Demo();	
+		
+		 ob
+		 [  ] -------> [ Memory allocated for object ] 
+
+
+	** There is one unwritten rule, which recommanded for programmers and it is followed in
+	   java internally while designing the library.
+
+		- Method Names Should Be Verb-Phrase that describes what the method does.
+		- Method names should start with a lowercase letter, and each subsequent word should start 
+		  with an uppercase letter. This is called lower camel case.
+		  e.g.
+			calculateTotal(), sendEmail(), getUserDetails(), setAccountBalance()
+
+		- Constants are typically written in uppercase letters with words separated by underscores (_), 
+		  a style known as screaming snake case.
+		  e.g.
+			MAX_WIDTH, PI, DEFAULT_TIMEOUT
+
+		- Class names should follow Upper Camel Case (also called Pascal Case), where the first letter 
+		  of each word is capitalized and there are no spaces or underscores.
+		  e.g.
+			Person, EmployeeDetails, AccountManager
+			
+
+	3. data hiding: The private data of class is not accessible directly using the dot
+			operator, means that data is get hided from outside world, which is
+			known as data hiding.  
+				
+			The Data Hiding provides the security to data.
+
+	4. Encapsulation: Wrapping up of data members and member functions together under
+			  single unit is known as encapsulation. 
+
+			Here in class the data member and member functions are encapsulated together.
+				
+	5. Abstraction: In simple words "Without knowing too much about it"
+			It is an art of defining the new type(class) without including its background details.
+
+			here in case of class and object, we dont think about the amount of
+			memory as well as its representation in the memory(memory map), means
+			we are abstract about it.
+
+			The data types which supports abstraction known as Abstract Data Types (ADT)
+
+
+//---------------------------------------------------------------------------------------------------------------------
+
+
+	ob
+	 [  ] -------> [------------------]
+
+class Demo
+{
+	private int x;
+	public void in(){
+		x=100;
+	}
+	public void out(){
+		System.out.println("x="+x);
+	}
+}
+class MainClass
+{
+	public static void main(String []args)
+	{
+		Demo ob = new Demo();
+
+		ob.in();
+		ob.out();
+	}
+}
+
+//--------------------------------------------------------------------------
+
+import java.util.Scanner;
+class Person
+{
+	private String name;
+	private int age;
+	private double hig;
+	public void setPersonDetails()
+	{
+		Scanner sc=new Scanner(System.in);
+
+		System.out.println("Enter the name: ");
+		name=sc.nextLine();
+
+		System.out.println("Enter the age: ");
+		age=sc.nextInt();
+
+		System.out.println("Enter the height: ");
+		hig=sc.nextDouble();
+	}
+	public void showPersonDetails()
+	{
+		System.out.println("Name: "+name+"\t Age: "+age+"\t Height: "+hig);
+	}	
+}
+
+class MainClassExample
+{
+	public static void main(String []args)
+	{
+		Person p1 = new Person();
+		p1.setPersonDetails();
+		p1.showPersonDetails();
+
+		Person p2 = new Person();
+		p2.setPersonDetails();
+		p2.showPersonDetails();
+	}
+}
+
+
+//------------------------------------------------------------------------------
+	
+	// We can write same program as
+
+import java.util.Scanner;
+class Person
+{
+	private String name;
+	private int age;
+	private double hig;
+	public void setPersonDetails(String nm, int ag, double h)
+	{
+		name=nm;
+		age=ag;
+		hig=h;
+	}
+	public void showPersonDetails()
+	{
+		System.out.println("Name: "+name+"\t Age: "+age+"\t Height: "+hig);
+	}	
+}
+
+class MainClassExample1
+{
+	public static void main(String []args)
+	{
+
+		Scanner sc=new Scanner(System.in);
+
+		System.out.println("Enter the name: ");
+		String name=sc.nextLine();
+		System.out.println("Enter the age: ");
+		int age=sc.nextInt();
+		System.out.println("Enter the height: ");
+		double hig=sc.nextDouble();
+
+		Person p1 = new Person();
+		p1.setPersonDetails(name, age, hig);
+		
+		System.out.println("Enter the name: ");
+		name=sc.nextLine();
+		System.out.println("Enter the age: ");
+		age=sc.nextInt();
+		System.out.println("Enter the height: ");
+		hig=sc.nextDouble();
+
+		Person p2 = new Person();
+		p2.setPersonDetails(name, age, hig);
+
+
+		p1.showPersonDetails();
+		p2.showPersonDetails();
+	}
+}
+
+//-----------------------------------------------------------------------------------------
+
+	// Again can be written as
+
+import java.util.Scanner;
+class Person
+{
+	private String name;
+	private int age;
+	private double hig;
+	public void setPersonDetails()
+	{
+		Scanner sc=new Scanner(System.in);
+
+		System.out.println("Enter the name: ");
+		name=sc.nextLine();
+
+		System.out.println("Enter the age: ");
+		age=sc.nextInt();
+
+		System.out.println("Enter the height: ");
+		hig=sc.nextDouble();
+	}
+	public String getName()
+	{
+		return name;
+	}
+	public int getAge()
+	{
+		return age;
+	}	
+	public double getHeight()
+	{
+		return hig;
+	}
+}
+
+class MainClassExample3
+{
+	public static void main(String []args)
+	{
+		Person p1=new Person();
+		p1.setPersonDetails();
+
+		Person p2=new Person();
+		p2.setPersonDetails();
+
+		System.out.println("Name: "+p1.getName()+"\t Age: "+p1.getAge()+"\t Height: "+p1.getHeight());
+		System.out.println("Name: "+p2.getName()+"\t Age: "+p2.getAge()+"\t Height: "+p2.getHeight());
+	}
+}
+
+//-----------------------------------------------------------------------------------------------------------
+
+	// Write a class Number to hold one int value and arrange some methods to process that int value.
+
+import java.util.Scanner;
+class Number
+{
+	private int no;
+	public void setNumber(int n) 
+	{
+		no=n;
+	}
+	public int getNumber()
+	{
+		return no;
+	}
+	public int findReverse()
+	{
+		int n=no;
+
+		int rev=0;
+		while(n!=0)
+		{
+			rev = (rev*10) + (n%10);
+			n = n/10;
+		}
+		return rev;
+	}
+	public char isPalindrome()
+	{
+		if(no==findReverse())
+			return 'y';
+		else
+			return 'n';
+	}
+	public String isEvenOrOdd()
+	{
+		if(no%2==0)
+			return "even";
+		else
+			return "odd";
+	}
+	public void isPrime()
+	{	
+		int d=2,flg=0;
+		while(d<=(no/2))
+		{
+			if(no%d==0)
+			{
+				flg=1;
+				break;
+			}
+			d++;
+		}
+		if(flg==0)
+			System.out.println("Number is Prime");
+		else
+			System.out.println("Number is not Prime");
+	}
+	public int findMax(int h)
+	{
+		int ans = (no>h) ? no : h;
+		return ans;
+	}
+}
+
+class DemoNumber
+{
+	public static void main(String []args)
+	{
+		Number nob = new Number();
+
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter the Number: ");
+		int t=sc.nextInt();
+
+		nob.setNumber(t);
+
+		System.out.println("\n Number is: "+nob.getNumber());
+
+		int r = nob.findReverse();
+		System.out.println("\n Reverse Number is: "+r);
+
+		char ans=nob.isPalindrome();
+		if(ans=='y')
+			System.out.println("\n Number is Palindrome");
+		else
+			System.out.println("\n Number is Not Palindrome");
+
+		System.out.println("\n Number is: "+nob.isEvenOrOdd());
+
+		nob.isPrime();
+
+		System.out.println("Enter the Number: ");
+		int k=sc.nextInt();
+
+		int max=nob.findMax(k);
+		System.out.println("max Number: "+max);
+	}
+}
+
+//------------------------------------------------------------------------------------------------------------		
+
+	// Write a program to represent an array as a object and perform some operations on that array object.
+
+import java.util.Scanner;
+class MyArray
+{
+	private int []x;
+	public void fill(int t)
+	{
+		x=new int[5];
+		for(int i=0;i<x.length;i++)
+		{
+			x[i]=t;
+		}
+	}
+	public void in()
+	{
+		Scanner sc = new Scanner(System.in);
+		System.out.print("\n Enter element count: ");
+		int k=sc.nextInt();
+		x=new int[k];
+		 
+		System.out.print("Enter the "+k+" Elements: ");
+		for(int i=0;i<k;i++)
+		{
+			x[i] = sc.nextInt();
+		}
+	}
+	public void out()
+	{
+		System.out.print("\n Elements are: ");
+		for(int val : x)
+		{
+			System.out.print("   "+val);
+		}
+	}
+	public int search(int t)
+	{
+		for(int i=0;i<x.length;i++)
+		{
+			if(x[i]==t)
+				return i;
+		}
+		return -1;
+	}
+}
+class MyArrayExample
+{
+	public static void main(String[] args) 
+	{
+		MyArray ob = new MyArray();
+		ob.fill(3);
+		ob.out();
+
+		ob.in();
+		ob.out();
+
+		Scanner sc = new Scanner(System.in);
+		System.out.println("\n Enter the element to be searched: ");
+		int n=sc.nextInt();
+		int pos = ob.search(n);
+		if(pos==-1)
+			System.out.println("\n Number is not present in an array");
+		else
+			System.out.println("\n Number is present at "+pos+" position");
+	}
+}
+
+//--------------------------------------------------------------------------------------
+
+	// Create the class employee and hjust input and display the employee data.
+
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+class Employee
+{
+	private int id;
+	private String name;
+	private double sal;
+	public void inputInformation() throws Exception
+	{
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
+		System.out.println("Enter the Name: ");
+		name=br.readLine();
+		
+		System.out.println("Enter the id: ");
+		id=Integer.parseInt(br.readLine());
+
+		System.out.println("Enter the salary: ");
+		sal=Double.parseDouble(br.readLine());
+	}
+	public void showInformation()
+	{
+		System.out.println("Employee Name: "+name+"\t ID: "+id+"\t Salary: "+sal);
+	}	
+}
+
+class MainClassEmployee
+{
+	public static void main(String []args) throws Exception
+	{
+		Employee e1=new Employee();
+
+		e1.inputInformation();
+		e1.showInformation();
+	}
+}
+
+//-----------------------------------------------------------------------------------------------------------
+
+	// Creating Anonymous Object:
+
+	Anonymous Object is an instance of class which can not be refered by any referance variable 
+	when it is created. we are able to call the methods from same instance only once at the time
+	of decl.
+	It's often used for situations where you only need an object temporarily, without the need to store 
+	or reuse it. You cannot refer to or modify the object later since it is not stored in a variable.
+
+class DemoObj
+{
+	public void show()
+	{
+		System.out.println("\n In the DemoObj-show()");
+	}
+}
+
+class MainDemoObj
+{
+	public static void main(String []args)
+	{
+		// Creating Anonymous Object
+		new DemoObj().show();
+		new DemoObj().show();
+	}
+}
+
+
+//------------------------------------------------------------------------------------------------
+
+	// Defining main() method in same class
+
+class DemoMainSameClass
+{
+	private int x=1;
+	private double y=2.2;
+	public static void main(String []args)
+	{
+		System.out.println("\n main() started");
+		
+		System.out.println("\n x="+x);
+		System.out.println("\n y="+y);
+
+		System.out.println("\n main() end");
+	}
+}
+
+---------- On Compile ---------------
+Y:\jsmall>javac DemoMainSameClass.java
+DemoMainSameClass.java:9: error: non-static variable x cannot be referenced from a static context
+                System.out.println("\n x="+x);
+                                           ^
+DemoMainSameClass.java:10: error: non-static variable y cannot be referenced from a static context
+                System.out.println("\n y="+y);
+                                           ^
+
+
+// Now i want to create multiple instances
+
+	 Note that if you want to access the members of class where main() is defined then also you need to 
+  	 create the object of same class and access the methods.
+	 
+
+class DemoMainSameClass
+{
+	private int x=1;
+	private double y=2.2;
+	public static void main(String []args)
+	{
+		System.out.println("\n main() started");
+		
+		DemoMainSameClass ob1 = new DemoMainSameClass();
+		System.out.println("\n ob1.x="+ob1.x);
+		System.out.println("\n ob1.y="+ob1.y);
+		
+		DemoMainSameClass ob2 = new DemoMainSameClass();
+		System.out.println("\n ob2.x="+ob2.x);
+		System.out.println("\n ob2.y="+ob2.y);
+
+		System.out.println("\n main() end");
+	}
+}
+
+
+// another ways is decl thode variables as static
+
+class DemoMainSameClass
+{
+	private static int x=1;
+	private static double y=2.2;
+	public static void main(String []args)
+	{
+		System.out.println("\n main() started");
+		
+		System.out.println("\n x="+x);
+		System.out.println("\n y="+y);
+
+		System.out.println("\n main() end");
+	}
+}
+
+//-----------------------------------------------------------------------------
+
+	// Defining methods within main() class
+
+class DemoMainMethod
+{
+	public void sampleMethod()
+	{
+		System.out.println("\n In sampleMethod()");
+	}
+	public static void main(String []args)
+	{
+		System.out.println("\n main() starts");
+		sampleMethod();
+		System.out.println("\n main() end");
+	}
+}
+
+ ------------- On Compile -----------------
+
+Y:\jsmall>javac DemoMainMethod.java
+DemoMainMethod.java:10: error: non-static method sampleMethod() cannot be referenced from a static context
+                sampleMethod();
+                ^
+1 error
+
+	Solution: 
+	- Decl. sampleMethod() method as static	OR
+	- Create an object of class DemoMainMethod and call sampleMethod()
+
+
+//---------------------------------------------------------------------------------------------------
+
+	// WAP to input and display the data of two students
+
+import java.util.Scanner;
+class Student
+{
+	private int id;
+	private double per;
+
+	public void in()
+	{
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter the student ID: ");
+		id=sc.nextInt();
+
+		System.out.println("Enter the Percentage: ");
+		per=sc.nextDouble();
+	}
+	public void out()
+	{
+		System.out.println("\n Student ID: "+id+"\n Percentage: "+per);
+	}
+}
+class DemoStudent
+{
+	public static void main(String []args)
+	{
+		Student s1=new Student();
+		s1.in();
+		s1.out();
+
+		Student s2=new Student();
+		s2.in();
+		s2.out();
+	}
+}	
+
+//--------------------------------------------------------------
+
+	// Or can be passed from the main()
+
+import java.util.Scanner;
+class Student
+{
+	private int id;
+	private double per;
+
+	public void in(int t1, double t2)
+	{
+		id=t1;
+		per=t2;
+	}
+	public void out()
+	{
+		System.out.println("\n Student ID: "+id+"\n Percentage: "+per);
+	}
+}
+class DemoStudent
+{
+	public static void main(String []args)
+	{
+		Scanner sc=new Scanner(System.in);
+
+		System.out.println("Enter the student ID: ");
+		int sid=sc.nextInt();
+		System.out.println("Enter the Percentage: ");
+		double sper=sc.nextDouble();
+
+		Student s1=new Student();
+		s1.in(sid,sper);
+		s1.out();
+
+		//-----------------------------------------------
+
+		System.out.println("Enter the student ID: ");
+		sid=sc.nextInt();
+		System.out.println("Enter the Percentage: ");
+		sper=sc.nextDouble();
+
+		Student s2=new Student();
+		s2.in(sid,sper);
+		s2.out();
+	}
+}	
+
+//------------------------------------------------------------------------------------------------------
+
+	// Method overloading with class
+
+	Method overloading in Java allows you to define multiple methods with the same name but different parameter
+	lists. It increases the flexibility, readability, and maintainability of your code. Just remember that
+	overloading depends on differences in the method signatures (the method name and parameters), not the 
+	return type, and visibility.
+
+import java.util.Scanner;
+class Student
+{
+	private int id;
+	private double per;
+	public void in()
+	{
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter the student ID: ");
+		id=sc.nextInt();
+
+		System.out.println("Enter the Percentage: ");
+		per=sc.nextDouble();
+	}
+	public void in(int t1, double t2)
+	{
+		id=t1;
+		per=t2;
+	}
+	public void out()
+	{
+		System.out.println("\n Student ID: "+id+"\n Percentage: "+per);
+	}
+}
+class DemoStudent
+{
+	public static void main(String []args)
+	{
+		Scanner sc=new Scanner(System.in);
+		
+		Student s1=new Student();
+		s1.in();
+		s1.out();
+		//-----------------------------------------------
+
+		System.out.println("Enter the student ID: ");
+		sid=sc.nextInt();
+		System.out.println("Enter the Percentage: ");
+		sper=sc.nextDouble();
+		Student s2=new Student();
+		s2.in(sid,sper);
+		s2.out();
+	}
+}	
+
+
+	In above program, there are two different copies of in() method i.e.
+
+		public void in()
+		public void in(int t1, double t2)
+
+	as a class contains two copies of function having same name and differ in terms of
+	signature, it is known as "Method Overloading"
+
+//---------------------------------------------------------------------------------------------------------
+
+	// Lets discuss the class by value and class by refernce.
+
+	- We know that, In C++, variable are passed by value bydefault. If you want to pass them
+	  byreference then pointer is used.
+
+class SwapDemo
+{
+	public static void swap(int a, int b)
+	{
+		int tmp;
+		tmp=a;
+		a=b;
+		b=tmp;
+	}
+	public static void main(String[]args)
+	{
+		int x=10, y=20;
+		System.out.println("\n Before Interchange x="+x+"\t y="+y);
+		swap(x,y);
+		System.out.println("\n After Interchange x="+x+"\t y="+y);
+	}
+}
+
+ ----- Output -------
+Y:\jsmall>javac SwapDemo.java
+Y:\jsmall>java SwapDemo
+ Before Interchange x=10   y=20
+ After Interchange x=10  y=20
+
+	Means java variables are passed by value bydefault. Then how to pass the byreference coz, in c++,
+	pointer is used, here in java pointer is absent.
+
+	solution is that, pass the values in form of object, coz object bydefault passesd by reference.
+	for that,
+	 - create custom class to reperent the int value in its equivalent object from. OR
+	 - User wrapper classes.
+
+
+	// Lets first confirm that, Object is bydefault passed by reference.
+class Int
+{
+	private int data;
+	public void setData(int data)
+	{
+		this.data=data;
+	}
+	public int getData()
+	{
+		return data;
+	}
+}
+class ObjByRefConfirm
+{
+	public static void sample(Int t)
+	{
+		t.setData(t.getData()+100);
+	}
+	public static void main(String[]args)
+	{
+		int x=10;
+		Int obx = new Int();
+		obx.setData(x);
+
+		System.out.println("Before - x="+obx.getData());
+		sample(obx);
+		System.out.println("After - x="+obx.getData());		
+	}
+}
+
+ --- Output ----
+
+Y:\jsmall>javac ObjByRefConfirm.java
+
+Y:\jsmall>java ObjByRefConfirm
+Before - x=10
+After - x=110
+
+	It is confirmation, that Object passed by reference.
+
+//--------------------------------------------------------------------------------------------
+
+	// Use same class for swapping (Using custom class)
+
+
+class Int
+{
+	private int data;
+	public void setData(int data)
+	{
+		this.data=data;
+	}
+	public int getData()
+	{
+		return data;
+	}
+	public String toString()
+	{
+		return ""+data;
+	}
+}
+class SwapDemoUsingObj
+{
+	public static void swap(Int oba, Int obb)
+	{
+		int tmp;
+		tmp=oba.getData();
+		oba.setData(obb.getData());
+		obb.setData(tmp);
+	}
+	public static void main(String[]args)
+	{
+		int x=10, y=20;
+
+		Int obx = new Int();
+		obx.setData(x);
+
+		Int oby = new Int();
+		oby.setData(y);
+
+		System.out.println("\n Before Interchange x="+obx+"\t y="+oby);
+		swap(obx,oby);
+		System.out.println("\n After Interchange x="+obx+"\t y="+oby);
+	}
+}
+
+//----------------------
+
+	Another way to represent the data in its equivalent object from is to use Wrapper classes
+
+class SwapDemoUsingObjUsingWrapper
+{
+	public static void swap(Integer  oba, Integer obb)
+	{
+		int tmp;
+		tmp=oba;
+		oba=obb;
+		obb=tmp;
+	}
+	public static void main(String[]args)
+	{
+		int x=10, y=20;
+
+		Integer obx = x;
+		Integer oby = y;
+
+		System.out.println("\n Before Interchange x="+obx+"\t y="+oby);
+		swap(obx,oby);
+		System.out.println("\n After Interchange x="+obx+"\t y="+oby);
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

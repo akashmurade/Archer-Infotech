@@ -1,0 +1,28 @@
+/* Create two identical boxes. Use the outline property for one and the border
+property for the other. Write observations about how the outline and border behave
+differently in terms of spacing and rendering.  */
+
+body {
+  display: flex;
+  justify-content: center;
+}
+
+div {
+  height: 500px;
+  width: 500px;
+  background-color: aquamarine;
+  margin: 0.5rem;
+}
+
+.outline {
+  outline: 10px solid black;
+}
+
+.border {
+  border: 10px solid red;
+}
+
+/* 
+Adding the border increases the component size
+while adding outline does not
+*/

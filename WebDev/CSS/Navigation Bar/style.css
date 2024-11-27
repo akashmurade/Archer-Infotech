@@ -1,0 +1,67 @@
+/* Responsive Navigation Bar
+o Create a horizontal navigation bar using Flexbox.
+o Requirements:
+ The navigation bar should have at least 5 links.
+ Links should be evenly spaced when on a desktop.
+ On smaller screens, the links should stack vertically.
+ Include a hover effect on the links.  */
+
+@import url("https://fonts.googleapis.com/css2?family=Jaro:opsz@6..72&display=swap");
+
+body {
+  background-image: url("ill.jpg");
+  background-size: cover;
+  font-family: "Jaro", sans-serif;
+}
+
+img {
+  display: block;
+  height: 2rem;
+  width: 2rem;
+}
+
+nav {
+  background-color: white;
+  display: flex;
+  align-items: center;
+  border-radius: 1rem;
+  padding: 0.5rem 1rem;
+  gap: 0.5rem;
+}
+
+ul {
+  flex-grow: 1;
+  display: flex;
+  padding: 0;
+  margin: 0;
+  gap: 0.5rem;
+}
+
+li {
+  display: block;
+  flex-grow: 1;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+  display: block;
+  text-align: center;
+  padding: 0.5rem;
+}
+
+li:hover {
+  outline: 2px solid black;
+  border-radius: 1.2rem;
+  color: black;
+}
+
+@media (max-width: 768px) {
+  nav {
+    flex-direction: column;
+  }
+
+  ul {
+    flex-direction: column;
+  }
+}

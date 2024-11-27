@@ -1,0 +1,27 @@
+body {
+  color: white;
+  margin: 2rem;
+  text-align: center;
+}
+
+body > * {
+  border-radius: 2rem;
+}
+
+header {
+  background-color: #12130f;
+  padding: 0.5rem;
+}
+
+main {
+  background-image: url("ill.jpg"), linear-gradient(to top, #ffa17f, #00223e);
+  background-blend-mode: hard-light;
+  background-size: 100% 100%;
+  padding: 10rem;
+  margin: 1rem;
+}
+
+footer {
+  background-image: linear-gradient(to top, #ffa17f, #00223e);
+  padding: 0.5rem;
+}

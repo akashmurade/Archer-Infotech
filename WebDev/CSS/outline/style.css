@@ -1,0 +1,84 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Serif+Devanagari:wght@100..900&family=Protest+Revolution&display=swap");
+.box {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  width: 48rem;
+  margin: auto;
+  justify-content: center;
+  font-family: "Protest Revolution", sans-serif;
+}
+
+.card {
+  height: 10rem;
+  width: 10rem;
+  margin: 1rem auto;
+}
+
+.pp {
+  background-image: url("Paige.jpg");
+  background-size: cover;
+  outline-width: 2px;
+  outline-offset: -0.5rem;
+  background-blend-mode: multiply;
+  background-blend-mode: multiply;
+}
+
+.text {
+  text-align: center;
+}
+
+.text p {
+  margin: 1rem 0.5rem;
+}
+
+#b1 {
+  outline-style: solid;
+  background-color: rgba(255, 0, 0, 0.25);
+}
+
+#b3 {
+  outline-style: dotted;
+  background-color: rgba(0, 255, 255, 0.5);
+}
+
+#b6 {
+  outline-style: dashed;
+  background-color: rgba(238, 130, 238, 0.5);
+}
+
+#b8 {
+  outline-style: double;
+  background-color: rgba(255, 255, 0, 0.5);
+}
+
+#b9 {
+  outline-style: outset;
+  background-color: rgba(210, 105, 30, 0.5);
+}
+
+#b11 {
+  outline-style: inset;
+  background-color: blanchedalmond;
+}
+
+button {
+  display: block;
+  margin: auto;
+  padding: 0.5rem 1rem;
+  background-color: black;
+  color: white;
+}
+
+a {
+  text-decoration: none;
+}
+
+button:hover {
+  background-color: white;
+  color: black;
+}
+
+.devanagari {
+  font-family: "Noto Serif Devanagari", serif;
+  font-weight: 600;
+}

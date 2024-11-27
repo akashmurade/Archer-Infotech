@@ -1,0 +1,12 @@
+div {
+  padding: 5rem;
+  background-color: #3498db;
+  border-radius: 2rem;
+  color: white;
+  text-align: center;
+  border: 5px solid black;
+}
+
+div:hover {
+  background-color: #2ecc71;
+}

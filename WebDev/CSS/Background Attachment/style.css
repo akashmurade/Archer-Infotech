@@ -1,0 +1,21 @@
+section {
+  background-image: url("ill.jpg");
+  text-align: center;
+  height: 20rem;
+  width: 30rem;
+  margin: 2rem auto;
+  color: white;
+}
+
+.fixed {
+  background-attachment: fixed;
+}
+
+.scroll {
+  background-attachment: scroll;
+  overflow: scroll;
+}
+
+.scroll::-webkit-scrollbar {
+  display: none;
+}

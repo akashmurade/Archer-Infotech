@@ -1,0 +1,15 @@
+/* Design a box with an outline that has a dashed style, a width of 4px, and a color of
+red. Include a hover effect that changes the outline style to solid and the color to
+green. */
+
+div {
+  height: 10rem;
+  width: 10rem;
+  outline: 4px dashed red;
+  margin: auto;
+}
+
+div:hover {
+  outline-style: solid;
+  outline-color: green;
+}

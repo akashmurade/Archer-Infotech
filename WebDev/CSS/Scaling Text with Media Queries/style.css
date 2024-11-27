@@ -1,0 +1,26 @@
+/* Scaling Text with Media Queries:
+Use media queries to change the font size of a heading to:
+o 24px on small screens (below 600px)
+o 36px on medium screens (601px–1024px)
+o 48px on large screens (above 1024px).  */
+
+@media (max-width: 600px) {
+  h1 {
+    font-size: 24px;
+    background-color: red;
+  }
+}
+
+@media (min-width: 600px) {
+  h1 {
+    font-size: 36px;
+    background-color: green;
+  }
+}
+
+@media (min-width: 1024px) {
+  h1 {
+    font-size: 48px;
+    background-color: blue;
+  }
+}

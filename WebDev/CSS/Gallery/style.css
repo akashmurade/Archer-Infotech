@@ -1,0 +1,71 @@
+body {
+  margin: 0;
+}
+
+h1 {
+  padding: 0.75rem;
+  text-align: center;
+  background-color: #7eb2dd;
+  margin: 0;
+  color: white;
+}
+
+.card {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  background-color: #445e93;
+  border-radius: 1.75rem;
+  margin: 0.75rem;
+  padding: 1rem;
+}
+
+.border {
+  background-color: #7eb2dd;
+  padding: 5rem 8rem;
+  font-size: 24px;
+}
+
+#b1 .border {
+  border: none;
+}
+
+#b2 .border {
+  border: hidden;
+}
+
+#b3 .border {
+  border: dotted thick;
+}
+
+#b4 .border {
+  border: dashed thick;
+}
+
+#b5 .border {
+  border: solid thick;
+}
+
+#b6 .border {
+  border: double thick;
+}
+
+#b7 .border {
+  border: groove thick;
+}
+
+#b8 .border {
+  border: ridge thick;
+}
+
+#b9 .border {
+  border: inset thick;
+}
+
+#b10 .border {
+  border: outset thick;
+}
+
+#b11 .border {
+  border-image: url("border.png") 27 / 36px / 18px round;
+}
