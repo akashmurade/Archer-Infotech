@@ -1,0 +1,64 @@
+.body {
+  height: 10rem;
+  width: 20rem;
+  background: black;
+  position: relative;
+  border-radius: 50% 50% 0.5rem 0.5rem;
+}
+
+body {
+  height: 100vh;
+  display: flex;
+  margin: 0;
+  justify-content: center;
+  align-items: center;
+}
+
+.wheel {
+  height: 5rem;
+  width: 5rem;
+  background-image: repeating-conic-gradient(
+    black 0deg,
+    black 30deg,
+    white 30deg,
+    white 60deg
+  );
+  outline: 2px solid black;
+  border-radius: 50%;
+  position: absolute;
+}
+
+.left {
+  bottom: -2.5rem;
+  left: 2rem;
+  animation: circle 0.5s linear infinite;
+}
+
+.right {
+  bottom: -2.5rem;
+  right: 2rem;
+
+  animation: circle 0.5s linear infinite;
+}
+
+.body {
+  animation: move 2s linear infinite alternate;
+}
+
+@keyframes circle {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes move {
+  0% {
+    transform: translateX(-200%);
+  }
+  100% {
+    transform: translateX(200%);
+  }
+}

@@ -1,0 +1,54 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.radial {
+  height: 20rem;
+  width: 20rem;
+  background-image: radial-gradient(white, black);
+  border-radius: 50%;
+  position: relative;
+}
+
+.second {
+  height: 9rem;
+  width: 0.1rem;
+  background-color: black;
+  position: absolute;
+  bottom: 50%;
+  left: 50%;
+  animation: 1s linear infinite second;
+}
+.minute {
+  height: 8rem;
+  width: 0.1rem;
+  background-color: black;
+  position: absolute;
+  bottom: 50%;
+  left: 50%;
+  animation: 60s linear infinite second;
+}
+.hour {
+  height: 7rem;
+  width: 0.1rem;
+  background-color: black;
+  position: absolute;
+  bottom: 50%;
+  left: 50%;
+  animation: 3600s linear infinite second;
+}
+
+.radial > * {
+  transform-origin: 50% 100%;
+}
+
+@keyframes second {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

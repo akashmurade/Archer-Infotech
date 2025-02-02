@@ -1,0 +1,46 @@
+@import url("https://fonts.googleapis.com/css2?family=Maven+Pro:wght@400..900&display=swap");
+
+body {
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Maven Pro";
+}
+
+.pie {
+  height: 20rem;
+  width: 20rem;
+  background-image: conic-gradient(
+    red 0%,
+    red 20%,
+    blue 20%,
+    blue 60%,
+    green 60%,
+    green 100%
+  );
+  border-radius: 50%;
+  position: relative;
+  box-shadow: 5px 5px 10px black;
+}
+
+.label {
+  position: absolute;
+  color: white;
+}
+
+.red {
+  top: 20%;
+  right: 20%;
+}
+
+.green {
+  top: 40%;
+  left: 15%;
+}
+
+.blue {
+  bottom: 30%;
+  right: 25%;
+}

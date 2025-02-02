@@ -1,0 +1,73 @@
+@import url("https://fonts.googleapis.com/css2?family=Maven+Pro:wght@400..900&display=swap");
+body {
+  cursor: url("cur.cur"), auto;
+  text-align: center;
+  font-family: "Maven Pro", serif;
+}
+
+.box {
+  width: 20rem;
+  margin: auto;
+  margin-top: 4rem;
+  border: 2px solid black;
+  border-radius: 0.5rem;
+  /* position: relative; */
+}
+
+.box img {
+  height: 10rem;
+  width: 10rem;
+  margin: 1rem;
+  border-radius: 0.5rem;
+  /* position: sticky; */
+  left: 0;
+  top: 0;
+}
+
+p {
+  margin: 1rem;
+}
+
+.up {
+  position: fixed;
+  height: 3rem;
+  width: 3rem;
+  bottom: 0;
+  right: 0;
+}
+
+nav {
+  position: fixed;
+  top: 0;
+  margin: 0.5rem;
+
+  width: 100%;
+  z-index: 1;
+  border: 2px solid black;
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+
+ul {
+  display: flex;
+  justify-content: space-evenly;
+  margin: 0;
+  padding: 0;
+  gap: 2px;
+  background-color: black;
+}
+
+li {
+  display: block;
+  flex-grow: 1;
+}
+
+nav a {
+  text-decoration: none;
+  background-color: #fee;
+  color: black;
+  width: 100%;
+  display: block;
+  padding: 0.75rem 0;
+  /* outline: 2px solid black; */
+}

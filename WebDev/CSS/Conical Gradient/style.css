@@ -1,0 +1,137 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-image: url("ill.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-blend-mode: saturation;
+  background-attachment: fixed;
+  overflow: scroll;
+}
+
+/* body::-webkit-scrollbar {
+  display: none;
+} */
+
+.box {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  align-items: center;
+}
+
+.box-item {
+  width: 10rem;
+  height: 10rem;
+  border: 2px solid blue;
+  float: left;
+  margin: 20px;
+  border-radius: 50%;
+  animation: rotateClockwise 1s linear infinite;
+}
+
+.b1 {
+  background-image: conic-gradient(red, yellow, green);
+}
+
+.b2 {
+  background-image: conic-gradient(from 45deg, red, yellow, green);
+}
+
+.b3 {
+  background-image: conic-gradient(from 45deg, red, yellow, green, red);
+}
+
+.b4 {
+  background-image: conic-gradient(at 30% 60%, red, yellow, green, red);
+}
+
+.b5 {
+  background-image: repeating-conic-gradient(red 10%, yellow 20%, green 30%);
+}
+
+.b6 {
+  background-image: repeating-conic-gradient(
+    red 0deg,
+    red 90deg,
+    yellow 90deg,
+    yellow 180deg,
+    green 180deg,
+    green 270deg,
+    blue 270deg,
+    blue 360deg
+  );
+}
+
+.b7 {
+  background-image: repeating-conic-gradient(
+    yellow 0deg,
+    yellow 90deg,
+    black 90deg,
+    black 180deg
+  );
+}
+
+.b8 {
+  background-image: url("https://as1.ftcdn.net/v2/jpg/04/69/90/72/1000_F_469907241_TOqEPxmJayIKvm7vM4fzrdhl5CEcBk8o.jpg");
+  background-position: center;
+  background-repeat: space;
+  border-color: black;
+  animation-duration: 0.5s;
+}
+
+.b9 {
+  width: 100%;
+  height: 250px;
+  border: none;
+  border-color: transparent;
+  border-radius: 0;
+  background-image: repeating-conic-gradient(
+    from -30deg at 20% 45%,
+    red 0deg,
+    red 90deg,
+    blue 90deg,
+    blue 180deg,
+    green 180deg,
+    green 270deg,
+    yellow 270deg,
+    yellow 360deg
+  );
+  font-size: 200px;
+  font-family: Facile Sans;
+  animation: none;
+  color: transparent;
+  -webkit-background-clip: text;
+}
+
+.b10 {
+  background-image: repeating-conic-gradient(
+    yellow 0deg,
+    yellow 90deg,
+    black 90deg,
+    black 180deg
+  );
+  background-size: 20px 20px;
+}
+
+.name {
+  height: 200px;
+  width: 100%;
+  font-size: 200px;
+  background-color: transparent;
+  background-image: linear-gradient(blue, lightblue);
+  color: transparent;
+  -webkit-background-clip: text;
+  text-align: center;
+}
+
+@keyframes rotateClockwise {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

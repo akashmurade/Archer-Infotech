@@ -1,0 +1,16 @@
+.box {
+  border: 2px solid black;
+  padding: 1rem;
+}
+
+.container p:first-child {
+  background-color: aliceblue;
+}
+
+.container p:last-child {
+  background-color: antiquewhite;
+}
+
+.container p:first-of-type {
+  /* background-color: aqua; */
+}
