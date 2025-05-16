@@ -72,7 +72,7 @@ public class GiveFeedbackServlet extends HttpServlet {
             out.println("</form>");
         }
 
-        out.println("<p class='back-link'><a href='UserDashboardServlet'>Back to Dashboard</a></p>");
+        out.println("<p class='back-link'><a href='UserLoginServlet'>Back to Home</a></p>");
         out.println("</div>");
         out.println("</body>");
         out.println("</html>");
